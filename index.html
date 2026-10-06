@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Portal de materiais de Prática Profissional Integrada I do IFMA Campus Itapecuru-Mirim. Acesse as aulas em PDF e as orientações de uso.">
+  <title>PPI I · Prática Profissional Integrada · IFMA</title>
+  <style>
+    :root{--green:#006b3c;--green-dark:#004a2a;--blue:#2573a1;--red:#c71e28;--amber:#95620e;--ink:#21342a;--muted:#586b60;--line:#d3e2d8;--bg:#eef4f0;--paper:#fff;--soft:#f6faf7}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:24px}
+    body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Arial,"Liberation Sans",sans-serif}
+    a{color:var(--green);text-underline-offset:4px}button,input{font:inherit}
+    button,a{-webkit-tap-highlight-color:transparent}
+    a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--amber);outline-offset:4px}
+    [hidden]{display:none!important}h1,h2,h3,p{margin:0}h1,h2,h3{line-height:1.15}h2{font-size:1.8rem}
+    .wrap{width:min(1120px,calc(100% - 36px));margin:auto}
+    .topline{height:7px;background:linear-gradient(90deg,var(--green) 0 82%,#239b45 82% 95%,var(--red) 95%)}
+    .skip{position:absolute;left:18px;top:12px;transform:translateY(-200%);padding:12px;background:white;z-index:5}.skip:focus{transform:none}
+    .masthead{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}
+    .brand{font-size:.83rem;letter-spacing:.085em;text-transform:uppercase;font-weight:800;color:var(--green)}
+    .menu{display:flex;gap:8px;flex-wrap:wrap}.menu a{display:inline-flex;align-items:center;min-height:44px;padding:8px 12px;font-size:.93rem;font-weight:700;text-decoration:none;border-radius:6px}
+    .hero{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.9fr);gap:50px;align-items:center;padding:54px 0 48px}
+    .eyebrow{font-size:.79rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--green);margin-bottom:14px}
+    h1{font-size:clamp(2.25rem,4.6vw,3.8rem);letter-spacing:-.04em;color:var(--green);line-height:1.04;max-width:680px}
+    .lead{margin-top:20px;color:var(--muted);font-size:1.13rem;max-width:590px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:46px;padding:10px 17px;background:var(--green);color:white;border:1px solid var(--green);border-radius:6px;font-weight:700;text-decoration:none;line-height:1.35;text-align:center;cursor:pointer}
+    .btn.secondary{background:white;color:var(--green);border-color:#99b7a5}.btn:disabled{opacity:.55;cursor:default}
+    .journey{padding:23px 25px;background:var(--paper);border:1px solid var(--line);border-radius:10px;box-shadow:0 14px 30px #173f2810}
+    .journey h2{font-size:.81rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:17px}
+    .journey ol{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+    .journey a{display:flex;gap:13px;align-items:center;min-height:47px;text-decoration:none;font-size:.97rem;font-weight:700}
+    .journey b{display:grid;place-items:center;flex:0 0 31px;height:31px;border-radius:50%;background:#e9f4ed;color:var(--green);font-size:.8rem}
+    .journey li:nth-child(2) b{background:#eaf4fa;color:var(--blue)}.journey li:nth-child(3) b{background:#fff4df;color:var(--amber)}.journey li:nth-child(4) b{background:#fff0f0;color:var(--red)}
+    main{padding-bottom:55px}.section-intro{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:20px}.section-intro p{color:var(--muted);margin-top:9px}.format{font-size:.82rem;font-weight:700;border:1px solid var(--line);border-radius:30px;background:white;padding:6px 12px;white-space:nowrap}
+    .searchbar{display:flex;align-items:end;gap:10px;flex-wrap:wrap;padding:15px 18px;background:white;border:1px solid var(--line);border-radius:8px;margin-bottom:12px}
+    .searchfield{flex:1 1 240px;min-width:0}.searchfield label{display:block;font-size:.87rem;font-weight:700;margin-bottom:6px}.searchfield input{width:100%;min-height:46px;padding:9px 12px;border:1px solid #99b7a5;border-radius:5px;color:var(--ink);background:#fff;min-width:0}
+    .results{color:var(--muted);font-size:.87rem;min-height:25px;margin-bottom:15px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+    .card{--accent:var(--green);display:flex;flex-direction:column;min-width:0;padding:26px;background:var(--paper);border:1px solid var(--line);border-top:6px solid var(--accent);border-radius:9px;box-shadow:0 10px 23px #173f2808}
+    .card:nth-child(2){--accent:var(--blue)}.card:nth-child(3){--accent:var(--amber)}.card:nth-child(4){--accent:var(--red)}
+    .card-header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:15px}.lesson-number{font-size:.84rem;font-weight:800;letter-spacing:.08em;color:var(--accent)}.filetype{font-size:.77rem;font-weight:800;color:var(--muted);padding:2px 9px;border:1px solid var(--line);border-radius:4px}
+    .card h3{font-size:1.55rem;max-width:410px}.card p{margin-top:13px;color:var(--muted);flex:1}.card .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+    .empty{padding:27px;border:1px dashed #9bb6a5;border-radius:8px;background:white}.empty p{color:var(--muted);margin-top:8px}
+    .help{margin-top:45px}.help .section-intro{margin-bottom:21px}
+    .help-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .help article{min-width:0;padding:22px;border:1px solid var(--line);background:#fff;border-radius:8px}
+    .help-number{font-size:.77rem;color:var(--green);font-weight:800;letter-spacing:.06em}.help h3{font-size:1.12rem;margin:11px 0}.help article p{color:var(--muted);font-size:.98rem}
+    .faq{margin-top:20px;border:1px solid var(--line);border-radius:8px;background:#fff;overflow:hidden}.faq details+details{border-top:1px solid var(--line)}.faq summary{padding:15px 20px;min-height:48px;cursor:pointer;font-weight:700}.faq details p{padding:0 20px 20px;color:var(--muted);max-width:900px}
+    .reminder{padding:17px 21px;margin-top:22px;border-left:5px solid var(--green);background:#e5f0e9;color:#214e34;font-size:.96rem}
+    footer{border-top:1px solid var(--line);background:#fff;padding:23px 0;color:var(--muted);font-size:.87rem}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}footer strong{color:var(--green)}footer a{display:inline-flex;align-items:center;min-height:44px}
+    @media(hover:hover) and (pointer:fine){.btn:hover:not(:disabled){background:var(--green-dark);color:white}.btn.secondary:hover:not(:disabled){background:#e9f3ed;color:var(--green-dark)}.menu a:hover,.journey a:hover{background:var(--soft);color:var(--green-dark)}}
+    @media(max-width:850px){.hero{gap:28px;grid-template-columns:1fr;padding-top:34px}.journey{max-width:none}.journey ol{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 18px}.help-grid{grid-template-columns:1fr}.hero h1{max-width:620px}}
+    @media(max-width:580px){.wrap{width:calc(100% - 28px)}.masthead{align-items:flex-start;flex-direction:column;gap:6px;padding:16px 0}.menu a{padding-left:0;padding-right:15px}.hero{padding:28px 0 34px;gap:25px}.journey{padding:19px}.journey ol{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.card{padding:22px}.section-intro{align-items:flex-start;flex-direction:column;gap:12px}.card h3{font-size:1.4rem}.card .actions .btn{flex:1 1 130px}.lead{font-size:1.06rem}.searchbar{padding:13px}.help{margin-top:34px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+    @media print{body{background:white;color:black}.topline,.menu,.hero-actions,.searchbar,.results,.actions,.footer-inner>a{display:none!important}.wrap{width:100%}.hero{padding:15px 0;gap:20px}h1{font-size:32px}.card,.journey{box-shadow:none;break-inside:avoid}.grid{gap:12px}.card{padding:16px}.help{margin-top:20px}.faq details p{display:block}.reminder{background:white}}
+  </style>
+</head>
+<body id="topo">
+  <a class="skip" href="#conteudo">Pular para as aulas</a>
+  <div class="topline" aria-hidden="true"></div>
+  <header class="wrap">
+    <div class="masthead">
+      <p class="brand">IFMA · Campus Itapecuru-Mirim</p>
+      <nav class="menu" aria-label="Navegação principal"><a href="#aulas">Aulas</a><a href="#ajuda">Guia de uso</a></nav>
+    </div>
+    <div class="hero">
+      <div>
+        <p class="eyebrow">PPI I · Portal de materiais</p>
+        <h1>Prática Profissional Integrada I</h1>
+        <p class="lead">As aulas da disciplina em um só lugar. Escolha o material, abra o PDF e acompanhe seu percurso de estudo.</p>
+        <div class="hero-actions"><a class="btn" href="#aulas">Explorar as aulas <span aria-hidden="true">↓</span></a><a class="btn secondary" href="#ajuda">Como usar o portal</a></div>
+      </div>
+      <aside class="journey" aria-labelledby="percurso-title">
+        <h2 id="percurso-title">Seu percurso nas aulas</h2>
+        <ol>
+          <li><a href="#aula-01"><b aria-hidden="true">01</b><span>Conhecer a PPI e os desafios</span></a></li>
+          <li><a href="#aula-02"><b aria-hidden="true">02</b><span>Da observação ao problema</span></a></li>
+          <li><a href="#aula-03"><b aria-hidden="true">03</b><span>Escolher para investigar</span></a></li>
+          <li><a href="#aula-04"><b aria-hidden="true">04</b><span>Processo, papéis e marcos</span></a></li>
+        </ol>
+      </aside>
+    </div>
+  </header>
+  <main class="wrap" id="conteudo">
+    <section id="aulas" aria-labelledby="aulas-title">
+      <div class="section-intro"><div><h2 id="aulas-title">Aulas disponíveis</h2><p>Abra para estudar agora ou baixe para consultar depois.</p></div><span class="format">Materiais em PDF</span></div>
+      <div class="searchbar" id="searchbar" hidden>
+        <div class="searchfield"><label for="busca">Encontre uma aula</label><input type="search" id="busca" placeholder="Digite o número ou uma palavra do título" autocomplete="off" aria-controls="lesson-grid"></div>
+        <button class="btn secondary" type="button" id="limpar" disabled>Limpar busca</button>
+      </div>
+      <p class="results" id="results" role="status" hidden></p>
+      <div class="grid" id="lesson-grid">
+        <article class="card" id="aula-01" data-search="aula 1 aula 01 conhecendo ppi desafios">
+          <div class="card-header"><span class="lesson-number">AULA 01</span><span class="filetype">PDF</span></div>
+          <h3>Conhecendo a PPI e os desafios</h3>
+          <p>Comece pelo material de apresentação da PPI e dos desafios da disciplina.</p>
+          <div class="actions"><a class="btn" href="./lessons/1-conhecendo-ppi-e-os-desafios.pdf" aria-label="Abrir aula 01 em PDF">Abrir aula <span aria-hidden="true">→</span></a><a class="btn secondary" href="./lessons/1-conhecendo-ppi-e-os-desafios.pdf" download aria-label="Baixar PDF da aula 01">Baixar PDF</a></div>
+        </article>
+        <article class="card" id="aula-02" data-search="aula 2 aula 02 observacao problema projeto">
+          <div class="card-header"><span class="lesson-number">AULA 02</span><span class="filetype">PDF</span></div>
+          <h3>Da observação ao problema de projeto</h3>
+          <p>Consulte a aula dedicada à passagem da observação ao problema de projeto.</p>
+          <div class="actions"><a class="btn" href="./lessons/2-Da_observacao_ao_problema_de_projeto-versao-boa.pdf" aria-label="Abrir aula 02 em PDF">Abrir aula <span aria-hidden="true">→</span></a><a class="btn secondary" href="./lessons/2-Da_observacao_ao_problema_de_projeto-versao-boa.pdf" download aria-label="Baixar PDF da aula 02">Baixar PDF</a></div>
+        </article>
+        <article class="card" id="aula-03" data-search="aula 3 aula 03 escolher investigar investigacao">
+          <div class="card-header"><span class="lesson-number">AULA 03</span><span class="filetype">PDF</span></div>
+          <h3>Escolher para investigar</h3>
+          <p>Acesse o material da terceira aula e acompanhe as orientações para esta etapa.</p>
+          <div class="actions"><a class="btn" href="./lessons/3-%20Escolher%20para%20investigar.pdf" aria-label="Abrir aula 03 em PDF">Abrir aula <span aria-hidden="true">→</span></a><a class="btn secondary" href="./lessons/3-%20Escolher%20para%20investigar.pdf" download aria-label="Baixar PDF da aula 03">Baixar PDF</a></div>
+        </article>
+        <article class="card" id="aula-04" data-search="aula 4 aula 04 processo papeis marcos marco">
+          <div class="card-header"><span class="lesson-number">AULA 04</span><span class="filetype">PDF</span></div>
+          <h3>Processo, papéis e marcos</h3>
+          <p>Retome a aula sobre processo, papéis e marcos do trabalho.</p>
+          <div class="actions"><a class="btn" href="./lessons/4-processo-papeis-marco.pdf" aria-label="Abrir aula 04 em PDF">Abrir aula <span aria-hidden="true">→</span></a><a class="btn secondary" href="./lessons/4-processo-papeis-marco.pdf" download aria-label="Baixar PDF da aula 04">Baixar PDF</a></div>
+        </article>
+      </div>
+      <div class="empty" id="empty" hidden><h3>Nenhuma aula encontrada</h3><p>Tente outra palavra ou use “Limpar busca” para mostrar todos os materiais.</p></div>
+    </section>
+    <section class="help" id="ajuda" aria-labelledby="ajuda-title">
+      <div class="section-intro"><div><p class="eyebrow">Guia rápido</p><h2 id="ajuda-title">Como usar os materiais</h2><p>Três passos para encontrar, consultar e guardar a aula.</p></div></div>
+      <div class="help-grid">
+        <article><span class="help-number">PASSO 01</span><h3>Encontre a aula</h3><p>Use o número e o título dos cartões. Os atalhos no início da página também levam a cada material.</p></article>
+        <article><span class="help-number">PASSO 02</span><h3>Abra o material</h3><p>Toque em <strong>Abrir aula</strong> para acessar o PDF. Ao terminar, use o botão de voltar do navegador para retornar ao portal.</p></article>
+        <article><span class="help-number">PASSO 03</span><h3>Guarde para depois</h3><p>Use <strong>Baixar PDF</strong> para salvar o arquivo no seu dispositivo e consultar o material sem depender deste site.</p></article>
+      </div>
+      <div class="faq">
+        <details><summary>O PDF não abriu dentro do navegador. E agora?</summary><p>Use <strong>Baixar PDF</strong> e abra o arquivo salvo em um leitor de PDF. Dependendo da configuração do dispositivo, o botão “Abrir aula” também pode iniciar o download em vez de mostrar o documento.</p></details>
+        <details><summary>Onde estão as atividades e as orientações de entrega?</summary><p>Consulte o material da aula e as orientações do professor. Este portal organiza o acesso aos arquivos; ele não altera atividades, prazos ou critérios de avaliação.</p></details>
+        <details><summary>Preciso usar Git para abrir as aulas?</summary><p>Não. Os botões deste portal levam diretamente aos PDFs. Não é preciso clonar o repositório para consultar ou baixar os materiais.</p></details>
+      </div>
+      <p class="reminder"><strong>Um lugar para consultar, não para enviar trabalhos.</strong> Esta página não recebe entregas nem registra notas.</p>
+    </section>
+  </main>
+  <footer><div class="wrap footer-inner"><p><strong>PPI I · IFMA Campus Itapecuru-Mirim</strong><br>Portal de materiais da disciplina</p><a href="#topo">Voltar ao início ↑</a></div></footer>
+  <script>
+    (() => {
+      'use strict';
+      const cards = Array.from(document.querySelectorAll('#lesson-grid .card'));
+      const input = document.getElementById('busca');
+      const clear = document.getElementById('limpar');
+      const results = document.getElementById('results');
+      const empty = document.getElementById('empty');
+      if (!cards.length || !input || !clear || !results || !empty) return;
+      const normalize = value => String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+      const searchable = cards.map(card => normalize(card.dataset.search + ' ' + card.querySelector('h3').textContent));
+      function filter() {
+        const words = normalize(input.value).split(/\s+/).filter(Boolean);
+        let count = 0;
+        cards.forEach((card, i) => {
+          const match = words.every(word => searchable[i].includes(word));
+          card.hidden = !match;
+          if (match) count++;
+        });
+        clear.disabled = input.value.length === 0;
+        empty.hidden = count !== 0;
+        results.textContent = count === cards.length ? cards.length + ' aulas disponíveis.' : count + (count === 1 ? ' aula encontrada.' : ' aulas encontradas.');
+      }
+      input.addEventListener('input', filter);
+      clear.addEventListener('click', () => { input.value = ''; filter(); input.focus(); });
+      // Os atalhos devem continuar encontrando a aula mesmo com a busca ativa.
+      document.querySelectorAll('.journey a').forEach(link => link.addEventListener('click', () => { input.value = ''; filter(); }));
+      document.getElementById('searchbar').hidden = false;
+      results.hidden = false;
+      filter();
+    })();
+  </script>
+</body>
+</html>
