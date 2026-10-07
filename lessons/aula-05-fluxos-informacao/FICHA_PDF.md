@@ -1,23 +1,36 @@
-# Ficha da equipe 2.0.0
+# Ficha da equipe 2.1.0
 
-## Uso
+## Alterações desta versão
 
-Abra `Ficha_Equipe_Aula_05_PPI.html` pelo portal. Preencha nomes dos componentes, projeto/eixo, data e respostas. O nome/número da equipe é opcional. O professor e a identificação institucional são fixos. O botão **Gerar PDF da atividade** baixa o documento diretamente, sem servidor de geração.
+A ficha passa a ter **uma única escolha temática**: `Projeto analisado`. O projeto selecionado carrega automaticamente a situação fictícia correspondente. O exemplo dos Jogos Interclasse continua apenas nos slides da Aula 05 e não aparece como uma segunda escolha na ficha.
 
-A autoria é identificada pelos nomes dos componentes; os dados usados nas respostas sobre os casos continuam fictícios. Nomes e respostas não são enviados ao GitHub, ao professor ou a outros serviços. Não publique PDFs ou rascunhos com nomes em repositórios públicos. Não há salvamento automático: use a cópia JSON antes de fechar a aba.
+Opções da atividade:
 
-## Formato do PDF
+- Mapa de Memórias Quilombolas;
+- Permanência e Evasão Escolar.
 
-A4, margens de 25 mm, Times-Roman/Times-Bold, corpo de 12 pontos e entrelinha de 18 pontos. Parágrafos justificados, exceto última linha; identificação e textos curtos alinhados à esquerda. Cabeçalho, identificação, títulos numerados e rodapé com página/total. Texto selecionável, não captura de tela. O modelo é didático; não declara conformidade ABNT, PDF/A ou PDF/UA.
+Rascunhos antigos (`ppi-f01-v1` e `ppi-f01-v2`) continuam importáveis. Se uma cópia v2 tiver projeto e caso diferentes, a nova versão preserva o projeto e solicita revisão das respostas.
 
-O gerador local usa fontes padrão do PDF, sem distribuir arquivos de fontes e sem dependências externas. Aceita acentuação portuguesa e caracteres WinAnsi. Para caracteres fora desse conjunto, não substitui nem descarta silenciosamente: informa a limitação e oferece o documento HTML de impressão, que preserva o texto. A paginação dessa alternativa depende do navegador; prefira o botão de geração direta quando possível.
+## Documento PDF
 
-## Rascunhos
+O botão **Gerar PDF formal** produz localmente um PDF A4 com identidade documental mais próxima dos artefatos formais da disciplina:
 
-Exporta JSON `ppi-f01-v2`, incluindo identificação e campos anteriores. Importa v1 e v2. Ao reabrir v1, preserva as respostas e solicita os nomes/data/eixo. A importação valida o arquivo inteiro antes de substituir dados e nunca altera o professor a partir do JSON. Texto da atividade também pode ser baixado em Markdown. Gerar arquivos não realiza a entrega ao professor.
+- capa institucional;
+- título e projeto em destaque;
+- professor, equipe, componentes e data;
+- bloco de controle do documento;
+- identificação institucional no corpo;
+- seções numeradas;
+- títulos com identidade verde/vermelha;
+- respostas em texto corrido justificado;
+- rodapé com disciplina, versão, data de geração e paginação `Página X de Y`.
 
-## Verificação desta revisão — 07/10/2026
+O PDF é vetorial e não é uma captura da tela. O modelo é didático e institucional; não declara conformidade ABNT, PDF/A ou PDF/UA.
 
-35 verificações locais no Chromium com os arquivos montados em uma página de teste, além de extração e inspeção visual do PDF gerado: adicionar/remover nomes; preenchimento obrigatório; download real; nomes acentuados; nome do professor; A4; paginação; justificação; conservação das respostas; texto de 3000 caracteres; palavra longa; rejeição explícita de caractere não suportado; JSON v1/v2; importação inválida sem perda de dados; responsividade em 320, 390, 768 e 1280 pixels; ausência de chamadas externas e de erros JavaScript. Os hashes dos quatro arquivos enviados foram comparados aos arquivos efetivamente testados.
+## Privacidade e armazenamento
 
-Referência técnica de fontes padrão: HexaPDF, Standard PDF Fonts, https://hexapdf.gettalong.org/examples/standard_pdf_fonts.html (consulta: 07/10/2026).
+A geração ocorre no navegador. Não há upload de nomes ou respostas. A cópia JSON contém nomes e respostas e deve ser guardada de forma privada; não deve ser publicada em repositório público.
+
+## Compatibilidade
+
+O gerador direto usa fontes padrão do PDF e suporta acentuação portuguesa/WinAnsi. Se houver caractere fora desse conjunto, a geração direta interrompe com aviso em vez de alterar o nome silenciosamente; a versão HTML de impressão permanece como alternativa.
