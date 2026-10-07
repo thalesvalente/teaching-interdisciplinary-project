@@ -1,5 +1,5 @@
 
-/* Ficha da equipe 2.4.0. Sem rede, cookies, armazenamento persistente ou envio de respostas. */
+/* Ficha da equipe 2.5.0. Sem rede, cookies, armazenamento persistente ou envio de respostas. */
 (() => {
   'use strict';
   function init(){
@@ -11,11 +11,11 @@
   const DISCIPLINA = 'Prática Profissional Integrada I — PPI I';
   const PROJETOS = {memorias:'Mapa de Memórias Quilombolas', permanencia:'Permanência e Evasão Escolar'};
   const CASES = {
-    memorias: {title:'Mapa de Memórias Quilombolas', records:[
-      ['Ficha completa da memória','A equipe do projeto registra uma memória fictícia chamada “Brincadeiras de roda”, na categoria “vivências”. Na ficha completa consta: “Pode ser consultada durante a oficina; publicação externa não autorizada”.'],
-      ['Folha de consulta da oficina','Para a oficina, a equipe do projeto prepara uma folha de consulta com o título “Brincadeiras de roda” e a categoria “vivências”. A orientação sobre uso e publicação não aparece nessa folha.'],
-      ['Pergunta do participante','Durante a oficina, a equipe entrega a folha de consulta a um participante para acompanhar a atividade. O participante pergunta oralmente à equipe: “Posso fotografar e publicar esse material?”. O caso não informa qual resposta foi dada.']],
-      limit:'Não sabemos qual resposta foi dada ao participante, se ele fotografou o material ou se houve publicação depois da oficina.'},
+    memorias: {title:'Mapa de Memórias Quilombolas · memória histórica de Itamatatiua', kind:'Fato histórico documentado + fluxo de trabalho simulado', source:{label:'MuseusBr · Associação de Mulheres de Itamatatiua',url:'https://cadastro.museus.gov.br/pontos-de-memoria/associacao-de-mulheres-de-itamatatiua/'}, records:[
+      ['Fonte pública consultada','O cadastro MuseusBr informa que a Associação de Mulheres de Itamatatiua foi fundada em 1989. A associação teve origem na união das mulheres no então chamado clube de mães, quando passaram a discutir assuntos da vida em comunidade e organizar a produção cerâmica.'],
+      ['Registro preparado para o mapa','Para o exercício, a equipe do projeto prepara uma entrada para o Mapa de Memórias: “Evento histórico: fundação da Associação de Mulheres de Itamatatiua; ano: 1989; comunidade: Itamatatiua; síntese: a associação surgiu da união das mulheres no clube de mães e passou a articular assuntos da vida comunitária e a organização da produção cerâmica; fonte: MuseusBr”.'],
+      ['Revisão antes de publicar','Antes de considerar o registro pronto, outro integrante compara a entrada com a fonte pública e pergunta: “Podemos afirmar que a associação foi criada para vender cerâmica?”. A fonte consultada não afirma isso; ela fala em assuntos da vida comunitária e organização da produção cerâmica.']],
+      limit:'A fonte consultada não informa, nesse trecho, o dia e o mês exatos da fundação nem afirma que a finalidade exclusiva da associação era comercial. Se o mapa precisar desses detalhes, será necessário consultar outra fonte adequada.'},
     permanencia: {title:'Permanência e Evasão Escolar', records:[
       ['Tabela de pedidos de apoio','Um setor pedagógico fictício entrega à equipe uma tabela com pedidos de apoio separados por período. Todos os dados são inventados e não há nomes.'],
       ['Resumo para a reunião','A equipe prepara um resumo, mas não escreve o período dos pedidos nem de qual tabela retirou as informações.'],
@@ -25,17 +25,17 @@
   const GROUPS = [
     {title:'1 · Retomem o projeto da equipe', fields:[['recorte','Que problema sua equipe está investigando?','Retome o foco escolhido na Aula 3. Não precisa escolher uma tecnologia.']]},
     {title:'2 · Primeira troca de informação', note:'Comecem por uma troca que aparece na situação fictícia do projeto: quem envia, o que envia e para quem.', fields:[
-      ['origem1','Quem envia a informação?','Escreva o papel ou grupo que aparece no caso.'],
+      ['origem1','Quem ou qual fonte fornece a informação?','Pode ser uma pessoa, um grupo, um setor ou uma fonte documental.'],
       ['info1','Qual é a informação?','Escreva o conteúdo do recado com o contexto necessário.'],
       ['canal1','Por onde a informação passa?','Esse meio é o canal. Exemplos: mensagem, documento ou mural.'],
-      ['destino1','Para quem ela é enviada?','Separe destinatário previsto de recebimento comprovado.'],
-      ['uso1','Para que a pessoa precisa dela?','Qual compreensão, ação ou decisão essa informação apoia?']]},
+      ['destino1','Quem recebe ou usa essa informação nesta etapa?','Identifique quem recebe, consulta ou utiliza a informação neste ponto do fluxo.'],
+      ['uso1','Para que essa informação será usada?','Explique qual compreensão, registro, ação ou decisão ela apoia.']]},
     {title:'3 · A próxima parte do caminho', note:'Acompanhem a informação adiante. Se a situação não contar essa parte, marquem o que falta descobrir. Não inventem a ligação.', fields:[
-      ['origem2','Quem passa a informação adiante?','Procure no caso. Se não estiver explicado, escreva “não sabemos”.'],
+      ['origem2','Quem fornece a informação na segunda etapa?','Procure quem produz, apresenta ou repassa a informação nessa etapa.'],
       ['info2','O que é passado adiante?','Compare: a informação continua completa ou perdeu contexto?'],
       ['canal2','Por qual meio?','Não invente um meio que o material não apresenta.'],
-      ['destino2','Quem recebe ou deveria receber?','Distingua o que deveria acontecer do que realmente está registrado.'],
-      ['uso2','Para que essa pessoa precisa da informação?','Se o uso não estiver informado, registre a dúvida.']]},
+      ['destino2','Quem recebe ou usa essa informação na segunda etapa?','Registre quem recebe, revisa ou utiliza a informação nessa etapa.'],
+      ['uso2','Para que essa informação será usada na segunda etapa?','Explique a finalidade dessa etapa; se ela não estiver informada, registre a dúvida.']]},
     {title:'4 · Confiram o desenho que apareceu', note:'O desenho usa o que vocês digitaram. Ele não verifica se a informação é verdadeira. Confiram com a situação do projeto e mantenham as dúvidas visíveis.', fields:[]},
     {title:'5 · Mostrem onde conferiram e o que falta saber', note:'Fonte é o material consultado. Evidência é o trecho que apoia sua resposta. Use o nome do registro, não códigos artificiais.', fields:[
       ['fonte','Onde vocês conferiram?','Exemplo: “Ficha completa da memória” ou “Resumo para a reunião”.'],
@@ -57,7 +57,7 @@
     'Há duas partes do caminho; o que não sabemos ficou marcado.',
     'Indicamos o material usado como fonte.',
     'Escrevemos um limite e uma pergunta para investigar.',
-    'Nas respostas sobre a situação fictícia, não incluímos dados pessoais reais nem antecipamos uma solução.'
+    'Nas respostas, distinguimos fonte, simulação e hipótese; não incluímos dados pessoais reais nem antecipamos uma solução.'
   ];
   const STATES = ['A fazer','Fazendo','Conferindo','Concluído'];
   const fields = GROUPS.flatMap(g=>g.fields), keys = ['equipe',...fields.map(f=>f[0])];
@@ -94,11 +94,13 @@
   function caseView(){
     const root=$('caseMaterial'),project=val('projeto');root.replaceChildren();
     if(!Object.hasOwn(CASES,project)){
-      root.append(el('h3','Situação fictícia do projeto'),el('p','Selecione o projeto na identificação. As orientações de cada pergunta aparecerão junto com a situação correspondente.'));
+      root.append(el('h3','Situação de análise do projeto'),el('p','Selecione o projeto na identificação. As orientações e fontes de apoio aparecerão junto com a situação correspondente.'));
     }else{
-      const c=CASES[project];root.append(el('h3','Situação fictícia · '+c.title));
+      const c=CASES[project];root.append(el('h3',c.title));
+      if(c.kind)root.append(el('p',c.kind,'case-kind'));
       for(const [k,t]of c.records){const p=el('p');p.append(el('b',k+' — '),document.createTextNode(t));root.append(p);}
-      root.append(el('p','O que ainda não sabemos: '+c.limit));
+      if(c.source){const p=el('p');p.append(el('b','Fonte pública — '));const a=el('a',c.source.label);a.href=c.source.url;a.target='_blank';a.rel='noopener noreferrer';p.append(a);root.append(p);}
+      root.append(el('p','O que ainda não sabemos ou não podemos afirmar: '+c.limit));
     }
     if(window.PpiGuide)window.PpiGuide.update(project,CASES);
   }
@@ -128,7 +130,7 @@
     return {title:'Registro do caminho da informação',institution:INSTITUICAO,course:CURSO,discipline:DISCIPLINA,lesson:'Aula 05 — Seguir a informação',professor:PROFESSOR,team:s.campos.equipe||'Não informado',members:id.componentes,project:PROJETOS[id.projeto]||'[A preencher]',date:prettyDate(id.data),version:'1.0',sections};
   }
 
-  function md(){const m=documentModel();let out='# '+m.title+'\n\n'+m.institution+'\n\n**Curso:** '+m.course+'\n\n**Disciplina:** '+m.discipline+'\n\n**Aula:** '+m.lesson+'\n\n**Professor:** '+m.professor+'\n\n**Equipe:** '+m.team+'\n\n**Componentes:**\n'+(m.members.length?m.members.map(x=>'- '+x).join('\n'):'[A preencher]')+'\n\n**Projeto analisado:** '+m.project+'\n\n**Data da atividade:** '+m.date+'\n\n> Situação fictícia associada ao projeto. Arquivo gerado localmente. Não constitui envio da atividade.\n\n';for(const s of m.sections){out+='## '+s.title+'\n\n';for(const [l,t]of s.items)out+='### '+l+'\n\n'+(t||'[A preencher]')+'\n\n';}return out;}
+  function md(){const m=documentModel();let out='# '+m.title+'\n\n'+m.institution+'\n\n**Curso:** '+m.course+'\n\n**Disciplina:** '+m.discipline+'\n\n**Aula:** '+m.lesson+'\n\n**Professor:** '+m.professor+'\n\n**Equipe:** '+m.team+'\n\n**Componentes:**\n'+(m.members.length?m.members.map(x=>'- '+x).join('\n'):'[A preencher]')+'\n\n**Projeto analisado:** '+m.project+'\n\n**Data da atividade:** '+m.date+'\n\n> Situação de análise associada ao projeto. Em Memórias Quilombolas, o fato histórico é documentado por fonte pública; o fluxo de trabalho da equipe é simulado. Arquivo gerado localmente. Não constitui envio da atividade.\n\n';for(const s of m.sections){out+='## '+s.title+'\n\n';for(const [l,t]of s.items)out+='### '+l+'\n\n'+(t||'[A preencher]')+'\n\n';}return out;}
 
   function addRow(table,label,value){const tr=el('tr'),th=el('th',label),td=el('td',value);tr.append(th,td);table.append(tr);}
   function renderDocument(){
@@ -139,7 +141,7 @@
 
     const intro=el('section',undefined,'doc-body doc-pagebreak'),head=el('div',undefined,'doc-header'),left=el('div','PPI I · Documento da atividade','left'),right=el('div','Aula 05 · Registro de fluxo','right');head.append(left,right);intro.append(head,el('h2','Identificação do documento'));
     const table=el('table',undefined,'doc-meta-table');addRow(table,'Instituição',m.institution);addRow(table,'Curso',m.course);addRow(table,'Disciplina',m.discipline);addRow(table,'Professor',m.professor);addRow(table,'Equipe',m.team);addRow(table,'Componentes',m.members.join('; ')||'[A preencher]');addRow(table,'Projeto analisado',m.project);addRow(table,'Data da atividade',m.date);intro.append(table,el('h2','Controle do documento'));
-    const control=el('table',undefined,'doc-control'),thead=el('thead'),tr=el('tr');['Versão','Data','Responsáveis','Descrição'].forEach(t=>tr.append(el('th',t)));thead.append(tr);control.append(thead);const tbody=el('tbody'),row=el('tr');[m.version,m.date,m.members.join('; ')||m.team,'Registro de fluxo de informação produzido na Aula 05.'].forEach(t=>row.append(el('td',t)));tbody.append(row);control.append(tbody);intro.append(control,el('p','As respostas abaixo foram produzidas a partir de uma situação fictícia associada ao projeto da equipe. O documento registra o raciocínio e as evidências da atividade; não transforma hipóteses em fatos.','doc-note'));
+    const control=el('table',undefined,'doc-control'),thead=el('thead'),tr=el('tr');['Versão','Data','Responsáveis','Descrição'].forEach(t=>tr.append(el('th',t)));thead.append(tr);control.append(thead);const tbody=el('tbody'),row=el('tr');[m.version,m.date,m.members.join('; ')||m.team,'Registro de fluxo de informação produzido na Aula 05.'].forEach(t=>row.append(el('td',t)));tbody.append(row);control.append(tbody);intro.append(control,el('p','As respostas abaixo foram produzidas a partir de uma situação de análise associada ao projeto. Em Memórias Quilombolas, o fato histórico vem de fonte pública e o fluxo de trabalho da equipe é simulado. O documento registra o raciocínio e as evidências da atividade; não transforma hipóteses em fatos.','doc-note'));
     for(const s of m.sections){intro.append(el('h2',s.title));for(const [l,t]of s.items)intro.append(el('h3',l),el('p',t||'[A preencher]'));}
     root.append(intro);
   }

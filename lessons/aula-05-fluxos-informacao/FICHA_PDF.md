@@ -1,33 +1,39 @@
-# Ficha guiada da equipe — 2.4.0
+# Ficha guiada da equipe — 2.5.0
 
-## Revisão didática do caso de Memórias Quilombolas
+## Caso de Memórias Quilombolas
 
-O caso de Memórias foi reescrito para ser autoexplicativo. A expressão ambígua “cópia para a oficina” foi eliminada. A situação agora apresenta três registros em sequência:
+O exercício de Memórias passa a usar um **evento histórico documentado**: a fundação da Associação de Mulheres de Itamatatiua, em 1989.
 
-1. **Ficha completa da memória:** contém título, categoria e a orientação de uso.
-2. **Folha de consulta da oficina:** preparada pela equipe do projeto, contém título e categoria, mas não a orientação sobre uso e publicação.
-3. **Pergunta do participante:** a equipe entrega a folha a um participante, que pergunta oralmente se pode fotografar e publicar o material. O caso não informa a resposta.
+A fonte pública utilizada é o cadastro MuseusBr da Associação de Mulheres de Itamatatiua. O cadastro informa que a associação foi fundada em 1989, teve origem na união das mulheres no então chamado clube de mães e se relaciona à discussão de assuntos da vida comunitária e à organização da produção cerâmica.
 
-Assim, a primeira troca tem atores e meio explícitos (equipe do projeto → folha de consulta → participante) e a segunda também (participante → pergunta oral → equipe do projeto). O ponto desconhecido foi deslocado para algo pedagogicamente útil: a resposta sobre autorização e o que ocorreu depois.
+A ficha distingue explicitamente duas camadas:
 
-As 22 dicas de Memórias foram reescritas para apontar diretamente aos três registros, indicar onde procurar cada resposta e impedir que a equipe invente atores, meios ou consequências. A próxima tarefa passa a preparar a Aula 6: verificar quais orientações de uso e autorização precisam acompanhar uma memória antes de consulta, fotografia ou publicação.
+- **fato histórico documentado:** o que a fonte pública sustenta;
+- **fluxo de trabalho simulado:** como uma equipe poderia transformar a fonte em uma entrada para o Mapa de Memórias e revisar a redação antes de considerá-la pronta.
 
-## Linguagem da interface
+A primeira troca acompanha a informação da fonte pública até a equipe do projeto. A segunda acompanha o registro preparado pela equipe até outro integrante responsável pela revisão.
 
-“Cópia” deixou de ser usada também para o arquivo JSON de continuidade. A interface chama esse arquivo de **rascunho**, evitando que a mesma palavra signifique simultaneamente um artefato do caso e um backup da ficha.
+O limite didático é proposital: a fonte usada não informa, nesse trecho, o dia e o mês exatos da fundação nem permite afirmar que a finalidade exclusiva da associação era comercial. A ficha ensina o estudante a registrar esse limite e a buscar outra fonte quando precisar de detalhe adicional.
 
-## O que permanece
+## Mudanças de linguagem
 
-A seleção única do projeto continua controlando as dicas. Permanecem os 22 campos guiados, os dois cartões de troca, distinção entre campo vazio e dúvida registrada, integrantes, data local, exemplo preenchido de Horários IFMA, exportação PDF/Markdown e rascunho JSON.
+O campo “Quem envia a informação?” passa a aceitar explicitamente pessoas, grupos, setores ou fontes documentais: **“Quem ou qual fonte fornece a informação?”**. No esquema, o rótulo é **“Origem da informação”**.
 
-O PDF formal permanece com o template aprovado: capa institucional, identificação, controle documental, seções numeradas, texto justificado e paginação A4. As dicas não entram no PDF como respostas dos estudantes.
+A interface deixa de chamar todos os casos de “situações fictícias”. Agora identifica:
 
-Rascunhos de versões anteriores (schemas v1, v2 e v3) continuam importáveis. O schema permanece `ppi-f01-v3` para não quebrar arquivos já produzidos.
+- Memórias Quilombolas: fato histórico documentado + fluxo de trabalho simulado;
+- Permanência e Evasão: situação fictícia sem dados pessoais;
+- Jogos Interclasse: simulação usada nos slides;
+- Horários IFMA: projeto real usado como exemplo preenchido.
 
-## Princípio didático adotado
+## Fonte
 
-A ficha deve fornecer todo o contexto necessário para que um estudante do 2º ano consiga compreender a situação antes de responder. Uma dúvida do caso deve ser uma **dúvida investigável**, não uma lacuna criada porque o enunciado deixou de explicar quem fez o quê.
+MuseusBr. Associação de Mulheres de Itamatatiua. https://cadastro.museus.gov.br/pontos-de-memoria/associacao-de-mulheres-de-itamatatiua/
 
-## Verificação desta revisão — 07/10/2026
+Consulta usada para a revisão didática em 07/10/2026.
 
-Verificações estáticas confirmam: ausência da expressão “cópia para a oficina”; caso de Memórias consistente entre ficha e apresentação; 22 dicas específicas preservadas; sintaxe JavaScript válida; seleção única de projeto; compatibilidade do schema; e linguagem de “rascunho” nos controles de continuidade.
+## Compatibilidade
+
+Mantidos: seleção única de projeto, 22 campos guiados, integrantes, data local, rascunho JSON (schema ppi-f01-v3), importação de versões anteriores, exportação Markdown e PDF formal.
+
+O PDF continua com capa institucional, identificação, controle documental, seções numeradas, texto justificado e paginação A4.

@@ -1,5 +1,5 @@
 
-/* Gerador local de PDF 1.4 para a ficha PPI 2.1.0.
+/* Gerador local de PDF 1.4 para a ficha PPI 2.5.0.
    Documento vetorial A4, sem captura de tela, fontes externas, rede ou execução de conteúdo do usuário. */
 (() => {
   "use strict";
@@ -38,13 +38,13 @@
     fillRect(M+22,220,RIGHT-M-22,74,PALE);text('PROJETO ANALISADO',M+37,242,8.5,'B',0,MUTED);const projectLines=wrap(model.project,14,'B',RIGHT-M-52);let py=265;for(const l of projectLines.slice(0,2)){text(l,M+37,py,14,'B',0,GREEN_DARK);py+=18;}
     let cy=328;cy=coverField('Professor',model.professor,cy);cy=coverField('Equipe',model.team,cy);cy=coverField('Componentes',model.members.join('; ')||'[A preencher]',cy);cy=coverField('Data da atividade',model.date,cy);
     text('CONTROLE DO DOCUMENTO',M+22,525,10.5,'B',0,GREEN_DARK);line(M+22,533,RIGHT,533,GREEN,.8);let ty=554;ty=coverField('Versão',model.version||'1.0',ty);ty=coverField('Responsáveis',model.members.join('; ')||model.team,ty);ty=coverField('Finalidade','Registro acadêmico da atividade de fluxo de informação.',ty);
-    text('Documento gerado localmente no navegador. As respostas usam uma situação fictícia associada ao projeto.',M+22,735,8.8,'R',0,MUTED);pushPage();
+    text('Documento gerado localmente no navegador. As respostas usam uma situação de análise associada ao projeto.',M+22,735,8.8,'R',0,MUTED);pushPage();
 
     // Corpo do documento
     pageHeader();sectionHeading('Identificação do documento');
     for(const [l,t] of [['Instituição',model.institution],['Curso',model.course],['Disciplina',model.discipline],['Aula',model.lesson],['Professor',model.professor],['Equipe',model.team],['Componentes',model.members.join('; ')||'[A preencher]'],['Projeto analisado',model.project],['Data da atividade',model.date]])field(l,t);
     sectionHeading('Controle do documento');field('Versão',model.version||'1.0');field('Responsáveis',model.members.join('; ')||model.team);field('Descrição da versão','Registro de fluxo de informação produzido na Aula 05.');
-    ensure(60);fillRect(M,y,RIGHT-M,50,'0.996 0.956 0.956');fillRect(M,y,4,50,RED);const note='As respostas abaixo se apoiam em uma situação fictícia ligada ao projeto. O documento registra o raciocínio da equipe e não transforma hipóteses em fatos.';const nlines=wrap(note,10.5,'R',RIGHT-M-22);let ny=y+15;for(const l of nlines){text(l,M+13,ny,10.5,'R',0,INK);ny+=14;}y+=58;
+    ensure(60);fillRect(M,y,RIGHT-M,50,'0.996 0.956 0.956');fillRect(M,y,4,50,RED);const note='As respostas abaixo se apoiam em uma situação de análise ligada ao projeto. O documento registra o raciocínio da equipe e não transforma hipóteses em fatos.';const nlines=wrap(note,10.5,'R',RIGHT-M-22);let ny=y+15;for(const l of nlines){text(l,M+13,ny,10.5,'R',0,INK);ny+=14;}y+=58;
     for(const section of model.sections){sectionHeading(section.title);for(const [label,value] of section.items)field(label,value);}
     pushPage();
 

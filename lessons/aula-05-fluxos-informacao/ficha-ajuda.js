@@ -10,36 +10,36 @@
   const GUIDES = {
     memorias: {
       steps: [
-        '1ª troca · A equipe entrega a folha de consulta',
-        '2ª troca · Um participante pergunta sobre o uso do material'
+        '1ª troca · Da fonte histórica para a equipe do projeto',
+        '2ª troca · Do registro preparado para a revisão'
       ],
       intro: [
-        'Primeiro acompanhe a entrega do material da oficina. A equipe do projeto prepara uma folha de consulta e a entrega a um participante. Compare essa folha com a ficha completa da memória para perceber qual orientação ficou de fora.',
-        'Depois acompanhe a pergunta do participante à equipe. Ele quer saber se pode fotografar e publicar o material. O caso informa a pergunta, mas não informa a resposta nem o que aconteceu depois.'
+        'Acompanhe como uma informação histórica entra no projeto. A equipe consulta uma fonte pública sobre Itamatatiua e usa esse material para registrar um evento no Mapa de Memórias.',
+        'Depois acompanhe o registro produzido pela equipe. Outro integrante revisa a entrada antes de considerá-la pronta, comparando cada afirmação com a fonte.'
       ],
       hints: {
-        recorte:['Retome o problema que sua equipe escolheu na Aula 3 dentro de Memórias Quilombolas. Explique a dificuldade que vocês querem entender. A situação da oficina abaixo serve apenas para praticar como seguir uma informação; ela não obriga sua equipe a mudar o problema do projeto.',[0,1,2],'Nossa equipe quer entender como ...'],
-        origem1:['Leia “Folha de consulta da oficina”. Quem preparou e entregou esse material? O texto identifica o grupo: use esse papel, em vez de escrever apenas “emissor”.',[1,2],'Quem envia a informação é ...'],
-        destino1:['Leia “Pergunta do participante”. Quem recebeu a folha de consulta para acompanhar a atividade? Registre o papel indicado no texto, sem inventar nome de pessoa.',[2],'A folha de consulta é entregue a ...'],
-        info1:['Compare “Ficha completa da memória” com “Folha de consulta da oficina”. Escreva o que aparece na folha e qual orientação importante não aparece nela.',[0,1],'A folha de consulta mostra ...; nela não aparece ...'],
-        canal1:['Qual material leva essas informações da equipe até o participante? O caso nomeia esse material. Não troque por e-mail, aplicativo ou mensagem.',[1,2],'A informação é passada por meio da ...'],
-        uso1:['Para que o participante recebe a folha? Volte ao trecho “Pergunta do participante”: ela foi entregue para acompanhar a atividade e consultar a memória durante a oficina.',[2],'O participante usa essa informação para ...'],
-        origem2:['Na segunda troca, quem inicia a comunicação? Leia “Pergunta do participante” e identifique quem faz a pergunta.',[2],'Quem inicia a segunda troca é ...'],
-        destino2:['A quem o participante dirige a pergunta sobre fotografar e publicar? Use o grupo indicado no próprio trecho.',[2],'A pergunta é dirigida à ...'],
-        info2:['Escreva o conteúdo da pergunta feita pelo participante. Você pode resumir sem mudar o sentido: ele quer saber se pode fotografar e publicar o material.',[2],'O participante pergunta se ...'],
-        canal2:['Como a pergunta é feita no caso? O texto diz que ela é feita oralmente durante a oficina. Registre esse meio, sem inventar aplicativo ou mensagem.',[2],'A pergunta é feita por meio de ...'],
-        uso2:['Para que o participante faz a pergunta? Ele precisa esclarecer se tem autorização para fotografar e publicar o material.',[0,2],'A pergunta serve para esclarecer se ...'],
-        fonte:['Indique os trechos que vocês realmente usaram. Para comparar conteúdo e orientação, use “Ficha completa da memória” e “Folha de consulta da oficina”; para a segunda troca, use “Pergunta do participante”.',[0,1,2],'Conferimos em ...'],
-        evidencia:['Mostre o trecho que sustenta sua resposta. Uma boa evidência pode comparar o que existe na ficha completa com o que falta na folha de consulta ou citar a pergunta sobre fotografia e publicação.',[0,1,2],'O material informa que ...'],
-        limite:['O caso para em um ponto importante: ele não informa a resposta dada ao participante nem diz se houve fotografia ou publicação depois. Escolha o limite relacionado ao que sua equipe escreveu.',[2],'Não é possível afirmar que ... porque o caso não informa ...'],
-        pergunta:['Transforme o que ficou desconhecido em uma pergunta específica. Por exemplo, investigue qual resposta foi dada ou quais orientações precisam acompanhar um material antes de ser compartilhado.',[0,1,2],'Como podemos verificar ...?'],
-        forca:['Quem revisa deve apontar algo que ficou claro na ficha: por exemplo, a diferença entre o que estava autorizado na ficha completa e o que apareceu na folha de consulta. Se a revisão ainda não ocorreu, registre isso.',[0,1],'Ficou claro que ... / A revisão ainda não foi realizada.'],
-        ajuste:['Peça à outra equipe que confira se os dois fluxos têm atores, informação, meio e finalidade apoiados no caso. Registre uma melhoria concreta; não escreva apenas “está bom”.',[1,2],'Precisamos explicar melhor ... / A revisão ainda não foi realizada.'],
-        tarefa:['Planejem uma próxima verificação ligada ao projeto: listar quais orientações de uso e autorização precisam acompanhar uma memória antes de consulta, fotografia ou publicação. Isso prepara a próxima aula sobre ética e consentimento; ainda não é uma tarefa de programar um app.',[0,1,2],'Vamos verificar quais orientações ...'],
-        responsavel:['Escolham na própria equipe quem registra essa verificação e quem confere. Aqui o responsável é um papel da equipe de vocês, não um personagem da situação fictícia.',[],'Quem registra ...; quem confere ...'],
-        quando:['Combinem com a equipe e o professor quando essa verificação será retomada. Se ainda não combinaram, escrevam “a combinar”; não inventem prazo.',[],'Vamos conferir ... / O momento ainda será combinado.'],
-        pronto:['Definam uma condição que possa ser conferida: por exemplo, a equipe consegue listar as orientações que precisa confirmar e apontar de onde veio cada uma ou qual dúvida continua aberta.',[0,1,2],'Estará pronto quando conseguirmos mostrar ...'],
-        registro:['Digam o que ficará guardado como evidência da próxima tarefa: por exemplo, uma lista revisada de orientações e dúvidas. Se ainda será produzida, marque como pendente.',[],'Vamos guardar ...; esse registro ainda está ...']
+        recorte:['Retome o problema escolhido na Aula 3 para o Mapa de Memórias Quilombolas. Depois observe o exemplo histórico abaixo: a fundação da Associação de Mulheres de Itamatatiua, em 1989. Esse evento serve para praticar como uma memória documentada entra no projeto; não obriga sua equipe a escolher o mesmo evento.',[0,1,2],'Nossa equipe quer investigar ...'],
+        origem1:['Na primeira etapa, a informação histórica vem de uma fonte pública. Qual fonte informa o ano de fundação e a origem da Associação de Mulheres de Itamatatiua? Não escreva apenas “site” ou “internet”: identifique a fonte.',[0],'A fonte que fornece a informação é ...'],
+        destino1:['Quem usa essa fonte para preparar uma memória para o mapa? No exercício, é a equipe do projeto que consulta o registro público.',[0,1],'A informação é consultada pela ...'],
+        info1:['Quais fatos históricos a fonte pública apresenta? Registre o evento, o ano e a origem da associação sem acrescentar finalidades que a fonte não declara.',[0],'A fonte informa que, em 1989, ...'],
+        canal1:['Por qual meio a equipe acessa essa informação? O caso indica um cadastro público na web, identificado como MuseusBr.',[0],'A equipe consulta a informação por meio de ...'],
+        uso1:['Para que a equipe consulta essa fonte? Relacione a consulta à criação de uma entrada histórica no Mapa de Memórias, e não a uma solução tecnológica específica.',[0,1],'A informação será usada para ...'],
+        origem2:['Na segunda etapa, quem produz a informação que será revisada? Observe “Registro preparado para o mapa”.',[1],'Quem fornece o registro para revisão é ...'],
+        destino2:['Quem recebe o registro na segunda etapa? O caso diz que outro integrante compara a entrada com a fonte antes de considerá-la pronta.',[2],'O registro é recebido por ...'],
+        info2:['O que está sendo revisado? Descreva a entrada preparada para o mapa: evento, ano, comunidade, síntese e fonte.',[1,2],'O registro para revisão contém ...'],
+        canal2:['Por qual meio essa informação circula na segunda etapa? No exercício, ela está registrada em uma entrada/ficha de memória do próprio projeto.',[1,2],'A informação circula por meio do ...'],
+        uso2:['Para que serve a revisão? Ela existe para conferir se o texto do mapa permanece fiel ao que a fonte realmente sustenta antes de publicação.',[1,2],'A revisão serve para ...'],
+        fonte:['Indique a fonte histórica usada e o registro do projeto que foi revisado. Aqui a fonte pública é o cadastro MuseusBr sobre a Associação de Mulheres de Itamatatiua.',[0,1,2],'Conferimos a informação histórica em ... e revisamos ...'],
+        evidencia:['Escolha um trecho que sustente a memória registrada. Um bom exemplo é o trecho que informa a fundação em 1989 e a origem no clube de mães. Não transforme a organização da produção cerâmica em uma finalidade comercial exclusiva.',[0,2],'A fonte informa que ...'],
+        limite:['Mostre o que a fonte consultada não permite afirmar. O material não apresenta, nesse trecho, o dia e o mês exatos da fundação nem diz que a associação foi criada exclusivamente para vender cerâmica.',[0,2],'Com esta fonte, ainda não podemos afirmar ...'],
+        pergunta:['Transforme um limite da fonte em pergunta investigável. Pergunte que outra fonte poderia confirmar um detalhe necessário ao mapa, como a data completa ou outras versões da história da associação.',[0,2],'Que fonte poderíamos consultar para verificar ...?'],
+        forca:['Quem revisa deve apontar o que ficou bem sustentado pela fonte: por exemplo, evento, ano e origem da associação. Se a revisão ainda não ocorreu, registre isso.',[0,1,2],'Ficou claro e apoiado pela fonte que ... / A revisão ainda não foi realizada.'],
+        ajuste:['Peça à outra equipe que procure afirmações que vão além da fonte. O próprio caso mostra uma pergunta problemática: dizer que a associação foi criada para vender cerâmica seria acrescentar uma finalidade não informada.',[0,2],'Precisamos ajustar a frase ... porque a fonte apenas informa ...'],
+        tarefa:['Planejem uma verificação pequena para uma memória do projeto: escolher um evento, localizar pelo menos uma fonte adequada, registrar o que ela sustenta e anotar o que ainda precisa de confirmação.',[0,1,2],'Vamos selecionar um evento e verificar ...'],
+        responsavel:['Escolham na equipe quem localiza a fonte, quem registra a memória e quem revisa. Esses são papéis de trabalho da equipe, não personagens do evento histórico.',[],'Quem pesquisa ...; quem registra ...; quem revisa ...'],
+        quando:['Combinem quando essa memória será revisada com a equipe e o professor. Se ainda não combinaram, escrevam “a combinar”.',[],'Vamos revisar ... / O momento ainda será combinado.'],
+        pronto:['Definam uma condição verificável: a memória deve conter evento, data disponível, comunidade, síntese, fonte e limites claramente registrados.',[0,1,2],'Estará pronto quando o registro apresentar ...'],
+        registro:['Digam o que ficará guardado: a ficha/entrada da memória, a referência da fonte e a anotação das dúvidas que ainda precisam ser investigadas.',[],'Vamos guardar ...']
       }
     },
     permanencia: {
@@ -79,11 +79,11 @@
   };
   let prepared=false,records={},selected='';
   const ids=['origem','destino','info','canal','uso'];
-  const labels={origem:'Quem envia',destino:'Para quem',info:'O que é enviado',canal:'Por onde / meio usado',uso:'Para quê / finalidade'};
+  const labels={origem:'Origem da informação',destino:'Quem recebe / usa',info:'Informação que circula',canal:'Meio / registro',uso:'Finalidade'};
   const normal=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[.!?]+$/,'').trim();
   function vague(id,value){
     const t=normal(value),base=id.replace(/[12]$/,'');
-    if(['origem','destino'].includes(base)&&['emissor','emissario','receptor','destinatario','pessoa','alguem'].includes(t))return 'Vale detalhar: qual pessoa, papel ou grupo aparece no material? Se ele não for identificado, registre que o caso não informa.';
+    if(['origem','destino'].includes(base)&&['emissor','emissario','receptor','destinatario','pessoa','alguem'].includes(t))return 'Vale detalhar: qual pessoa, papel, grupo ou fonte aparece no material? Se ele não for identificado, registre que o caso não informa.';
     if(base==='info'&&['mensagem','informacao','dados','recado','conteudo'].includes(t))return 'Vale detalhar: o que a mensagem ou documento diz? Escreva o conteúdo que circula, usando a dica do projeto.';
     if(base==='uso'&&['para saber','saber','para informar','informar','para conhecer','conhecer'].includes(t))return 'Vale detalhar: saber o quê, para fazer o quê? Ligue o uso à situação descrita no projeto.';
     return '';
@@ -128,7 +128,7 @@
       input.disabled=!guide;card.querySelector('details').hidden=!guide;help.replaceChildren();
       if(!guide){$(id+'-writing').hidden=true;hint.textContent='Selecione o projeto na identificação para ver a orientação deste campo.';return;}
       hint.textContent=d[0];
-      if(d[1].length){help.append(node('p','Volte a estes trechos da situação fictícia:','helper-label'));d[1].forEach(i=>{const [name,text]=cases[project].records[i];const q=node('blockquote');q.append(node('strong',name),node('p',text));help.append(q);});}
+      if(d[1].length){help.append(node('p','Volte a estes trechos da situação de análise:','helper-label'));d[1].forEach(i=>{const [name,text]=cases[project].records[i];const q=node('blockquote');q.append(node('strong',name),node('p',text));help.append(q);});}
       help.append(node('p','Ajuda de escrita — complete apenas o que você verificou ou combinou:','helper-label'),node('p',d[2],'sentence-starter'),node('p','Isso é uma orientação, não uma resposta preenchida. As dicas e os trechos de apoio não entram no PDF.','hint'));
       writingTip(id);
     });
@@ -166,5 +166,5 @@
   }
   function flagProjectChange(){const n=$('project-change-note');if(n){n.hidden=false;n.textContent='O projeto foi alterado. Suas respostas foram preservadas; confira se cada uma corresponde à nova situação antes de gerar o PDF.';}}
   function clearProjectWarning(){if($('project-change-note'))$('project-change-note').hidden=true;}
-  window.PpiGuide=Object.freeze({update,renderFlow,flagProjectChange,clearProjectWarning,version:'2.3.0'});
+  window.PpiGuide=Object.freeze({update,renderFlow,flagProjectChange,clearProjectWarning,version:'2.5.0'});
 })();
