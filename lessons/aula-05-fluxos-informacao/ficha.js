@@ -1,5 +1,5 @@
 
-/* Ficha da equipe 2.3.0. Sem rede, cookies, armazenamento persistente ou envio de respostas. */
+/* Ficha da equipe 2.4.0. Sem rede, cookies, armazenamento persistente ou envio de respostas. */
 (() => {
   'use strict';
   function init(){
@@ -12,10 +12,10 @@
   const PROJETOS = {memorias:'Mapa de Memórias Quilombolas', permanencia:'Permanência e Evasão Escolar'};
   const CASES = {
     memorias: {title:'Mapa de Memórias Quilombolas', records:[
-      ['Catálogo de exemplo','A equipe reúne uma memória inventada chamada “Brincadeiras de roda”, na categoria “vivências”.'],
-      ['Ficha original','A ficha dessa memória diz: “Apenas leitura na oficina; publicação externa não autorizada”.'],
-      ['Cópia para a oficina','A cópia entregue para consulta traz o título e a categoria, mas não traz a orientação sobre onde a memória pode ser usada.']],
-      limit:'Não sabemos quem leu a cópia nem se alguém publicou a memória fora da oficina.'},
+      ['Ficha completa da memória','A equipe do projeto registra uma memória fictícia chamada “Brincadeiras de roda”, na categoria “vivências”. Na ficha completa consta: “Pode ser consultada durante a oficina; publicação externa não autorizada”.'],
+      ['Folha de consulta da oficina','Para a oficina, a equipe do projeto prepara uma folha de consulta com o título “Brincadeiras de roda” e a categoria “vivências”. A orientação sobre uso e publicação não aparece nessa folha.'],
+      ['Pergunta do participante','Durante a oficina, a equipe entrega a folha de consulta a um participante para acompanhar a atividade. O participante pergunta oralmente à equipe: “Posso fotografar e publicar esse material?”. O caso não informa qual resposta foi dada.']],
+      limit:'Não sabemos qual resposta foi dada ao participante, se ele fotografou o material ou se houve publicação depois da oficina.'},
     permanencia: {title:'Permanência e Evasão Escolar', records:[
       ['Tabela de pedidos de apoio','Um setor pedagógico fictício entrega à equipe uma tabela com pedidos de apoio separados por período. Todos os dados são inventados e não há nomes.'],
       ['Resumo para a reunião','A equipe prepara um resumo, mas não escreve o período dos pedidos nem de qual tabela retirou as informações.'],
@@ -38,7 +38,7 @@
       ['uso2','Para que essa pessoa precisa da informação?','Se o uso não estiver informado, registre a dúvida.']]},
     {title:'4 · Confiram o desenho que apareceu', note:'O desenho usa o que vocês digitaram. Ele não verifica se a informação é verdadeira. Confiram com a situação do projeto e mantenham as dúvidas visíveis.', fields:[]},
     {title:'5 · Mostrem onde conferiram e o que falta saber', note:'Fonte é o material consultado. Evidência é o trecho que apoia sua resposta. Use o nome do registro, não códigos artificiais.', fields:[
-      ['fonte','Onde vocês conferiram?','Exemplo: “Ficha original” ou “Resumo para a reunião”.'],
+      ['fonte','Onde vocês conferiram?','Exemplo: “Ficha completa da memória” ou “Resumo para a reunião”.'],
       ['evidencia','Que trecho sustenta sua resposta?','Copie ou resuma o trecho que realmente apoia a afirmação.'],
       ['limite','O que ainda não é possível afirmar?','Mostre o limite do material, sem preencher a lacuna por suposição.'],
       ['pergunta','Que pergunta ajudaria a descobrir isso?','Escreva uma pergunta específica e investigável.']]},
@@ -159,10 +159,10 @@
     caseView();if(next!==previousProject&&hasAnswers)window.PpiGuide?.flagProjectChange();
     previousProject=next;$('projeto').classList.remove('error');$('projeto').removeAttribute('aria-invalid');
   });$('validateBtn').addEventListener('click',validate);
-  $('exportPdf').addEventListener('click',()=>{if(!validate())return;const b=$('exportPdf');b.disabled=true;try{if(!window.PpiPdf)throw Error('O gerador não carregou. Recarregue a página depois de guardar uma cópia, ou use a versão de impressão.');const bytes=window.PpiPdf.generate(documentModel());download(bytes,'application/pdf',prefix()+'.pdf');status('PDF formal gerado. Abra o arquivo e confira nomes, projeto, respostas e páginas. Nada foi enviado ao site.');}catch(e){status('Não foi possível gerar o PDF: '+e.message);}finally{b.disabled=false;}});
+  $('exportPdf').addEventListener('click',()=>{if(!validate())return;const b=$('exportPdf');b.disabled=true;try{if(!window.PpiPdf)throw Error('O gerador não carregou. Recarregue a página depois de guardar um rascunho, ou use a versão de impressão.');const bytes=window.PpiPdf.generate(documentModel());download(bytes,'application/pdf',prefix()+'.pdf');status('PDF formal gerado. Abra o arquivo e confira nomes, projeto, respostas e páginas. Nada foi enviado ao site.');}catch(e){status('Não foi possível gerar o PDF: '+e.message);}finally{b.disabled=false;}});
   $('viewDocument').addEventListener('click',showDocument);$('backToForm').addEventListener('click',backToForm);$('printDocument').addEventListener('click',()=>window.print());addEventListener('beforeprint',()=>{renderDocument();$('document-view').hidden=false;});addEventListener('afterprint',()=>{if(!document.body.classList.contains('document-mode'))$('document-view').hidden=true;});
   $('exportMd').addEventListener('click',()=>{download(md(),'text/markdown;charset=utf-8',prefix()+'.md');status('Texto baixado com nomes e respostas. Não é envio de atividade.');});
-  $('exportJson').addEventListener('click',()=>{download(JSON.stringify(snapshot(),null,2),'application/json;charset=utf-8',prefix()+'.json');status('Cópia para continuar depois gerada. Ela contém nomes e respostas: guarde-a com cuidado.');});
+  $('exportJson').addEventListener('click',()=>{download(JSON.stringify(snapshot(),null,2),'application/json;charset=utf-8',prefix()+'.json');status('Rascunho para continuar depois gerado. Ela contém nomes e respostas: guarde-a com cuidado.');});
   $('clearBtn').addEventListener('click',()=>{if(!confirm('Apagar os nomes e as respostas? O que não foi guardado será perdido.'))return;$('worksheet').reset();keys.forEach(k=>$(k).value='');$('members-list').replaceChildren();for(let i=0;i<3;i++)addMember();$('dataAtividade').value=today();document.querySelectorAll('.error').forEach(n=>{n.classList.remove('error');n.removeAttribute('aria-invalid');});previousProject=val('projeto');window.PpiGuide?.clearProjectWarning();caseView();preview();status('Preenchimento apagado. Os dados institucionais continuam fixos.');});
 
   $('importFile').addEventListener('change',async e=>{
@@ -176,9 +176,9 @@
         const id=d.identificacao;if(!id||!Array.isArray(id.componentes)||id.componentes.length>30||id.componentes.some(v=>typeof v!=='string'||v.length>120||/[\r\n]/.test(v))||typeof id.projeto!=='string'||typeof id.data!=='string'||!(id.data===''||dateOK(id.data)))throw Error('Identificação inválida.');
         names=id.componentes;project=Object.hasOwn(PROJETOS,id.projeto)?id.projeto:'';date=id.data||today();if(d.caso&&project&&d.caso!==project)legacyConflict=true;
       } else if(Object.hasOwn(PROJETOS,d.caso)) project=d.caso;
-      if(!confirm('Reabrir esta cópia e substituir os nomes e as respostas atuais?'))return;
+      if(!confirm('Reabrir este rascunho e substituir os nomes e as respostas atuais?'))return;
       keys.forEach(k=>$(k).value=d.campos[k]);$('members-list').replaceChildren();(names.length?names:['','','']).forEach(n=>addMember(n));$('projeto').value=project;$('dataAtividade').value=date;$('taskState').value=d.estado;d.revisao.forEach((v,i)=>$('check'+i).checked=v);document.querySelectorAll('.error').forEach(n=>{n.classList.remove('error');n.removeAttribute('aria-invalid');});previousProject=val('projeto');window.PpiGuide?.clearProjectWarning();caseView();preview();if(legacyConflict)window.PpiGuide?.flagProjectChange();
-      status(legacyConflict?'Cópia antiga reaberta. Ela tinha projeto e caso diferentes; a nova ficha manteve o projeto. Revise as respostas antes de gerar o PDF.':d.schema==='ppi-f01-v1'?'Cópia antiga reaberta. Suas respostas foram preservadas; complete nomes, projeto e data antes de gerar o PDF.':'Cópia reaberta. Confira projeto, nomes e respostas antes de gerar o documento.');
+      status(legacyConflict?'Rascunho antigo reaberto. Ela tinha projeto e caso diferentes; a nova ficha manteve o projeto. Revise as respostas antes de gerar o PDF.':d.schema==='ppi-f01-v1'?'Rascunho antigo reaberto. Suas respostas foram preservadas; complete nomes, projeto e data antes de gerar o PDF.':'Rascunho reaberto. Confira projeto, nomes e respostas antes de gerar o documento.');
     }catch(err){status('Não foi possível reabrir: '+err.message+' Nenhum campo foi alterado.');}finally{e.target.value='';}
   });
   window.ppiWorksheet={snapshot,md,documentModel,validate,renderDocument};

@@ -10,36 +10,36 @@
   const GUIDES = {
     memorias: {
       steps: [
-        '1ª troca · A cópia entregue para consulta',
-        '2ª troca · O que acontece depois da entrega?'
+        '1ª troca · A equipe entrega a folha de consulta',
+        '2ª troca · Um participante pergunta sobre o uso do material'
       ],
       intro: [
-        'Compare a ficha original com a cópia da oficina. Quais informações aparecem na cópia? O texto não identifica quem a preparou ou entregou: registre essa falta, sem inventar uma pessoa.',
-        'Agora procure o que aconteceu depois que a cópia foi entregue. O caso não diz quem leu nem se houve publicação externa. É válido escrever o que não sabemos; não é preciso inventar uma segunda entrega.'
+        'Primeiro acompanhe a entrega do material da oficina. A equipe do projeto prepara uma folha de consulta e a entrega a um participante. Compare essa folha com a ficha completa da memória para perceber qual orientação ficou de fora.',
+        'Depois acompanhe a pergunta do participante à equipe. Ele quer saber se pode fotografar e publicar o material. O caso informa a pergunta, mas não informa a resposta nem o que aconteceu depois.'
       ],
       hints: {
-        recorte:['Retome o problema escolhido na Aula 3 dentro de Memórias Quilombolas. Explique a dificuldade que a equipe quer entender. A falta da orientação de uso na cópia é um ponto para observar nesta atividade, não uma obrigação de trocar o problema da equipe.',[0,1,2],'Nossa equipe quer entender como ...'],
-        origem1:['Leia “Cópia para a oficina”. O texto informa quem preparou ou entregou a cópia? Escreva o papel apenas se ele aparecer no material. “Emissor” sozinho não identifica ninguém.',[2],'O material não informa quem ...'],
-        destino1:['A cópia foi entregue para consulta na oficina. O texto identifica quem a recebeu ou leu? Separe o público a que o material se destina das pessoas que realmente o consultaram.',[2],'A cópia se destina à consulta ...; não sabemos quem ...'],
-        info1:['Compare “Ficha original” e “Cópia para a oficina”. Escreva quais dados aparecem na cópia e qual orientação ficou de fora. “Mensagem” não explica o conteúdo.',[1,2],'Na cópia aparecem ...; nela não aparece ...'],
-        canal1:['Que documento leva essas informações à oficina? Nomeie esse material. O caso não diz se a entrega foi por papel, e-mail ou aplicativo; não escolha um desses meios por conta própria.',[2],'As informações aparecem na ...; a forma de entrega não foi ...'],
-        uso1:['Volte à orientação da ficha original. Em que situação ela permite usar a memória? Indique o uso permitido, sem confundir consulta na oficina com autorização para publicar fora dela.',[1,2],'Segundo a ficha original, a memória pode ser usada para ...'],
-        origem2:['Depois da entrega da cópia, alguém leu ou passou as informações adiante? O caso não identifica essa pessoa nem confirma o repasse. Explique isso em vez de criar um novo emissor.',[2],'Não sabemos se alguém ...'],
-        destino2:['O material confirma que outra pessoa recebeu a memória depois da consulta? Não invente um leitor ou um público de uma publicação que o caso não registra.',[2],'Não sabemos quem ...; o material só informa ...'],
-        info2:['O caso não confirma um repasse posterior. Diga qual parte do caminho ainda precisa ser verificada, sem afirmar que o título, a categoria ou a orientação foram publicados.',[1,2],'Não sabemos se as informações ... foram repassadas.'],
-        canal2:['Há no caso algum meio usado depois da entrega da cópia? Rede social, grupo de mensagens e conversa só podem ser citados como fatos se estiverem no material.',[2],'O caso não informa por qual meio ...'],
-        uso2:['Sabemos o uso permitido na ficha original, mas não a intenção de um possível repasse. Separe a regra de uso do que alguém realmente fez depois.',[1,2],'O uso permitido é ...; sobre um uso posterior, não sabemos ...'],
-        fonte:['Escreva os nomes dos materiais que vocês compararam. Para a orientação de uso, procure a ficha original; para o que chegou à oficina, procure a cópia.',[1,2],'Conferimos em ... e ...'],
-        evidencia:['Mostre a diferença que dá apoio à resposta: o que a ficha original diz sobre uso e o que a cópia não traz. Não acrescente uma consequência, como publicação indevida, que não foi registrada.',[1,2],'A ficha original informa ...; a cópia ...'],
-        limite:['Quais acontecimentos o texto não revela? Pense em quem leu, se houve publicação fora da oficina e quem fez a cópia. Escolha o limite que se relaciona à sua resposta.',[2],'Não é possível afirmar que ... porque o caso não informa ...'],
-        pergunta:['Transforme uma falta de informação em pergunta. Você pode investigar a preparação da cópia, a presença da orientação ou a consulta do material. Não comece supondo que houve divulgação indevida.',[1,2],'Como podemos verificar se ...?'],
-        forca:['Quem revisa deve apontar algo que ficou claro nesta ficha, por exemplo a diferença entre uso permitido e leitura comprovada. Não diga que a revisão aconteceu se ela ainda não foi feita.',[1,2],'Ficou claro que ... / A revisão ainda não foi realizada.'],
-        ajuste:['Peça a quem revisa que confira se alguma frase inventa quem fez a cópia, quem a leu ou uma publicação. Registre a dúvida ou a melhoria realmente indicada pela outra equipe.',[2],'Precisamos explicar melhor ... / A revisão ainda não foi realizada.'],
-        tarefa:['Planejem uma verificação pequena ligada à dúvida: comparar a orientação nos dois materiais ou combinar com o professor como conferir a preparação da cópia. Ainda não é uma tarefa de programar um app.',[1,2],'Vamos conferir ... comparando ...'],
-        responsavel:['Escolham na sua equipe quem registra e quem confere essa verificação. Esse responsável é da atividade de vocês; não é uma pessoa que vocês precisam descobrir no caso.',[],'Quem registra ...; quem confere ...'],
-        quando:['Combinem com a equipe e o professor quando comparar os materiais ou rever a pergunta. Se ainda não combinaram, escrevam “a combinar”; não inventem um prazo.',[],'Vamos conferir ... / O momento ainda será combinado.'],
-        pronto:['Descrevam o que permitirá conferir a tarefa: por exemplo, a comparação registrada com os materiais usados e a dúvida que restou. “Quando terminar” não explica como conferir.',[1,2],'Estará pronto quando conseguirmos mostrar ...'],
-        registro:['Digam o que guardarão: a comparação escrita, uma anotação revisada ou a pergunta combinada. Se ainda vão produzir isso, indiquem que está pendente.',[],'Vamos guardar ...; esse registro ainda está ...']
+        recorte:['Retome o problema que sua equipe escolheu na Aula 3 dentro de Memórias Quilombolas. Explique a dificuldade que vocês querem entender. A situação da oficina abaixo serve apenas para praticar como seguir uma informação; ela não obriga sua equipe a mudar o problema do projeto.',[0,1,2],'Nossa equipe quer entender como ...'],
+        origem1:['Leia “Folha de consulta da oficina”. Quem preparou e entregou esse material? O texto identifica o grupo: use esse papel, em vez de escrever apenas “emissor”.',[1,2],'Quem envia a informação é ...'],
+        destino1:['Leia “Pergunta do participante”. Quem recebeu a folha de consulta para acompanhar a atividade? Registre o papel indicado no texto, sem inventar nome de pessoa.',[2],'A folha de consulta é entregue a ...'],
+        info1:['Compare “Ficha completa da memória” com “Folha de consulta da oficina”. Escreva o que aparece na folha e qual orientação importante não aparece nela.',[0,1],'A folha de consulta mostra ...; nela não aparece ...'],
+        canal1:['Qual material leva essas informações da equipe até o participante? O caso nomeia esse material. Não troque por e-mail, aplicativo ou mensagem.',[1,2],'A informação é passada por meio da ...'],
+        uso1:['Para que o participante recebe a folha? Volte ao trecho “Pergunta do participante”: ela foi entregue para acompanhar a atividade e consultar a memória durante a oficina.',[2],'O participante usa essa informação para ...'],
+        origem2:['Na segunda troca, quem inicia a comunicação? Leia “Pergunta do participante” e identifique quem faz a pergunta.',[2],'Quem inicia a segunda troca é ...'],
+        destino2:['A quem o participante dirige a pergunta sobre fotografar e publicar? Use o grupo indicado no próprio trecho.',[2],'A pergunta é dirigida à ...'],
+        info2:['Escreva o conteúdo da pergunta feita pelo participante. Você pode resumir sem mudar o sentido: ele quer saber se pode fotografar e publicar o material.',[2],'O participante pergunta se ...'],
+        canal2:['Como a pergunta é feita no caso? O texto diz que ela é feita oralmente durante a oficina. Registre esse meio, sem inventar aplicativo ou mensagem.',[2],'A pergunta é feita por meio de ...'],
+        uso2:['Para que o participante faz a pergunta? Ele precisa esclarecer se tem autorização para fotografar e publicar o material.',[0,2],'A pergunta serve para esclarecer se ...'],
+        fonte:['Indique os trechos que vocês realmente usaram. Para comparar conteúdo e orientação, use “Ficha completa da memória” e “Folha de consulta da oficina”; para a segunda troca, use “Pergunta do participante”.',[0,1,2],'Conferimos em ...'],
+        evidencia:['Mostre o trecho que sustenta sua resposta. Uma boa evidência pode comparar o que existe na ficha completa com o que falta na folha de consulta ou citar a pergunta sobre fotografia e publicação.',[0,1,2],'O material informa que ...'],
+        limite:['O caso para em um ponto importante: ele não informa a resposta dada ao participante nem diz se houve fotografia ou publicação depois. Escolha o limite relacionado ao que sua equipe escreveu.',[2],'Não é possível afirmar que ... porque o caso não informa ...'],
+        pergunta:['Transforme o que ficou desconhecido em uma pergunta específica. Por exemplo, investigue qual resposta foi dada ou quais orientações precisam acompanhar um material antes de ser compartilhado.',[0,1,2],'Como podemos verificar ...?'],
+        forca:['Quem revisa deve apontar algo que ficou claro na ficha: por exemplo, a diferença entre o que estava autorizado na ficha completa e o que apareceu na folha de consulta. Se a revisão ainda não ocorreu, registre isso.',[0,1],'Ficou claro que ... / A revisão ainda não foi realizada.'],
+        ajuste:['Peça à outra equipe que confira se os dois fluxos têm atores, informação, meio e finalidade apoiados no caso. Registre uma melhoria concreta; não escreva apenas “está bom”.',[1,2],'Precisamos explicar melhor ... / A revisão ainda não foi realizada.'],
+        tarefa:['Planejem uma próxima verificação ligada ao projeto: listar quais orientações de uso e autorização precisam acompanhar uma memória antes de consulta, fotografia ou publicação. Isso prepara a próxima aula sobre ética e consentimento; ainda não é uma tarefa de programar um app.',[0,1,2],'Vamos verificar quais orientações ...'],
+        responsavel:['Escolham na própria equipe quem registra essa verificação e quem confere. Aqui o responsável é um papel da equipe de vocês, não um personagem da situação fictícia.',[],'Quem registra ...; quem confere ...'],
+        quando:['Combinem com a equipe e o professor quando essa verificação será retomada. Se ainda não combinaram, escrevam “a combinar”; não inventem prazo.',[],'Vamos conferir ... / O momento ainda será combinado.'],
+        pronto:['Definam uma condição que possa ser conferida: por exemplo, a equipe consegue listar as orientações que precisa confirmar e apontar de onde veio cada uma ou qual dúvida continua aberta.',[0,1,2],'Estará pronto quando conseguirmos mostrar ...'],
+        registro:['Digam o que ficará guardado como evidência da próxima tarefa: por exemplo, uma lista revisada de orientações e dúvidas. Se ainda será produzida, marque como pendente.',[],'Vamos guardar ...; esse registro ainda está ...']
       }
     },
     permanencia: {

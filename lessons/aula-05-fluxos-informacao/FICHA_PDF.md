@@ -1,35 +1,33 @@
-# Ficha guiada da equipe — 2.3.0
+# Ficha guiada da equipe — 2.4.0
 
-## O que muda nesta versão
+## Revisão didática do caso de Memórias Quilombolas
 
-A escolha única do projeto controla as orientações dos 22 campos de resposta. Cada campo tem uma dica específica, um painel “Ver trecho e ajuda para escrever”, os registros originais relevantes e um início de frase para o estudante completar. As orientações não preenchem respostas nem entram no PDF.
+O caso de Memórias foi reescrito para ser autoexplicativo. A expressão ambígua “cópia para a oficina” foi eliminada. A situação agora apresenta três registros em sequência:
 
-Os textos dos casos fictícios de Memórias Quilombolas e Permanência e Evasão Escolar foram mantidos literalmente. A ajuda aponta também os limites do material: no caso de Memórias, por exemplo, não são identificados o responsável pela cópia nem os leitores. Não se exige inventar participantes ou um repasse posterior.
+1. **Ficha completa da memória:** contém título, categoria e a orientação de uso.
+2. **Folha de consulta da oficina:** preparada pela equipe do projeto, contém título e categoria, mas não a orientação sobre uso e publicação.
+3. **Pergunta do participante:** a equipe entrega a folha a um participante, que pergunta oralmente se pode fotografar e publicar o material. O caso não informa a resposta.
 
-A seção 4 apresenta cada troca em um cartão: quem envia, conteúdo, meio, destinatário e finalidade. Campos vazios são distinguidos de frases que expressam dúvida. As trocas não são ligadas automaticamente, e as setas não comprovam envio, recebimento ou leitura. O contador informa apenas quantos campos têm texto, não a qualidade das respostas.
+Assim, a primeira troca tem atores e meio explícitos (equipe do projeto → folha de consulta → participante) e a segunda também (participante → pergunta oral → equipe do projeto). O ponto desconhecido foi deslocado para algo pedagogicamente útil: a resposta sobre autorização e o que ocorreu depois.
 
-Expressões genéricas como “emissor”, “receptor”, “mensagem” e “para saber” acionam dicas de escrita por comparação textual simples. Não há nota, correção factual ou inteligência artificial avaliando o conteúdo.
+As 22 dicas de Memórias foram reescritas para apontar diretamente aos três registros, indicar onde procurar cada resposta e impedir que a equipe invente atores, meios ou consequências. A próxima tarefa passa a preparar a Aula 6: verificar quais orientações de uso e autorização precisam acompanhar uma memória antes de consulta, fotografia ou publicação.
 
-Ao mudar de projeto depois de responder, a ficha pede confirmação e preserva o texto, lembrando que a equipe precisa revê-lo. O exemplo preenchido de Horários IFMA continua em outra aba.
+## Linguagem da interface
+
+“Cópia” deixou de ser usada também para o arquivo JSON de continuidade. A interface chama esse arquivo de **rascunho**, evitando que a mesma palavra signifique simultaneamente um artefato do caso e um backup da ficha.
 
 ## O que permanece
 
-Nomes dos componentes, professor e instituição fixos, data local do dispositivo, uma ficha por equipe, exportação PDF/Markdown e cópia JSON. Os identificadores de campo e o schema ppi-f01-v3 são preservados. Rascunhos v1, v2 e v3 podem ser importados.
+A seleção única do projeto continua controlando as dicas. Permanecem os 22 campos guiados, os dois cartões de troca, distinção entre campo vazio e dúvida registrada, integrantes, data local, exemplo preenchido de Horários IFMA, exportação PDF/Markdown e rascunho JSON.
 
-O gerador formal aprovado, extraído sem alterações do HTML da versão anterior, permanece em atividade-pdf.js. Mantém capa, identificação, controle documental, corpo justificado e paginação A4. As dicas não são exportadas como se fossem respostas. O esquema visual da seção 4 auxilia o preenchimento; o PDF mantém os campos textuais do template aprovado.
+O PDF formal permanece com o template aprovado: capa institucional, identificação, controle documental, seções numeradas, texto justificado e paginação A4. As dicas não entram no PDF como respostas dos estudantes.
 
-O PDF direto usa fontes padrão Times-Roman/Times-Bold e caracteres WinAnsi, sem arquivos de fontes distribuídos. Para caracteres não suportados, oferece a versão HTML de impressão sem descartá-los silenciosamente. Não declara conformidade ABNT, PDF/A ou PDF/UA.
+Rascunhos de versões anteriores (schemas v1, v2 e v3) continuam importáveis. O schema permanece `ppi-f01-v3` para não quebrar arquivos já produzidos.
 
-Os arquivos são locais ao site, sem bibliotecas externas, login, armazenamento automático ou envio de nomes e respostas. Guarde a cópia JSON antes de atualizar ou fechar a página. Não publique documentos com nomes em repositórios públicos.
+## Princípio didático adotado
 
-## Organização técnica
+A ficha deve fornecer todo o contexto necessário para que um estudante do 2º ano consiga compreender a situação antes de responder. Uma dúvida do caso deve ser uma **dúvida investigável**, não uma lacuna criada porque o enunciado deixou de explicar quem fez o quê.
 
-Ficha_Equipe_Aula_05_PPI.html carrega ficha.css e, com defer e nesta ordem, atividade-pdf.js, ficha-ajuda.js e ficha.js. A inicialização principal também espera DOMContentLoaded quando necessário, impedindo a regressão que deixava data e integrantes vazios.
+## Verificação desta revisão — 07/10/2026
 
-## Verificação — 07/10/2026
-
-52 verificações locais aprovadas: inicialização e data; adicionar/remover integrantes; seleção única; 22 dicas por projeto; trechos de apoio; ausência de preenchimento automático; dicas para expressões genéricas; dúvidas versus campos vazios; confirmação e cancelamento de troca do projeto; preservação de respostas; exportações reais em PDF, JSON e Markdown; nomes acentuados; professor; importação v1/v2/v3; rejeição de JSON inválido sem alterar campos; texto longo; proteção contra HTML digitado; layouts de 320, 390, 768, 1024 e 1440 px; ausência de exceções JavaScript; casos originais inalterados.
-
-A interface foi renderizada em memória no Chromium, com os mesmos conteúdos de CSS/JS e inicialização após o DOM. O navegador do ambiente bloqueia navegação para URLs externas e localhost; por isso esse teste não equivale a um teste de navegação no site publicado. Downloads por clique foram executados. O PDF de regressão foi extraído e inspecionado visualmente no PyMuPDF. A publicação é verificada separadamente pelos jobs do GitHub Pages.
-
-Os cinco blobs de produção foram comparados aos hashes dos arquivos efetivamente testados antes de integrar ao main.
+Verificações estáticas confirmam: ausência da expressão “cópia para a oficina”; caso de Memórias consistente entre ficha e apresentação; 22 dicas específicas preservadas; sintaxe JavaScript válida; seleção única de projeto; compatibilidade do schema; e linguagem de “rascunho” nos controles de continuidade.
