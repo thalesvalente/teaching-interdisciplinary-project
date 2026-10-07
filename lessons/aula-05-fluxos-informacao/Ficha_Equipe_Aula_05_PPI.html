@@ -73,14 +73,80 @@ body.document-mode>main{display:none}.document-actions{width:min(850px,calc(100%
       '<< /Type /Font /Subtype /Type1 /BaseFont /Times-Bold /Encoding /WinAnsiEncoding /ToUnicode 5 0 R >>'];
     const cmap=unicodeMap();objects.push('<< /Length '+cmap.length+' >>\nstream\n'+cmap+'\nendstream');
     const refs=[];for(const p of pages){const pid=objects.length,cid=pid+1,stream=p.join('\n');refs.push(pid+' 0 R');objects.push('<< /Type /Page /Parent 2 0 R /MediaBox [0 0 '+W+' '+H+'] /Resources << /Font << /R 3 0 R /B 4 0 R >> >> /Contents '+cid+' 0 R >>');objects.push('<< /Length '+stream.length+' >>\nstream\n'+stream+'\nendstream');}
-    objects[2]='<< /Type /Pages /Kids ['+refs.join(' ')+'] /Count '+pages.length+' >>';const info=objects.length;objects.push('<< /Title '+hex(model.title)+' /Creator (PPI I - Ficha 2.1.0) /Producer (Gerador local PPI) >>');
+    objects[2]='<< /Type /Pages /Kids ['+refs.join(' ')+'] /Count '+pages.length+' >>';const info=objects.length;objects.push('<< /Title '+hex(model.title)+' /Creator (PPI I - Ficha 2.1.1) /Producer (Gerador local PPI) >>');
     let pdf='%PDF-1.4\n',offsets=[0];for(let i=1;i<objects.length;i++){offsets[i]=pdf.length;pdf+=i+' 0 obj\n'+objects[i]+'\nendobj\n';}const xref=pdf.length;pdf+='xref\n0 '+objects.length+'\n0000000000 65535 f \n';for(let i=1;i<objects.length;i++)pdf+=String(offsets[i]).padStart(10,'0')+' 00000 n \n';pdf+='trailer\n<< /Size '+objects.length+' /Root 1 0 R /Info '+info+' 0 R >>\nstartxref\n'+xref+'\n%%EOF\n';return new TextEncoder().encode(pdf);
   }
   window.PpiPdf=Object.freeze({generate,version:'2.1.0'});
 })();
 
   </script>
-  <script>
+  
+</head>
+<body>
+<main>
+  <nav aria-label="Voltar"><a href="index.html#s14">← Voltar à Aula 05</a></nav>
+  <header class="form-hero">
+    <p class="kicker">PPI I · Aula 05 · Ficha da equipe</p>
+    <h1>Registro do caminho da informação</h1>
+    <p>Escolham o projeto da equipe, leiam a situação fictícia correspondente e registrem o fluxo sem inventar o que o material não informa.</p>
+  </header>
+
+  <div class="notice"><strong>Seu trabalho fica somente nesta aba.</strong> Nomes e respostas não são enviados ao site, ao GitHub ou ao professor. Não há salvamento automático. Baixe o PDF para entregar pelo meio combinado e guarde uma cópia para continuar depois.</div>
+  <noscript><p class="notice">Ative o JavaScript para preencher a ficha e gerar o documento. Nada precisa ser instalado.</p></noscript>
+
+  <form id="worksheet" novalidate>
+    <section class="panel identification" aria-labelledby="identificacao-title">
+      <div class="section-head">
+        <div><p class="kicker">Antes de responder</p><h2 id="identificacao-title">Identificação da atividade</h2></div>
+        <span class="doc-badge">Documento acadêmico</span>
+      </div>
+
+      <dl class="institution">
+        <div><dt>Instituição</dt><dd>Instituto Federal do Maranhão — Campus Itapecuru-Mirim</dd></div>
+        <div><dt>Curso</dt><dd>Técnico em Informática Integrado ao Ensino Médio</dd></div>
+        <div><dt>Disciplina</dt><dd>Prática Profissional Integrada I — PPI I</dd></div>
+        <div><dt>Aula</dt><dd>05 — Seguir a informação</dd></div>
+        <div><dt>Professor</dt><dd><strong>Prof. Dr. Thales Levi Azevedo Valente</strong></dd></div>
+      </dl>
+
+      <p class="hint">Os dados institucionais e o professor são fixos. Os campos marcados com * são necessários para gerar o PDF.</p>
+
+      <div class="grid">
+        <label class="field" for="equipe"><span>Nome ou número da equipe (opcional)</span><textarea id="equipe" name="equipe" rows="2" maxlength="3000" placeholder="Exemplo: Equipe 2"></textarea></label>
+        <label class="field" for="dataAtividade"><span>Data da atividade *</span><input type="date" id="dataAtividade" name="dataAtividade" required><small>Começa com a data de hoje no dispositivo. Corrija se necessário.</small></label>
+        <label class="field span-2" for="projeto"><span>Projeto analisado *</span>
+          <select id="projeto" name="projeto" required>
+            <option value="">Selecione o projeto da equipe</option>
+            <option value="memorias">Mapa de Memórias Quilombolas</option>
+            <option value="permanencia">Permanência e Evasão Escolar</option>
+          </select>
+          <small>Esta única escolha define também a situação fictícia usada na ficha. O exemplo dos Jogos Interclasse permanece apenas nos slides da aula.</small>
+        </label>
+      </div>
+
+      <fieldset class="members"><legend>Componentes da equipe *</legend><p class="hint" id="members-hint">Preencha o nome completo de cada integrante. Há três campos iniciais; use quantos precisar. Campos vazios serão ignorados.</p><div id="members-list"></div><button type="button" class="secondary" id="addMember">+ Adicionar componente</button><p class="hint" id="members-status" aria-live="polite"></p></fieldset>
+    </section>
+
+    <div id="activity-sections"></div>
+
+    <section class="panel save-panel" id="save-panel" aria-labelledby="save-title">
+      <div class="section-head"><div><p class="kicker">Entrega</p><h2 id="save-title">8 · Guardem o trabalho</h2></div><span class="doc-badge green">PDF formal</span></div>
+      <p><strong>Para entregar:</strong> confira o preenchimento e clique em <strong>Gerar PDF formal</strong>. O documento sai com capa, identificação, controle do documento, seções numeradas, texto justificado e paginação.</p>
+      <p class="hint">O PDF é montado localmente no navegador. Não é uma captura da ficha e não envia seus dados para nenhum serviço.</p>
+      <div class="actions"><button type="button" id="validateBtn" class="secondary">Conferir preenchimento</button><button type="button" id="exportPdf">Gerar PDF formal</button><button type="button" id="viewDocument" class="secondary">Ver versão de impressão</button></div>
+      <div class="actions"><button type="button" id="exportJson" class="secondary">Guardar cópia para continuar depois</button><button type="button" id="exportMd" class="secondary">Baixar texto da atividade</button><button type="button" id="clearBtn" class="secondary danger">Apagar o preenchimento</button></div>
+      <p role="status" aria-live="polite" id="status">Preencha a identificação e as respostas. O caso exibido é fictício e serve apenas para a atividade.</p>
+      <div id="import-section"><label for="importFile">Reabrir uma cópia guardada desta ficha</label><input type="file" id="importFile" accept=".json,application/json"><p class="hint">Cópias antigas também podem ser abertas. Se uma versão antiga tiver “projeto” e “caso” diferentes, a nova ficha manterá o projeto e pedirá que a equipe confira as respostas.</p></div>
+    </section>
+  </form>
+<footer class="footer">PPI I · IFMA Campus Itapecuru-Mirim · Aula 05 · Ficha 2.1.1.</footer>
+</main>
+
+<section id="document-view" hidden aria-label="Documento da atividade">
+  <div class="document-actions"><button type="button" id="backToForm">← Voltar à ficha</button><button type="button" id="printDocument">Imprimir / salvar como PDF</button><p>Essa é a versão visual de impressão. Para paginação mais previsível, prefira <strong>Gerar PDF formal</strong>.</p></div>
+  <article id="document-content"></article>
+</section>
+<script>
 /* Ficha da equipe 2.1.0. Sem rede, cookies, armazenamento persistente ou envio de respostas. */
 (() => {
   'use strict';
@@ -251,72 +317,5 @@ body.document-mode>main{display:none}.document-actions{width:min(850px,calc(100%
 })();
 
   </script>
-</head>
-<body>
-<main>
-  <nav aria-label="Voltar"><a href="index.html#s14">← Voltar à Aula 05</a></nav>
-  <header class="form-hero">
-    <p class="kicker">PPI I · Aula 05 · Ficha da equipe</p>
-    <h1>Registro do caminho da informação</h1>
-    <p>Escolham o projeto da equipe, leiam a situação fictícia correspondente e registrem o fluxo sem inventar o que o material não informa.</p>
-  </header>
-
-  <div class="notice"><strong>Seu trabalho fica somente nesta aba.</strong> Nomes e respostas não são enviados ao site, ao GitHub ou ao professor. Não há salvamento automático. Baixe o PDF para entregar pelo meio combinado e guarde uma cópia para continuar depois.</div>
-  <noscript><p class="notice">Ative o JavaScript para preencher a ficha e gerar o documento. Nada precisa ser instalado.</p></noscript>
-
-  <form id="worksheet" novalidate>
-    <section class="panel identification" aria-labelledby="identificacao-title">
-      <div class="section-head">
-        <div><p class="kicker">Antes de responder</p><h2 id="identificacao-title">Identificação da atividade</h2></div>
-        <span class="doc-badge">Documento acadêmico</span>
-      </div>
-
-      <dl class="institution">
-        <div><dt>Instituição</dt><dd>Instituto Federal do Maranhão — Campus Itapecuru-Mirim</dd></div>
-        <div><dt>Curso</dt><dd>Técnico em Informática Integrado ao Ensino Médio</dd></div>
-        <div><dt>Disciplina</dt><dd>Prática Profissional Integrada I — PPI I</dd></div>
-        <div><dt>Aula</dt><dd>05 — Seguir a informação</dd></div>
-        <div><dt>Professor</dt><dd><strong>Prof. Dr. Thales Levi Azevedo Valente</strong></dd></div>
-      </dl>
-
-      <p class="hint">Os dados institucionais e o professor são fixos. Os campos marcados com * são necessários para gerar o PDF.</p>
-
-      <div class="grid">
-        <label class="field" for="equipe"><span>Nome ou número da equipe (opcional)</span><textarea id="equipe" name="equipe" rows="2" maxlength="3000" placeholder="Exemplo: Equipe 2"></textarea></label>
-        <label class="field" for="dataAtividade"><span>Data da atividade *</span><input type="date" id="dataAtividade" name="dataAtividade" required><small>Começa com a data de hoje no dispositivo. Corrija se necessário.</small></label>
-        <label class="field span-2" for="projeto"><span>Projeto analisado *</span>
-          <select id="projeto" name="projeto" required>
-            <option value="">Selecione o projeto da equipe</option>
-            <option value="memorias">Mapa de Memórias Quilombolas</option>
-            <option value="permanencia">Permanência e Evasão Escolar</option>
-          </select>
-          <small>Esta única escolha define também a situação fictícia usada na ficha. O exemplo dos Jogos Interclasse permanece apenas nos slides da aula.</small>
-        </label>
-      </div>
-
-      <fieldset class="members"><legend>Componentes da equipe *</legend><p class="hint" id="members-hint">Preencha o nome completo de cada integrante. Há três campos iniciais; use quantos precisar. Campos vazios serão ignorados.</p><div id="members-list"></div><button type="button" class="secondary" id="addMember">+ Adicionar componente</button><p class="hint" id="members-status" aria-live="polite"></p></fieldset>
-    </section>
-
-    <div id="activity-sections"></div>
-
-    <section class="panel save-panel" id="save-panel" aria-labelledby="save-title">
-      <div class="section-head"><div><p class="kicker">Entrega</p><h2 id="save-title">8 · Guardem o trabalho</h2></div><span class="doc-badge green">PDF formal</span></div>
-      <p><strong>Para entregar:</strong> confira o preenchimento e clique em <strong>Gerar PDF formal</strong>. O documento sai com capa, identificação, controle do documento, seções numeradas, texto justificado e paginação.</p>
-      <p class="hint">O PDF é montado localmente no navegador. Não é uma captura da ficha e não envia seus dados para nenhum serviço.</p>
-      <div class="actions"><button type="button" id="validateBtn" class="secondary">Conferir preenchimento</button><button type="button" id="exportPdf">Gerar PDF formal</button><button type="button" id="viewDocument" class="secondary">Ver versão de impressão</button></div>
-      <div class="actions"><button type="button" id="exportJson" class="secondary">Guardar cópia para continuar depois</button><button type="button" id="exportMd" class="secondary">Baixar texto da atividade</button><button type="button" id="clearBtn" class="secondary danger">Apagar o preenchimento</button></div>
-      <p role="status" aria-live="polite" id="status">Preencha a identificação e as respostas. O caso exibido é fictício e serve apenas para a atividade.</p>
-      <div id="import-section"><label for="importFile">Reabrir uma cópia guardada desta ficha</label><input type="file" id="importFile" accept=".json,application/json"><p class="hint">Cópias antigas também podem ser abertas. Se uma versão antiga tiver “projeto” e “caso” diferentes, a nova ficha manterá o projeto e pedirá que a equipe confira as respostas.</p></div>
-    </section>
-  </form>
-
-  <aside class="panel"><h2>Bilhete individual — fora da ficha coletiva</h2><p>Cada integrante responde em seu caderno ou bilhete: um trecho do fluxo; uma fonte e seu limite; sua contribuição real e uma pergunta.</p></aside>
-  <footer class="footer">PPI I · IFMA Campus Itapecuru-Mirim · Aula 05 · Ficha 2.1.0.</footer>
-</main>
-
-<section id="document-view" hidden aria-label="Documento da atividade">
-  <div class="document-actions"><button type="button" id="backToForm">← Voltar à ficha</button><button type="button" id="printDocument">Imprimir / salvar como PDF</button><p>Essa é a versão visual de impressão. Para paginação mais previsível, prefira <strong>Gerar PDF formal</strong>.</p></div>
-  <article id="document-content"></article>
-</section>
 </body>
 </html>
