@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <meta name="description" content="Portal de materiais de Prática Profissional Integrada I do IFMA Campus Itapecuru-Mirim. Acesse as aulas em PDF e as orientações de uso.">
+  <meta name="description" content="Portal de Prática Profissional Integrada I do IFMA Campus Itapecuru-Mirim. Aulas em PDF e HTML interativo, com atividades e orientações de uso.">
   <title>PPI I · Prática Profissional Integrada · IFMA</title>
   <style>
     :root{--green:#006b3c;--green-dark:#004a2a;--blue:#2573a1;--red:#c71e28;--amber:#95620e;--ink:#21342a;--muted:#586b60;--line:#d3e2d8;--bg:#eef4f0;--paper:#fff;--soft:#f6faf7}
@@ -70,8 +70,8 @@
       <div>
         <p class="eyebrow">PPI I · Portal de materiais</p>
         <h1>Prática Profissional Integrada I</h1>
-        <p class="lead">As aulas da disciplina em um só lugar. Escolha o material, abra o PDF e acompanhe seu percurso de estudo.</p>
-        <div class="hero-actions"><a class="btn" href="#aulas">Explorar as aulas <span aria-hidden="true">↓</span></a><a class="btn secondary" href="#ajuda">Como usar o portal</a></div>
+        <p class="lead">As aulas da disciplina em um só lugar. Abra os materiais em PDF ou explore as aulas interativas diretamente no navegador.</p>
+        <div class="hero-actions"><a class="btn" href="./lessons/aula-05-fluxos-informacao/">Abrir Aula 05 interativa <span aria-hidden="true">→</span></a><a class="btn secondary" href="#aulas">Explorar as aulas</a></div>
       </div>
       <aside class="journey" aria-labelledby="percurso-title">
         <h2 id="percurso-title">Seu percurso nas aulas</h2>
@@ -80,13 +80,14 @@
           <li><a href="#aula-02"><b aria-hidden="true">02</b><span>Da observação ao problema</span></a></li>
           <li><a href="#aula-03"><b aria-hidden="true">03</b><span>Escolher para investigar</span></a></li>
           <li><a href="#aula-04"><b aria-hidden="true">04</b><span>Processo, papéis e marcos</span></a></li>
+          <li><a href="#aula-05"><b aria-hidden="true">05</b><span>Seguir a informação</span></a></li>
         </ol>
       </aside>
     </div>
   </header>
   <main class="wrap" id="conteudo">
     <section id="aulas" aria-labelledby="aulas-title">
-      <div class="section-intro"><div><h2 id="aulas-title">Aulas disponíveis</h2><p>Abra para estudar agora ou baixe para consultar depois.</p></div><span class="format">Materiais em PDF</span></div>
+      <div class="section-intro"><div><h2 id="aulas-title">Aulas disponíveis</h2><p>Abra para estudar agora ou guarde o material para consultar depois.</p></div><span class="format">PDF + HTML interativo</span></div>
       <div class="searchbar" id="searchbar" hidden>
         <div class="searchfield"><label for="busca">Encontre uma aula</label><input type="search" id="busca" placeholder="Digite o número ou uma palavra do título" autocomplete="off" aria-controls="lesson-grid"></div>
         <button class="btn secondary" type="button" id="limpar" disabled>Limpar busca</button>
@@ -117,6 +118,12 @@
           <p>Retome a aula sobre processo, papéis e marcos do trabalho.</p>
           <div class="actions"><a class="btn" href="./lessons/4-processo-papeis-marco.pdf" aria-label="Abrir aula 04 em PDF">Abrir aula <span aria-hidden="true">→</span></a><a class="btn secondary" href="./lessons/4-processo-papeis-marco.pdf" download aria-label="Baixar PDF da aula 04">Baixar PDF</a></div>
         </article>
+        <article class="card" id="aula-05" data-search="aula 5 aula 05 seguir informacao fluxos dados observacao interclasse oficina interativa ficha">
+          <div class="card-header"><span class="lesson-number">AULA 05</span><span class="filetype">HTML INTERATIVO</span></div>
+          <h3>Seguir a informação</h3>
+          <p>Observe fluxos de informação e dados com um simulador, perguntas comentadas e uma oficina. Acesse a ficha da equipe para registrar o caminho da informação.</p>
+          <div class="actions"><a class="btn" href="./lessons/aula-05-fluxos-informacao/" aria-label="Abrir aula 05 interativa">Abrir aula interativa <span aria-hidden="true">→</span></a><a class="btn secondary" href="./lessons/aula-05-fluxos-informacao/Ficha_Equipe_Aula_05_PPI.html">Ficha da equipe</a></div>
+        </article>
       </div>
       <div class="empty" id="empty" hidden><h3>Nenhuma aula encontrada</h3><p>Tente outra palavra ou use “Limpar busca” para mostrar todos os materiais.</p></div>
     </section>
@@ -124,13 +131,15 @@
       <div class="section-intro"><div><p class="eyebrow">Guia rápido</p><h2 id="ajuda-title">Como usar os materiais</h2><p>Três passos para encontrar, consultar e guardar a aula.</p></div></div>
       <div class="help-grid">
         <article><span class="help-number">PASSO 01</span><h3>Encontre a aula</h3><p>Use o número e o título dos cartões. Os atalhos no início da página também levam a cada material.</p></article>
-        <article><span class="help-number">PASSO 02</span><h3>Abra o material</h3><p>Toque em <strong>Abrir aula</strong> para acessar o PDF. Ao terminar, use o botão de voltar do navegador para retornar ao portal.</p></article>
-        <article><span class="help-number">PASSO 03</span><h3>Guarde para depois</h3><p>Use <strong>Baixar PDF</strong> para salvar o arquivo no seu dispositivo e consultar o material sem depender deste site.</p></article>
+        <article><span class="help-number">PASSO 02</span><h3>Abra o material</h3><p>Toque em <strong>Abrir aula</strong> para acessar o PDF ou em <strong>Abrir aula interativa</strong> para navegar pelos slides e experimentar as atividades no navegador.</p></article>
+        <article><span class="help-number">PASSO 03</span><h3>Guarde para depois</h3><p>Nos PDFs, use <strong>Baixar PDF</strong>. Na aula interativa, use <strong>Imprimir</strong> para gerar uma cópia estática. Na ficha, baixe o rascunho ou a cópia JSON antes de fechar a aba.</p></article>
       </div>
       <div class="faq">
         <details><summary>O PDF não abriu dentro do navegador. E agora?</summary><p>Use <strong>Baixar PDF</strong> e abra o arquivo salvo em um leitor de PDF. Dependendo da configuração do dispositivo, o botão “Abrir aula” também pode iniciar o download em vez de mostrar o documento.</p></details>
+        <details><summary>Como uso a Aula 05 interativa?</summary><p>Abra a aula pelo cartão ou pelo botão no início do portal. Use as setas e o <strong>Índice</strong>; clique nas alternativas e no simulador para experimentar. Em telas pequenas, o <strong>Modo leitura</strong> apresenta o conteúdo na vertical. O botão <strong>← Portal</strong> retorna a esta página.</p></details>
+        <details><summary>Preencher a ficha envia minha atividade?</summary><p>Não. A ficha funciona no seu navegador, sem login nem envio ao professor. Baixe o rascunho em Markdown ou a cópia JSON antes de fechar. A entrega continua pelo meio combinado em aula.</p></details>
         <details><summary>Onde estão as atividades e as orientações de entrega?</summary><p>Consulte o material da aula e as orientações do professor. Este portal organiza o acesso aos arquivos; ele não altera atividades, prazos ou critérios de avaliação.</p></details>
-        <details><summary>Preciso usar Git para abrir as aulas?</summary><p>Não. Os botões deste portal levam diretamente aos PDFs. Não é preciso clonar o repositório para consultar ou baixar os materiais.</p></details>
+        <details><summary>Preciso usar Git para abrir as aulas?</summary><p>Não. Os botões levam diretamente aos PDFs, à apresentação interativa ou à ficha digital. Não é preciso clonar o repositório nem baixar um ZIP para acompanhar a aula no site.</p></details>
       </div>
       <p class="reminder"><strong>Um lugar para consultar, não para enviar trabalhos.</strong> Esta página não recebe entregas nem registra notas.</p>
     </section>
