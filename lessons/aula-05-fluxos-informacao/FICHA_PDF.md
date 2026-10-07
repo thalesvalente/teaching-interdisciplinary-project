@@ -1,39 +1,35 @@
-# Ficha guiada da equipe — 2.5.0
+# Ficha guiada da equipe — 2.6.0
 
-## Caso de Memórias Quilombolas
+## Vocabulário didático único
 
-O exercício de Memórias passa a usar um **evento histórico documentado**: a fundação da Associação de Mulheres de Itamatatiua, em 1989.
+A Aula 05 usa os mesmos cinco termos nos slides, na ficha, no esquema visual, no PDF e no exemplo preenchido:
 
-A fonte pública utilizada é o cadastro MuseusBr da Associação de Mulheres de Itamatatiua. O cadastro informa que a associação foi fundada em 1989, teve origem na união das mulheres no então chamado clube de mães e se relaciona à discussão de assuntos da vida comunitária e à organização da produção cerâmica.
+1. **ORIGEM — De onde vem a informação?**
+2. **INFORMAÇÃO — O que está sendo informado?**
+3. **MEIO — Em que material ou canal a informação aparece?**
+4. **DESTINO — Onde a informação chega ou passa a ser usada?**
+5. **FINALIDADE — Para que a informação serve nesta etapa?**
 
-A ficha distingue explicitamente duas camadas:
+Origem e destino não pressupõem pessoas. A origem pode ser uma página, documento, tabela, setor, grupo ou pessoa. O destino pode ser uma ficha, mapa, reunião, sistema, equipe, setor ou pessoa.
 
-- **fato histórico documentado:** o que a fonte pública sustenta;
-- **fluxo de trabalho simulado:** como uma equipe poderia transformar a fonte em uma entrada para o Mapa de Memórias e revisar a redação antes de considerá-la pronta.
+## Mudanças pedagógicas
 
-A primeira troca acompanha a informação da fonte pública até a equipe do projeto. A segunda acompanha o registro preparado pela equipe até outro integrante responsável pela revisão.
+- “Quem envia?” e “Para quem?” deixam de ser os rótulos centrais.
+- “Troca” é substituída por “etapa do caminho” quando o conceito envolve documentos, fontes ou sistemas.
+- A ficha apresenta uma legenda visual com os cinco termos antes da atividade.
+- O esquema automático usa os mesmos rótulos.
+- Dicas de Memórias e Permanência explicam origem e destino sem obrigar o aluno a imaginar pessoas.
+- O exemplo preenchido de Horários IFMA usa o mesmo vocabulário.
+- Os slides 5, 15, 16, 17, 20 e 22 foram alinhados.
 
-O limite didático é proposital: a fonte usada não informa, nesse trecho, o dia e o mês exatos da fundação nem permite afirmar que a finalidade exclusiva da associação era comercial. A ficha ensina o estudante a registrar esse limite e a buscar outra fonte quando precisar de detalhe adicional.
+## Memórias Quilombolas
 
-## Mudanças de linguagem
+Permanece o evento histórico documentado da Associação de Mulheres de Itamatatiua, fundada em 1989, com fonte MuseusBr. O fato histórico é documentado; o fluxo de trabalho da equipe é simulado.
 
-O campo “Quem envia a informação?” passa a aceitar explicitamente pessoas, grupos, setores ou fontes documentais: **“Quem ou qual fonte fornece a informação?”**. No esquema, o rótulo é **“Origem da informação”**.
-
-A interface deixa de chamar todos os casos de “situações fictícias”. Agora identifica:
-
-- Memórias Quilombolas: fato histórico documentado + fluxo de trabalho simulado;
-- Permanência e Evasão: situação fictícia sem dados pessoais;
-- Jogos Interclasse: simulação usada nos slides;
-- Horários IFMA: projeto real usado como exemplo preenchido.
-
-## Fonte
-
-MuseusBr. Associação de Mulheres de Itamatatiua. https://cadastro.museus.gov.br/pontos-de-memoria/associacao-de-mulheres-de-itamatatiua/
-
-Consulta usada para a revisão didática em 07/10/2026.
+Fonte: https://cadastro.museus.gov.br/pontos-de-memoria/associacao-de-mulheres-de-itamatatiua/
 
 ## Compatibilidade
 
-Mantidos: seleção única de projeto, 22 campos guiados, integrantes, data local, rascunho JSON (schema ppi-f01-v3), importação de versões anteriores, exportação Markdown e PDF formal.
+Os IDs internos dos campos (origem1, destino1 etc.) e o schema ppi-f01-v3 foram preservados para manter rascunhos antigos importáveis. Mudou apenas a linguagem apresentada ao estudante.
 
-O PDF continua com capa institucional, identificação, controle documental, seções numeradas, texto justificado e paginação A4.
+O template PDF formal permanece o mesmo; os novos rótulos aparecem automaticamente nas seções exportadas.

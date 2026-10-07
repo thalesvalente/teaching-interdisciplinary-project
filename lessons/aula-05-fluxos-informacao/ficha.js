@@ -1,5 +1,5 @@
 
-/* Ficha da equipe 2.5.0. Sem rede, cookies, armazenamento persistente ou envio de respostas. */
+/* Ficha da equipe 2.6.0. Sem rede, cookies, armazenamento persistente ou envio de respostas. */
 (() => {
   'use strict';
   function init(){
@@ -24,19 +24,19 @@
   };
   const GROUPS = [
     {title:'1 · Retomem o projeto da equipe', fields:[['recorte','Que problema sua equipe está investigando?','Retome o foco escolhido na Aula 3. Não precisa escolher uma tecnologia.']]},
-    {title:'2 · Primeira troca de informação', note:'Comecem por uma troca que aparece na situação fictícia do projeto: quem envia, o que envia e para quem.', fields:[
-      ['origem1','Quem ou qual fonte fornece a informação?','Pode ser uma pessoa, um grupo, um setor ou uma fonte documental.'],
-      ['info1','Qual é a informação?','Escreva o conteúdo do recado com o contexto necessário.'],
-      ['canal1','Por onde a informação passa?','Esse meio é o canal. Exemplos: mensagem, documento ou mural.'],
-      ['destino1','Quem recebe ou usa essa informação nesta etapa?','Identifique quem recebe, consulta ou utiliza a informação neste ponto do fluxo.'],
-      ['uso1','Para que essa informação será usada?','Explique qual compreensão, registro, ação ou decisão ela apoia.']]},
-    {title:'3 · A próxima parte do caminho', note:'Acompanhem a informação adiante. Se a situação não contar essa parte, marquem o que falta descobrir. Não inventem a ligação.', fields:[
-      ['origem2','Quem fornece a informação na segunda etapa?','Procure quem produz, apresenta ou repassa a informação nessa etapa.'],
-      ['info2','O que é passado adiante?','Compare: a informação continua completa ou perdeu contexto?'],
-      ['canal2','Por qual meio?','Não invente um meio que o material não apresenta.'],
-      ['destino2','Quem recebe ou usa essa informação na segunda etapa?','Registre quem recebe, revisa ou utiliza a informação nessa etapa.'],
-      ['uso2','Para que essa informação será usada na segunda etapa?','Explique a finalidade dessa etapa; se ela não estiver informada, registre a dúvida.']]},
-    {title:'4 · Confiram o desenho que apareceu', note:'O desenho usa o que vocês digitaram. Ele não verifica se a informação é verdadeira. Confiram com a situação do projeto e mantenham as dúvidas visíveis.', fields:[]},
+    {title:'2 · Etapa 1 do caminho da informação', note:'Preencham cinco partes: origem, informação, meio, destino e finalidade. Nem sempre a origem ou o destino são pessoas.', fields:[
+      ['origem1','ORIGEM — De onde vem a informação?','Pode vir de uma página, documento, tabela, setor, grupo ou pessoa.'],
+      ['info1','INFORMAÇÃO — O que está sendo informado?','Escreva o conteúdo que importa nesta etapa, com contexto suficiente para ser entendido.'],
+      ['canal1','MEIO — Em que material ou canal a informação aparece?','Exemplos: página web, PDF, tabela, mensagem, fala, ficha, mural ou sistema.'],
+      ['destino1','DESTINO — Onde a informação chega ou é usada?','Pode ser uma equipe, ficha, mapa, reunião, sistema, setor ou pessoa.'],
+      ['uso1','FINALIDADE — Para que a informação serve nesta etapa?','Explique o que essa informação permite compreender, registrar, conferir ou decidir.']]},
+    {title:'3 · Etapa 2 do caminho da informação', note:'Acompanhem o que acontece depois. Usem os mesmos cinco elementos. Se faltar algo no material, registrem a dúvida em vez de inventar.', fields:[
+      ['origem2','ORIGEM — De onde vem a informação nesta segunda etapa?','Pode vir de um registro criado na etapa anterior, de uma fonte, documento, setor, grupo ou pessoa.'],
+      ['info2','INFORMAÇÃO — O que está sendo informado nesta etapa?','Escreva o conteúdo que circula agora. Compare se ele continua completo ou perdeu contexto.'],
+      ['canal2','MEIO — Em que material ou canal ela aparece nesta etapa?','Use apenas o meio que aparece no material: página, ficha, tabela, resumo, mensagem, fala, reunião etc.'],
+      ['destino2','DESTINO — Onde a informação chega ou é usada nesta etapa?','Pode ser uma revisão, reunião, ficha, mapa, sistema, setor, equipe ou pessoa.'],
+      ['uso2','FINALIDADE — Para que a informação serve nesta etapa?','Explique a finalidade desta etapa. Se ela não estiver informada, registre a dúvida.']]},
+    {title:'4 · Confiram o esquema que apareceu', note:'O esquema organiza origem, informação, meio, destino e finalidade. Ele não verifica se a resposta está certa: comparem com a fonte e mantenham as dúvidas visíveis.', fields:[]},
     {title:'5 · Mostrem onde conferiram e o que falta saber', note:'Fonte é o material consultado. Evidência é o trecho que apoia sua resposta. Use o nome do registro, não códigos artificiais.', fields:[
       ['fonte','Onde vocês conferiram?','Exemplo: “Ficha completa da memória” ou “Resumo para a reunião”.'],
       ['evidencia','Que trecho sustenta sua resposta?','Copie ou resuma o trecho que realmente apoia a afirmação.'],
@@ -53,7 +53,7 @@
       ['registro','O que ficará guardado como registro?','Exemplo: uma anotação revisada. Se ainda não foi feita, escreva “a fazer”.']]}
   ];
   const CHECKS = [
-    'O desenho mostra quem envia, qual informação, por onde, para quem e para quê.',
+    'O esquema mostra origem, informação, meio, destino e finalidade.',
     'Há duas partes do caminho; o que não sabemos ficou marcado.',
     'Indicamos o material usado como fonte.',
     'Escrevemos um limite e uma pergunta para investigar.',
@@ -122,8 +122,8 @@
   function documentModel(){
     const s=snapshot(),id=s.identificacao,sections=[];
     sections.push({title:'1. Ponto de partida',items:[['Problema investigado',s.campos.recorte]]});
-    sections.push({title:'2. Primeira troca de informação',items:GROUPS[1].fields.map(([k,l])=>[l,s.campos[k]])});
-    sections.push({title:'3. Próxima parte do caminho',items:GROUPS[2].fields.map(([k,l])=>[l,s.campos[k]])});
+    sections.push({title:'2. Etapa 1 do caminho da informação',items:GROUPS[1].fields.map(([k,l])=>[l,s.campos[k]])});
+    sections.push({title:'3. Etapa 2 do caminho da informação',items:GROUPS[2].fields.map(([k,l])=>[l,s.campos[k]])});
     sections.push({title:'4. Fontes, evidências e dúvidas',items:GROUPS[4].fields.map(([k,l])=>[l,s.campos[k]])});
     sections.push({title:'5. Revisão por pares',items:[...GROUPS[5].fields.map(([k,l])=>[l,s.campos[k]]),...CHECKS.map((c,i)=>['Critério '+(i+1),c+'\nSituação: '+(s.revisao[i]?'conferido pela equipe revisora.':'não marcado como conferido.')])]});
     sections.push({title:'6. Próxima tarefa da equipe',items:[...GROUPS[6].fields.map(([k,l])=>[l,s.campos[k]]),['Situação no quadro',s.estado]]});

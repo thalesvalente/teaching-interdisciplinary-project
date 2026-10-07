@@ -1,5 +1,5 @@
 
-/* Gerador local de PDF 1.4 para a ficha PPI 2.5.0.
+/* Gerador local de PDF 1.4 para a ficha PPI 2.6.0.
    Documento vetorial A4, sem captura de tela, fontes externas, rede ou execução de conteúdo do usuário. */
 (() => {
   "use strict";
