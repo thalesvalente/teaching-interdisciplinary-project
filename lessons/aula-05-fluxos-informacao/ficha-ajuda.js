@@ -48,7 +48,7 @@
         'Etapa 2 · A equipe prepara o resumo para a reunião'
       ],
       intro: [
-        'Leia “Tabela de pedidos de apoio”. Localize o grupo que entrega os dados, o material entregue e quem o recebe. Descreva essa primeira troca; não invente quantidade de pedidos ou nomes de estudantes.',
+        'Leia “Tabela de pedidos de apoio”. Localize a ORIGEM dos dados, qual informação a tabela contém, o MEIO usado e o DESTINO onde esses dados passam a ser usados. Não invente quantidade de pedidos ou nomes de estudantes.',
         'Agora leia “Resumo para a reunião” e “Pergunta durante a reunião”. Compare a tabela e o resumo: o que deixou de aparecer? O caso não informa qual decisão foi tomada depois.'
       ],
       hints: {
@@ -62,7 +62,7 @@
         destino2:['DESTINO é onde o resumo será usado: a reunião. Não é necessário inventar o nome ou cargo de quem participa.',[1,2],'O destino do resumo é ...'],
         info2:['Compare tabela e resumo. Qual assunto o resumo apresenta? Que duas informações o trecho diz que foram deixadas de fora? Escreva essa diferença.',[0,1],'O resumo apresenta ...; nele não aparecem ...'],
         canal2:['Qual documento leva a informação à discussão da reunião? Não invente slides, aplicativo, projeção ou papel, pois o caso não descreve o formato do resumo.',[1,2],'A informação aparece no ...'],
-        uso2:['A pergunta “A que período esse resumo se refere?” mostra o que uma pessoa precisa entender. Relacione o resumo a essa consulta, mas não afirme uma decisão ou efeito que o texto não conta.',[2],'O resumo serve para consultar ...; não sabemos qual decisão ...'],
+        uso2:['A pergunta “A que período esse resumo se refere?” ajuda a identificar a FINALIDADE do resumo: permitir que a informação seja compreendida na reunião. Não afirme uma decisão ou efeito que o texto não conta.',[2],'O resumo serve para ...; não sabemos qual decisão ...'],
         fonte:['Para comparar os dados e o contexto que falta, indique “Tabela de pedidos de apoio” e “Resumo para a reunião”. Cite a pergunta da reunião quando sua resposta tratar da dúvida sobre o período.',[0,1,2],'Conferimos nos trechos ...'],
         evidencia:['Qual frase prova que o resumo perdeu contexto? Localize o que foi omitido e a pergunta feita durante a reunião. Isso não prova que a reunião tomou uma decisão errada.',[1,2],'O trecho ... diz que ...'],
         limite:['O caso conta a decisão da reunião, os motivos dos pedidos ou o efeito sobre a permanência? Separe a falta de contexto observada desses acontecimentos que não são informados.',[1,2],'Não podemos concluir ... porque ...'],
