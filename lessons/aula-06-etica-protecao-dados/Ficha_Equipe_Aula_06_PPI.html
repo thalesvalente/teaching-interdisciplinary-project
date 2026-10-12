@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="referrer" content="no-referrer">
+<title>Ficha da equipe · Aula 06 · PPI I</title>
+<link rel="stylesheet" href="ficha.css?v=1.0.0">
+<script defer src="atividade-pdf.js?v=1.0.0"></script>
+<script defer src="ficha.js?v=1.0.0"></script>
+</head>
+<body>
+<main>
+<nav aria-label="Voltar"><a href="index.html#s16">← Voltar à Aula 06</a></nav>
+<header class="form-hero">
+<p class="kicker">PPI I · Aula 06 · Ficha da equipe</p>
+<h1>Protocolo Ético e Matriz de Riscos</h1>
+<p>Antes de usar qualquer dado, a equipe registra <strong>necessidade, identificação, sensibilidade, autorização, proveniência e riscos</strong>. A ficha orienta o preenchimento conforme o projeto escolhido.</p>
+<div class="actions example-actions"><a class="button secondary" href="exemplo-preenchido.html" target="_blank" rel="noopener">Ver exemplo preenchido ↗</a><span class="hint">Abre em outra aba e não altera sua ficha.</span></div>
+<nav aria-label="Etapas da ficha" class="guide-nav"><a href="#part-1">1. Informação</a><a href="#part-2">2. Classificação</a><a href="#part-3">3. Autorização</a><a href="#part-4">4. Proveniência</a><a href="#part-5">5. Riscos</a><a href="#part-6">6. Protocolo</a></nav>
+</header>
+
+<div class="notice"><strong>Regra desta aula:</strong> não coletem, copiem ou publiquem dados pessoais reais por conta própria. A atividade é de planejamento. Quando houver dúvida, registrem “a confirmar com professor/instituição”.</div>
+<noscript><p class="notice">Ative JavaScript para preencher a ficha e gerar o documento. Nada precisa ser instalado.</p></noscript>
+
+<form id="worksheet" novalidate>
+<section class="panel identification" aria-labelledby="identificacao-title">
+<div class="section-head"><div><p class="kicker">Antes de responder</p><h2 id="identificacao-title">Identificação da atividade</h2></div><span class="doc-badge">Documento acadêmico</span></div>
+<dl class="institution">
+<div><dt>Instituição</dt><dd>Instituto Federal do Maranhão — Campus Itapecuru-Mirim</dd></div>
+<div><dt>Curso</dt><dd>Técnico em Informática Integrado ao Ensino Médio</dd></div>
+<div><dt>Disciplina</dt><dd>Prática Profissional Integrada I — PPI I</dd></div>
+<div><dt>Aula</dt><dd>06 — Ética e Proteção de Dados: Consentimento, Privacidade, LGPD e Proveniência</dd></div>
+<div><dt>Professor</dt><dd>Prof. Dr. Thales Levi Azevedo Valente</dd></div>
+</dl>
+<div class="grid">
+<label class="field"><span>Nome ou número da equipe (opcional)</span><input id="equipe" name="equipe" type="text" maxlength="120" autocomplete="off"><small>Use uma identificação curta para o arquivo gerado.</small></label>
+<label class="field"><span>Data da atividade *</span><input id="dataAtividade" name="dataAtividade" type="date" required><small>Começa com a data de hoje no dispositivo. Corrija se necessário.</small></label>
+<label class="field span-2"><span>Projeto analisado *</span><select id="projeto" name="projeto" required><option value="">Selecione o projeto da equipe</option><option value="memorias">Mapa de Memórias Quilombolas</option><option value="permanencia">Permanência e Evasão Escolar</option></select><small>As dicas e a situação de análise mudam de acordo com esta escolha.</small></label>
+</div>
+<fieldset class="members"><legend>Componentes da equipe *</legend><p class="hint">Preencha o nome completo de cada integrante. Há três campos iniciais; use quantos precisar.</p><div id="members-list"></div><div class="actions"><button class="secondary" id="addMember" type="button">+ Adicionar componente</button></div><p class="hint" id="members-status" aria-live="polite"></p></fieldset>
+</section>
+
+<section class="panel concept-guide" aria-labelledby="concept-title">
+<p class="kicker">Lembrete da aula</p>
+<h2 id="concept-title">Antes de usar um dado, respondam 5 perguntas</h2>
+<div class="term-guide">
+<article><b>1 · NECESSIDADE</b><span>Precisamos disso?</span><p>Use apenas o mínimo necessário.</p></article>
+<article><b>2 · IDENTIFICAÇÃO</b><span>Identifica alguém?</span><p>Diretamente ou pela combinação de informações.</p></article>
+<article><b>3 · SENSIBILIDADE</b><span>É sensível?</span><p>Saúde, origem racial/étnica, biometria etc. pedem cuidado maior.</p></article>
+<article><b>4 · AUTORIZAÇÃO</b><span>Podemos usar?</span><p>Registre o procedimento, permissão ou validação ainda necessária.</p></article>
+<article><b>5 · PROVENIÊNCIA</b><span>De onde veio?</span><p>Fonte, data/versão, transformação e restrições.</p></article>
+</div>
+<div class="concept-example"><strong>Importante:</strong> consentimento não é sinônimo de “LGPD cumprida”. Nesta disciplina, qualquer procedimento real de coleta/uso precisa ser orientado pelo professor e pela instituição.</div>
+</section>
+
+<div id="activity-sections"></div>
+
+<section class="panel save-panel" id="save-panel" aria-labelledby="save-title">
+<div class="section-head"><div><p class="kicker">Entrega</p><h2 id="save-title">Guardem o trabalho</h2></div><span class="doc-badge green">PDF formal</span></div>
+<p>Antes de gerar o documento, confiram a ficha. O PDF é produzido localmente no navegador; nomes e respostas não são enviados ao site, GitHub ou professor.</p>
+<div class="actions"><button id="exportPdf" type="button">Gerar PDF formal</button><button class="secondary" id="printView" type="button">Ver versão de impressão</button></div>
+<h3>Continuar depois</h3>
+<div class="actions"><button class="secondary" id="exportJson" type="button">Guardar rascunho</button><button class="secondary" id="exportMd" type="button">Baixar texto da atividade</button><button class="secondary danger" id="clearBtn" type="button">Apagar o preenchimento</button></div>
+<p id="status" role="status" aria-live="polite">Preencha a identificação e as respostas. A ficha é um planejamento ético; ela não autoriza coleta real.</p>
+<div id="import-section"><label for="importFile">Reabrir um rascunho desta ficha</label><input id="importFile" type="file" accept=".json,application/json"><p class="hint">O arquivo contém nomes e respostas. Guarde-o com cuidado e não publique rascunhos com dados pessoais.</p></div>
+</section>
+</form>
+<footer class="footer">PPI I · IFMA Campus Itapecuru-Mirim · Aula 06 · Ficha 1.0.0.</footer>
+</main>
+
+<section id="document-view" hidden aria-label="Documento da atividade">
+<div class="document-actions"><button id="backToForm" type="button">← Voltar à ficha</button><button id="printDocument" type="button">Imprimir / salvar como PDF</button><p>Essa é a versão visual de impressão. Para paginação mais previsível, prefira <strong>Gerar PDF formal</strong>.</p></div>
+<article id="document-content"></article>
+</section>
+</body>
+</html>
