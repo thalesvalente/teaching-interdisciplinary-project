@@ -4,7 +4,7 @@
  // Cole aqui exclusivamente a URL /exec produzida pela implantação do Apps Script.
  // Sem endpoint configurado, nenhum dado é transmitido.
  const ENDPOINT = '';
- const VALID_ORIGINS = new Set(['https://script.google.com','https://script.googleusercontent.com']);
+ const origemGoogle = origin => /^https:\/\/([a-z0-9-]+\.)?script\.googleusercontent\.com$/.test(origin) || origin==='https://script.google.com';
  let busy = false;
  function sha256(bytes) {
    return crypto.subtle.digest('SHA-256',bytes).then(buf=>
@@ -37,7 +37,7 @@
          err?reject(err):resolve(result);
        };
        const receive=e=>{
-         if(!VALID_ORIGINS.has(e.origin)||e.source!==frame.contentWindow)return;
+         if(!origemGoogle(e.origin))return;
          const d=e.data;
          if(!d || d.channel!=='ppi-entrega-aula06'||d.nonce!==nonce)return;
          if(!d.ok)finish(Error(d.error||'Envio rejeitado.'));
