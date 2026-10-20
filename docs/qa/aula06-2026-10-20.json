@@ -1,0 +1,1602 @@
+{
+  "date": "2026-10-20",
+  "baseCommit": "445e53992d395c6089729f2a1c28c556260dee20",
+  "versions": {
+    "chromium": "141.0.7390.37",
+    "firefox": "142.0.1",
+    "webkit": "26.0",
+    "axe-core": "4.14.0",
+    "playwright": "1.56.1"
+  },
+  "summary": {
+    "browserChecks": 78,
+    "passed": 78,
+    "failed": 0,
+    "blocked": 0,
+    "pdfChecks": 28,
+    "pdfPassed": 28
+  },
+  "browserReports": [
+    {
+      "browser": "chromium",
+      "name": "Reflow index.html",
+      "status": "PASS",
+      "detail": [
+        {
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "width": 768,
+          "height": 1024,
+          "viewport": 768,
+          "document": 768,
+          "body": 768
+        },
+        {
+          "width": 1024,
+          "height": 768,
+          "viewport": 1024,
+          "document": 1024,
+          "body": 1024
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "width": 1440,
+          "height": 900,
+          "viewport": 1440,
+          "document": 1440,
+          "body": 1440
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "width": 844,
+          "height": 390,
+          "viewport": 844,
+          "document": 844,
+          "body": 844
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "name": "WCAG automatizável index.html",
+      "status": "PASS",
+      "detail": {
+        "violations": 0,
+        "viewport": 390
+      }
+    },
+    {
+      "browser": "chromium",
+      "name": "Texto200 e espaçamento index.html",
+      "status": "PASS",
+      "detail": {
+        "spacing": {
+          "viewport": 640,
+          "document": 640,
+          "body": 640
+        },
+        "doubledFonts": {
+          "changedFonts": 965,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        }
+      }
+    },
+    {
+      "browser": "chromium",
+      "name": "Reflow Ficha_Equipe_Aula_06_PPI.html",
+      "status": "PASS",
+      "detail": [
+        {
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "width": 768,
+          "height": 1024,
+          "viewport": 768,
+          "document": 768,
+          "body": 768
+        },
+        {
+          "width": 1024,
+          "height": 768,
+          "viewport": 1024,
+          "document": 1024,
+          "body": 1024
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "width": 1440,
+          "height": 900,
+          "viewport": 1440,
+          "document": 1440,
+          "body": 1440
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "width": 844,
+          "height": 390,
+          "viewport": 844,
+          "document": 844,
+          "body": 844
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "name": "WCAG automatizável Ficha_Equipe_Aula_06_PPI.html",
+      "status": "PASS",
+      "detail": {
+        "violations": 0,
+        "viewport": 390
+      }
+    },
+    {
+      "browser": "chromium",
+      "name": "Texto200 e espaçamento Ficha_Equipe_Aula_06_PPI.html",
+      "status": "PASS",
+      "detail": {
+        "spacing": {
+          "viewport": 640,
+          "document": 640,
+          "body": 640
+        },
+        "doubledFonts": {
+          "changedFonts": 491,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        }
+      }
+    },
+    {
+      "browser": "chromium",
+      "name": "Reflow exemplo-preenchido.html",
+      "status": "PASS",
+      "detail": [
+        {
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "width": 768,
+          "height": 1024,
+          "viewport": 768,
+          "document": 768,
+          "body": 768
+        },
+        {
+          "width": 1024,
+          "height": 768,
+          "viewport": 1024,
+          "document": 1024,
+          "body": 1024
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "width": 1440,
+          "height": 900,
+          "viewport": 1440,
+          "document": 1440,
+          "body": 1440
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "width": 844,
+          "height": 390,
+          "viewport": 844,
+          "document": 844,
+          "body": 844
+        }
+      ]
+    },
+    {
+      "browser": "chromium",
+      "name": "WCAG automatizável exemplo-preenchido.html",
+      "status": "PASS",
+      "detail": {
+        "violations": 0,
+        "viewport": 390
+      }
+    },
+    {
+      "browser": "chromium",
+      "name": "Texto200 e espaçamento exemplo-preenchido.html",
+      "status": "PASS",
+      "detail": {
+        "spacing": {
+          "viewport": 640,
+          "document": 640,
+          "body": 640
+        },
+        "doubledFonts": {
+          "changedFonts": 113,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        }
+      }
+    },
+    {
+      "browser": "chromium",
+      "name": "24 slides sem conteúdo sob rodapé",
+      "status": "PASS",
+      "detail": {
+        "slides": 24
+      }
+    },
+    {
+      "browser": "chromium",
+      "name": "Aula vazia gera PDF0/100 com5 pendentes",
+      "status": "PASS"
+    },
+    {
+      "browser": "chromium",
+      "name": "Aula: acerto, erro, revisão e limpar sem acumular",
+      "status": "PASS"
+    },
+    {
+      "browser": "chromium",
+      "name": "Diálogo: teclado não muda slide; foco retorna",
+      "status": "PASS"
+    },
+    {
+      "browser": "chromium",
+      "name": "Reiniciar slide remove só XP da sua missão",
+      "status": "PASS"
+    },
+    {
+      "browser": "chromium",
+      "name": "Índice de risco2 baixo,6 alto e sem alterar XP",
+      "status": "PASS"
+    },
+    {
+      "browser": "chromium",
+      "name": "Impressão da aula preserva resultado atual",
+      "status": "PASS"
+    },
+    {
+      "browser": "chromium",
+      "name": "Ficha vazia exporta PDF e MD com0/100",
+      "status": "PASS"
+    },
+    {
+      "browser": "chromium",
+      "name": "Ficha parcial: pontos exatos, risco separado e compromisso sem XP",
+      "status": "PASS"
+    },
+    {
+      "browser": "chromium",
+      "name": "Ctrl+P ficha parcial inclui valores,XP e pendências",
+      "status": "PASS"
+    },
+    {
+      "browser": "chromium",
+      "name": "JSON exportado reabre e recalcula XP adulterado",
+      "status": "PASS"
+    },
+    {
+      "browser": "chromium",
+      "name": "JSON inválido preserva preenchimento atomicamente",
+      "status": "PASS"
+    },
+    {
+      "browser": "chromium",
+      "name": "Ficha completa100/100 e apagar reduz pontuação",
+      "status": "PASS"
+    },
+    {
+      "browser": "chromium",
+      "name": "Texto longo preservado em PDF e impressão",
+      "status": "PASS"
+    },
+    {
+      "browser": "chromium",
+      "name": "Símbolos Unicode levam à impressão sem perder resposta",
+      "status": "PASS"
+    },
+    {
+      "browser": "chromium",
+      "name": "Operação offline após carregar, sem coleta externa",
+      "status": "PASS"
+    },
+    {
+      "browser": "chromium",
+      "name": "Sem erros JavaScript",
+      "status": "PASS"
+    },
+    {
+      "browser": "firefox",
+      "name": "Reflow index.html",
+      "status": "PASS",
+      "detail": [
+        {
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "width": 768,
+          "height": 1024,
+          "viewport": 768,
+          "document": 768,
+          "body": 768
+        },
+        {
+          "width": 1024,
+          "height": 768,
+          "viewport": 1024,
+          "document": 1024,
+          "body": 1024
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "width": 1440,
+          "height": 900,
+          "viewport": 1440,
+          "document": 1440,
+          "body": 1440
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "width": 844,
+          "height": 390,
+          "viewport": 844,
+          "document": 844,
+          "body": 844
+        }
+      ]
+    },
+    {
+      "browser": "firefox",
+      "name": "WCAG automatizável index.html",
+      "status": "PASS",
+      "detail": {
+        "violations": 0,
+        "viewport": 390
+      }
+    },
+    {
+      "browser": "firefox",
+      "name": "Texto200 e espaçamento index.html",
+      "status": "PASS",
+      "detail": {
+        "spacing": {
+          "viewport": 640,
+          "document": 640,
+          "body": 640
+        },
+        "doubledFonts": {
+          "changedFonts": 965,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        }
+      }
+    },
+    {
+      "browser": "firefox",
+      "name": "Reflow Ficha_Equipe_Aula_06_PPI.html",
+      "status": "PASS",
+      "detail": [
+        {
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "width": 768,
+          "height": 1024,
+          "viewport": 768,
+          "document": 768,
+          "body": 768
+        },
+        {
+          "width": 1024,
+          "height": 768,
+          "viewport": 1024,
+          "document": 1024,
+          "body": 1024
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "width": 1440,
+          "height": 900,
+          "viewport": 1440,
+          "document": 1440,
+          "body": 1440
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "width": 844,
+          "height": 390,
+          "viewport": 844,
+          "document": 844,
+          "body": 844
+        }
+      ]
+    },
+    {
+      "browser": "firefox",
+      "name": "WCAG automatizável Ficha_Equipe_Aula_06_PPI.html",
+      "status": "PASS",
+      "detail": {
+        "violations": 0,
+        "viewport": 390
+      }
+    },
+    {
+      "browser": "firefox",
+      "name": "Texto200 e espaçamento Ficha_Equipe_Aula_06_PPI.html",
+      "status": "PASS",
+      "detail": {
+        "spacing": {
+          "viewport": 640,
+          "document": 640,
+          "body": 640
+        },
+        "doubledFonts": {
+          "changedFonts": 491,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        }
+      }
+    },
+    {
+      "browser": "firefox",
+      "name": "Reflow exemplo-preenchido.html",
+      "status": "PASS",
+      "detail": [
+        {
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "width": 768,
+          "height": 1024,
+          "viewport": 768,
+          "document": 768,
+          "body": 768
+        },
+        {
+          "width": 1024,
+          "height": 768,
+          "viewport": 1024,
+          "document": 1024,
+          "body": 1024
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "width": 1440,
+          "height": 900,
+          "viewport": 1440,
+          "document": 1440,
+          "body": 1440
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "width": 844,
+          "height": 390,
+          "viewport": 844,
+          "document": 844,
+          "body": 844
+        }
+      ]
+    },
+    {
+      "browser": "firefox",
+      "name": "WCAG automatizável exemplo-preenchido.html",
+      "status": "PASS",
+      "detail": {
+        "violations": 0,
+        "viewport": 390
+      }
+    },
+    {
+      "browser": "firefox",
+      "name": "Texto200 e espaçamento exemplo-preenchido.html",
+      "status": "PASS",
+      "detail": {
+        "spacing": {
+          "viewport": 640,
+          "document": 640,
+          "body": 640
+        },
+        "doubledFonts": {
+          "changedFonts": 113,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        }
+      }
+    },
+    {
+      "browser": "firefox",
+      "name": "24 slides sem conteúdo sob rodapé",
+      "status": "PASS",
+      "detail": {
+        "slides": 24
+      }
+    },
+    {
+      "browser": "firefox",
+      "name": "Aula vazia gera PDF0/100 com5 pendentes",
+      "status": "PASS"
+    },
+    {
+      "browser": "firefox",
+      "name": "Aula: acerto, erro, revisão e limpar sem acumular",
+      "status": "PASS"
+    },
+    {
+      "browser": "firefox",
+      "name": "Diálogo: teclado não muda slide; foco retorna",
+      "status": "PASS"
+    },
+    {
+      "browser": "firefox",
+      "name": "Reiniciar slide remove só XP da sua missão",
+      "status": "PASS"
+    },
+    {
+      "browser": "firefox",
+      "name": "Índice de risco2 baixo,6 alto e sem alterar XP",
+      "status": "PASS"
+    },
+    {
+      "browser": "firefox",
+      "name": "Impressão da aula preserva resultado atual",
+      "status": "PASS"
+    },
+    {
+      "browser": "firefox",
+      "name": "Ficha vazia exporta PDF e MD com0/100",
+      "status": "PASS"
+    },
+    {
+      "browser": "firefox",
+      "name": "Ficha parcial: pontos exatos, risco separado e compromisso sem XP",
+      "status": "PASS"
+    },
+    {
+      "browser": "firefox",
+      "name": "Ctrl+P ficha parcial inclui valores,XP e pendências",
+      "status": "PASS"
+    },
+    {
+      "browser": "firefox",
+      "name": "JSON exportado reabre e recalcula XP adulterado",
+      "status": "PASS"
+    },
+    {
+      "browser": "firefox",
+      "name": "JSON inválido preserva preenchimento atomicamente",
+      "status": "PASS"
+    },
+    {
+      "browser": "firefox",
+      "name": "Ficha completa100/100 e apagar reduz pontuação",
+      "status": "PASS"
+    },
+    {
+      "browser": "firefox",
+      "name": "Texto longo preservado em PDF e impressão",
+      "status": "PASS"
+    },
+    {
+      "browser": "firefox",
+      "name": "Símbolos Unicode levam à impressão sem perder resposta",
+      "status": "PASS"
+    },
+    {
+      "browser": "firefox",
+      "name": "Operação offline após carregar, sem coleta externa",
+      "status": "PASS"
+    },
+    {
+      "browser": "firefox",
+      "name": "Sem erros JavaScript",
+      "status": "PASS"
+    },
+    {
+      "browser": "webkit",
+      "name": "Reflow index.html",
+      "status": "PASS",
+      "detail": [
+        {
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "width": 768,
+          "height": 1024,
+          "viewport": 768,
+          "document": 768,
+          "body": 768
+        },
+        {
+          "width": 1024,
+          "height": 768,
+          "viewport": 1024,
+          "document": 1024,
+          "body": 1024
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "width": 1440,
+          "height": 900,
+          "viewport": 1440,
+          "document": 1440,
+          "body": 1440
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "width": 844,
+          "height": 390,
+          "viewport": 844,
+          "document": 844,
+          "body": 844
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "name": "WCAG automatizável index.html",
+      "status": "PASS",
+      "detail": {
+        "violations": 0,
+        "viewport": 390
+      }
+    },
+    {
+      "browser": "webkit",
+      "name": "Texto200 e espaçamento index.html",
+      "status": "PASS",
+      "detail": {
+        "spacing": {
+          "viewport": 640,
+          "document": 640,
+          "body": 640
+        },
+        "doubledFonts": {
+          "changedFonts": 965,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        }
+      }
+    },
+    {
+      "browser": "webkit",
+      "name": "Reflow Ficha_Equipe_Aula_06_PPI.html",
+      "status": "PASS",
+      "detail": [
+        {
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "width": 768,
+          "height": 1024,
+          "viewport": 768,
+          "document": 768,
+          "body": 768
+        },
+        {
+          "width": 1024,
+          "height": 768,
+          "viewport": 1024,
+          "document": 1024,
+          "body": 1024
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "width": 1440,
+          "height": 900,
+          "viewport": 1440,
+          "document": 1440,
+          "body": 1440
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "width": 844,
+          "height": 390,
+          "viewport": 844,
+          "document": 844,
+          "body": 844
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "name": "WCAG automatizável Ficha_Equipe_Aula_06_PPI.html",
+      "status": "PASS",
+      "detail": {
+        "violations": 0,
+        "viewport": 390
+      }
+    },
+    {
+      "browser": "webkit",
+      "name": "Texto200 e espaçamento Ficha_Equipe_Aula_06_PPI.html",
+      "status": "PASS",
+      "detail": {
+        "spacing": {
+          "viewport": 640,
+          "document": 640,
+          "body": 640
+        },
+        "doubledFonts": {
+          "changedFonts": 491,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        }
+      }
+    },
+    {
+      "browser": "webkit",
+      "name": "Reflow exemplo-preenchido.html",
+      "status": "PASS",
+      "detail": [
+        {
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "width": 768,
+          "height": 1024,
+          "viewport": 768,
+          "document": 768,
+          "body": 768
+        },
+        {
+          "width": 1024,
+          "height": 768,
+          "viewport": 1024,
+          "document": 1024,
+          "body": 1024
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "width": 1440,
+          "height": 900,
+          "viewport": 1440,
+          "document": 1440,
+          "body": 1440
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "width": 844,
+          "height": 390,
+          "viewport": 844,
+          "document": 844,
+          "body": 844
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "name": "WCAG automatizável exemplo-preenchido.html",
+      "status": "PASS",
+      "detail": {
+        "violations": 0,
+        "viewport": 390
+      }
+    },
+    {
+      "browser": "webkit",
+      "name": "Texto200 e espaçamento exemplo-preenchido.html",
+      "status": "PASS",
+      "detail": {
+        "spacing": {
+          "viewport": 640,
+          "document": 640,
+          "body": 640
+        },
+        "doubledFonts": {
+          "changedFonts": 113,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        }
+      }
+    },
+    {
+      "browser": "webkit",
+      "name": "24 slides sem conteúdo sob rodapé",
+      "status": "PASS",
+      "detail": {
+        "slides": 24
+      }
+    },
+    {
+      "browser": "webkit",
+      "name": "Aula vazia gera PDF0/100 com5 pendentes",
+      "status": "PASS"
+    },
+    {
+      "browser": "webkit",
+      "name": "Aula: acerto, erro, revisão e limpar sem acumular",
+      "status": "PASS"
+    },
+    {
+      "browser": "webkit",
+      "name": "Diálogo: teclado não muda slide; foco retorna",
+      "status": "PASS"
+    },
+    {
+      "browser": "webkit",
+      "name": "Reiniciar slide remove só XP da sua missão",
+      "status": "PASS"
+    },
+    {
+      "browser": "webkit",
+      "name": "Índice de risco2 baixo,6 alto e sem alterar XP",
+      "status": "PASS"
+    },
+    {
+      "browser": "webkit",
+      "name": "Impressão da aula preserva resultado atual",
+      "status": "PASS"
+    },
+    {
+      "browser": "webkit",
+      "name": "Ficha vazia exporta PDF e MD com0/100",
+      "status": "PASS"
+    },
+    {
+      "browser": "webkit",
+      "name": "Ficha parcial: pontos exatos, risco separado e compromisso sem XP",
+      "status": "PASS"
+    },
+    {
+      "browser": "webkit",
+      "name": "Ctrl+P ficha parcial inclui valores,XP e pendências",
+      "status": "PASS"
+    },
+    {
+      "browser": "webkit",
+      "name": "JSON exportado reabre e recalcula XP adulterado",
+      "status": "PASS"
+    },
+    {
+      "browser": "webkit",
+      "name": "JSON inválido preserva preenchimento atomicamente",
+      "status": "PASS"
+    },
+    {
+      "browser": "webkit",
+      "name": "Ficha completa100/100 e apagar reduz pontuação",
+      "status": "PASS"
+    },
+    {
+      "browser": "webkit",
+      "name": "Texto longo preservado em PDF e impressão",
+      "status": "PASS"
+    },
+    {
+      "browser": "webkit",
+      "name": "Símbolos Unicode levam à impressão sem perder resposta",
+      "status": "PASS"
+    },
+    {
+      "browser": "webkit",
+      "name": "Operação offline após carregar, sem coleta externa",
+      "status": "PASS"
+    },
+    {
+      "browser": "webkit",
+      "name": "Sem erros JavaScript",
+      "status": "PASS"
+    }
+  ],
+  "pdfReports": [
+    {
+      "file": "aula-impressao-parcial.pdf",
+      "status": "PASS",
+      "pages": 3,
+      "earned": 80,
+      "max": 100,
+      "pending": 1,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "chromium-aula-completa.pdf",
+      "status": "PASS",
+      "pages": 3,
+      "earned": 100,
+      "max": 100,
+      "pending": 0,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "chromium-aula-parcial.pdf",
+      "status": "PASS",
+      "pages": 3,
+      "earned": 20,
+      "max": 100,
+      "pending": 3,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "chromium-aula-vazia.pdf",
+      "status": "PASS",
+      "pages": 3,
+      "earned": 0,
+      "max": 100,
+      "pending": 5,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "chromium-ficha-completa.pdf",
+      "status": "PASS",
+      "pages": 4,
+      "earned": 100,
+      "max": 100,
+      "pending": 0,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "chromium-ficha-longa.pdf",
+      "status": "PASS",
+      "pages": 5,
+      "earned": 96,
+      "max": 100,
+      "pending": 1,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "chromium-ficha-offline.pdf",
+      "status": "PASS",
+      "pages": 4,
+      "earned": 96,
+      "max": 100,
+      "pending": 1,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "chromium-ficha-parcial.pdf",
+      "status": "PASS",
+      "pages": 5,
+      "earned": 16,
+      "max": 100,
+      "pending": 21,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "chromium-ficha-vazia.pdf",
+      "status": "PASS",
+      "pages": 5,
+      "earned": 0,
+      "max": 100,
+      "pending": 26,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "ficha-impressao-parcial.pdf",
+      "status": "PASS",
+      "pages": 5,
+      "earned": 16,
+      "max": 100,
+      "pending": 21,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "firefox-aula-completa.pdf",
+      "status": "PASS",
+      "pages": 3,
+      "earned": 100,
+      "max": 100,
+      "pending": 0,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "firefox-aula-parcial.pdf",
+      "status": "PASS",
+      "pages": 3,
+      "earned": 20,
+      "max": 100,
+      "pending": 3,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "firefox-aula-vazia.pdf",
+      "status": "PASS",
+      "pages": 3,
+      "earned": 0,
+      "max": 100,
+      "pending": 5,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "firefox-ficha-completa.pdf",
+      "status": "PASS",
+      "pages": 4,
+      "earned": 100,
+      "max": 100,
+      "pending": 0,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "firefox-ficha-longa.pdf",
+      "status": "PASS",
+      "pages": 5,
+      "earned": 96,
+      "max": 100,
+      "pending": 1,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "firefox-ficha-offline.pdf",
+      "status": "PASS",
+      "pages": 4,
+      "earned": 96,
+      "max": 100,
+      "pending": 1,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "firefox-ficha-parcial.pdf",
+      "status": "PASS",
+      "pages": 5,
+      "earned": 16,
+      "max": 100,
+      "pending": 21,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "firefox-ficha-vazia.pdf",
+      "status": "PASS",
+      "pages": 5,
+      "earned": 0,
+      "max": 100,
+      "pending": 26,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "webkit-aula-completa.pdf",
+      "status": "PASS",
+      "pages": 3,
+      "earned": 100,
+      "max": 100,
+      "pending": 0,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "webkit-aula-parcial.pdf",
+      "status": "PASS",
+      "pages": 3,
+      "earned": 20,
+      "max": 100,
+      "pending": 3,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "webkit-aula-vazia.pdf",
+      "status": "PASS",
+      "pages": 3,
+      "earned": 0,
+      "max": 100,
+      "pending": 5,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "webkit-ficha-completa.pdf",
+      "status": "PASS",
+      "pages": 4,
+      "earned": 100,
+      "max": 100,
+      "pending": 0,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "webkit-ficha-longa.pdf",
+      "status": "PASS",
+      "pages": 5,
+      "earned": 96,
+      "max": 100,
+      "pending": 1,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "webkit-ficha-offline.pdf",
+      "status": "PASS",
+      "pages": 4,
+      "earned": 96,
+      "max": 100,
+      "pending": 1,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "webkit-ficha-parcial.pdf",
+      "status": "PASS",
+      "pages": 5,
+      "earned": 16,
+      "max": 100,
+      "pending": 21,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "webkit-ficha-vazia.pdf",
+      "status": "PASS",
+      "pages": 5,
+      "earned": 0,
+      "max": 100,
+      "pending": 26,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "aula-completa-parcial.pdf",
+      "status": "PASS",
+      "pages": 27,
+      "earned": 20,
+      "max": 100,
+      "pending": 3,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    },
+    {
+      "file": "ficha-texto-longo.pdf",
+      "status": "PASS",
+      "pages": 5,
+      "earned": 10,
+      "max": 100,
+      "pending": 24,
+      "charactersOutsidePage": 0,
+      "selectableText": true
+    }
+  ],
+  "fullPrint": {
+    "aula-completa-parcial": {
+      "pages": 27,
+      "characters": 17742,
+      "outside_page_count": 0,
+      "outside_page_samples": [],
+      "title_checks": [
+        {
+          "id": "s01",
+          "title": "Ética e Proteção de Dados: Consentimento, Privacidade, LGPD e Proveniência",
+          "present": true
+        },
+        {
+          "id": "s02",
+          "title": "Da Aula 05 para a Aula 06",
+          "present": true
+        },
+        {
+          "id": "s03",
+          "title": "Podemos colocar essa planilha no projeto?",
+          "present": true
+        },
+        {
+          "id": "s04",
+          "title": "Cinco perguntas antes de usar um dado",
+          "present": true
+        },
+        {
+          "id": "s05",
+          "title": "Dado pessoal é o que pode identificar alguém",
+          "present": true
+        },
+        {
+          "id": "s06",
+          "title": "Alguns dados exigem cuidado ainda maior",
+          "present": true
+        },
+        {
+          "id": "s07",
+          "title": "Crianças e adolescentes têm proteção reforçada",
+          "present": true
+        },
+        {
+          "id": "s08",
+          "title": "Consentimento não é um botão mágico",
+          "present": true
+        },
+        {
+          "id": "s09",
+          "title": "Colete menos: use somente o necessário",
+          "present": true
+        },
+        {
+          "id": "s10",
+          "title": "Estar na internet não significa uso sem cuidado",
+          "present": true
+        },
+        {
+          "id": "s11",
+          "title": "Apagar o nome não garante anonimização",
+          "present": true
+        },
+        {
+          "id": "s12",
+          "title": "Três formas mais seguras de trabalhar em aula",
+          "present": true
+        },
+        {
+          "id": "s13",
+          "title": "Proveniência: conte a história do dado",
+          "present": true
+        },
+        {
+          "id": "s14",
+          "title": "Aplique ao projeto da sua equipe",
+          "present": true
+        },
+        {
+          "id": "s15",
+          "title": "Matriz de riscos: priorize o que merece cuidado",
+          "present": true
+        },
+        {
+          "id": "s16",
+          "title": "O que a equipe vai entregar hoje?",
+          "present": true
+        },
+        {
+          "id": "s17",
+          "title": "Etapa 1: escolha e classifique a informação",
+          "present": true
+        },
+        {
+          "id": "s18",
+          "title": "Etapa 2: defina proteção e proveniência",
+          "present": true
+        },
+        {
+          "id": "s19",
+          "title": "Outra equipe confere o protocolo",
+          "present": true
+        },
+        {
+          "id": "s20",
+          "title": "Proteção de dados começa antes da coleta",
+          "present": true
+        },
+        {
+          "id": "s21",
+          "title": "Confira a situação inicial",
+          "present": true
+        },
+        {
+          "id": "s22",
+          "title": "Exemplo: protocolo do Horários IFMA",
+          "present": true
+        },
+        {
+          "id": "s23",
+          "title": "Fontes oficiais para consultar",
+          "present": true
+        },
+        {
+          "id": "s24",
+          "title": "Saiba o que é real e o que é simulado",
+          "present": true
+        }
+      ],
+      "titles_present": 24,
+      "score_20_of_100": true,
+      "pending3": true,
+      "page4_has_footer": true,
+      "short_pages": []
+    },
+    "ficha-texto-longo": {
+      "pages": 5,
+      "characters": 7732,
+      "outside_page_count": 0,
+      "outside_page_samples": [],
+      "long_text_entire": true,
+      "long_text_end_marker": true,
+      "score_10_of_100": true,
+      "pending24": true,
+      "component_label_whole": true
+    }
+  },
+  "sourceSHA256": {
+    "lessons/aula-06-etica-protecao-dados/Ficha_Equipe_Aula_06_PPI.html": "a2c10daf8a172a8fc628f53c2bc73e32e565365427896d30afccd2ddfe4b1118",
+    "lessons/aula-06-etica-protecao-dados/atividade-pdf.js": "4355de9f5814fa7ad879cabdfec3e1760c57fcb9512cf16703719d07b22607aa",
+    "lessons/aula-06-etica-protecao-dados/aula.css": "49e8bd90dd83d928d2adbf59c4ccd29957396b3e9dcd8c852fbac021ad0d2779",
+    "lessons/aula-06-etica-protecao-dados/aula.js": "86298ec8a09cbd6cf2dffb38a38c50935d1c99ba86d4e19d015349fd7816d30e",
+    "lessons/aula-06-etica-protecao-dados/exemplo-preenchido.html": "afd7f7fd7abdf4934fe0d461351d15a420185e7130b3dba084e602c0d929c0cf",
+    "lessons/aula-06-etica-protecao-dados/ficha.css": "775c5bdd244a5bc0e6b3bccc9222534aabffda1528a34e8abef4c61fefc914a7",
+    "lessons/aula-06-etica-protecao-dados/ficha.js": "37da59a6872f1465884cdb3826105538316c7f6523a360b462f5e69264d256af",
+    "lessons/aula-06-etica-protecao-dados/index.html": "ee5ff03d161ac7ddf7efcf94a7569c4f712a4fe9183c58b624cf6fa619cfc9f8"
+  },
+  "limitations": [
+    "Verificação automatizada e inspeção visual; não é certificação de conformidade WCAG.",
+    "Motores Chromium, Firefox e WebKit em Linux; sem teste em dispositivos físicos, Safari instalado ou leitores de tela reais.",
+    "PDF direto com texto selecionável, não certificado PDF/UA; caracteres fora de WinAnsi seguem o fluxo de impressão.",
+    "Recálculo local da pontuação; não constitui sistema de avaliação autenticada."
+  ]
+}

@@ -1,0 +1,50 @@
+name: QA Aula 06
+on:
+  push:
+    branches:
+      - main
+      - feat/aula06-acessibilidade-gamificacao-20261020
+    paths:
+      - 'lessons/aula-06-etica-protecao-dados/**'
+      - 'tests/aula06-qa.cjs'
+      - 'tests/aula06-pdf-qa.py'
+      - 'package*.json'
+      - '.github/workflows/qa-aula06.yml'
+  pull_request:
+    paths:
+      - 'lessons/aula-06-etica-protecao-dados/**'
+      - 'tests/aula06-qa.cjs'
+      - 'tests/aula06-pdf-qa.py'
+      - 'package*.json'
+      - '.github/workflows/qa-aula06.yml'
+permissions:
+  contents: read
+jobs:
+  accessibility-and-layout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Dependências
+        run: npm ci
+      - name: Navegadores
+        run: npx playwright install --with-deps chromium firefox webkit
+      - name: QA integração e reflow
+        run: npm run test:aula06
+        env:
+          AULA06_BROWSERS: chromium,firefox,webkit
+          AULA06_EVIDENCE_DIR: tmp/aula06-ci
+      - name: Evidências
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aula06-qa
+          path: tmp/aula06-ci/
+          if-no-files-found: ignore
+          retention-days: 7

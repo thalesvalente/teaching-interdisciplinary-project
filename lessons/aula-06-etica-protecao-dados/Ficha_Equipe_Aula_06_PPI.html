@@ -5,74 +5,86 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light">
 <meta name="referrer" content="no-referrer">
+<meta name="description" content="Ficha da equipe da Aula 06: protocolo ético, matriz de riscos e XP de preparação. Exporte PDF e imprima mesmo com respostas pendentes.">
 <title>Ficha da equipe · Aula 06 · PPI I</title>
-<link rel="stylesheet" href="ficha.css?v=1.0.0">
-<script defer src="atividade-pdf.js?v=1.0.0"></script>
-<script defer src="ficha.js?v=1.0.0"></script>
+<link rel="stylesheet" href="ficha.css?v=2.0.1">
+<script defer src="atividade-pdf.js?v=2.0.0"></script>
+<script defer src="ficha.js?v=2.0.0"></script>
 </head>
 <body>
-<main>
-<nav aria-label="Voltar"><a href="index.html#s16">← Voltar à Aula 06</a></nav>
+<a class="skip-link" href="#worksheet">Pular para o formulário</a>
+<main id="main-content">
+<nav class="top-nav" aria-label="Navegação da aula"><a href="index.html#s16">← Voltar à Aula 06</a><a href="#save-panel">Ir para PDF e rascunho</a></nav>
 <header class="form-hero">
-<p class="kicker">PPI I · Aula 06 · Ficha da equipe</p>
-<h1>Protocolo Ético e Matriz de Riscos</h1>
-<p>Antes de usar qualquer dado, a equipe registra <strong>necessidade, identificação, sensibilidade, autorização, proveniência e riscos</strong>. A ficha orienta o preenchimento conforme o projeto escolhido.</p>
-<div class="actions example-actions"><a class="button secondary" href="exemplo-preenchido.html" target="_blank" rel="noopener">Ver exemplo preenchido ↗</a><span class="hint">Abre em outra aba e não altera sua ficha.</span></div>
-<nav aria-label="Etapas da ficha" class="guide-nav"><a href="#part-1">1. Informação</a><a href="#part-2">2. Classificação</a><a href="#part-3">3. Autorização</a><a href="#part-4">4. Proveniência</a><a href="#part-5">5. Riscos</a><a href="#part-6">6. Protocolo</a></nav>
+<p class="kicker">PPI I · Aula 06 · Missão da equipe</p>
+<h1>Protocolo Ético<br>e Matriz de Riscos</h1>
+<p class="lead">Planejem o uso dos dados do projeto em sete etapas. Cada resposta registrada avança a preparação da equipe; vocês podem parar, salvar e continuar depois.</p>
+<div class="actions example-actions"><a class="button secondary" href="exemplo-preenchido.html" target="_blank" rel="noopener">Ver exemplo preenchido (nova aba)</a><a class="button" href="#part-1">Começar a missão →</a></div>
 </header>
-
-<div class="notice"><strong>Regra desta aula:</strong> não coletem, copiem ou publiquem dados pessoais reais por conta própria. A atividade é de planejamento. Quando houver dúvida, registrem “a confirmar com professor/instituição”.</div>
-<noscript><p class="notice">Ative JavaScript para preencher a ficha e gerar o documento. Nada precisa ser instalado.</p></noscript>
-
-<form id="worksheet" novalidate>
+<section class="mission-board" aria-labelledby="mission-title">
+<div class="mission-overview"><div><p class="kicker">Seu progresso de preparação</p><h2 id="mission-title">Sete etapas, no ritmo da equipe</h2><p id="xp-status">Em andamento</p></div><p class="xp-value" id="xp-value">0 / 100 XP</p></div>
+<label class="sr-only" for="xp-progress">XP de preparação da ficha</label><progress id="xp-progress" max="100" value="0">0 de 100 XP</progress>
+<p id="xp-count" class="progress-count">0 de 26 respostas registradas · 26 pendentes</p>
+<nav aria-label="Etapas da ficha" class="guide-nav">
+<a href="#part-1" id="nav-part-1"><span>1 · Informação</span><b class="mission-points">0 / 20 XP</b></a>
+<a href="#part-2" id="nav-part-2"><span>2 · Classificação</span><b class="mission-points">0 / 20 XP</b></a>
+<a href="#part-3" id="nav-part-3"><span>3 · Autorização</span><b class="mission-points">0 / 15 XP</b></a>
+<a href="#part-4" id="nav-part-4"><span>4 · Proveniência</span><b class="mission-points">0 / 15 XP</b></a>
+<a href="#part-5" id="nav-part-5"><span>5 · Riscos</span><b class="mission-points">0 / 16 XP</b></a>
+<a href="#part-6" id="nav-part-6"><span>6 · Protocolo</span><b class="mission-points">0 / 4 XP</b></a>
+<a href="#part-7" id="nav-part-7"><span>7 · Revisão</span><b class="mission-points">0 / 10 XP</b></a>
+</nav>
+<p class="score-explainer"><strong>XP mede registro, não correção.</strong> Respostas em branco valem zero; o máximo continua 100 XP. Apagar uma resposta retira os pontos daquele campo. Identificação e compromissos não pontuam. A avaliação docente e a nota da disciplina seguem os critérios da aula.</p>
+<details class="rubric"><summary>Ver como os 100 XP são distribuídos</summary><ol id="rubric-list"></ol></details>
+<p class="sr-only" id="progress-announcement" role="status" aria-live="polite" aria-atomic="true"></p>
+</section>
+<div class="notice"><strong>Esta atividade é de planejamento.</strong> Não coletem, copiem ou publiquem dados pessoais reais por conta própria. Na dúvida, registrem o que falta confirmar com o professor ou a instituição. Os XP não concedem autorização.</div>
+<noscript><p class="notice">Esta ficha usa JavaScript para criar os campos, calcular os XP e gerar documentos. <a href="exemplo-preenchido.html">Consulte o modelo preenchido</a> para realizar a atividade em papel ou em um editor de texto.</p></noscript>
+<form id="worksheet" novalidate tabindex="-1">
 <section class="panel identification" aria-labelledby="identificacao-title">
-<div class="section-head"><div><p class="kicker">Antes de responder</p><h2 id="identificacao-title">Identificação da atividade</h2></div><span class="doc-badge">Documento acadêmico</span></div>
-<dl class="institution">
+<div class="section-head"><div><p class="kicker">Identificação opcional · sem XP</p><h2 id="identificacao-title">De quem é esta ficha?</h2></div><span class="doc-badge">Pode exportar em branco</span></div>
+<p class="section-note">Informem apenas o necessário para reconhecer a entrega. A ficha não envia respostas automaticamente e não salva o preenchimento ao fechar a aba. Usem <strong>Guardar rascunho</strong> para continuar depois.</p>
+<details class="institution-details"><summary>Ver os dados da disciplina</summary><dl class="institution">
 <div><dt>Instituição</dt><dd>Instituto Federal do Maranhão — Campus Itapecuru-Mirim</dd></div>
 <div><dt>Curso</dt><dd>Técnico em Informática Integrado ao Ensino Médio</dd></div>
 <div><dt>Disciplina</dt><dd>Prática Profissional Integrada I — PPI I</dd></div>
 <div><dt>Aula</dt><dd>06 — Ética e Proteção de Dados: Consentimento, Privacidade, LGPD e Proveniência</dd></div>
 <div><dt>Professor</dt><dd>Prof. Dr. Thales Levi Azevedo Valente</dd></div>
-</dl>
+</dl></details>
 <div class="grid">
-<label class="field"><span>Nome ou número da equipe (opcional)</span><input id="equipe" name="equipe" type="text" maxlength="120" autocomplete="off"><small>Use uma identificação curta para o arquivo gerado.</small></label>
-<label class="field"><span>Data da atividade *</span><input id="dataAtividade" name="dataAtividade" type="date" required><small>Começa com a data de hoje no dispositivo. Corrija se necessário.</small></label>
-<label class="field span-2"><span>Projeto analisado *</span><select id="projeto" name="projeto" required><option value="">Selecione o projeto da equipe</option><option value="memorias">Mapa de Memórias Quilombolas</option><option value="permanencia">Permanência e Evasão Escolar</option></select><small>As dicas e a situação de análise mudam de acordo com esta escolha.</small></label>
+<label class="field"><span>Nome ou número da equipe (opcional)</span><input id="equipe" name="equipe" type="text" maxlength="120" autocomplete="off" aria-describedby="equipe-hint"><small id="equipe-hint">Use uma identificação curta para o arquivo.</small></label>
+<label class="field"><span>Data da atividade (opcional)</span><input id="dataAtividade" name="dataAtividade" type="date" aria-describedby="data-hint"><small id="data-hint">Começa com a data de hoje no dispositivo. Pode ser corrigida ou removida.</small></label>
+<label class="field span-2"><span>Projeto analisado (opcional)</span><select id="projeto" name="projeto" aria-describedby="projeto-hint"><option value="">Ainda não selecionado</option><option value="memorias">Mapa de Memórias Quilombolas</option><option value="permanencia">Permanência e Evasão Escolar</option></select><small id="projeto-hint">Escolher um projeto adapta as dicas; não altera os pontos nem preenche respostas.</small></label>
 </div>
-<fieldset class="members"><legend>Componentes da equipe *</legend><p class="hint">Preencha o nome completo de cada integrante. Há três campos iniciais; use quantos precisar.</p><div id="members-list"></div><div class="actions"><button class="secondary" id="addMember" type="button">+ Adicionar componente</button></div><p class="hint" id="members-status" aria-live="polite"></p></fieldset>
+<fieldset class="members"><legend>Componentes da equipe (opcional)</legend><p class="hint">Usem nomes, iniciais ou códigos conforme a orientação do professor. Iniciais e códigos também podem identificar pessoas: não tornam o documento automaticamente anônimo.</p><div id="members-list"></div><div class="actions"><button class="secondary" id="addMember" type="button">+ Adicionar componente</button></div><p class="hint" id="members-status" aria-live="polite"></p></fieldset>
 </section>
-
-<section class="panel concept-guide" aria-labelledby="concept-title">
-<p class="kicker">Lembrete da aula</p>
-<h2 id="concept-title">Antes de usar um dado, respondam 5 perguntas</h2>
-<div class="term-guide">
-<article><b>1 · NECESSIDADE</b><span>Precisamos disso?</span><p>Use apenas o mínimo necessário.</p></article>
-<article><b>2 · IDENTIFICAÇÃO</b><span>Identifica alguém?</span><p>Diretamente ou pela combinação de informações.</p></article>
-<article><b>3 · SENSIBILIDADE</b><span>É sensível?</span><p>Saúde, origem racial/étnica, biometria etc. pedem cuidado maior.</p></article>
-<article><b>4 · AUTORIZAÇÃO</b><span>Podemos usar?</span><p>Registre o procedimento, permissão ou validação ainda necessária.</p></article>
-<article><b>5 · PROVENIÊNCIA</b><span>De onde veio?</span><p>Fonte, data/versão, transformação e restrições.</p></article>
-</div>
-<div class="concept-example"><strong>Importante:</strong> consentimento não é sinônimo de “LGPD cumprida”. Nesta disciplina, qualquer procedimento real de coleta/uso precisa ser orientado pelo professor e pela instituição.</div>
-</section>
-
+<details class="panel concept-guide"><summary>Precisa relembrar? Cinco perguntas antes de usar um dado</summary><div class="term-guide">
+<article><h2>1 · Necessidade</h2><strong>Precisamos disso?</strong><p>Use apenas o mínimo necessário para uma finalidade clara.</p></article>
+<article><h2>2 · Identificação</h2><strong>Identifica alguém?</strong><p>Diretamente ou pela combinação de informações.</p></article>
+<article><h2>3 · Sensibilidade</h2><strong>É dado sensível?</strong><p>Saúde, origem racial ou étnica e biometria vinculadas a uma pessoa são exemplos legais.</p></article>
+<article><h2>4 · Autorização</h2><strong>Podemos usar?</strong><p>Confirmem o procedimento institucional. Consentimento não é a única base legal.</p></article>
+<article><h2>5 · Proveniência</h2><strong>De onde veio?</strong><p>Registrem fonte, data/versão, transformações, responsáveis e restrições.</p></article>
+</div><p class="concept-example">Uma fonte pública não autoriza qualquer uso de dados pessoais. Dados sintéticos não devem representar pessoas reais; dados agregados e pseudonimizados ainda exigem cuidado com a identificação.</p></details>
 <div id="activity-sections"></div>
-
 <section class="panel save-panel" id="save-panel" aria-labelledby="save-title">
-<div class="section-head"><div><p class="kicker">Entrega</p><h2 id="save-title">Guardem o trabalho</h2></div><span class="doc-badge green">PDF formal</span></div>
-<p>Antes de gerar o documento, confiram a ficha. O PDF é produzido localmente no navegador; nomes e respostas não são enviados ao site, GitHub ou professor.</p>
-<div class="actions"><button id="exportPdf" type="button">Gerar PDF formal</button><button class="secondary" id="printView" type="button">Ver versão de impressão</button></div>
+<div class="section-head"><div><p class="kicker">Checkpoint da equipe</p><h2 id="save-title">Guardem o progresso atual</h2></div><span class="doc-badge green">Parcial também vale</span></div>
+<p><strong>Vocês podem exportar com qualquer quantidade de respostas.</strong> O PDF registra a pontuação atual, as respostas e as pendências, sem aumentar os pontos para compensar questões em branco.</p>
+<p class="save-progress" id="save-progress">0 / 100 XP · 26 respostas pendentes.</p>
+<details class="pending-details"><summary>Conferir o que ainda não foi respondido</summary><ul id="pending-list"></ul></details>
+<div class="actions"><button id="exportPdf" type="button">Gerar PDF com pontuação</button><button class="secondary" id="printView" type="button">Ver versão de impressão</button></div>
+<p class="hint">O PDF é produzido no dispositivo. Respostas não são enviadas ao site nem ao professor. A impressão do navegador também inclui a pontuação e os campos pendentes.</p>
 <h3>Continuar depois</h3>
-<div class="actions"><button class="secondary" id="exportJson" type="button">Guardar rascunho</button><button class="secondary" id="exportMd" type="button">Baixar texto da atividade</button><button class="secondary danger" id="clearBtn" type="button">Apagar o preenchimento</button></div>
-<p id="status" role="status" aria-live="polite">Preencha a identificação e as respostas. A ficha é um planejamento ético; ela não autoriza coleta real.</p>
-<div id="import-section"><label for="importFile">Reabrir um rascunho desta ficha</label><input id="importFile" type="file" accept=".json,application/json"><p class="hint">O arquivo contém nomes e respostas. Guarde-o com cuidado e não publique rascunhos com dados pessoais.</p></div>
+<div class="actions"><button class="secondary" id="exportJson" type="button">Guardar rascunho JSON</button><button class="secondary" id="exportMd" type="button">Baixar texto Markdown</button></div>
+<div id="import-section"><label for="importFile">Reabrir um rascunho desta ficha</label><input id="importFile" type="file" accept=".json,application/json" aria-describedby="import-hint"><p class="hint" id="import-hint">Arquivo JSON de até 512 KB. As respostas atuais só são substituídas após validação e confirmação. Os XP são recalculados pelas respostas.</p></div>
+<p id="status" role="status" aria-live="polite" aria-atomic="true">A ficha pode ser exportada a qualquer momento. Guardem um rascunho antes de sair.</p>
+<div class="reset-area"><button class="secondary danger" id="clearBtn" type="button">Apagar o preenchimento</button><span class="hint">Pede confirmação. Não apaga os arquivos já baixados.</span></div>
 </section>
 </form>
-<footer class="footer">PPI I · IFMA Campus Itapecuru-Mirim · Aula 06 · Ficha 1.0.0.</footer>
+<footer class="footer"><p>PPI I · IFMA Campus Itapecuru-Mirim · Aula 06 · Ficha 2.0.0.</p><p>Referências: <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm" target="_blank" rel="noopener noreferrer">LGPD (nova aba)</a> · <a href="https://www.gov.br/anpd/pt-br/assuntos/noticias/anpd-divulga-enunciado-sobre-o-tratamento-de-dados-pessoais-de-criancas-e-adolescentes" target="_blank" rel="noopener noreferrer">ANPD: crianças e adolescentes (nova aba)</a>.</p></footer>
 </main>
-
-<section id="document-view" hidden aria-label="Documento da atividade">
-<div class="document-actions"><button id="backToForm" type="button">← Voltar à ficha</button><button id="printDocument" type="button">Imprimir / salvar como PDF</button><p>Essa é a versão visual de impressão. Para paginação mais previsível, prefira <strong>Gerar PDF formal</strong>.</p></div>
+<main id="document-view" hidden aria-label="Documento da atividade">
+<div class="document-actions"><button id="backToForm" type="button">← Voltar à ficha</button><button id="printDocument" type="button">Imprimir / salvar como PDF</button><p id="document-status" role="status" aria-live="polite">Confira o documento antes de imprimir.</p></div>
 <article id="document-content"></article>
-</section>
+</main>
 </body>
 </html>

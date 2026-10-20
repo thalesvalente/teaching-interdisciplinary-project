@@ -9,13 +9,20 @@
 <style>
 :root{--green:#006b3c;--green-dark:#004a2a;--green-soft:#edf5f0;--red:#c71e28;--blue:#256287;--amber:#8b5b10;--ink:#1f2d25;--muted:#5d6f64;--line:#cddbd2;--bg:#eef4f0}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.55 Arial,"Liberation Sans",sans-serif;border-top:7px solid var(--green)}a{color:var(--green);text-underline-offset:3px}.wrap{width:min(1040px,calc(100% - 30px));margin:28px auto 60px}.top{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}.tag{display:inline-block;padding:4px 9px;border:1px solid #b8ccbe;background:#f5f9f6;color:#315a40;font-size:.8rem;font-weight:800;border-radius:999px}.kicker{margin:0 0 7px;color:var(--green);font-size:13px;font-weight:900;letter-spacing:1.2px;text-transform:uppercase}.hero{padding:28px 0 18px}.hero h1{margin:0;font-size:clamp(34px,5.5vw,52px);line-height:1.05;color:var(--green);letter-spacing:-.03em}.lead{max-width:850px;margin:16px 0 0;color:var(--muted);font-size:1.08rem}.warning{margin:20px 0;padding:16px 18px;border-left:6px solid var(--red);background:#fff4f4}.warning strong{color:#87252b}.section,.project{margin:22px 0;padding:25px;background:#fff;border:1px solid var(--line)}.project{border-top:7px solid var(--green)}.section h2,.project h2{margin:0 0 18px;font-size:1.55rem}.section h2{padding-left:13px;border-left:6px solid var(--red)}.meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 22px}.meta div,.mini{padding:12px 14px;background:var(--green-soft);border:1px solid var(--line)}.meta b,.mini b{display:block;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;color:var(--green);margin-bottom:4px}.field{margin:16px 0;padding-bottom:15px;border-bottom:1px solid #e3ebe6}.field:last-child{border-bottom:0}.field h3{margin:0 0 7px;font-size:1.04rem;color:var(--green-dark)}.answer{margin:0;padding:13px 15px;background:#f7faf8;border-left:4px solid var(--green);text-align:justify}.why{margin:8px 0 0;color:var(--muted);font-size:.92rem}.why strong{color:var(--blue)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.risk{padding:16px;border:1px solid var(--line);background:#fff}.risk h3{margin:0 0 9px;color:var(--red)}.score{display:inline-block;padding:4px 8px;background:#fff6e8;color:#7a5414;border:1px solid #dec797;font-weight:800;font-size:.85rem;margin:6px 0}.check{display:flex;gap:10px;align-items:flex-start;margin:9px 0}.check::before{content:"✓";display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--green);color:#fff;font-weight:900;flex:0 0 24px}.source{margin-top:28px;padding:16px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}.button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:9px 14px;border:1px solid var(--green);border-radius:5px;background:#fff;color:var(--green);text-decoration:none;font-weight:800}.button.primary{background:var(--green);color:#fff}.bottom{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}@media(max-width:720px){.meta,.grid{grid-template-columns:1fr}.section{padding:19px}.wrap{width:calc(100% - 24px)}}@media print{body{background:#fff;border-top:0}.top,.bottom{display:none}.wrap{width:100%;margin:0}.section,.project{break-inside:avoid}}
+
+/* Acessibilidade e impressão do exemplo, versão 2.0. */
+html{scroll-behavior:smooth;scroll-padding-top:1rem}body{overflow-wrap:anywhere}.wrap{max-width:1040px;min-width:0}.meta,.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.answer{text-align:left;white-space:pre-wrap}.top>a{display:inline-flex;align-items:center;min-height:44px;padding:8px 0}a,button{overflow-wrap:anywhere}.bottom .button{white-space:normal;text-align:center}.skip-link{position:absolute;left:12px;top:12px;transform:translateY(-180%);z-index:10;padding:12px 16px;background:#fff;border:2px solid #006b3c}.skip-link:focus{transform:none}:is(a,button,[tabindex]):focus-visible{outline:3px solid #996016;outline-offset:4px}.source a{display:inline-block;min-height:44px;padding:8px 0}.score{white-space:normal;max-width:100%}
+@media(max-width:720px){.meta,.grid{grid-template-columns:minmax(0,1fr)}.project{padding:19px}.hero h1{font-size:clamp(2rem,7vw,2.75rem)}.bottom>*{flex:1 1 100%}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{@page{size:A4;margin:16mm 15mm}body{font-size:11pt}.skip-link{display:none!important}.section,.project{break-inside:auto;padding:4mm;margin:4mm 0}.section h2,.project h2,.field h3{break-after:avoid}.field p{orphans:2;widows:2}.meta,.grid{grid-template-columns:1fr}.answer{padding:3mm}.hero h1{font-size:25pt}.source a{min-height:0;padding:0}}
 </style>
 </head>
 <body>
-<div class="wrap">
-<div class="top"><a href="Ficha_Equipe_Aula_06_PPI.html">← Voltar para a ficha</a><span class="tag">EXEMPLO · NÃO ENTREGAR</span></div>
+<a class="skip-link" href="#example-content">Pular para o exemplo</a>
+<main class="wrap" id="example-content" tabindex="-1">
+<div class="top"><a href="Ficha_Equipe_Aula_06_PPI.html">← Voltar para a ficha</a><span class="tag">EXEMPLO DIDÁTICO · NÃO ENTREGAR</span></div>
 <header class="hero"><p class="kicker">PPI I · Aula 06 · Exemplo preenchido</p><h1>Como fica um protocolo ético?</h1><p class="lead">Este exemplo usa o projeto <strong>Horários IFMA — Itapecuru-Mirim</strong> para mostrar o nível de detalhe esperado. Ele não é parecer jurídico e não substitui procedimento institucional.</p></header>
-<div class="warning"><strong>Exemplo do professor.</strong> Não copie as respostas. Sua equipe deve analisar os dados e riscos do próprio projeto.</div>
+<div class="warning"><strong>Exemplo do professor.</strong> Usem como referência de raciocínio, sem copiar as respostas. A ficha de vocês pode ser exportada com campos em branco. Os XP medem o registro das respostas; a coerência será avaliada pelo professor. Esta página estática não é uma ficha pontuada.</div>
 
 <section class="project">
 <h2>Projeto de exemplo: Horários IFMA — Itapecuru-Mirim</h2>
@@ -32,14 +39,14 @@
 <div class="field"><h3>Que dado ou informação o projeto pretende usar?</h3><p class="answer">Horários previstos de aulas, incluindo dia, período, disciplina, turma e nome do professor quando isso for necessário para a consulta por professor.</p></div>
 <div class="field"><h3>Para que é necessário?</h3><p class="answer">Permitir que estudantes e servidores localizem rapidamente a grade prevista por turma, disciplina ou professor.</p><p class="why"><strong>Observe:</strong> a finalidade explica por que determinados campos existem; não é “guardar tudo para usar depois”.</p></div>
 <div class="field"><h3>De onde vem?</h3><p class="answer">Dos arquivos PDF de horários adotados como fonte pelo projeto. A data e a identificação desses arquivos precisam acompanhar a base.</p></div>
-<div class="field"><h3>Quem precisa acessar?</h3><p class="answer">Quem consulta o visualizador. Arquivos de manutenção e histórico de atualização ficam restritos à manutenção do projeto.</p></div>
+<div class="field"><h3>Quem precisa acessar?</h3><p class="answer">A publicação de nomes e horários depende da finalidade, da base legal aplicável e do procedimento institucional. Para planejar o protótipo, a equipe usa uma base sintética. Arquivos de manutenção ficam em pasta institucional com acesso apenas aos responsáveis definidos.</p></div>
 </section>
 
 <section class="section">
 <h2>2 · Classificação e minimização</h2>
 <div class="grid">
 <div class="mini"><b>Identifica alguém?</b>O nome do professor identifica uma pessoa. A grade da turma, isoladamente, não identifica necessariamente cada estudante.</div>
-<div class="mini"><b>Dado sensível?</b>Os horários e nomes profissionais usados neste exemplo não são tratados como dado sensível. O projeto não precisa adicionar saúde, biometria, endereço ou informações semelhantes.</div>
+<div class="mini"><b>Dado sensível?</b>Nome profissional e horário são dados pessoais quando vinculados a uma pessoa; não integram, por si sós, as categorias de dado sensível da LGPD. Dados de saúde e biometria vinculada a uma pessoa são sensíveis. Endereço e telefone também merecem proteção, embora não sejam, por si sós, categorias legais de dados sensíveis.</div>
 <div class="mini"><b>Estratégia</b>Usar somente os campos necessários para a consulta. Para testes de funcionalidades novas, preferir dados sintéticos.</div>
 <div class="mini"><b>Minimização</b>Não adicionar telefone, endereço, frequência individual, notas, localização em tempo real ou outras informações que não fazem parte da finalidade.</div>
 </div>
@@ -47,17 +54,18 @@
 
 <section class="section">
 <h2>3 · Autorização, limites e proveniência</h2>
-<div class="field"><h3>O que precisa ser confirmado?</h3><p class="answer">A fonte e as condições de uso dos horários precisam ser mantidas claras. Qualquer ampliação para outros dados pessoais deve ser revisada antes de implementação.</p></div>
-<div class="field"><h3>Publicação/compartilhamento</h3><p class="answer">O visualizador deve mostrar somente as informações necessárias à consulta e deixar explícito que é projeto independente e que a grade representa horários previstos.</p></div>
+<div class="field"><h3>O que precisa ser confirmado?</h3><p class="answer">Antes de usar ou publicar dados pessoais reais, confirmar finalidade, fonte, base legal aplicável e procedimento com o professor e a instituição. A disponibilidade pública de um PDF não autoriza qualquer reutilização. Enquanto houver pendência, o protótipo usa dados sintéticos.</p></div>
+<div class="field"><h3>Publicação/compartilhamento</h3><p class="answer">O protótipo deve mostrar somente o necessário à consulta e avisar que a grade é prevista. Informar que o projeto é independente não substitui a avaliação institucional para uso de dados pessoais reais. Não republicar nomes sem confirmar o procedimento.</p></div>
 <div class="field"><h3>Proveniência</h3><p class="answer">Guardar os PDFs usados como fonte, o nome dos arquivos, a data impressa/competência e registrar cada atualização da base.</p></div>
-<div class="field"><h3>Transformações</h3><p class="answer">Os registros dos PDFs são organizados em uma base estruturada para pesquisa, filtros e exibição. A transformação não deve inventar aulas ou alterar o significado da fonte.</p></div>
+<div class="field"><h3>Transformações</h3><p class="answer">No planejamento, os registros dos PDFs seriam organizados em uma base estruturada para busca, filtros e exibição. A transformação não pode inventar aulas ou alterar o sentido da fonte. Registrar a pessoa responsável e quem conferiu a versão. Para este exemplo didático, o uso de IA não é informado: uma equipe real deve declarar ferramenta, data, finalidade e verificação, ou escrever “não utilizada”.</p></div>
+<div class="field"><h3>Guarda, descarte e dúvidas</h3><p class="answer">Registrar onde a base será guardada, quem terá acesso e qual prazo ou critério de descarte foi definido pela instituição. Se ainda não houver definição, registrar a pendência e a pessoa/setor com quem confirmar. Não adotar um prazo legal inventado.</p></div>
 </section>
 
 <section class="section">
-<h2>4 · Matriz de riscos</h2>
+<h2>4 · Matriz de riscos</h2><p>Os valores abaixo são exemplos de priorização pedagógica. Mesmo um índice baixo não autoriza o uso de dados pessoais.</p>
 <div class="grid">
-<div class="risk"><h3>Risco 1 · Grade desatualizada</h3><span class="score">Chance 2 × Impacto 2 = 4 · MODERADO</span><p><strong>O que pode ocorrer:</strong> uma pessoa consultar um horário antigo como se fosse atual.</p><p><strong>Mitigação:</strong> exibir data/versão da base, manter a fonte registrada e avisar que alterações devem ser confirmadas nos canais oficiais.</p></div>
-<div class="risk"><h3>Risco 2 · Inferir presença</h3><span class="score">Chance 1 × Impacto 2 = 2 · BAIXO</span><p><strong>O que pode ocorrer:</strong> alguém interpretar “aula prevista” como prova de que professor ou estudante estava naquele local.</p><p><strong>Mitigação:</strong> escrever claramente que o sistema mostra a grade prevista e não registra presença ou localização em tempo real.</p></div>
+<div class="risk"><h3>Risco 1 · Grade desatualizada</h3><span class="score">Índice de risco: 2 × 2 = 4 · MODERADO (não é XP)</span><p><strong>O que pode ocorrer:</strong> uma pessoa consultar um horário antigo como se fosse atual.</p><p><strong>Mitigação:</strong> exibir data/versão da base, manter a fonte registrada e avisar que alterações devem ser confirmadas nos canais oficiais.</p></div>
+<div class="risk"><h3>Risco 2 · Inferir presença</h3><span class="score">Índice de risco: 1 × 2 = 2 · BAIXO (não é XP)</span><p><strong>O que pode ocorrer:</strong> alguém interpretar “aula prevista” como prova de que professor ou estudante estava naquele local.</p><p><strong>Mitigação:</strong> escrever claramente que o sistema mostra a grade prevista e não registra presença ou localização em tempo real.</p></div>
 </div>
 </section>
 
@@ -79,8 +87,8 @@
 <div class="field"><h3>Próxima ação</h3><p class="answer">Revisar a tela “Sobre” e a indicação de versão/fonte antes de qualquer nova publicação.</p></div>
 </section>
 
-<p class="source"><strong>Base do exemplo:</strong> documentação do projeto Horários IFMA — Itapecuru-Mirim. O exemplo aplica os conceitos da Aula 06 para fins didáticos e não declara conformidade jurídica.</p>
+<p class="source"><strong>Base do exemplo:</strong> situação didática inspirada no projeto Horários IFMA — Itapecuru-Mirim. Este material descreve cuidados propostos e não certifica a implementação, a fonte de cada arquivo ou a conformidade jurídica do projeto. Referência legal: <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm" target="_blank" rel="noopener noreferrer">LGPD (nova aba)</a>.</p>
 <div class="bottom"><a class="button primary" href="Ficha_Equipe_Aula_06_PPI.html">Agora preencher minha ficha →</a><a class="button" href="index.html#s16">Voltar à Aula 06</a></div>
-</div>
+</main>
 </body>
 </html>
