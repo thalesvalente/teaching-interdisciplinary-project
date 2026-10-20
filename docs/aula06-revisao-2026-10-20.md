@@ -178,3 +178,14 @@ Em mudanças futuras, preservar os invariantes de pontuação, a exportação pa
 | [W3C — WCAG 2.2](https://www.w3.org/TR/WCAG22/) | Critérios de acessibilidade usados como referência. |
 
 As fontes fundamentam o material didático. As regras de uso real de dados continuam dependentes da finalidade, do contexto e dos procedimentos aplicáveis na instituição.
+
+
+## Correção complementar — RISK-REFLOW-01 (20/10/2026)
+
+**Relato:** a versão **publicada em `main`** apresentava colunas excessivamente estreitas na matriz de riscos. O cabeçalho e a legenda exibidos na captura correspondem à implementação antiga; a atualização 2.0 da aula ainda estava em PR Draft. O teste anterior de ausência de rolagem horizontal externa não garantia largura mínima dos controles internos.
+
+**Correção na PR:** ficha com descrição do risco e mitigação ocupando toda a largura; controles de chance/impacto em duas colunas somente acima de 820 CSS px, empilhados abaixo disso; resultado com 100% da largura útil. No slide 15, chance/impacto têm colunas balanceadas e o resultado ocupa a linha seguinte; em leitura estreita os campos são empilhados. A tabela 3 × 3 possui região com rolagem horizontal e foco por teclado, mantendo tipografia legível. Os links CSS receberam `v=2.0.1` para não reutilizar a folha antiga do cache.
+
+**Verificação desta correção:** simulação visual isolada no Chromium em 320, 390, 640, 934 e 1280 CSS px (fontes normais e ampliadas em 200%), sem rolagem externa nem colunas espremidas, além de inspeção das imagens geradas a 320 e 934 px. A suíte integrada ganhou dois cenários `RISK-REFLOW-01` executáveis para os três motores, mas **a nova suíte integrada não foi executada nesta rodada**. Permanecem necessários execução final da suíte integrada no HEAD desta PR e revisão antes do merge. A evidência histórica 78/78, anterior a este relato, não substitui esses testes.
+
+**Publicação:** a correção não foi aplicada diretamente ao GitHub Pages; permanece na PR Draft, para evitar alteração não revisada da versão pública.
