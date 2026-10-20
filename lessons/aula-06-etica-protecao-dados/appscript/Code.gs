@@ -14,7 +14,7 @@ const CFG = Object.freeze({
 const FIELDS = ['Aluno','Equipe','Turma','Disciplina','Etapa','Atividade','Projeto',
  'Data/hora (BRT)','Recebido UTC','Nota','Situação','Risco 1 (didático)',
  'Risco 2 (didático)','SHA-256 PDF','SHA-256 respostas','Assinatura HMAC',
- 'ID entrega','Versão rubrica','Respostas JSON','Chave interna'];
+ 'ID entrega','Versão rubrica','Respostas JSON','Chave interna','XP preparação / 100'];
 const sha = s => Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256,s,Utilities.Charset.UTF_8)
   .map(x=>(x<0?x+256:x).toString(16).padStart(2,'0')).join('');
 const hmac = (message,secret) => Utilities.computeHmacSha256Signature(message,secret)
@@ -39,11 +39,20 @@ function processDelivery(body) {
   if(!snap || snap.schema!==CFG.schema || typeof snap.campos!=='object')throw Error('Ficha inválida.');
   const id=snap.identificacao||{};
   const names=[...new Set((id.componentes||[]).map(x=>String(x).trim()).filter(Boolean))];
-  if(!names.length || names.length>12 || names.some(n=>n.length>120))throw Error('Identificação de estudantes inválida.');
+  if(!names.length || names.length>30 || names.some(n=>n.length>120))throw Error('Identificação de estudantes inválida.');
   if(!['memorias','permanencia'].includes(id.projeto))throw Error('Projeto inválido.');
   const expected=['prob1','impacto1','prob2','impacto2'];
   for(const k of expected){if(snap.campos[k]!==''&&!['1','2','3'].includes(String(snap.campos[k])))throw Error('Matriz inválida.');}
   const risk=i=>Number(snap.campos['prob'+i]||0)*Number(snap.campos['impacto'+i]||0);
+  const rubric=[['item',5],['finalidade',5],['fonte',5],['acesso',5],
+  ['identifica',4],['sensivel',4],['estrategia',4],['minimizacao',8],
+  ['autorizacao',5],['informar',5],['publicacao',5],
+  ['dataVersao',5],['transformacoes',5],['restricoes',5],
+  ['risco1',3],['prob1',1],['impacto1',1],['mitigacao1',3],
+  ['risco2',3],['prob2',1],['impacto2',1],['mitigacao2',3],
+  ['regraEquipe',4],['forca',3],['ajuste',3],['proximaAcao',4]];
+  const xp=rubric.reduce((sum,[key,points])=>sum+
+    (String(snap.campos[key]||'').trim()?points:0),0);
   const normalized={schema:CFG.schema,identificacao:{
     equipe:String(id.equipe||'').slice(0,120),componentes:names,projeto:id.projeto,data:String(id.data||'')
   },campos:snap.campos,protocolo:snap.protocolo};
@@ -71,7 +80,7 @@ function processDelivery(body) {
       old.set(key,[name,normalized.identificacao.equipe,'','Prática Profissional Integrada I','3ª etapa',
         CFG.activity,id.projeto,local,utc,'','Recebida — avaliação pendente',
         risk(1)||'',risk(2)||'',d.pdfSha256,answerHash,signature,deliveryId,
-        'não configurada',data,key]);
+        'não configurada',data,key,xp]);
     }
     const records=[...old.values()].sort((a,b)=>String(a[0]).localeCompare(String(b[0]),'pt-BR',{sensitivity:'base'}));
     const required=records.length+1;
@@ -81,5 +90,5 @@ function processDelivery(body) {
     SpreadsheetApp.flush();
   } finally {lock.releaseLock();}
   return {ok:true,deliveryId,receivedAt:utc,pdfSha256:d.pdfSha256,answersSha256:answerHash,signature,
-    message:'Entrega registrada. A avaliação acadêmica depende de rubrica docente.'};
+    xp,message:'Entrega registrada. XP calculado no Apps Script; avaliação acadêmica pendente.'};
 }
