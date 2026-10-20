@@ -27,7 +27,7 @@ function doPost(e) {
   catch(err) { response={ok:false,error:String(err?.message||'Falha ao registrar entrega.')}; }
   // Retorno via iframe, dispensando CORS e sem inclusão de dados sensíveis na URL.
   const safe=JSON.stringify({channel:'ppi-entrega-aula06',nonce,...response}).replace(/</g,'\\u003c');
-  return HtmlService.createHtmlOutput('<!doctype html><meta charset="utf-8"><script>parent.postMessage('+safe+', "*");<\\/script>')
+  return HtmlService.createHtmlOutput('<!doctype html><meta charset="utf-8"><script>parent.postMessage('+safe+', "*");</scr'+'ipt>')
     .setTitle('Confirmação de entrega');
 }
 function processDelivery(body) {
