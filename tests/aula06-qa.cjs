@@ -130,11 +130,12 @@ const server = http.createServer((req,res) => {
     });
 
     await check(engine,'RISK-REFLOW-01: slide sem resultado estreito e tabela navegável',async()=>{
-      const values=[];
+      const values=[];const probe=await context.newPage();
+      try {
       for(const [width,height] of [[320,568],[390,844],[640,480],[1280,720]]) {
-        await page.setViewportSize({width,height});await page.goto(base+'index.html');
-        await page.evaluate(()=>{location.hash='s15'});await page.waitForFunction(()=>document.querySelector('#s15.active'));
-        const geometry=await page.evaluate(()=>{
+        await probe.setViewportSize({width,height});await probe.goto(base+'index.html');
+        await probe.evaluate(()=>{location.hash='s15'});await probe.waitForFunction(()=>document.querySelector('#s15.active'));
+        const geometry=await probe.evaluate(()=>{
           const rect=q=>document.querySelector(q).getBoundingClientRect();
           const grid=rect('#s15 .risk-demo'),score=rect('#risk-score'),chance=rect('#risk-prob'),impact=rect('#risk-impact');
           const region=document.querySelector('#s15 .risk-matrix-scroll');
@@ -148,25 +149,28 @@ const server = http.createServer((req,res) => {
         assert.ok(geometry.chance>=150&&geometry.impact>=150,JSON.stringify({width,geometry}));
         assert.equal(geometry.focusable,true);
         if(width===320)assert.equal(geometry.scrollable,true);
-        await noOverflow(page);
+        await noOverflow(probe);
         values.push({width,...geometry});
       }
       return values;
+      }finally{await probe.close();}
     });
     await check(engine,'Impressão da aula preserva resultado atual',async()=>{
       await page.evaluate(()=>window.dispatchEvent(new Event('beforeprint')));await page.emulateMedia({media:'print'});
+      try {
       assert.match(await page.locator('#lesson-report').textContent(),/80 \/ 100 XP/);assert.equal(await page.locator('#lesson-report').isVisible(),true);
       if(engine==='chromium')await page.pdf({path:path.join(evidence,'aula-impressao-parcial.pdf'),format:'A4',printBackground:true});
-      await page.emulateMedia({media:'screen'});await page.evaluate(()=>window.dispatchEvent(new Event('afterprint')));
+      } finally {await page.emulateMedia({media:'screen'});await page.evaluate(()=>window.dispatchEvent(new Event('afterprint')));}
     });
     await page.goto(base+'Ficha_Equipe_Aula_06_PPI.html');await page.waitForFunction(()=>window.ppiAula06);
 
     await check(engine,'RISK-REFLOW-01: ficha com campos, índice e mitigação legíveis',async()=>{
-      const values=[];
+      const values=[];const probe=await context.newPage();
+      try {
       for(const [width,height] of [[320,568],[390,844],[640,480],[768,1024],[1280,720]]) {
-        await page.setViewportSize({width,height});await page.goto(base+'Ficha_Equipe_Aula_06_PPI.html');
-        await page.waitForFunction(()=>window.ppiAula06);
-        const geometry=await page.evaluate(()=>{
+        await probe.setViewportSize({width,height});await probe.goto(base+'Ficha_Equipe_Aula_06_PPI.html');
+        await probe.waitForFunction(()=>window.ppiAula06);
+        const geometry=await probe.evaluate(()=>{
           const block=document.querySelector('#part-5 .risk-block');
           const rect=q=>block.querySelector(q).getBoundingClientRect();
           const description=rect('.grid>.field-card'),row=rect('.risk-row'),
@@ -181,10 +185,11 @@ const server = http.createServer((req,res) => {
         assert.ok(geometry.mitigation>=geometry.row-3,JSON.stringify({width,geometry}));
         assert.ok(geometry.result>=geometry.row-3&&geometry.resultBeneathFields,JSON.stringify({width,geometry}));
         assert.ok(geometry.chance>=150&&geometry.impact>=150,JSON.stringify({width,geometry}));
-        await noOverflow(page);
+        await noOverflow(probe);
         values.push({width,...geometry});
       }
       return values;
+      }finally{await probe.close();}
     });
     await check(engine,'Ficha vazia exporta PDF e MD com0/100',async()=>{
       const s=await score(page);assert.equal(s.earned,0);assert.equal(s.total,26);assert.equal(s.pending,26);
@@ -200,9 +205,10 @@ const server = http.createServer((req,res) => {
     });
     await check(engine,'Ctrl+P ficha parcial inclui valores,XP e pendências',async()=>{
       await page.evaluate(()=>window.dispatchEvent(new Event('beforeprint')));await page.emulateMedia({media:'print'});
+      try {
       assert.equal(await page.locator('#document-content').isVisible(),true);const text=await page.locator('#document-content').textContent();assert.match(text,/16 \/ 100 XP/);assert.match(text,/Dados sintéticos de frequência/);assert.match(text,/21 pendentes/);
       if(engine==='chromium')await page.pdf({path:path.join(evidence,'ficha-impressao-parcial.pdf'),format:'A4',printBackground:true});
-      await page.emulateMedia({media:'screen'});await page.evaluate(()=>window.dispatchEvent(new Event('afterprint')));assert.equal(await page.locator('#worksheet').isVisible(),true);
+      } finally {await page.emulateMedia({media:'screen'});await page.evaluate(()=>window.dispatchEvent(new Event('afterprint')));}assert.equal(await page.locator('#worksheet').isVisible(),true);
     });
     await check(engine,'JSON exportado reabre e recalcula XP adulterado',async()=>{
       const file=await saveDownload(page,()=>page.locator('#exportJson').click(),engine+'-rascunho.json');const draft=JSON.parse(fs.readFileSync(file,'utf8'));draft.scoring.earned=999;draft.campos.score1='999';
