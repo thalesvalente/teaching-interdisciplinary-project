@@ -69,7 +69,8 @@ body.reading{display:block;height:auto;overflow:visible;background:#eef3ef;paddi
   #s15 .risk-demo>label{display:grid;gap:7px;min-width:0;line-height:1.35;overflow-wrap:normal;word-break:normal}
   #s15 .risk-demo select{display:block;width:100%;max-width:100%;min-width:0;min-height:48px}
   #s15 .risk-demo .risk-score{grid-column:1/-1;width:100%;min-width:0;overflow-wrap:break-word;word-break:normal;line-height:1.4;text-align:left}
-  #s15 .risk-matrix-scroll{max-width:100%;min-width:0;overflow-x:auto;overscroll-behavior-inline:contain}
+  #s15 .body > .two > *{min-width:0;max-width:100%}
+  #s15 .risk-matrix-scroll{display:block;width:100%;max-width:100%;min-width:0;overflow-x:auto;overscroll-behavior-inline:contain}
   #s15 .risk-matrix-scroll:focus-visible{outline:3px solid #005fcc;outline-offset:3px}
   #s15 .risk-matrix{min-width:480px}
 }
