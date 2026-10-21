@@ -71,12 +71,12 @@ function processDelivery(body) {
   lock.waitLock(20000);
   try {
     const oldAudit=audit.getLastRow()>1
-      ?audit.getRange(2,1,audit.getLastRow()-1,15).getValues():[];
+      ?audit.getRange(2,1,audit.getLastRow()-1,14).getValues():[];
     const byKey=new Map();
     oldAudit.forEach(row=>{if(row[14])byKey.set(String(row[14]),row);});
     for(const name of names){
       const key=CFG.activity+'|'+normal(name);
-      byKey.set(key,[name,normalized.identificacao.equipe,'3º Bimestre',CFG.activity,
+      byKey.set(key,[name,normalized.identificacao.equipe,CFG.activity,
         local,utc,deliveryId,d.pdfSha256,answerHash,signature,xp,'',
         'Avaliação pendente',data,key]);
     }
@@ -84,8 +84,8 @@ function processDelivery(body) {
       String(a[0]).localeCompare(String(b[0]),'pt-BR',{sensitivity:'base'}));
     if(audit.getMaxRows()<records.length+1)
       audit.insertRowsAfter(audit.getMaxRows(),records.length+1-audit.getMaxRows());
-    if(audit.getLastRow()>1)audit.getRange(2,1,audit.getLastRow()-1,15).clearContent();
-    if(records.length)audit.getRange(2,1,records.length,15).setValues(records);
+    if(audit.getLastRow()>1)audit.getRange(2,1,audit.getLastRow()-1,14).clearContent();
+    if(records.length)audit.getRange(2,1,records.length,14).setValues(records);
 
     const existing=grade.getLastRow()>1
       ?grade.getRange(2,1,grade.getLastRow()-1,4).getValues():[];
