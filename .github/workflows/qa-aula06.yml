@@ -7,6 +7,7 @@ on:
     paths:
       - 'lessons/aula-06-etica-protecao-dados/**'
       - 'tests/aula06-qa.cjs'
+      - 'tests/ppi-browser-entrega.cjs'
       - 'tests/aula06-pdf-qa.py'
       - 'package*.json'
       - '.github/workflows/qa-aula06.yml'
@@ -14,6 +15,7 @@ on:
     paths:
       - 'lessons/aula-06-etica-protecao-dados/**'
       - 'tests/aula06-qa.cjs'
+      - 'tests/ppi-browser-entrega.cjs'
       - 'tests/aula06-pdf-qa.py'
       - 'package*.json'
       - '.github/workflows/qa-aula06.yml'
@@ -40,6 +42,8 @@ jobs:
         env:
           AULA06_BROWSERS: chromium,firefox,webkit
           AULA06_EVIDENCE_DIR: tmp/aula06-ci
+      - name: Integração PDF SHA-256 e recibo (navegador com Google simulado)
+        run: node tests/ppi-browser-entrega.cjs
       - name: Evidências
         if: always()
         uses: actions/upload-artifact@v4
