@@ -11,12 +11,12 @@
 const CFG = Object.freeze({
   spreadsheetId: '1aziGb9eXl5oR6Wz6dDWI7IH9bsINf9Sp7b6nmlT9XqE',
   maxBytes: 120000,
-  version: 'ppi-entregas-1.2.0',
+  version: 'ppi-entregas-1.3.0',
   activities: Object.freeze({
     'PPI1-AULA06-2026': Object.freeze({
       sheet: '3º Bimestre', column: 'Aula 06',
       schema: 'ppi-f02-v1', rubric: 'aula06-xp-2.0',
-      gradeMode: 'manual'
+      gradeMode: 'xp'
     })
     // Para outras aulas: adicionar código, bimestre, coluna, schema e rubrica.
   })
@@ -190,7 +190,7 @@ function columnLetter(n) {
   while(n>0){out=String.fromCharCode(65+(n-1)%26)+out;n=Math.floor((n-1)/26);}
   return out;
 }
-function upsertGrade(sheet,name,team,activity) {
+function upsertGrade(sheet,name,team,activity,gradeValue) {
   const {col,media}=ensureActivityColumn(sheet,activity);
   const last=sheet.getLastRow();
   const data=last>1?sheet.getRange(2,1,last-1,2).getValues():[];
@@ -211,9 +211,9 @@ function upsertGrade(sheet,name,team,activity) {
     ]);
   } else {
     sheet.getRange(row,2).setValue(literalText(team));
-    // Somente a atividade reenviada é reiniciada até correção docente.
-    sheet.getRange(row,col).setValue(0);
+    // O reenvio substitui apenas a nota desta atividade, sem afetar outras.
   }
+  sheet.getRange(row,col).setValue(gradeValue);
   return media;
 }
 function upsertAudit(sheet,rowData,key) {
@@ -242,6 +242,10 @@ function processDelivery(body) {
   const pdfHash=String(delivery.pdfSha256||'');
   if(!/^[a-f0-9]{64}$/.test(pdfHash))throw Error('SHA-256 do PDF inválido.');
   const {names,team,normalized,xp}=sanitizeSnapshot(delivery.snapshot,activity);
+  // A nota da Aula 06 é conversão da pontuação de completude (0..100 XP -> 0..10).
+  // O servidor recalcula os XP a partir dos campos, nunca confia em pontuação recebida.
+  const gradeValue=activity.gradeMode==='xp' ? xp/10 : null;
+  const gradeStatus=gradeValue===null?'pendente':'automatica';
   const answerJson=JSON.stringify(normalized);
   const answerHash=sha256Utf8(answerJson);
   const ss=SpreadsheetApp.openById(CFG.spreadsheetId);
@@ -267,19 +271,20 @@ function processDelivery(body) {
     const deliveryId=Utilities.getUuid();
     const signText=JSON.stringify([
       deliveryId,receivedAt,delivery.activity,pdfHash,answerHash,
-      names.map(normal),xp,activity.rubric,'SEM_NOTA'
+      names.map(normal),xp,activity.rubric,gradeValue===null?'SEM_NOTA':gradeValue
     ]);
     const signature=hmac256(signText,getReceiptKey());
 
     for(const name of names){
       const key=delivery.activity+'|'+normal(name);
       const rowData=[literalText(name),literalText(team),delivery.activity,local,
-        receivedAt,deliveryId,pdfHash,answerHash,signature,xp,'',
-        'Avaliação pendente',answerJson,key];
+        receivedAt,deliveryId,pdfHash,answerHash,signature,xp,
+        gradeValue===null?'':gradeValue,
+        gradeValue===null?'Avaliação pendente':'Nota automática (XP / 10)',answerJson,key];
       upsertAudit(audit,rowData,key);
     }
     let media=0;
-    for(const name of names)media=upsertGrade(grade,name,team,activity);
+    for(const name of names)media=upsertGrade(grade,name,team,activity,gradeValue===null?0:gradeValue);
     if(grade.getLastRow()>1) {
       grade.getRange(2,1,grade.getLastRow()-1,media).sort(1);
       refreshAverages(grade,media);
@@ -289,8 +294,10 @@ function processDelivery(body) {
         .sort([{column:1,ascending:true},{column:3,ascending:true}]);
     SpreadsheetApp.flush();
     return {ok:true,deliveryId,receivedAt,pdfSha256:pdfHash,
-      answersSha256:answerHash,signature,xp,gradeStatus:'pendente',
-      message:'Entrega registrada. XP formativo calculado; nota acadêmica pendente.'};
+      answersSha256:answerHash,signature,xp,grade:gradeValue,gradeStatus,
+      message:gradeValue===null
+        ?'Entrega registrada. XP calculado; avaliação pendente.'
+        :'Entrega registrada. Nota automática por preenchimento: '+gradeValue.toFixed(1)+'/10.'};
   } finally {lock.releaseLock();}
 }
 function testarConexao() {
