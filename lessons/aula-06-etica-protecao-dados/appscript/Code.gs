@@ -73,7 +73,7 @@ function processDelivery(body) {
     const oldAudit=audit.getLastRow()>1
       ?audit.getRange(2,1,audit.getLastRow()-1,14).getValues():[];
     const byKey=new Map();
-    oldAudit.forEach(row=>{if(row[14])byKey.set(String(row[14]),row);});
+    oldAudit.forEach(row=>{if(row[13])byKey.set(String(row[13]),row);});
     for(const name of names){
       const key=CFG.activity+'|'+normal(name);
       byKey.set(key,[name,normalized.identificacao.equipe,CFG.activity,
