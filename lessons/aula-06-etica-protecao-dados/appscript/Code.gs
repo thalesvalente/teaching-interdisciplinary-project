@@ -6,7 +6,7 @@
  */
 const CFG = Object.freeze({
   spreadsheetId: '1aziGb9eXl5oR6Wz6dDWI7IH9bsINf9Sp7b6nmlT9XqE',
-  tab: 'Entregas',
+  tab: '3º Bimestre',
   activity: 'PPI1-AULA06-2026',
   schema: 'ppi-f02-v1',
   maxBytes: 120000
@@ -64,29 +64,48 @@ function processDelivery(body) {
   if(!secret){secret=Utilities.getUuid()+Utilities.getUuid();properties.setProperty('RECEIPT_HMAC_SECRET',secret);}
   const signed=JSON.stringify([deliveryId,utc,d.pdfSha256,answerHash,CFG.activity,names.map(normal), 'SEM_NOTA']);
   const signature=hmac(signed,secret);
-  const ss=SpreadsheetApp.openById(CFG.spreadsheetId),sh=ss.getSheetByName(CFG.tab);
-  if(!sh)throw Error('Aba Entregas ausente.');
+  const ss=SpreadsheetApp.openById(CFG.spreadsheetId);
+  const grade=ss.getSheetByName('3º Bimestre'),audit=ss.getSheetByName('Auditoria');
+  if(!grade||!audit)throw Error('Abas bimestrais ou Auditoria ausentes.');
   const lock=LockService.getScriptLock();
   lock.waitLock(20000);
-  try{
-    const all=sh.getDataRange().getValues();
-    const old=new Map();
-    all.slice(1).forEach(row=>{
-      const key=String(row[19]||'');
-      if(key)old.set(key,row);
-    });
+  try {
+    const oldAudit=audit.getLastRow()>1
+      ?audit.getRange(2,1,audit.getLastRow()-1,15).getValues():[];
+    const byKey=new Map();
+    oldAudit.forEach(row=>{if(row[14])byKey.set(String(row[14]),row);});
     for(const name of names){
       const key=CFG.activity+'|'+normal(name);
-      old.set(key,[name,normalized.identificacao.equipe,'','Prática Profissional Integrada I','3ª etapa',
-        CFG.activity,id.projeto,local,utc,'','Recebida — avaliação pendente',
-        risk(1)||'',risk(2)||'',d.pdfSha256,answerHash,signature,deliveryId,
-        'não configurada',data,key,xp]);
+      byKey.set(key,[name,normalized.identificacao.equipe,'3º Bimestre',CFG.activity,
+        local,utc,deliveryId,d.pdfSha256,answerHash,signature,xp,'',
+        'Avaliação pendente',data,key]);
     }
-    const records=[...old.values()].sort((a,b)=>String(a[0]).localeCompare(String(b[0]),'pt-BR',{sensitivity:'base'}));
-    const required=records.length+1;
-    if(sh.getMaxRows()<required)sh.insertRowsAfter(sh.getMaxRows(),required-sh.getMaxRows());
-    if(sh.getLastRow()>1)sh.getRange(2,1,sh.getLastRow()-1,FIELDS.length).clearContent();
-    if(records.length)sh.getRange(2,1,records.length,FIELDS.length).setValues(records);
+    const records=[...byKey.values()].sort((a,b)=>
+      String(a[0]).localeCompare(String(b[0]),'pt-BR',{sensitivity:'base'}));
+    if(audit.getMaxRows()<records.length+1)
+      audit.insertRowsAfter(audit.getMaxRows(),records.length+1-audit.getMaxRows());
+    if(audit.getLastRow()>1)audit.getRange(2,1,audit.getLastRow()-1,15).clearContent();
+    if(records.length)audit.getRange(2,1,records.length,15).setValues(records);
+
+    const existing=grade.getLastRow()>1
+      ?grade.getRange(2,1,grade.getLastRow()-1,4).getValues():[];
+    const byStudent=new Map();
+    existing.forEach(row=>{if(row[0])byStudent.set(normal(row[0]),row);});
+    for(const name of names){
+      const key=normal(name),old=byStudent.get(key)||[name,'',0,''];
+      byStudent.set(key,[name,normalized.identificacao.equipe,
+        typeof old[2]==='number'?old[2]:0,'']);
+    }
+    const grades=[...byStudent.values()].sort((a,b)=>
+      String(a[0]).localeCompare(String(b[0]),'pt-BR',{sensitivity:'base'}));
+    if(grade.getMaxRows()<grades.length+1)
+      grade.insertRowsAfter(grade.getMaxRows(),grades.length+1-grade.getMaxRows());
+    if(grade.getLastRow()>1)grade.getRange(2,1,grade.getLastRow()-1,4).clearContent();
+    if(grades.length){
+      grade.getRange(2,1,grades.length,4).setValues(grades);
+      const formulas=grades.map((_,i)=>['=AVERAGE(C'+(i+2)+':C'+(i+2)+')']);
+      grade.getRange(2,4,grades.length,1).setFormulas(formulas);
+    }
     SpreadsheetApp.flush();
   } finally {lock.releaseLock();}
   return {ok:true,deliveryId,receivedAt:utc,pdfSha256:d.pdfSha256,answersSha256:answerHash,signature,
