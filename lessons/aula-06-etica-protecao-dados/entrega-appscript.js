@@ -3,7 +3,7 @@
  'use strict';
  // Cole aqui exclusivamente a URL /exec produzida pela implantação do Apps Script.
  // Sem endpoint configurado, nenhum dado é transmitido.
- const ENDPOINT = '';
+ const ENDPOINT = 'https://script.google.com/macros/s/AKfycbzMb-h8fui1ggVOjlZEfp1CDlYflmzQQO4cjRSe6DPePXrYCXkNabmB2p4gnwTONtGU/exec';
  const origemGoogle = origin => /^https:\/\/([a-z0-9-]+\.)?script\.googleusercontent\.com$/.test(origin) || origin==='https://script.google.com';
  let busy = false;
  function sha256(bytes) {
