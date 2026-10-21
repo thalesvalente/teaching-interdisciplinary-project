@@ -261,11 +261,11 @@ test('21 — campos desconhecidos são recusados sem escrita',()=>{
 });
 test('22 — suporte a 30 integrantes, ordenação com acentos',()=>{
   const f=makeFixture();
-  const names=Array.from({length:30},(_,i)=>'Aluno '+String(i+1).padStart(2,'0'));
+  const names=Array.from({length:30},(_,i)=>'Aluno '+String.fromCharCode(65+Math.floor(i/26))+String.fromCharCode(65+i%26));
   f.submit(names.reverse());
   assert.equal(f.audit().length,31);
-  assert.equal(f.grade()[1][0],'Aluno 01');
-  assert.equal(f.grade()[30][0],'Aluno 30');
+  assert.equal(f.grade()[1][0],'Aluno AA');
+  assert.equal(f.grade()[30][0],'Aluno BD');
 });
 test('23 — 31 integrantes são rejeitados',()=>{
   const f=makeFixture();
