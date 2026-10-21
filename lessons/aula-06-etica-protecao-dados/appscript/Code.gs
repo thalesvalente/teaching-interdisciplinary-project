@@ -138,8 +138,15 @@ function doGet() {
 function doPost(e) {
   const nonce=String(e?.parameter?.nonce||'').slice(0,100);
   let response;
-  try {response=processDelivery(String(e?.parameter?.payload||''));}
-  catch(err){response={ok:false,error:String(err?.message||'Entrega recusada.')};}
+  try {
+    // Política de menor privilégio: um deploy público acidental não pode aceitar notas.
+    // Testes internos via processDelivery/testarConexao não dependem desta chave.
+    if(PropertiesService.getScriptProperties().getProperty('PPI_WEB_SUBMISSIONS_ENABLED')!=='true')
+      throw Error('Recebimento pela web ainda não habilitado pelo professor.');
+    response=processDelivery(String(e?.parameter?.payload||''));
+  }catch(err){
+    response={ok:false,error:String(err?.message||'Entrega recusada.')};
+  }
   const data=JSON.stringify({channel:'ppi-entrega-aula06',nonce,...response})
     .replace(/</g,'\\u003c').replace(/\u2028/g,'\\u2028').replace(/\u2029/g,'\\u2029');
   return HtmlService.createHtmlOutput(
