@@ -278,7 +278,44 @@ $('worksheet').addEventListener('change',()=>updateProgress(true));
 $('worksheet').addEventListener('focusout',e=>{if(e.target.matches('textarea,input,select'))updateProgress(true);});
 $('addMember').addEventListener('click',()=>addMember('',true));
 $('projeto').addEventListener('change',()=>{const p=val('projeto'),has=TEXT_FIELDS.some(([id])=>val(id));if(previousProject&&p!==previousProject&&has&&!confirm('Trocar o projeto? As respostas serão preservadas, mas precisarão ser revisadas com as novas dicas.')){$('projeto').value=previousProject;return;}previousProject=p;caseView();});
-$('exportPdf').addEventListener('click',async()=>{const btn=$('exportPdf');btn.disabled=true;try{const model=documentModel(),bytes=window.PpiPdf.generate(model);download(bytes,'application/pdf',prefix()+'.pdf');status('PDF gerado com '+model.scoring.earned+' / 100 XP. Registrando entrega...');const receipt=await window.PpiEntrega.enviar(snapshot(),bytes);status('Entrega confirmada! Protocolo: '+receipt.deliveryId+'\\nSHA-256 do PDF: '+receipt.pdfSha256+'\\nA avaliação acadêmica é independente dos XP. Guarde o PDF.');}catch(err){status('Entrega NÃO confirmada: '+(err?.message||'Erro ao registrar.')+' O PDF, se baixado, permanece com a equipe.');}finally{btn.disabled=false;}});
+$('exportPdf').addEventListener('click',()=>{
+  try{
+    const model=documentModel(),bytes=window.PpiPdf.generate(model);
+    download(bytes,'application/pdf',prefix()+'.pdf');
+    status('PDF gerado localmente com '+model.scoring.earned+
+      ' / 100 XP. Nenhuma informação foi enviada ao professor.');
+  }catch(err){
+    const msg='Não foi possível gerar o PDF direto. '+
+      (err?.message||'')+' Use a versão de impressão para preservar a atividade.';
+    status(msg);showDocument(msg);
+  }
+});
+$('submitActivity').addEventListener('click',async()=>{
+  const btn=$('submitActivity');
+  if(!members().length){
+    status('Para entregar, informe o nome completo dos integrantes. '+
+      'A exportação local continua disponível.');
+    return;
+  }
+  btn.disabled=true;
+  try{
+    const responses=snapshot(),model=documentModel();
+    const bytes=window.PpiPdf.generate(model);
+    download(bytes,'application/pdf',prefix()+'.pdf');
+    status('PDF baixado. Registrando respostas e SHA-256 da entrega...');
+    const receipt=await window.PpiEntrega.enviar(responses,bytes);
+    status('Entrega CONFIRMADA. ID: '+receipt.deliveryId+
+      '\nHorário UTC: '+receipt.receivedAt+
+      '\nSHA-256 PDF: '+receipt.pdfSha256+
+      '\nXP formativo: '+receipt.xp+'/100. Nota acadêmica ainda pendente. '+
+      'Guarde o PDF e este recibo.');
+  }catch(err){
+    status('ENTREGA NÃO CONFIRMADA: '+(err?.message||'Falha de envio.')+
+      ' O PDF baixado permanece com a equipe, mas não comprova envio.');
+  }finally{
+    btn.disabled=false;
+  }
+});
 $('exportMd').addEventListener('click',()=>{download(md(),'text/markdown;charset=utf-8',prefix()+'.md');status('Texto gerado com a pontuação atual e as pendências.');});
 $('exportJson').addEventListener('click',()=>{download(JSON.stringify(snapshot(),null,2),'application/json;charset=utf-8',prefix()+'.json');status('Rascunho guardado. Respostas e identificação estão no arquivo; compartilhe apenas com quem precisa.');});
 $('printView').addEventListener('click',()=>showDocument());
