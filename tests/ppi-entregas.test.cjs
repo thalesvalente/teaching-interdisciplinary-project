@@ -341,6 +341,7 @@ test('32 — endpoints GET e POST não expõem informações pessoais',()=>{
   assert.ok(!out.includes('1aziGb'));
   const body=f.app.doPost({parameter:{nonce:'testar',payload:JSON.stringify(envelope())}});
   assert.match(body.content,/ppi-entrega-aula06/);
+  assert.match(body.content,/Recebimento pela web ainda não habilitado/);
   assert.ok(!body.content.includes('Equipe Teste'));
 });
 test('33 — PDF real tem header, EOF e SHA-256 verificável',()=>{
@@ -368,4 +369,16 @@ test('33 — PDF real tem header, EOF e SHA-256 verificável',()=>{
   const f=makeFixture();const receipt=f.submit(['Ana Teste'],{}, {pdfSha256:digest});
   assert.equal(f.find('Ana Teste')[6],digest);
   assert.equal(receipt.pdfSha256,digest);
+});
+
+test('34 — recebimento externo fica bloqueado até autorização explícita',()=>{
+  const f=makeFixture();
+  const request={parameter:{nonce:'t34',payload:JSON.stringify(envelope())}};
+  const blocked=f.app.doPost(request);
+  assert.match(blocked.content,/"ok":false/);
+  assert.equal(f.audit().length,1);
+  f.properties.PPI_WEB_SUBMISSIONS_ENABLED='true';
+  const allowed=f.app.doPost(request);
+  assert.match(allowed.content,/"ok":true/);
+  assert.equal(f.audit().length,2);
 });
