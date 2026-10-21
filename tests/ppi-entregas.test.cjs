@@ -153,9 +153,11 @@ test('01 — esquema e fluxo compatíveis',()=>{
   const f=makeFixture();
   const out=f.submit();
   assert.equal(out.ok,true);
-  assert.equal(out.gradeStatus,'pendente');
-  assert.equal(f.grade()[1][2],0);
-  assert.equal(f.audit()[1][11],'Avaliação pendente');
+  assert.equal(out.gradeStatus,'automatica');
+  assert.equal(out.grade,1.4);
+  assert.equal(f.grade()[1][2],1.4);
+  assert.equal(f.audit()[1][10],1.4);
+  assert.equal(f.audit()[1][11],'Nota automática (XP / 10)');
 });
 test('02 — grupo: uma linha por estudante em ordem alfabética',()=>{
   const f=makeFixture();
@@ -175,6 +177,16 @@ test('03 — reenvio substitui o recibo e conserva os colegas',()=>{
   assert.equal(f.audit().length,3);
   assert.ok(f.find('Zoe Teste'));
 });
+test('03b — reenvio com respostas apagadas diminui nota e preserva alunos',()=>{
+  const f=makeFixture();
+  const before=f.submit(['Ana Teste','Bruno Teste']);
+  assert.equal(before.grade,1.4);
+  const after=f.submit(['Ana Teste','Bruno Teste'],{item:'',finalidade:'',prob1:'',impacto1:'',prob2:'',impacto2:''});
+  assert.equal(after.grade,0);
+  assert.deepEqual(f.grade().slice(1).map(r=>r[2]),[0,0]);
+  assert.deepEqual(f.audit().slice(1).map(r=>r[10]),[0,0]);
+  assert.equal(f.audit().length,3);
+});
 test('04 — respostas diferentes produzem hashes diferentes',()=>{
   const f=makeFixture();
   const o=f.submit(['Ana Teste'],{item:'V1'});
@@ -192,18 +204,23 @@ test('06 — correção formativa parcial não exige preencher toda ficha',()=>{
   const result=f.submit(['Ana Teste'],{item:'',finalidade:'',prob1:'',impacto1:'',prob2:'',impacto2:''});
   assert.equal(result.xp,0);
   assert.equal(f.find('Ana Teste')[9],0);
+  assert.equal(result.grade,0);
+  assert.equal(f.note('Ana Teste')[2],0);
 });
 test('07 — rubrica completa resulta em 100 XP',()=>{
   const c=Object.fromEntries(rubric.map(k=>[k,'Conteúdo sintético']));
   Object.assign(c,{identifica:'Não identifica pessoa',sensivel:'Não parece envolver dado sensível',
     estrategia:'Sintético',prob1:'1',impacto1:'2',prob2:'3',impacto2:'2'});
-  const f=makeFixture();assert.equal(f.submit(['Ana Teste'],c).xp,100);
+  const f=makeFixture();const receipt=f.submit(['Ana Teste'],c);
+  assert.equal(receipt.xp,100);
+  assert.equal(receipt.grade,10);
+  assert.equal(f.note('Ana Teste')[2],10);
 });
-test('08 — não confundir risco (6 e 2) com a nota acadêmica',()=>{
+test('08 — índice de risco não altera nota XP/10',()=>{
   const f=makeFixture();
   f.submit();
-  assert.equal(f.note('Ana Teste')[2],0);
-  assert.equal(f.find('Ana Teste')[10],'');
+  assert.equal(f.note('Ana Teste')[2],1.4);
+  assert.equal(f.find('Ana Teste')[10],1.4);
   const campos=JSON.parse(f.find('Ana Teste')[12]).campos;
   assert.equal(campos.score1,6);assert.equal(campos.score2,2);
 });
@@ -211,7 +228,7 @@ test('09 — média simples com ausência = zero',()=>{
   const f=makeFixture();
   f.submit();
   assert.equal(f.note('Ana Teste')[3],'=SUM(C2:C2)/1');
-  assert.equal(f.note('Ana Teste')[2],0);
+  assert.equal(f.note('Ana Teste')[2],1.4);
 });
 test('10 — outras abas do bimestre permanecem inalteradas',()=>{
   const f=makeFixture();
@@ -297,7 +314,7 @@ test('26 — HMAC vincula a data, atividade, documento, XP e respostas',()=>{
   const f=makeFixture();const out=f.submit(['Ana Teste']);
   const message=JSON.stringify([
     out.deliveryId,out.receivedAt,'PPI1-AULA06-2026',out.pdfSha256,
-    out.answersSha256,['ana teste'],out.xp,'aula06-xp-2.0','SEM_NOTA'
+    out.answersSha256,['ana teste'],out.xp,'aula06-xp-2.0',out.grade
   ]);
   const signed=crypto.createHmac('sha256',f.properties.RECEIPT_HMAC_SECRET)
     .update(message).digest('hex');
@@ -331,7 +348,7 @@ test('31 — novos envios não apagaram notas de outras atividades',()=>{
   f.sheets.get('3º Bimestre').rows[0]=['Aluno','Equipe','Aula 06','Aula 08','Média'];
   f.sheets.get('3º Bimestre').rows.push(['Ana Teste','Equipe Teste',7,9,'=SUM(C2:D2)/2']);
   f.submit(['Ana Teste']);
-  assert.equal(f.note('Ana Teste')[2],0);
+  assert.equal(f.note('Ana Teste')[2],1.4);
   assert.equal(f.note('Ana Teste')[3],9);
   assert.equal(f.note('Ana Teste')[4],'=SUM(C2:D2)/2');
 });
