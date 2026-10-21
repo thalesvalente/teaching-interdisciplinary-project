@@ -54,6 +54,8 @@ As suites de Node e browser usam apenas **mocks e dados fictícios**, nunca aces
 - [ ] Remover registros fictícios da planilha de produção.
 - [ ] Definir retenção de dados, permissões e fluxo de recurso de nota.
 
+**Trava adicional de segurança:** a versão candidata recusa POSTs externos por padrão. A propriedade privada `PPI_WEB_SUBMISSIONS_ENABLED` só poderá receber `true` após implantação de um mecanismo de autenticação/autorização de alunos. Não basta simplesmente alterar `Who has access` para `Anyone`. O teste direto `testarConexao` continua funcionando sem liberar o endpoint. 
+
 **Acesso público NÃO deve ser habilitado enquanto estudantes não puderem ser identificados e autorizados.** A opção Only myself, apesar de segura para testes do professor, não recebe submissões abertas da turma.
 
 ## Limites de integridade
