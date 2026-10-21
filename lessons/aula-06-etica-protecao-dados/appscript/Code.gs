@@ -11,10 +11,10 @@
 const CFG = Object.freeze({
   spreadsheetId: '1aziGb9eXl5oR6Wz6dDWI7IH9bsINf9Sp7b6nmlT9XqE',
   maxBytes: 120000,
-  version: 'ppi-entregas-1.3.0',
+  version: 'ppi-entregas-1.3.1',
   activities: Object.freeze({
     'PPI1-AULA06-2026': Object.freeze({
-      sheet: '3º Bimestre', column: 'Aula 06',
+      sheet: '4º Bimestre', column: 'Aula 06',
       schema: 'ppi-f02-v1', rubric: 'aula06-xp-2.0',
       gradeMode: 'xp'
     })
