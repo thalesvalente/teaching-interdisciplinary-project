@@ -1,36 +1,65 @@
-# Aula 06 — ativação da entrega automática (Google Sheets + Apps Script)
+# PPI I 2026 — implantação, testes e utilização
 
 **Planilha privada:** [interdisciplinary-project-2026](https://docs.google.com/spreadsheets/d/1aziGb9eXl5oR6Wz6dDWI7IH9bsINf9Sp7b6nmlT9XqE/edit)
 
-## Habilitação
+## Contrato da disciplina
 
-1. Abra a planilha e escolha **Extensões → Apps Script**.
-2. Substitua o conteúdo de **Code.gs** pelo arquivo [appscript/Code.gs](appscript/Code.gs) desta pasta.
-3. Salve e selecione **Implantar → Nova implantação → Aplicativo da Web**.
-4. Configure **Executar como: eu**, permitindo acesso externo somente se isso for aprovado pela política institucional. A página pública não autentica o aluno; controle a identificação antes de usar os resultados como avaliação oficial.
-5. Autorize as permissões solicitadas e copie a URL que termina em **/exec**.
-6. Edite **entrega-appscript.js**, defina **ENDPOINT** com essa URL; faça o commit da configuração e publique a página.
-7. Teste com uma equipe fictícia e duas submissões do mesmo nome. Confirme que permanece apenas uma linha por aluno+atividade, com a data mais recente.
-8. Teste também um aluno com nome acentuado e a ordenação alfabética.
+Uma planilha por disciplina, com cinco abas: `1º Bimestre`, `2º Bimestre`, `3º Bimestre`, `4º Bimestre` e `Auditoria`.
 
-## Regras da integração
+As abas bimestrais têm `Aluno | Equipe | atividades... | Média`. Uma linha por estudante, nomes em ordem alfabética, média **simples**; atividade não entregue contribui com **zero desde o início**.
 
-- Uma linha por componente da equipe por atividade; a última submissão de uma pessoa prevalece.
-- A chave usa atividade + nome normalizado (não há matrícula ou autenticação nesta V1).
-- O PDF **não é enviado nem armazenado**; somente seu SHA-256 acompanha os dados.
-- O hash do PDF é obtido **no navegador**; não comprova por si só que os bytes correspondem às respostas do registro.
-- SHA-256 das respostas e HMAC vinculado a aluno/equipe, data do servidor e documento.
-- O HMAC é criado apenas dentro do Apps Script; a chave fica em Script Properties.
-- A pontuação de risco (chance × impacto) **não é nota**. XP é pontuação formativa do cliente, **não é nota oficial**. A planilha recebe inicialmente **Nota vazia / Avaliação pendente**.
-- Questões em branco são permitidas, com pontuação formativa parcial do modelo atual.
-- O botão gera o PDF localmente e tenta registrar a entrega. Sem URL /exec, exibirá claramente que **não houve entrega**.
-- Não publicar planilha, respostas ou tokens no repositório público.
-- Uma contestação da nota exige decisão do docente. Os dados da última entrega substituem os anteriores; isto é a regra solicitada, logo não há histórico preservado.
-- Se vários estudantes usarem o mesmo nome, eles conflitarão na chave. Para avaliação formal, adaptar para matrícula/identificador individual validado.
-- O transporte usa POST em iframe, com nonce e verificação de origem no cliente. O uso público exige controles adicionais antiabuso e autenticação para notas oficiais.
+A Aula 06 é a primeira atividade registrada: código `PPI1-AULA06-2026`, coluna `Aula 06` do 3º Bimestre. Outros instrumentos serão configurados no objeto `CFG.activities` do mesmo Apps Script. A Auditoria usa 14 colunas, sem Bimestre redundante.
 
-## Limitações conhecidas
+Último envio substitui somente a mesma atividade do mesmo estudante. PDF permanece com o aluno; Google guarda dados estruturados, data/hora, ID, SHA-256 de PDF e respostas, e HMAC.
 
-A API conectada ao ChatGPT não fornece uma operação para criar e publicar Apps Script na conta Google. A configuração do Code.gs e autorização de implantação precisam ocorrer na conta do responsável pela planilha. Não considerar a funcionalidade operacional antes do teste real de recebimento.
+XP da ficha é **formativo** e não nota homologada. A nota aparece como zero provisório, com situação **Avaliação pendente** até aprovação da rubrica docente.
 
-O professor não deve publicar notas ou respostas em repositório público, nem considerar os hashes um substituto para controle de identidade e verificação pedagógica.
+## Botões da ficha
+
+- **Gerar PDF:** download local, inclusive com campos em branco; **nada enviado ao Google**.
+- **Gerar PDF e entregar:** um clique baixa o PDF, calcula SHA-256 dos bytes baixados e envia respostas+hash. Só confirma após recibo válido.
+- **Ver versão de impressão:** alternativa local sem recibo eletrônico.
+- Erro ou timeout **não** equivalem a entrega confirmada.
+
+## Atualizar Apps Script da conta
+
+1. Abra [Apps Script](https://script.google.com/home), projeto `interdisciplinary-project-2026`, em sua conta proprietária.
+2. Substitua o `Code.gs` inteiro pelo [arquivo atualizado da PR](appscript/Code.gs), sem manter definições antigas em duplicidade.
+3. Salve e execute `testarConexao`; confirme `Diagnóstico estrutural: PASS`.
+4. Clique **Deploy → Manage deployments → Edit (lápis) → Version: New version → Deploy**. Somente salvar NÃO atualiza a URL ` /exec ` de uma implantação versionada.
+5. Mantenha **Execute as: Me** e **Who has access: Only myself** até passar todos os gates e definir proteção de identidade. Valide URL ` /exec ` novamente.
+6. O cliente da PR já contém a URL informada. **Sem merge nem disponibilização pública** até avaliação final.
+
+## Bateria implementada
+
+| Nível | Como executar | Escopo |
+| --- | --- | --- |
+| Apps Script isolado (33 testes) | `node --test tests/ppi-entregas.test.cjs` | validação, XP, SHA-256 PDF, HMAC, notas, upsert, 30 integrantes, fórmulas, segurança |
+| Navegador E2E | `node tests/ppi-browser-entrega.cjs` | botão, PDF gerado, hash, POST interceptado, recibo, erro por hash adulterado |
+| Browser e acessibilidade | `npm run test:aula06` | Chromium, Firefox, WebKit; WCAG/reflow, PDFs, modo impressão, offline |
+| PDF em profundidade | `python tests/aula06-pdf-qa.py tmp/aula06-qa` | texto PDF, XP, pendências, paginação e overflow |
+| Google real (manual controlado) | `testarConexao` e envio fictício autorizado | versão implantada, permissões, escrita na planilha |
+
+As suites de Node e browser usam apenas **mocks e dados fictícios**, nunca acessam a planilha real. Relatórios automáticos aparecem em [Actions](https://github.com/thalesvalente/teaching-interdisciplinary-project/actions).
+
+## Gate para liberar aos estudantes
+
+- [ ] Testes automatizados PASS no HEAD final da PR.
+- [ ] Nova versão do `Code.gs` implantada na conta com o mesmo ID da planilha.
+- [ ] Testar 2 envios reais fictícios + reenvio do mesmo aluno, conferindo ausência de duplicatas.
+- [ ] Conferir o SHA-256 do PDF baixado com o hash registrado na planilha.
+- [ ] Validar fluxo de falha sem falso recibo em desktop e celular.
+- [ ] Implantar autenticação/controle de identidade adequado; nome fornecido no formulário sozinho é insuficiente.
+- [ ] Definir nota oficial e política de correção pela rubrica pedagógica, separadamente de XP.
+- [ ] Remover registros fictícios da planilha de produção.
+- [ ] Definir retenção de dados, permissões e fluxo de recurso de nota.
+
+**Acesso público NÃO deve ser habilitado enquanto estudantes não puderem ser identificados e autorizados.** A opção Only myself, apesar de segura para testes do professor, não recebe submissões abertas da turma.
+
+## Limites de integridade
+
+SHA-256 registra os bytes do PDF que o navegador afirma ter gerado. Sem guardar ou retransmitir o PDF, o servidor não comprova sozinho que ele contém exatamente as respostas do JSON; qualquer contestação deve confrontar arquivo e dados da planilha.
+
+O HMAC atual assina a entrega **SEM_NOTA**. A nota acadêmica inserida posteriormente não ganha assinatura criptográfica automaticamente: para isso, será necessário um mecanismo específico de homologação com nova assinatura. Nome como chave pode colidir para homônimos: usar identificador acadêmico verificado antes da produção.
+
+A integração Google disponível neste chat não permite alterar ou implantar o Apps Script diretamente; é necessário atualizar a implantação na conta proprietária.
