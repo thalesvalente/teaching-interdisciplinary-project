@@ -114,6 +114,7 @@
       let top = y + 20;
       for (const v of labelLines) { text(v, M + 16, top, 10, 'B', GREEN_DARK); top += 14; }
       text(scoring.earned + ' / ' + scoring.max + ' XP', M + 16, top + 28, 26, 'B', GREEN_DARK);
+      text('Nota: '+(scoring.earned/10).toFixed(1).replace('.',',')+' / 10', RIGHT - 170, top + 25, 13, 'B', GREEN_DARK);
       top += 48;
       for (const v of statusLines) { text(v, M + 16, top, 10.5, 'R', INK); top += 15; }
       y += boxH + 10;
@@ -127,7 +128,7 @@
       ['Projeto ou atividade', model.project], ['Data da atividade', model.date],
       ['Professor', model.professor], ['Curso', model.course], ['Disciplina', model.discipline]
     ]) field(label, value || '[Não informado]');
-    paragraph('Documento didático de planejamento e aprendizagem. A pontuação não é nota oficial, autorização institucional nem parecer jurídico.',
+    paragraph('Documento didático de planejamento e aprendizagem. A nota da atividade é XP / 10 e avalia preenchimento, não correção conceitual, autorização institucional ou parecer jurídico.',
       {size: 10.4, color: MUTED, gap: 12});
     if (scoring && Array.isArray(scoring.missions) && scoring.missions.length) {
       sectionHeading('Pontuação por missão');

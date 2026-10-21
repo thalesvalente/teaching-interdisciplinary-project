@@ -8,8 +8,9 @@
 <meta name="description" content="Ficha da equipe da Aula 06: protocolo ético, matriz de riscos e XP de preparação. Exporte PDF e imprima mesmo com respostas pendentes.">
 <title>Ficha da equipe · Aula 06 · PPI I</title>
 <link rel="stylesheet" href="ficha.css?v=2.0.1">
-<script defer src="atividade-pdf.js?v=2.0.0"></script>
-<script defer src="ficha.js?v=2.0.0"></script>
+<script defer src="atividade-pdf.js?v=2.1.0"></script>
+<script defer src="entrega-appscript.js?v=1.2.0"></script>
+<script defer src="ficha.js?v=2.2.0"></script>
 </head>
 <body>
 <a class="skip-link" href="#worksheet">Pular para o formulário</a>
@@ -18,7 +19,7 @@
 <header class="form-hero">
 <p class="kicker">PPI I · Aula 06 · Missão da equipe</p>
 <h1>Protocolo Ético<br>e Matriz de Riscos</h1>
-<p class="lead">Planejem o uso dos dados do projeto em sete etapas. Cada resposta registrada avança a preparação da equipe; vocês podem parar, salvar e continuar depois.</p>
+<p class="lead">Planejem o uso dos dados do projeto em sete etapas. Cada resposta preenchida soma XP e compõe a nota automática (XP / 10); vocês podem parar, salvar e continuar depois.</p>
 <div class="actions example-actions"><a class="button secondary" href="exemplo-preenchido.html" target="_blank" rel="noopener">Ver exemplo preenchido (nova aba)</a><a class="button" href="#part-1">Começar a missão →</a></div>
 </header>
 <section class="mission-board" aria-labelledby="mission-title">
@@ -34,7 +35,7 @@
 <a href="#part-6" id="nav-part-6"><span>6 · Protocolo</span><b class="mission-points">0 / 4 XP</b></a>
 <a href="#part-7" id="nav-part-7"><span>7 · Revisão</span><b class="mission-points">0 / 10 XP</b></a>
 </nav>
-<p class="score-explainer"><strong>XP mede registro, não correção.</strong> Respostas em branco valem zero; o máximo continua 100 XP. Apagar uma resposta retira os pontos daquele campo. Identificação e compromissos não pontuam. A avaliação docente e a nota da disciplina seguem os critérios da aula.</p>
+<p class="score-explainer"><strong>Nota da Aula 06 = XP / 10.</strong> Respostas preenchidas somam XP, mesmo sem correção conceitual automática. Questões em branco valem zero. Apagar uma resposta reduz a nota. Identificação e compromissos não pontuam.</p>
 <details class="rubric"><summary>Ver como os 100 XP são distribuídos</summary><ol id="rubric-list"></ol></details>
 <p class="sr-only" id="progress-announcement" role="status" aria-live="polite" aria-atomic="true"></p>
 </section>
@@ -68,11 +69,11 @@
 <div id="activity-sections"></div>
 <section class="panel save-panel" id="save-panel" aria-labelledby="save-title">
 <div class="section-head"><div><p class="kicker">Checkpoint da equipe</p><h2 id="save-title">Guardem o progresso atual</h2></div><span class="doc-badge green">Parcial também vale</span></div>
-<p><strong>Vocês podem exportar com qualquer quantidade de respostas.</strong> O PDF registra a pontuação atual, as respostas e as pendências, sem aumentar os pontos para compensar questões em branco.</p>
-<p class="save-progress" id="save-progress">0 / 100 XP · 26 respostas pendentes.</p>
+<p><strong>Vocês podem exportar com qualquer quantidade de respostas.</strong> O PDF registra os XP, a nota automática (XP / 10), as respostas e as pendências, sem aumentar os pontos para compensar questões em branco.</p>
+<p class="save-progress" id="save-progress">0 / 100 XP · Nota 0,0/10 · 26 respostas pendentes.</p>
 <details class="pending-details"><summary>Conferir o que ainda não foi respondido</summary><ul id="pending-list"></ul></details>
-<div class="actions"><button id="exportPdf" type="button">Gerar PDF com pontuação</button><button class="secondary" id="printView" type="button">Ver versão de impressão</button></div>
-<p class="hint">O PDF é produzido no dispositivo. Respostas não são enviadas ao site nem ao professor. A impressão do navegador também inclui a pontuação e os campos pendentes.</p>
+<div class="actions"><button id="exportPdf" type="button">Gerar PDF</button><button id="submitActivity" type="button">Gerar PDF e entregar</button><button class="secondary" id="printView" type="button">Ver versão de impressão</button></div>
+<p class="hint">O botão Gerar PDF apenas baixa a cópia local. Gerar PDF e entregar baixa a mesma cópia e envia ao Google Sheets os nomes, respostas, XP, nota e hash, sem enviar o PDF. Só considere entregue após aparecer o recibo confirmado. A impressão preserva pontuação e campos pendentes.</p>
 <h3>Continuar depois</h3>
 <div class="actions"><button class="secondary" id="exportJson" type="button">Guardar rascunho JSON</button><button class="secondary" id="exportMd" type="button">Baixar texto Markdown</button></div>
 <div id="import-section"><label for="importFile">Reabrir um rascunho desta ficha</label><input id="importFile" type="file" accept=".json,application/json" aria-describedby="import-hint"><p class="hint" id="import-hint">Arquivo JSON de até 512 KB. As respostas atuais só são substituídas após validação e confirmação. Os XP são recalculados pelas respostas.</p></div>
@@ -80,7 +81,7 @@
 <div class="reset-area"><button class="secondary danger" id="clearBtn" type="button">Apagar o preenchimento</button><span class="hint">Pede confirmação. Não apaga os arquivos já baixados.</span></div>
 </section>
 </form>
-<footer class="footer"><p>PPI I · IFMA Campus Itapecuru-Mirim · Aula 06 · Ficha 2.0.0.</p><p>Referências: <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm" target="_blank" rel="noopener noreferrer">LGPD (nova aba)</a> · <a href="https://www.gov.br/anpd/pt-br/assuntos/noticias/anpd-divulga-enunciado-sobre-o-tratamento-de-dados-pessoais-de-criancas-e-adolescentes" target="_blank" rel="noopener noreferrer">ANPD: crianças e adolescentes (nova aba)</a>.</p></footer>
+<footer class="footer"><p>PPI I · IFMA Campus Itapecuru-Mirim · Aula 06 · Ficha 2.2.0.</p><p>Referências: <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm" target="_blank" rel="noopener noreferrer">LGPD (nova aba)</a> · <a href="https://www.gov.br/anpd/pt-br/assuntos/noticias/anpd-divulga-enunciado-sobre-o-tratamento-de-dados-pessoais-de-criancas-e-adolescentes" target="_blank" rel="noopener noreferrer">ANPD: crianças e adolescentes (nova aba)</a>.</p></footer>
 </main>
 <main id="document-view" hidden aria-label="Documento da atividade">
 <div class="document-actions"><button id="backToForm" type="button">← Voltar à ficha</button><button id="printDocument" type="button">Imprimir / salvar como PDF</button><p id="document-status" role="status" aria-live="polite">Confira o documento antes de imprimir.</p></div>

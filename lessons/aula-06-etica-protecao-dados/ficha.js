@@ -110,7 +110,7 @@ const MISSIONS = [
 const LABELS = Object.fromEntries(TEXT_FIELDS);
 Object.assign(LABELS, {identifica:'A informação identifica alguém?',sensivel:'Pode envolver dado sensível?',estrategia:'Estratégia de dados',prob1:'Chance do risco 1',impacto1:'Impacto do risco 1',prob2:'Chance do risco 2',impacto2:'Impacto do risco 2'});
 const SCORED_FIELDS = MISSIONS.flatMap(m=>m.fields);
-const XP_DESCRIPTION = 'XP de preparação: registra respostas preenchidas, sem avaliar sua correção. Campos em branco valem zero; o máximo permanece 100 XP. Identificação e compromissos não pontuam. A nota da disciplina depende da avaliação docente. A ficha não autoriza coleta, uso ou publicação de dados.';
+const XP_DESCRIPTION = 'XP de preparação: registra respostas preenchidas, sem avaliar sua correção. Campos em branco valem zero; o máximo permanece 100 XP. Identificação e compromissos não pontuam. A nota automática desta atividade é XP / 10 (0 a 10), mede preenchimento e não a correção conceitual. A ficha não autoriza coleta, uso ou publicação de dados.';
 const EMPTY = '[Não respondido]';
 const MAX_MEMBERS = 30;
 let memberId=0, previousProject='', previousFormScroll=0, lastAnnouncedScore='';
@@ -193,18 +193,19 @@ function isAnswered(id){const value=val(id);if(SELECTS[id])return SELECTS[id].sl
 function scoring(){
   const missions=MISSIONS.map(m=>{const answered=m.fields.filter(([id])=>isAnswered(id)).length;return {label:m.label,earned:m.fields.reduce((sum,[id,points])=>sum+(isAnswered(id)?points:0),0),max:m.fields.reduce((sum,[,points])=>sum+points,0),answered,total:m.fields.length,status:answered===m.fields.length?'Registrada':answered?'Em andamento':'Não iniciada'};});
   const answered=missions.reduce((sum,m)=>sum+m.answered,0),pending=SCORED_FIELDS.length-answered;
-  return {label:'XP de preparação da ficha',earned:missions.reduce((sum,m)=>sum+m.earned,0),max:100,answered,total:SCORED_FIELDS.length,pending,status:pending?'Em andamento':'Registros completos · revisão docente pendente',description:XP_DESCRIPTION,missions};
+  const earned=missions.reduce((sum,m)=>sum+m.earned,0);
+  return {label:'XP e nota automática da ficha',earned,grade:earned/10,max:100,answered,total:SCORED_FIELDS.length,pending,status:pending?'Em andamento':'Registros completos',description:XP_DESCRIPTION,missions};
 }
 function pendingFields(){return SCORED_FIELDS.filter(([id])=>!isAnswered(id)).map(([id,points])=>({id,label:LABELS[id],points}));}
 function pendingText(){const missing=pendingFields();return missing.length?missing.map(x=>x.label+' — não respondido; 0 de '+x.points+' XP.').join('\n'):'Todos os campos pontuáveis possuem uma resposta. A qualidade das respostas ainda depende de revisão.';}
 function updateProgress(announce=false){
-  const s=scoring();$('xp-value').textContent=s.earned+' / '+s.max+' XP';$('xp-count').textContent=s.answered+' de '+s.total+' respostas registradas · '+s.pending+' pendentes';$('xp-status').textContent=s.status;
+  const s=scoring();$('xp-value').textContent=s.earned+' / '+s.max+' XP · Nota '+s.grade.toFixed(1).replace('.',',')+'/10';$('xp-count').textContent=s.answered+' de '+s.total+' respostas registradas · '+s.pending+' pendentes';$('xp-status').textContent=s.status;
   $('xp-progress').value=s.earned;$('xp-progress').setAttribute('aria-valuetext',s.earned+' de 100 XP de preparação; '+s.pending+' respostas pendentes');
   MISSIONS.forEach((m,i)=>{$(m.id+'-badge').textContent=s.missions[i].earned+' / '+s.missions[i].max+' XP';const nav=$('nav-'+m.id);nav.querySelector('.mission-points').textContent=s.missions[i].earned+' / '+s.missions[i].max+' XP';nav.dataset.complete=String(s.missions[i].answered===s.missions[i].total);nav.removeAttribute('aria-label');});
-  $('save-progress').textContent=s.earned+' / 100 XP · '+s.pending+' resposta(s) pendente(s). O PDF e a impressão preservam esta pontuação.';
+  $('save-progress').textContent=s.earned+' / 100 XP · Nota '+s.grade.toFixed(1).replace('.',',')+'/10 · '+s.pending+' resposta(s) pendente(s). O PDF e a impressão preservam esta pontuação.';
   const list=$('pending-list');list.replaceChildren();for(const x of pendingFields()){const li=el('li'),a=el('a',x.label+' · '+x.points+' XP possíveis');a.href='#'+x.id;a.addEventListener('click',()=>focusElement($(x.id)));li.append(a);list.append(li);}
   if(!list.childNodes.length)list.append(el('li','Nenhuma resposta em branco. Revisem a coerência antes da entrega.'));
-  const summary=s.earned+' XP; '+s.answered+' respostas registradas e '+s.pending+' pendentes.';
+  const summary=s.earned+' XP; nota '+s.grade.toFixed(1).replace('.',',')+' de 10; '+s.answered+' respostas registradas e '+s.pending+' pendentes.';
   if(announce&&summary!==lastAnnouncedScore){$('progress-announcement').textContent=summary;lastAnnouncedScore=summary;}
 }
 function buildRubric(){
@@ -226,11 +227,11 @@ function documentModel(){
     {title:'5. Matriz de riscos',items:[['Risco 1',riskText(s,1)],['Risco 2',riskText(s,2)]]},
     {title:'6. Protocolo ético (compromissos sem XP)',items:[...s.protocolo.map((x,i)=>['Regra '+(i+1),x.texto+'\nSituação: '+(x.marcado?'assumida pela equipe.':'decisão ainda não registrada; precisa ser discutida pela equipe.')]),['Regra específica',s.campos.regraEquipe||EMPTY]]},
     {title:'7. Revisão e próxima ação',items:[['Ponto claro',s.campos.forca||EMPTY],['Melhoria necessária',s.campos.ajuste||EMPTY],['Próxima ação',s.campos.proximaAcao||EMPTY]]},
-    {title:'8. Pendências registradas',items:[['Campos sem resposta (não impedem exportar)',pendingText()],['Identificação opcional',(!id.equipe?'Equipe não informada.\n':'')+(!id.componentes.length?'Componentes não informados.\n':'')+(!id.projeto?'Projeto não informado.\n':'')+(!id.data?'Data não informada.':'')||'Identificação preenchida.'],['Limite da atividade','Preenchimento e XP não comprovam correção, conformidade ou autorização. A revisão docente continua necessária.']]}
+    {title:'8. Pendências registradas',items:[['Campos sem resposta (não impedem exportar)',pendingText()],['Identificação opcional',(!id.equipe?'Equipe não informada.\n':'')+(!id.componentes.length?'Componentes não informados.\n':'')+(!id.projeto?'Projeto não informado.\n':'')+(!id.data?'Data não informada.':'')||'Identificação preenchida.'],['Limite da atividade','A nota automática é XP / 10 e mede preenchimento, não correção conceitual, conformidade ou autorização institucional.']]}
   ]};
 }
 function md(){
-  const m=documentModel(),s=m.scoring;let out='# '+m.title+'\n\n'+m.institution+'\n\n**Curso:** '+m.course+'\n\n**Disciplina:** '+m.discipline+'\n\n**Aula:** '+m.lesson+'\n\n**Professor:** '+m.professor+'\n\n**Equipe:** '+m.team+'\n\n**Componentes:**\n'+(m.members.length?m.members.map(x=>'- '+x).join('\n'):'Não informados')+'\n\n**Projeto:** '+m.project+'\n\n**Data:** '+m.date+'\n\n## Pontuação atual\n\n**'+s.label+': '+s.earned+' / '+s.max+' XP**\n\n'+s.answered+' de '+s.total+' respostas registradas; '+s.pending+' pendentes.\n\n'+s.description+'\n\n';
+  const m=documentModel(),s=m.scoring;let out='# '+m.title+'\n\n'+m.institution+'\n\n**Curso:** '+m.course+'\n\n**Disciplina:** '+m.discipline+'\n\n**Aula:** '+m.lesson+'\n\n**Professor:** '+m.professor+'\n\n**Equipe:** '+m.team+'\n\n**Componentes:**\n'+(m.members.length?m.members.map(x=>'- '+x).join('\n'):'Não informados')+'\n\n**Projeto:** '+m.project+'\n\n**Data:** '+m.date+'\n\n## Pontuação atual\n\n**'+s.label+': '+s.earned+' / '+s.max+' XP**\n\n'+'Nota automática: '+s.grade.toFixed(1).replace('.',',')+' / 10\n\n'+s.answered+' de '+s.total+' respostas registradas; '+s.pending+' pendentes.\n\n'+s.description+'\n\n';
   for(const mission of s.missions)out+='- '+mission.label+': '+mission.earned+' / '+mission.max+' XP — '+mission.status+'.\n';out+='\n';
   for(const sec of m.sections){out+='## '+sec.title+'\n\n';for(const [l,t]of sec.items)out+='### '+l+'\n\n'+t+'\n\n';}return out;
 }
@@ -240,7 +241,7 @@ function renderDocument(){
   const m=documentModel(),s=m.scoring,root=$('document-content');root.replaceChildren();
   const head=el('header',undefined,'doc-cover');head.append(el('p','IFMA · Campus Itapecuru-Mirim','doc-brand'));const title=el('h1',m.title);title.id='document-title';title.tabIndex=-1;head.append(title,el('p',m.lesson,'doc-subtitle'));
   const meta=el('dl',undefined,'doc-meta');for(const [label,value]of [['Projeto',m.project],['Equipe',m.team],['Componentes',m.members.join('; ')||'Não informados'],['Data',m.date],['Professor',m.professor]]){const div=el('div');div.append(el('dt',label),el('dd',value));meta.append(div);}head.append(meta);
-  const score=el('section',undefined,'doc-score');score.append(el('h2',s.label),el('p',s.earned+' / '+s.max+' XP','doc-score-value'),el('p',s.answered+' de '+s.total+' respostas registradas · '+s.pending+' pendentes'),el('p',s.description,'doc-note'));const missions=el('ul');for(const x of s.missions)missions.append(el('li',x.label+': '+x.earned+' / '+x.max+' XP · '+x.status));score.append(missions);head.append(score);root.append(head);
+  const score=el('section',undefined,'doc-score');score.append(el('h2',s.label),el('p',s.earned+' / '+s.max+' XP','doc-score-value'),el('p','Nota automática (XP / 10): '+s.grade.toFixed(1).replace('.',',')+' / 10'),el('p',s.answered+' de '+s.total+' respostas registradas · '+s.pending+' pendentes'),el('p',s.description,'doc-note'));const missions=el('ul');for(const x of s.missions)missions.append(el('li',x.label+': '+x.earned+' / '+x.max+' XP · '+x.status));score.append(missions);head.append(score);root.append(head);
   const body=el('div',undefined,'doc-body');for(const sec of m.sections){const block=el('section',undefined,'doc-section');block.append(el('h2',sec.title));for(const [label,value]of sec.items){const field=el('div',undefined,'doc-field');field.append(el('h3',label),el('p',value));block.append(field);}body.append(block);}root.append(body,el('footer','PPI I · Aula 06 · Registro local · Versão '+m.version,'doc-footer'));
 }
 function showDocument(message=''){previousFormScroll=scrollY;renderDocument();document.body.classList.add('document-mode');$('document-view').hidden=false;$('document-status').textContent=message||'Documento parcial permitido. Confira a pontuação e as pendências antes de imprimir.';window.scrollTo(0,0);focusElement($('document-title'));}
@@ -278,7 +279,44 @@ $('worksheet').addEventListener('change',()=>updateProgress(true));
 $('worksheet').addEventListener('focusout',e=>{if(e.target.matches('textarea,input,select'))updateProgress(true);});
 $('addMember').addEventListener('click',()=>addMember('',true));
 $('projeto').addEventListener('change',()=>{const p=val('projeto'),has=TEXT_FIELDS.some(([id])=>val(id));if(previousProject&&p!==previousProject&&has&&!confirm('Trocar o projeto? As respostas serão preservadas, mas precisarão ser revisadas com as novas dicas.')){$('projeto').value=previousProject;return;}previousProject=p;caseView();});
-$('exportPdf').addEventListener('click',()=>{try{const model=documentModel(),bytes=window.PpiPdf.generate(model);download(bytes,'application/pdf',prefix()+'.pdf');status('PDF gerado com '+model.scoring.earned+' / 100 XP e '+model.scoring.pending+' resposta(s) pendente(s). Confira antes de entregar.');}catch(err){const msg='O PDF direto não pôde ser gerado. A versão de impressão preserva suas respostas e pontuação; use “Imprimir / salvar como PDF”. '+(err?.message||'');status(msg);showDocument(msg);}});
+$('exportPdf').addEventListener('click',()=>{
+  try{
+    const model=documentModel(),bytes=window.PpiPdf.generate(model);
+    download(bytes,'application/pdf',prefix()+'.pdf');
+    status('PDF gerado localmente com '+model.scoring.earned+
+      ' / 100 XP; nota '+model.scoring.grade.toFixed(1).replace('.',',')+'/10. Nenhuma informação foi enviada ao professor.');
+  }catch(err){
+    const msg='Não foi possível gerar o PDF direto. '+
+      (err?.message||'')+' Use a versão de impressão para preservar a atividade.';
+    status(msg);showDocument(msg);
+  }
+});
+$('submitActivity').addEventListener('click',async()=>{
+  const btn=$('submitActivity');
+  if(!members().length){
+    status('Para entregar, informe o nome completo dos integrantes. '+
+      'A exportação local continua disponível.');
+    return;
+  }
+  btn.disabled=true;
+  try{
+    const responses=snapshot(),model=documentModel();
+    const bytes=window.PpiPdf.generate(model);
+    download(bytes,'application/pdf',prefix()+'.pdf');
+    status('PDF baixado. Registrando respostas e SHA-256 da entrega...');
+    const receipt=await window.PpiEntrega.enviar(responses,bytes);
+    status('Entrega CONFIRMADA. ID: '+receipt.deliveryId+
+      '\nHorário UTC: '+receipt.receivedAt+
+      '\nSHA-256 PDF: '+receipt.pdfSha256+
+      '\nXP: '+receipt.xp+'/100. Nota automática: '+Number(receipt.grade).toFixed(1).replace('.',',')+'/10. '+
+      'Guarde o PDF e este recibo.');
+  }catch(err){
+    status('ENTREGA NÃO CONFIRMADA: '+(err?.message||'Falha de envio.')+
+      ' O PDF baixado permanece com a equipe, mas não comprova envio.');
+  }finally{
+    btn.disabled=false;
+  }
+});
 $('exportMd').addEventListener('click',()=>{download(md(),'text/markdown;charset=utf-8',prefix()+'.md');status('Texto gerado com a pontuação atual e as pendências.');});
 $('exportJson').addEventListener('click',()=>{download(JSON.stringify(snapshot(),null,2),'application/json;charset=utf-8',prefix()+'.json');status('Rascunho guardado. Respostas e identificação estão no arquivo; compartilhe apenas com quem precisa.');});
 $('printView').addEventListener('click',()=>showDocument());

@@ -1,0 +1,35 @@
+name: PPI I | Bateria de Entregas
+
+on:
+  push:
+    branches:
+      - main
+      - feat/aula06-entrega-appscript-20261020
+    paths:
+      - 'lessons/aula-06-etica-protecao-dados/**'
+      - 'tests/ppi-entregas.test.cjs'
+      - '.github/workflows/qa-ppi-entregas.yml'
+  pull_request:
+    paths:
+      - 'lessons/aula-06-etica-protecao-dados/**'
+      - 'tests/ppi-entregas.test.cjs'
+      - '.github/workflows/qa-ppi-entregas.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  core-validation:
+    name: Contrato Apps Script, notas, auditoria e PDF
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Testes isolados, sem acesso a dados reais
+        run: node --test --test-reporter=spec tests/ppi-entregas.test.cjs
