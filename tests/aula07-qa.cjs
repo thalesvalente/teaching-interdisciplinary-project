@@ -319,8 +319,11 @@ async function verifyMissionOne(page, browserName) {
         prompt:parseFloat(getComputedStyle(active.querySelector('legend')).fontSize),
         choice:parseFloat(getComputedStyle(active.querySelector('.mission-option')).fontSize),
         shellFits:shell.scrollHeight <= shell.clientHeight+3,
+        shellScrollHeight:shell.scrollHeight,
+        shellClientHeight:shell.clientHeight,
         childFits:active.scrollHeight <= active.clientHeight+3,
         bodyFits:box.top>=parent.top-3 && box.bottom<=parent.bottom+3,
+        childHeights:[...shell.children].map(e=>({role:e.className,height:Math.round(e.getBoundingClientRect().height)})),
       };
     });
     assert.ok(metrics.prompt>=28 && metrics.choice>=24,
