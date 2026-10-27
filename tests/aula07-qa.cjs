@@ -296,17 +296,77 @@ async function verifyMissionThree(page, browserName) {
   assert.equal(parseInt((await page.locator('#lesson-score').innerText()).split('/')[0],10),before,'reinício retira apenas XP da missão 3');
 }
 
-async function verifyMissionOne(page) {
+async function verifyMissionOne(page, browserName) {
   await openIndexSlide(page, 10);
-  await page.locator('#mission-host-1 input[value="interview-observation"]').check();
-  await page.locator('#mission-host-1 input[value="observation-document"]').check();
-  await page.locator('#mission-host-1 input[value="document-validation"]').check();
-  await page.waitForTimeout(60);
-  assert.match(await page.locator('#lesson-score').innerText(), /^10 \/ 100 XP de treino$/);
-  assert.match(await page.locator('#lesson-progress-text').innerText(), /1 de 6 missões concluídas/);
-  await page.locator('#reset-btn').click();
-  await page.waitForTimeout(40);
+  const host = '#mission-host-1';
+  assert.equal(await page.locator(host+' .stepper-question').count(), 1,
+    'missão 1: somente uma questão deve estar visível');
+  assert.equal(await page.locator(host+' .stepper-question input').count(), 3,
+    'missão 1: três alternativas por etapa');
+  assert.match(await page.locator(host+' .stepper-step-label').innerText(), /Etapa 1 de 3/);
+  assert.match(await page.locator(host+' .stepper-stages').getAttribute('aria-label'), /Missão 1/);
   assert.match(await page.locator('#lesson-score').innerText(), /^0 \/ 100 XP de treino$/);
+
+  async function assertLegible(label) {
+    await assertActiveSlideFits(page, browserName + ' ' + label);
+    const metrics = await page.evaluate(() => {
+      const shell=document.querySelector('#mission-host-1 .mission-shell');
+      const active=document.querySelector('#s10 .stepper-question');
+      const body=document.querySelector('#s10 .body');
+      const box=shell.getBoundingClientRect();
+      const parent=body.getBoundingClientRect();
+      return {
+        prompt:parseFloat(getComputedStyle(active.querySelector('legend')).fontSize),
+        choice:parseFloat(getComputedStyle(active.querySelector('.mission-option')).fontSize),
+        shellFits:shell.scrollHeight <= shell.clientHeight+3,
+        childFits:active.scrollHeight <= active.clientHeight+3,
+        bodyFits:box.top>=parent.top-3 && box.bottom<=parent.bottom+3,
+      };
+    });
+    assert.ok(metrics.prompt>=28 && metrics.choice>=24,
+      browserName + ' ' + label + ': fonte pequena: ' + JSON.stringify(metrics));
+    assert.ok(metrics.shellFits && metrics.childFits && metrics.bodyFits,
+      browserName + ' ' + label + ': conteudo cortado: ' + JSON.stringify(metrics));
+  }
+  await assertLegible('1280x720 etapa 1');
+  await page.screenshot({path:path.join(OUTPUT_DIR,browserName+'-1280x720-slide10-etapa1.png')});
+  await page.setViewportSize({width:1280,height:650});
+  await page.waitForTimeout(65);
+  await assertLegible('1280x650 etapa 1');
+  await page.locator(host+' input[value="document-only"]').check();
+  assert.match(await page.locator(host+' .question-feedback').innerText(), /Ainda não/);
+  assert.equal(await page.locator(host+' .stepper-nav button').last().isDisabled(), true,
+    'missão 1: erro oferece feedback e não avança');
+  await page.locator(host+' input[value="interview-observation"]').check();
+  await page.locator(host+' .stepper-nav button').last().click();
+  assert.match(await page.locator(host+' .stepper-step-label').innerText(), /Etapa 2 de 3/);
+  assert.equal(await page.locator(host+' .stepper-question').count(),1);
+  await assertLegible('1280x650 etapa 2');
+  await page.screenshot({path:path.join(OUTPUT_DIR,browserName+'-1280x650-slide10-etapa2.png')});
+  await page.locator(host+' input[value="observation-document"]').check();
+  await page.locator(host+' .stepper-nav button').first().click();
+  assert.equal(await page.locator(host+' input[value="interview-observation"]').isChecked(),true,
+    'missão 1: voltar preserva resposta anterior');
+  await page.locator(host+' .stepper-nav button').last().click();
+  assert.equal(await page.locator(host+' input[value="observation-document"]').isChecked(),true);
+  await page.locator(host+' .stepper-nav button').last().click();
+  assert.match(await page.locator(host+' .stepper-step-label').innerText(),/Etapa 3 de 3/);
+  await assertLegible('1280x650 etapa 3');
+  await page.screenshot({path:path.join(OUTPUT_DIR,browserName+'-1280x650-slide10-etapa3.png')});
+  assert.equal(await page.locator('#lesson-score').innerText(),'0 / 100 XP de treino',
+    'missão 1: não conceder XP antes de concluir');
+  await page.locator(host+' input[value="document-validation"]').check();
+  await page.locator(host+' .stepper-nav button').last().click();
+  assert.equal(await page.locator('#lesson-score').innerText(),'10 / 100 XP de treino');
+  assert.match(await page.locator('#lesson-progress-text').innerText(), /1 de 6 missões concluídas/);
+  assert.match(await page.locator(host+' .mission-status').innerText(),/Missão concluída/);
+  await page.locator('#reset-btn').click();
+  assert.equal(await page.locator('#lesson-score').innerText(),'0 / 100 XP de treino');
+  assert.match(await page.locator(host+' .stepper-step-label').innerText(),/Etapa 1 de 3/);
+  assert.equal(await page.locator(host+' input:checked').count(),0,
+    'missão 1: reinício zera respostas e etapa');
+  await page.setViewportSize({width:1280,height:720});
+  await page.waitForTimeout(65);
 }
 
 async function verifyMissionFour(page) {
@@ -356,7 +416,7 @@ async function runDesktop(browserName, browserType, baseUrl) {
   await page.screenshot({ path: path.join(OUTPUT_DIR, `${browserName}-1280x720-capa.png`) });
 
   await runAxe(page, browserName);
-  await verifyMissionOne(page);
+  await verifyMissionOne(page, browserName);
 
   await openIndexSlide(page, 1);
   await page.locator('body').press('ArrowRight');
@@ -439,6 +499,27 @@ async function runMobile(baseUrl) {
       'mobile: sem rolagem horizontal nos slides 12/16: '+JSON.stringify(geometry));
     await page.screenshot({path:path.join(OUTPUT_DIR,'chromium-390x844-slide'+n+'.png')});
   }
+  await openIndexSlide(page, 10);
+  assert.equal(await page.locator('#mission-host-1 .stepper-question').count(),1,
+    'mobile: Missão 1 mostra apenas uma questão por vez');
+  const mobileLayout=await page.evaluate(()=>{
+    const option=document.querySelector('#mission-host-1 .mission-option');
+    const legend=document.querySelector('#mission-host-1 .stepper-question legend');
+    return {
+      optionFont:parseFloat(getComputedStyle(option).fontSize),
+      promptFont:parseFloat(getComputedStyle(legend).fontSize),
+      documentOverflow:document.documentElement.scrollWidth>innerWidth+2,
+      stageOverflow:document.querySelector('#mission-host-1 .mission-shell').scrollWidth >
+        document.querySelector('#mission-host-1 .mission-shell').clientWidth+2,
+    };
+  });
+  assert.ok(mobileLayout.optionFont>=19 && mobileLayout.promptFont>=22 &&
+    !mobileLayout.documentOverflow && !mobileLayout.stageOverflow,
+    'mobile: Missão 1 deve manter fonte e reflow: '+JSON.stringify(mobileLayout));
+  await page.locator('#mission-host-1 input[value="interview-observation"]').check();
+  await page.locator('#mission-host-1 .stepper-nav button').last().click();
+  assert.match(await page.locator('#mission-host-1 .stepper-step-label').innerText(),/Etapa 2 de 3/);
+  await page.screenshot({path:path.join(OUTPUT_DIR,'chromium-390x844-slide10-etapa2.png')});
   await openIndexSlide(page, 15);
   await page.locator('#tab-eda').click();
   assert.equal(await page.locator('#panel-eda').isVisible(),true,'mobile: aba EDA deve responder ao toque');
