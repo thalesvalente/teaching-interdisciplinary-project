@@ -2,8 +2,7 @@
 
 Portal de materiais da disciplina no Campus Itapecuru-Mirim.
 
-**Endereço do portal, após ativar o GitHub Pages:**
-https://thalesvalente.github.io/teaching-interdisciplinary-project/
+**Portal:** https://thalesvalente.github.io/teaching-interdisciplinary-project/
 
 ## Materiais disponíveis
 
@@ -15,57 +14,71 @@ https://thalesvalente.github.io/teaching-interdisciplinary-project/
 | 04 | [Processo, papéis e marcos](lessons/4-processo-papeis-marco.pdf) |
 | 05 | [Mapeamento de Fluxos de Informação](lessons/aula-05-fluxos-informacao/) · [Ficha da equipe](lessons/aula-05-fluxos-informacao/Ficha_Equipe_Aula_05_PPI.html) |
 | 06 | [Ética e Proteção de Dados](lessons/aula-06-etica-protecao-dados/) · [Ficha da equipe](lessons/aula-06-etica-protecao-dados/Ficha_Equipe_Aula_06_PPI.html) |
+| 07 | [Da pergunta à evidência](lessons/aula-07-da-pergunta-a-evidencia/) |
 
-Os PDFs originais permanecem em `lessons/`, sem renomeação ou alteração. O portal organiza o acesso aos materiais; não modifica atividades, prazos ou critérios de avaliação.
+Os PDFs originais permanecem em `lessons/`. O portal organiza o acesso aos materiais e não altera prazos ou critérios de avaliação.
 
-## Publicação
+## Aula 07 — Da pergunta à evidência
 
-Abra as [configurações de Pages deste repositório](https://github.com/thalesvalente/teaching-interdisciplinary-project/settings/pages).
+A apresentação interativa possui 26 slides e seis missões formativas sobre:
 
-Em **Build and deployment**, escolha **Source: Deploy from a branch**, **Branch: main**, **Folder: / (root)** e clique em **Save**. Acompanhe a publicação na aba **Actions**. O endereço só estará disponível depois da ativação e de uma publicação concluída com sucesso.
+- entrevista, observação e análise documental;
+- perguntas abertas, neutras e ligadas ao objetivo;
+- triangulação entre fala, prática e registro;
+- achado, evidência, hipótese e pendência;
+- uso responsável de IA e gate ético;
+- aplicação nas trilhas Mapa de Memórias Quilombolas e EDA/Permanência Estudantil.
 
-Referência: [Configurar a fonte de publicação — GitHub Docs](https://docs.github.com/pt/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
+Os 100 XP são **exclusivamente de treino**: não valem nota, não geram ranking, não identificam estudantes e não alimentam a futura ficha avaliativa. A apresentação funciona localmente, sem enviar respostas.
 
-## Estrutura
+A interface usa canvas de 1280 × 720 com escala automática para projetores e monitores, além de modo leitura para celulares. Inclui teclado, foco visível, alto contraste, redução de movimento, notas do professor e impressão 16:9.
 
-- `index.html`: página inicial responsiva, catálogo das aulas, busca local e guia de uso.
-- `.nojekyll`: marcador para publicação estática, sem processamento Jekyll.
-- `lessons/`: materiais originais da disciplina.
+- [Guia técnico e didático da Aula 07](lessons/aula-07-da-pergunta-a-evidencia/README.md)
+- [Relatório de revisão da Aula 07](docs/aula07-revisao-2026-10-27.md)
 
-A página utiliza HTML, CSS e JavaScript locais. Não há dependências de CDN, instalação de pacotes, coleta de dados ou serviços de terceiros. Os links das aulas também funcionam com JavaScript desativado; apenas a busca depende dele.
-
-## Aula 06: uso e manutenção
-
-A aula oferece 24 telas, modo leitura responsivo e cinco desafios com até 100 XP. A ficha da equipe tem sete missões, com um indicador separado de preparação. Os XP da ficha registram preenchimento; a qualidade das respostas depende da revisão docente.
-
-**PDF e impressão aceitam respostas em branco.** A exportação registra a pontuação atual sobre 100, as respostas registradas e as pendências. Corrigir, trocar ou apagar uma resposta recalcula os pontos. Os índices de risco não são XP nem autorização para utilizar dados.
-
-Os arquivos funcionam localmente, sem envio das respostas. Para continuar a ficha em outro momento, use **Guardar rascunho (JSON)** e depois **Reabrir rascunho**. Não há salvamento automático. Símbolos que o gerador de PDF direto não suporta são preservados pelo fluxo **Imprimir → Salvar como PDF**.
-
-- [Guia de uso, rubricas e decisões didáticas](lessons/aula-06-etica-protecao-dados/FICHA_PROTOCOLO.md).
-- [Relatório da revisão de usabilidade, acessibilidade e conteúdo](docs/aula06-revisao-2026-10-20.md).
-
-### Verificações de desenvolvimento
-
-As dependências abaixo servem somente aos testes; o site continua estático e não precisa de instalação para funcionar.
+### Verificação da Aula 07
 
 ```sh
 npm ci
-npx playwright install --with-deps chromium firefox
+npx playwright install --with-deps chromium firefox webkit
+npm run test:aula07
+```
+
+A suíte verifica 1280 × 720, 1280 × 650, reflow móvel, teclado, missões, pontuação formativa, contraste, diálogos e acessibilidade automatizável. Evidências são gravadas em `tmp/aula07-qa/`.
+
+## Aula 06 — uso e manutenção
+
+A Aula 06 oferece 24 telas, modo leitura responsivo e cinco desafios com até 100 XP. Sua ficha da equipe é um artefato separado, com sete missões e exportações próprias. Os XP da apresentação e da ficha registram percurso/preenchimento; a qualidade depende da revisão docente.
+
+A apresentação e a ficha funcionam localmente. Para continuar a ficha em outro momento, use **Guardar rascunho (JSON)** e depois **Reabrir rascunho**. A impressão aceita respostas parciais.
+
+- [Guia de uso, rubricas e decisões didáticas da Aula 06](lessons/aula-06-etica-protecao-dados/FICHA_PROTOCOLO.md)
+- [Relatório da revisão da Aula 06](docs/aula06-revisao-2026-10-20.md)
+
+### Verificação da Aula 06
+
+```sh
 npm run test:aula06
 ```
 
-A suíte verifica layout, teclado, estados de acessibilidade automatizáveis, pontuação, importação de rascunhos e exportações parciais. Produz relatórios e amostras temporárias em `tmp/aula06-qa/`. Para incluir WebKit, instale esse motor com Playwright e execute `AULA06_BROWSERS=chromium,firefox,webkit npm run test:aula06`. Os resultados e os limites da verificação estão descritos no relatório da revisão.
+## Estrutura
 
-Para conferir também o texto, os pontos e os limites das páginas dos PDFs baixados, execute `python tests/aula06-pdf-qa.py tmp/aula06-qa` em um ambiente com `pdfplumber`. A inspeção visual continua necessária para avaliar quebras de página e apresentação.
+- `index.html`: portal responsivo, catálogo, busca e guia de uso;
+- `lessons/`: PDFs e aulas interativas;
+- `docs/`: relatórios de revisão e evidências;
+- `tests/`: testes automatizados de acessibilidade, reflow e comportamento;
+- `.github/workflows/`: QA contínua das aulas.
+
+Não há dependências de CDN, coleta de dados nem serviços externos para abrir as aulas.
+
+## Publicação
+
+O GitHub Pages usa a branch `main` e a pasta raiz. Após a integração, acompanhe a publicação na aba **Actions** do repositório.
 
 ## Acrescentar uma aula
 
-1. Envie o material para `lessons/`.
-2. Copie um bloco `<article class="card">` em `index.html`. Atualize o identificador, o número, o título, o texto, `data-search`, os dois links e os rótulos `aria-label`.
-3. Acrescente o atalho correspondente na lista `.journey`. Identificadores devem ser únicos.
-4. Atualize a tabela deste README. Confira os links e o layout no celular antes de publicar.
-
-A contagem da busca é calculada a partir dos cartões. **O catálogo não é atualizado automaticamente ao enviar um arquivo:** o novo cartão e o atalho precisam ser acrescentados ao HTML.
-
-Espaços nos caminhos devem ser representados como `%20`; preserve maiúsculas e minúsculas dos nomes. Não adicione links para materiais ainda não publicados. Se uma aula em HTML for disponibilizada, troque o link e o rótulo de formato, sem chamá-la de PDF.
+1. Crie uma pasta em `lessons/` com nome canônico e sem espaços.
+2. Adicione o cartão correspondente em `index.html`.
+3. Atualize a tabela deste README.
+4. Inclua testes de reflow, teclado e acessibilidade.
+5. Confira os links e o layout em projetor, desktop e celular antes de integrar.
