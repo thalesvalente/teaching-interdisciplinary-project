@@ -305,45 +305,45 @@ html.no-js #s12 .guided-stage[hidden],html.no-js #s16 .guided-stage[hidden]{disp
 /* Slide 10 · Missão 1 em três etapas, com uma pergunta por vez.
    Preserve o conteúdo/gabarito e deixe as opções legíveis em projetor 720p. */
 #s10 .mission-shell.mission-stepper-shell{
-  display:grid;align-content:center;gap:7px;padding:12px 20px;
+  display:grid;align-content:center;gap:4px;padding:8px 16px;
 }
 #s10 .mission-stepper-shell .mission-head{margin-bottom:0}
 #s10 .mission-stepper-shell .mission-head h2{font-size:27px;line-height:1.15}
 #s10 .mission-stepper-shell .mission-head p{font-size:19px;line-height:1.25}
 #s10 .stepper-progress{
-  display:flex;align-items:center;justify-content:space-between;gap:15px;
-  padding-bottom:5px;border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding-bottom:2px;border-bottom:1px solid var(--line);
 }
 #s10 .stepper-step-label{margin:0;font-size:20px;font-weight:900;color:var(--ifma-dark)}
 #s10 .stepper-stages{display:flex;gap:8px;list-style:none;margin:0;padding:0}
 #s10 .stepper-stages li{
-  display:grid;place-items:center;min-width:36px;height:36px;border:2px solid var(--line);
+  display:grid;place-items:center;min-width:32px;height:32px;border:2px solid var(--line);
   border-radius:50%;font-size:18px;font-weight:900;color:var(--ifma-dark);background:#fff;
 }
 #s10 .stepper-stages li.answered{border-color:var(--ifma);background:var(--green-soft)}
 #s10 .stepper-stages li.current{border-color:var(--ifma);background:var(--ifma);color:#fff}
 #s10 .stepper-question{min-width:0;margin:0;border:0;padding:0}
 #s10 .stepper-question legend{
-  padding:0;margin:0 0 9px;font-size:29px;font-weight:850;
+  padding:0;margin:0 0 5px;font-size:29px;font-weight:850;
   line-height:1.22;color:var(--ifma-dark);
 }
-#s10 .stepper-question .mission-options{display:grid;grid-template-columns:1fr;gap:9px}
+#s10 .stepper-question .mission-options{display:grid;grid-template-columns:1fr;gap:5px}
 #s10 .stepper-question .mission-option{
-  display:flex;align-items:center;min-height:55px;padding:8px 16px;
+  display:flex;align-items:center;min-height:48px;padding:5px 13px;
   font-size:25px;line-height:1.22;
 }
 #s10 .stepper-question .mission-option input{width:25px;height:25px;flex:0 0 25px}
-#s10 .stepper-question .question-feedback{font-size:18px;line-height:1.25;min-height:34px;padding:5px 10px;margin-top:5px}
+#s10 .stepper-question .question-feedback{font-size:18px;line-height:1.25;min-height:30px;padding:3px 8px;margin-top:2px}
 #s10 .stepper-nav{display:flex;justify-content:space-between;gap:12px}
 #s10 .stepper-nav button{
-  border:2px solid var(--ifma);border-radius:8px;min-height:44px;
-  padding:8px 18px;background:var(--ifma);color:#fff;
+  border:2px solid var(--ifma);border-radius:8px;min-height:40px;
+  padding:6px 14px;background:var(--ifma);color:#fff;
   font-size:18px;font-weight:800;cursor:pointer;
 }
 #s10 .stepper-nav button:disabled{opacity:.55;cursor:not-allowed}
 #s10 .mission-stepper-shell .mission-footer{margin-top:0;gap:8px}
-#s10 .mission-stepper-shell .mission-status{font-size:16px;line-height:1.25;padding:8px 10px}
-#s10 .mission-stepper-shell .mission-actions button{min-height:43px;font-size:16px}
+#s10 .mission-stepper-shell .mission-status{font-size:16px;line-height:1.25;padding:5px 10px}
+#s10 .mission-stepper-shell .mission-actions button{min-height:40px;font-size:16px}
 .high-contrast #s10 .stepper-stages li{background:#000;color:#fff;border-color:#fff}
 .high-contrast #s10 .stepper-stages li.current{background:#fff;color:#000}
 @media screen and (max-width:900px){
