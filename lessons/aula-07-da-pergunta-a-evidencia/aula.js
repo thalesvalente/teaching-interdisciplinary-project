@@ -14,7 +14,7 @@
 
   const MISSIONS = [
     {
-      id: '1', slide: 's10', max: 10, title: 'Escolha a lente certa', badge: 'Lente Certa', type: 'questions',
+      id: '1', slide: 's10', max: 10, title: 'Escolha a lente certa', badge: 'Lente Certa', type: 'stepped-questions',
       intro: 'Associe cada situação à técnica — ou combinação — que produz evidência mais adequada.',
       questions: [
         { id: 'a', prompt: 'A coordenação precisa explicar como reage quando as faltas aumentam.', correct: 'interview-observation', options: [
@@ -180,8 +180,7 @@
   }
 
 
-  // Exercício formativo em etapas: preserva perguntas e respostas, mas evita
-  // comprimir quatro enunciados e dezesseis alternativas no projetor 720p.
+  // Missões 1 e 3: perguntas sequenciais acessíveis, preservando conteúdo e XP.
   function renderSteppedQuestionMission(mission, shell){
     shell.classList.add('mission-stepper-shell');
     const answers = currentMissionAnswers(mission);
@@ -198,7 +197,7 @@
     stepTitle.textContent = `Etapa ${step+1} de ${total}`;
     const stages = document.createElement('ol');
     stages.className = 'stepper-stages';
-    stages.setAttribute('aria-label', 'Progresso da Missão 3');
+    stages.setAttribute('aria-label', `Progresso da Missão ${mission.id}`);
     mission.questions.forEach((item, index) => {
       const li = document.createElement('li');
       const correct = answers[item.id] === item.correct;
@@ -272,7 +271,7 @@
       answers.step = step-1;
       saveState();
       renderMission(mission.id);
-      document.querySelector('#mission-host-3 .stepper-question legend')?.focus({preventScroll:true});
+      document.querySelector(`#mission-host-${mission.id} .stepper-question legend`)?.focus({preventScroll:true});
     });
     next.addEventListener('click', () => {
       if (!completed && answers[question.id] !== question.correct) return;
@@ -289,7 +288,7 @@
       answers.step = step+1;
       saveState();
       renderMission(mission.id);
-      document.querySelector('#mission-host-3 .stepper-question legend')?.focus({preventScroll:true});
+      document.querySelector(`#mission-host-${mission.id} .stepper-question legend`)?.focus({preventScroll:true});
     });
     nav.append(back,next);
     shell.append(progress,fieldset,nav);
