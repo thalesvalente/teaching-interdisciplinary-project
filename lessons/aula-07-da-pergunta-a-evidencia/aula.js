@@ -41,7 +41,7 @@
       ]
     },
     {
-      id: '3', slide: 's17', max: 15, title: 'Câmera objetiva', badge: 'Olhar de Campo', type: 'questions',
+      id: '3', slide: 's17', max: 15, title: 'Câmera objetiva', badge: 'Olhar de Campo', type: 'stepped-questions',
       intro: 'Classifique cada registro sem transformar observação em julgamento.',
       questions: [
         { id: 'q1', prompt: '“A pessoa anotou o dado em uma folha antes de abrir a planilha.”', correct: 'fact', options: [['fact','Fato observado'],['interpretation','Interpretação'],['judgment','Julgamento'],['validation','Pergunta para validação']], explanation: 'Descreve uma ação observável, sem explicar a causa.' },
@@ -179,6 +179,122 @@
     host.append(list);
   }
 
+
+  // Exercício formativo em etapas: preserva perguntas e respostas, mas evita
+  // comprimir quatro enunciados e dezesseis alternativas no projetor 720p.
+  function renderSteppedQuestionMission(mission, shell){
+    shell.classList.add('mission-stepper-shell');
+    const answers = currentMissionAnswers(mission);
+    const total = mission.questions.length;
+    const completed = !!state.completed[mission.id];
+    const initial = completed && answers.step === undefined ? total - 1 : Number(answers.step) || 0;
+    const step = Math.max(0, Math.min(total - 1, initial));
+    const question = mission.questions[step];
+
+    const progress = document.createElement('div');
+    progress.className = 'stepper-progress';
+    const stepTitle = document.createElement('p');
+    stepTitle.className = 'stepper-step-label';
+    stepTitle.textContent = `Etapa ${step+1} de ${total}`;
+    const stages = document.createElement('ol');
+    stages.className = 'stepper-stages';
+    stages.setAttribute('aria-label', 'Progresso da Missão 3');
+    mission.questions.forEach((item, index) => {
+      const li = document.createElement('li');
+      const correct = answers[item.id] === item.correct;
+      li.textContent = correct ? `✓ ${index+1}` : String(index+1);
+      li.className = index === step ? 'current' : correct ? 'answered' : '';
+      li.setAttribute('aria-label', `Etapa ${index+1}: ${correct ? 'resposta correta' : 'pendente'}`);
+      if(index === step) li.setAttribute('aria-current', 'step');
+      stages.append(li);
+    });
+    progress.append(stepTitle, stages);
+
+    const fieldset = document.createElement('fieldset');
+    fieldset.className = 'mission-question stepper-question';
+    const legend = document.createElement('legend');
+    legend.textContent = question.prompt;
+    legend.tabIndex = -1;
+    const options = document.createElement('div');
+    options.className = 'mission-options';
+    const feedback = document.createElement('div');
+    feedback.className = 'question-feedback';
+    feedback.setAttribute('role', 'status');
+    feedback.setAttribute('aria-live', 'polite');
+    const nav = document.createElement('div');
+    nav.className = 'stepper-nav';
+    const back = document.createElement('button');
+    back.type = 'button';
+    back.textContent = '← Etapa anterior';
+    back.disabled = step === 0;
+    const next = document.createElement('button');
+    next.type = 'button';
+    next.textContent = completed && step === total-1 ? 'Missão concluída ✓' : step === total-1 ? 'Concluir missão' : 'Próxima etapa →';
+    next.disabled = (completed && step === total-1) || (!completed && answers[question.id] !== question.correct);
+
+    const setFeedback = value => {
+      const selected = !!value;
+      const correct = value === question.correct;
+      feedback.className = `question-feedback${selected ? (correct ? ' ok' : ' warn') : ''}`;
+      feedback.textContent = selected
+        ? `${correct ? 'Correto.' : 'Ainda não.'} ${question.explanation}`
+        : 'Escolha uma resposta para receber uma pista.';
+      next.disabled = (completed && step === total-1) || (!completed && !correct);
+    };
+    question.options.forEach(([value,text]) => {
+      const label = document.createElement('label');
+      label.className = 'mission-option';
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = `mission-${mission.id}-${question.id}`;
+      input.value = value;
+      input.checked = answers[question.id] === value;
+      input.disabled = completed;
+      input.addEventListener('change', () => {
+        answers[question.id] = value;
+        saveState();
+        setFeedback(value);
+        stages.querySelectorAll('li').forEach((node,index) => {
+          const item = mission.questions[index];
+          const right = answers[item.id] === item.correct;
+          node.textContent = right ? `✓ ${index+1}` : String(index+1);
+          node.setAttribute('aria-label', `Etapa ${index+1}: ${right ? 'resposta correta' : 'pendente'}`);
+        });
+      });
+      const span = document.createElement('span');
+      span.textContent = text;
+      label.append(input,span);
+      options.append(label);
+    });
+    setFeedback(answers[question.id]);
+    fieldset.append(legend, options, feedback);
+    back.addEventListener('click', () => {
+      answers.step = step-1;
+      saveState();
+      renderMission(mission.id);
+      document.querySelector('#mission-host-3 .stepper-question legend')?.focus({preventScroll:true});
+    });
+    next.addEventListener('click', () => {
+      if (!completed && answers[question.id] !== question.correct) return;
+      if (step === total-1) {
+        if (!completed && mission.questions.every(q => answers[q.id] === q.correct)) {
+          state.completed[mission.id] = true;
+          saveState();
+          renderMission(mission.id);
+          paintScore();
+          announce(`Missão ${mission.id} concluída. ${mission.max} XP de treino. Total ${missionScore()} de 100.`);
+        }
+        return;
+      }
+      answers.step = step+1;
+      saveState();
+      renderMission(mission.id);
+      document.querySelector('#mission-host-3 .stepper-question legend')?.focus({preventScroll:true});
+    });
+    nav.append(back,next);
+    shell.append(progress,fieldset,nav);
+  }
+
   function evaluateQuestionMission(mission, answerStore, host){
     const allCorrect = mission.questions.every(question => answerStore[question.id] === question.correct);
     if (allCorrect && !state.completed[mission.id]) {
@@ -229,6 +345,9 @@
     const shell = missionShell(mission);
     if (mission.type === 'questions') {
       renderQuestionMission(mission, shell);
+      appendMissionFooter(mission,shell);
+    } else if (mission.type === 'stepped-questions') {
+      renderSteppedQuestionMission(mission, shell);
       appendMissionFooter(mission,shell);
     } else if (mission.type === 'multi') renderMultiMission(mission,shell);
     else if (mission.type === 'scenario') renderScenarioMission(mission,shell);
@@ -342,8 +461,34 @@
     document.querySelectorAll('[data-diagnostic] article').forEach(card=>{card.querySelectorAll('button[data-value]').forEach(button=>button.addEventListener('click',()=>{card.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));const correct=button.dataset.value===card.dataset.correct;const feedback=card.querySelector('.mini-feedback');feedback.className=`mini-feedback ${correct?'ok':'warn'}`;feedback.textContent=correct?'Boa leitura: ainda não há evidência suficiente para afirmar a frase.':'Reveja: a frase não possui fonte ou contexto suficiente para ser tratada como fato.';}));});
     document.querySelectorAll('[data-reveal-group]').forEach(group=>{const detail=group.querySelector('.reveal-detail');group.querySelectorAll('[data-detail]').forEach(button=>button.addEventListener('click',()=>{group.querySelectorAll('[data-detail]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));detail.textContent=button.dataset.detail;}));});
     document.querySelectorAll('[data-family-grid] button').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-family-grid] button').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));$('family-title').textContent=button.querySelector('b').textContent;$('family-map').textContent='Mapa: '+button.dataset.map;$('family-eda').textContent='EDA: '+button.dataset.eda;}));
-    const tabs=$('[data-tabs]'); if(tabs){const tabButtons=[...tabs.querySelectorAll('[role="tab"]')];tabButtons.forEach((button,index)=>{button.addEventListener('click',()=>activateTab(button));button.addEventListener('keydown',event=>{if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();const direction=event.key==='ArrowRight'?1:-1;const next=tabButtons[(index+direction+tabButtons.length)%tabButtons.length];activateTab(next);next.focus();}});});}
-    function activateTab(button){const tabsRoot=button.closest('[data-tabs]');tabsRoot.querySelectorAll('[role="tab"]').forEach(tab=>tab.setAttribute('aria-selected',String(tab===button)));tabsRoot.querySelectorAll('[role="tabpanel"]').forEach(panel=>panel.hidden=panel.id!==button.getAttribute('aria-controls'));}
+    const tabs=document.querySelector('[data-tabs]');
+    if(tabs){
+      const tabButtons=[...tabs.querySelectorAll('[role="tab"]')];
+      tabButtons.forEach((button,index)=>{
+        button.addEventListener('click',()=>activateTab(button));
+        button.addEventListener('keydown',event=>{
+          if (!['ArrowRight','ArrowLeft','Home','End'].includes(event.key)) return;
+          event.preventDefault();
+          let target = index;
+          if(event.key==='ArrowRight') target=(index+1)%tabButtons.length;
+          if(event.key==='ArrowLeft') target=(index-1+tabButtons.length)%tabButtons.length;
+          if(event.key==='Home') target=0;
+          if(event.key==='End') target=tabButtons.length-1;
+          activateTab(tabButtons[target]);
+          tabButtons[target].focus();
+        });
+      });
+      activateTab(tabButtons.find(tab=>tab.getAttribute('aria-selected')==='true')||tabButtons[0]);
+    }
+    function activateTab(button){
+      const tabsRoot=button.closest('[data-tabs]');
+      tabsRoot.querySelectorAll('[role="tab"]').forEach(tab=>{
+        const selected=tab===button;
+        tab.setAttribute('aria-selected',String(selected));
+        tab.tabIndex=selected?0:-1;
+      });
+      tabsRoot.querySelectorAll('[role="tabpanel"]').forEach(panel=>panel.hidden=panel.id!==button.getAttribute('aria-controls'));
+    }
     document.querySelectorAll('[data-concepts] button').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-concepts] button').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));$('concept-detail').textContent=button.dataset.detail;}));
     const reflection=$('reflection');reflection.value=state.reflection||'';reflection.addEventListener('input',()=>{state.reflection=reflection.value;saveState();});
   }
