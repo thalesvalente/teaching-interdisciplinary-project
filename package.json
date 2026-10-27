@@ -2,9 +2,10 @@
   "name": "teaching-interdisciplinary-project",
   "version": "1.0.0",
   "private": true,
-  "description": "Materiais estáticos de PPI I e verificações da Aula 06",
+  "description": "Materiais estáticos de PPI I e verificações das aulas interativas",
   "scripts": {
-    "test:aula06": "node tests/aula06-qa.cjs"
+    "test:aula06": "node tests/aula06-qa.cjs",
+    "test:aula07": "node tests/aula07-qa.cjs"
   },
   "devDependencies": {
     "axe-core": "4.14.0",
