@@ -31,7 +31,8 @@ jobs:
           base64 -d /tmp/aula07.b64 > /tmp/aula07.tar.gz
           echo "68c24370f2b4f04b52434f443a4e889b305fb29ee855322eb851a3ac9cc2659b  /tmp/aula07.tar.gz" | sha256sum -c -
           tar -xzf /tmp/aula07.tar.gz -C .
-          rm -rf .bootstrap-aula07 .github/workflows/bootstrap-aula07.yml
+          rm -rf .bootstrap-aula07
+          rm -f .github/workflows/qa-aula07.yml
 
       - name: Commitar implementação
         shell: bash
