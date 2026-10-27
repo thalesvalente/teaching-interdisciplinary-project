@@ -81,6 +81,7 @@ const restored = Model.validateImport(Export.exportJSON(state));
 - O arquivo atual só é substituído após validação completa e confirmação. Cancelamento/erro não modifica respostas.
 - Uma URL ainda em edição pode permanecer no rascunho local sem descartar o restante do preenchimento ao recarregar. A importação de arquivo e a exportação exigem HTTPS válido ou campo vazio; o erro é associado ao campo.
 - Respostas são inseridas com `textContent` e controles nativos. Não há `eval`, HTML de usuário executável, conexão de rede ou submissão de formulário. Markdown e nomes de arquivo são escapados/sanitizados.
+- Cada edição grava o estado local sincronamente antes de devolver o controle ao navegador, evitando a perda da última resposta em recarregamento imediato. As mensagens de sucesso só mudam quando o texto do status muda; os anúncios de XP continuam agrupados.
 - `localStorage` usa `ppi-aula07-ficha-v1`; a chave `ppi-aula07-ficha-v1-ui` guarda somente etapa/contraste. Falha de quota ou disponibilidade mantém o estado em memória e recomenda baixar JSON. Um rascunho local corrompido é preservado, não apagado automaticamente.
 
 ## Acessibilidade, impressão e contingência
@@ -98,7 +99,8 @@ A suíte e os relatórios independentes pertencem a `tests/aula07-ficha/` e `doc
 ```sh
 npm ci
 npx playwright install --with-deps chromium firefox webkit
-npm run test:aula07-ficha
+npm run test:ficha07:unit
+npm run test:ficha07
 ```
 
 Os scripts exatos da suite e as evidências executadas são definidos pelo coordenador e pelo QA. Este documento não declara conformidade WCAG completa, revisão humana docente ou resultado de teste não executado. Testes automatizados de acessibilidade cobrem apenas os critérios detectáveis pelas ferramentas.
