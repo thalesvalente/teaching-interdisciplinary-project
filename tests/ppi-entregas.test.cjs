@@ -75,8 +75,8 @@ function makeFixture(script=source){
   const sheets=new Map([
     ['1º Bimestre',fakeSheet('1º Bimestre',['Aluno','Equipe','Média'])],
     ['2º Bimestre',fakeSheet('2º Bimestre',['Aluno','Equipe','Média'])],
-    ['3º Bimestre',fakeSheet('3º Bimestre',['Aluno','Equipe','Aula 06','Média'])],
-    ['4º Bimestre',fakeSheet('4º Bimestre',['Aluno','Equipe','Média'])],
+    ['3º Bimestre',fakeSheet('3º Bimestre',['Aluno','Equipe','Média'])],
+    ['4º Bimestre',fakeSheet('4º Bimestre',['Aluno','Equipe','Aula 06','Média'])],
     ['Auditoria',fakeSheet('Auditoria',auditHeaders)]
   ]);
   const properties={},metrics={lock:0,unlock:0,flush:0};
@@ -120,12 +120,12 @@ function makeFixture(script=source){
   vm.runInContext(script,sandbox,{filename:'Code.gs'});
   return {
     sheets,properties,metrics,app:sandbox,
-    grade:()=>sheets.get('3º Bimestre').rows,
+    grade:()=>sheets.get('4º Bimestre').rows,
     audit:()=>sheets.get('Auditoria').rows,
     submit:(members=['Ana Teste'],campos={},opt={})=>
       sandbox.processDelivery(JSON.stringify(envelope(members,campos,opt))),
     find:(name)=>sheets.get('Auditoria').rows.find(r=>r[0]===name),
-    note:(name)=>sheets.get('3º Bimestre').rows.find(r=>r[0]===name)
+    note:(name)=>sheets.get('4º Bimestre').rows.find(r=>r[0]===name)
   };
 }
 function envelope(members=['Ana Teste'],campos={},opt={}) {
@@ -232,9 +232,9 @@ test('09 — média simples com ausência = zero',()=>{
 });
 test('10 — outras abas do bimestre permanecem inalteradas',()=>{
   const f=makeFixture();
-  const before=[...['1º Bimestre','2º Bimestre','4º Bimestre']].map(x=>JSON.stringify(f.sheets.get(x).rows));
+  const before=[...['1º Bimestre','2º Bimestre','3º Bimestre']].map(x=>JSON.stringify(f.sheets.get(x).rows));
   f.submit();
-  assert.deepEqual([...['1º Bimestre','2º Bimestre','4º Bimestre']].map(x=>JSON.stringify(f.sheets.get(x).rows)),before);
+  assert.deepEqual([...['1º Bimestre','2º Bimestre','3º Bimestre']].map(x=>JSON.stringify(f.sheets.get(x).rows)),before);
 });
 test('11 — atividade não cadastrada rejeitada',()=>{
   const f=makeFixture();fail(f,envelope(['Ana Teste'],{}, {activity:'DESCONHECIDA'}),/não habilitado/);
@@ -298,14 +298,14 @@ test('24 — nome conflitante em outra equipe é recusado',()=>{
 test('25 — colunas futuras podem ser inseridas sem perder notas anteriores',()=>{
   const dual=source.replace(
     "    })\n    // Para outras aulas",
-    "    }),\n    'PPI1-AULA07-2026': Object.freeze({sheet:'3º Bimestre',column:'Aula 07',schema:'ppi-f02-v1',rubric:'aula07',gradeMode:'manual'})\n    // Para outras aulas"
+    "    }),\n    'PPI1-AULA07-2026': Object.freeze({sheet:'4º Bimestre',column:'Aula 07',schema:'ppi-f02-v1',rubric:'aula07',gradeMode:'manual'})\n    // Para outras aulas"
   );
   assert.notEqual(dual,source,'ponto de extensão encontrado');
   const f=makeFixture(dual);
   f.submit(['Ana Teste']);
   f.app.processDelivery(JSON.stringify(envelope(['Ana Teste'],{}, {activity:'PPI1-AULA07-2026'})));
   assert.deepEqual(f.grade()[0],['Aluno','Equipe','Aula 06','Aula 07','Média']);
-  f.sheets.get('3º Bimestre').getRange(2,4).setValue(8);
+  f.sheets.get('4º Bimestre').getRange(2,4).setValue(8);
   f.submit(['Ana Teste'],{item:'Reenvio na 06'});
   assert.equal(f.note('Ana Teste')[3],8);
   assert.equal(f.note('Ana Teste')[4],'=SUM(C2:D2)/2');
@@ -345,8 +345,8 @@ test('30 — cabeçalho de auditoria divergente impede submissão',()=>{
 });
 test('31 — novos envios não apagaram notas de outras atividades',()=>{
   const f=makeFixture();
-  f.sheets.get('3º Bimestre').rows[0]=['Aluno','Equipe','Aula 06','Aula 08','Média'];
-  f.sheets.get('3º Bimestre').rows.push(['Ana Teste','Equipe Teste',7,9,'=SUM(C2:D2)/2']);
+  f.sheets.get('4º Bimestre').rows[0]=['Aluno','Equipe','Aula 06','Aula 08','Média'];
+  f.sheets.get('4º Bimestre').rows.push(['Ana Teste','Equipe Teste',7,9,'=SUM(C2:D2)/2']);
   f.submit(['Ana Teste']);
   assert.equal(f.note('Ana Teste')[2],1.4);
   assert.equal(f.note('Ana Teste')[3],9);

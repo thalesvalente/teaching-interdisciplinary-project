@@ -39,3 +39,7 @@ Cada participante trabalha em worktree própria. Nenhum agente pode editar os pa
 ## Registro de execução
 
 Manifesto criado antes de qualquer edição de produto, teste ou especificação. SHAs, árvores, testes e limitações serão registrados nos handoffs ao término das frentes.
+
+### Ajuste de escopo do coordenador — fixture legada
+
+Na regressão, `tests/ppi-entregas.test.cjs` (inalterado desde a base desta missão) apresentou 23 PASS e 12 FAIL: fixtures ainda consultavam o 3º bimestre, enquanto o commit anterior `9263d56` definiu o 4º bimestre para a Aula 06. O coordenador assume ownership exclusivo desse teste global para alinhar a fixture à configuração vigente, preservando as verificações de notas e de não alteração das demais abas. Nenhum arquivo do produto Aula 06 será modificado. A alteração será revisada pelo agente QA em modo somente leitura.
