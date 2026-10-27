@@ -6,11 +6,11 @@
     "tree": "c517e16770ed329ad7353571279b2b1072b8e3d3"
   },
   "transport": "Authenticated GitHub Git Database API; exact tree SHA equality checked before every commit; no shell credential extraction.",
-  "coverage": "All local commits through the independent-QA integration checkpoint. The documentation commit that contains this map is intentionally excluded to avoid self-reference; the final local/remote HEAD and equal tree are recorded in PR #6.",
+  "coverage": "All mapped commits through the merge of concurrent main update afa7335 into the feature branch. The documentation commit that contains this map is intentionally excluded to avoid self-reference; its final local/remote HEAD and equal tree are recorded in PR #6.",
   "integrated_checkpoint": {
-    "local": "92941ef81d987de23c6d70a918cb265d233bf20c",
-    "remote": "26f851f34e5e119736b856098e43a62ef1e2931d",
-    "tree": "33e57ee5571d841b61f8409acea42c1e904b5e8b"
+    "local": "9e0d74da733e3f999b4754d12392d7743e0b5b7c",
+    "remote": "5020255da82e224cdcc0b41ade618aaa354dde32",
+    "tree": "a71c4893b235c91d3a26a239a29b146d87ead52b"
   },
   "commits": [
     {
@@ -234,6 +234,29 @@
       "remote": "26f851f34e5e119736b856098e43a62ef1e2931d",
       "tree": "33e57ee5571d841b61f8409acea42c1e904b5e8b",
       "tree_equal": true
+    },
+    {
+      "local": "af99cc9be7512079d20018a160fbc50cc432d867",
+      "remote": "8da607ebdf16abddfa1222ff3156a1dd2a07d4d5",
+      "tree": "588fba18b4c8b55edc65c76e03bbc1e1ad4e8fd1",
+      "tree_equal": true
+    },
+    {
+      "local": "afa73357ce0893bf4342b139dc1b8e90ace0fb1f",
+      "remote": "afa73357ce0893bf4342b139dc1b8e90ace0fb1f",
+      "tree": "617b26e9e224bd72a27f8b0f5f86b1b785717034",
+      "tree_equal": true
+    },
+    {
+      "local": "9e0d74da733e3f999b4754d12392d7743e0b5b7c",
+      "remote": "5020255da82e224cdcc0b41ade618aaa354dde32",
+      "tree": "a71c4893b235c91d3a26a239a29b146d87ead52b",
+      "tree_equal": true
     }
-  ]
+  ],
+  "current_main": {
+    "commit": "afa73357ce0893bf4342b139dc1b8e90ace0fb1f",
+    "tree": "617b26e9e224bd72a27f8b0f5f86b1b785717034",
+    "origin": "Concurrent update by another repository operation; preserved verbatim in the feature branch."
+  }
 }

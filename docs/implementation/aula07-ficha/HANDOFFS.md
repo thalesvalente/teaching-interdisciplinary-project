@@ -29,7 +29,13 @@ O último reparo retirou somente a gravação redundante no evento `pagehide`, q
 
 O ambiente de shell permitiu clone/fetch, mas não possuía credencial para push. O coordenador utilizou o conector GitHub autenticado para criar blobs, árvores e commits, sem extrair tokens ou alterar configuração de autenticação. Antes de criar cada commit remoto, comparou a árvore retornada pela API com a árvore local e exigiu igualdade exata. Blobs binários também tiveram seus hashes conferidos. As referências foram atualizadas com o SHA anterior esperado, sem force push.
 
-Os hashes dos commits mudaram porque o conector escreve seus próprios metadados; isso está explicitado em [COMMIT_MAP.json](COMMIT_MAP.json), com 37 correspondências até o checkpoint de integração do QA. O commit que contém o próprio mapa é excluído dele para evitar autorreferência. Sua correspondência local/remota e árvore final são verificadas na PR. As branches dos três agentes foram preservadas remotamente.
+Os hashes dos commits mudaram porque o conector escreve seus próprios metadados; isso está explicitado em [COMMIT_MAP.json](COMMIT_MAP.json), com 40 correspondências até a integração da atualização concorrente de `main`. O commit que contém o próprio mapa é excluído dele para evitar autorreferência. Sua correspondência local/remota e árvore final são verificadas na PR. As branches dos três agentes foram preservadas remotamente.
+
+### Preservação da atualização concorrente dos slides
+
+Os cinco checks da candidata `8da607ebdf16abddfa1222ff3156a1dd2a07d4d5` terminaram com sucesso, e a PR foi marcada pronta para revisão. A conferência final detectou então um novo commit de outra operação em `main`: `afa73357ce0893bf4342b139dc1b8e90ace0fb1f`, sobre os controles acessíveis dos slides 12 e 16 e seus testes. O baseline inicial deste documento continua sendo o observado no início da missão; ele não é apresentado como o HEAD atual de `main`.
+
+O coordenador incorporou o novo `main` à branch da ficha, sem conflito e sem escrever em `main`. Merge local `9e0d74da733e3f999b4754d12392d7743e0b5b7c`; equivalente remoto `5020255da82e224cdcc0b41ade618aaa354dde32`; árvore `a71c4893b235c91d3a26a239a29b146d87ead52b`. Os quatro arquivos atualizados pelos slides são byte a byte iguais a `main`. A ficha, seus testes e suas evidências independentes não mudaram. O novo CI completo no HEAD final confirma a integração com os testes atualizados da apresentação; seus links e resultados são registrados na PR. [CI_PRE_UPSTREAM.json](CI_PRE_UPSTREAM.json) preserva a validação anterior como histórico, sem confundi-la com a nova candidata.
 
 ## Gates e regressão
 

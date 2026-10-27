@@ -42,6 +42,10 @@ Manifesto criado antes de qualquer edição de produto, teste ou especificação
 
 O transporte autenticado pela API Git do GitHub preservou exatamente cada árvore, mas gerou novos hashes de commit por usar metadados próprios do conector. A correspondência explícita está em [COMMIT_MAP.json](COMMIT_MAP.json). Os handoffs, snapshots efetivamente testados, gates e limites estão em [HANDOFFS.md](HANDOFFS.md). O HEAD final e sua árvore, posteriores a este registro, são conferidos e publicados na [PR #6](https://github.com/thalesvalente/teaching-interdisciplinary-project/pull/6), evitando autorreferência de hash dentro do próprio commit.
 
+### Atualização concorrente de `main`
+
+Após os checks aprovados da candidata `8da607e`, uma conferência por API e `git fetch` detectou que outra operação do repositório havia avançado `main` para `afa73357ce0893bf4342b139dc1b8e90ace0fb1f` (árvore `617b26e9e224bd72a27f8b0f5f86b1b785717034`), com ajustes acessíveis nos slides 12 e 16 e em seus testes. A missão não escreveu em `main`. O coordenador incorporou essa atualização à branch da ficha por merge sem conflito: local `9e0d74da733e3f999b4754d12392d7743e0b5b7c`, remoto `5020255da82e224cdcc0b41ade618aaa354dde32`, árvore `a71c4893b235c91d3a26a239a29b146d87ead52b`. Os quatro arquivos vindos de `main` foram preservados exatamente; a subárvore da ficha permaneceu `a76418b010492f503d1f51dbbab95a776b50e520`. A evidência anterior está em `CI_PRE_UPSTREAM.json`; o CI completo é repetido no HEAD final da PR após essa integração.
+
 ### Ajuste de escopo do coordenador — fixture legada
 
 Na regressão, `tests/ppi-entregas.test.cjs` (inalterado desde a base desta missão) apresentou 23 PASS e 12 FAIL: fixtures ainda consultavam o 3º bimestre, enquanto o commit anterior `9263d56` definiu o 4º bimestre para a Aula 06. O coordenador assume ownership exclusivo desse teste global para alinhar a fixture à configuração vigente, preservando as verificações de notas e de não alteração das demais abas. Nenhum arquivo do produto Aula 06 será modificado. A alteração será revisada pelo agente QA em modo somente leitura.
