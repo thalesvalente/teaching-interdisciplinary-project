@@ -156,6 +156,76 @@ async function verifySlide24Readability(page, browserName) {
   await page.screenshot({ path: path.join(OUTPUT_DIR, browserName + '-1280x650-slide24.png') });
 }
 
+
+async function assertGuidedStageFits(page, slideNumber, browserName) {
+  await assertActiveSlideFits(page, `${browserName} slide ${slideNumber} `);
+  const info = await page.evaluate(number => {
+    const slide=document.querySelector('#s'+number);
+    const body=slide.querySelector('.guided-lesson');
+    const scene=body.querySelector('.guided-scene');
+    const stage=scene.querySelector('.guided-stage:not([hidden])');
+    const br=body.getBoundingClientRect(), sr=scene.getBoundingClientRect(), cr=stage.getBoundingClientRect();
+    return {
+      stageVisible:!!stage,
+      stageFullyInside:cr.left>=sr.left-2 && cr.right<=sr.right+2 && cr.top>=sr.top-2 && cr.bottom<=sr.bottom+2,
+      bodyFits:body.scrollHeight<=body.clientHeight+3 && scene.scrollHeight<=scene.clientHeight+3 && stage.scrollHeight<=stage.clientHeight+3,
+      stageCount:scene.querySelectorAll('.guided-stage:not([hidden])').length,
+      bodyTop:br.top, bodyBottom:br.bottom
+    };
+  },slideNumber);
+  assert.ok(info.stageVisible && info.stageFullyInside && info.bodyFits && info.stageCount===1,
+    `${browserName} slide ${slideNumber}: conteúdo das etapas fora do espaço: ${JSON.stringify(info)}`);
+}
+
+async function verifyGuidedSlides(page,browserName) {
+  const score=await page.locator('#lesson-score').innerText();
+  await openIndexSlide(page,12);
+  const slide12='#s12';
+  assert.equal(await page.locator(slide12+' .guided-stage').count(),2);
+  assert.equal(await page.locator(slide12+' .guided-stage:not([hidden])').count(),1);
+  assert.match(await page.locator(slide12+' .guided-step-status').innerText(),/Etapa 1 de 2/);
+  await assertGuidedStageFits(page,12,browserName);
+  const firstSize=await page.locator(slide12+' .guided-stage:not([hidden]) .question-example').evaluate(n=>parseFloat(getComputedStyle(n).fontSize));
+  assert.ok(firstSize>=33,browserName+' slide 12: texto da pergunta pequeno: '+firstSize);
+  await page.screenshot({path:path.join(OUTPUT_DIR,`${browserName}-1280x650-slide12-indutiva.png`)});
+  await page.locator(slide12+' [data-guided-next]').click();
+  assert.equal(await page.locator(slide12+' #s12-step2').isVisible(),true,'slide 12: exemplo neutro visível');
+  assert.equal(await page.locator(slide12+' #s12-step1').isVisible(),false,'slide 12: indutiva oculta');
+  await assertGuidedStageFits(page,12,browserName);
+  await page.screenshot({path:path.join(OUTPUT_DIR,`${browserName}-1280x650-slide12-neutra.png`)});
+  assert.equal(await page.locator(slide12+' [data-guided-next]').isDisabled(),true);
+  await page.locator(slide12+' [data-guided-prev]').click();
+  assert.equal(await page.locator(slide12+' #s12-step1').isVisible(),true);
+  await page.locator(slide12+' [data-guided-target="0"]').focus();
+  await page.locator(slide12+' [data-guided-target="0"]').press('ArrowRight');
+  assert.equal(await page.locator(slide12+' #s12-step2').isVisible(),true,'slide 12: navegação por seta');
+  assert.equal(await page.locator(slide12+' [data-guided-target="1"]').getAttribute('aria-pressed'),'true');
+  assert.equal(await page.locator(slide12+' [data-guided-target="1"]').evaluate(n=>n===document.activeElement),true);
+  assert.equal(await page.locator('#lesson-score').innerText(),score,'slide 12 não concede XP');
+
+  await openIndexSlide(page,16);
+  const slide16='#s16';
+  assert.equal(await page.locator(slide16+' .guided-stage').count(),4);
+  assert.equal(await page.locator(slide16+' .guided-stage:not([hidden])').count(),1);
+  await assertGuidedStageFits(page,16,browserName);
+  const listSize=await page.locator(slide16+' .guided-checkstage li').first().evaluate(n=>parseFloat(getComputedStyle(n).fontSize));
+  assert.ok(listSize>=26,browserName+' slide 16: itens pequenos: '+listSize);
+  await page.screenshot({path:path.join(OUTPUT_DIR,`${browserName}-1280x650-slide16-sinais.png`)});
+  for(let i=1;i<4;i++){
+    await page.locator(slide16+' [data-guided-next]').click();
+    assert.equal(await page.locator(slide16+' .guided-step-status').innerText(),`Etapa ${i+1} de 4`);
+    assert.equal(await page.locator(slide16+' #s16-step'+(i+1)).isVisible(),true);
+    await assertGuidedStageFits(page,16,browserName);
+    const typeSize=await page.locator(slide16+' .guided-stage:not([hidden]) p').evaluate(n=>parseFloat(getComputedStyle(n).fontSize));
+    assert.ok(typeSize>=38,browserName+' slide 16: fala/observação/julgamento pequeno: '+typeSize);
+    await page.screenshot({path:path.join(OUTPUT_DIR,`${browserName}-1280x650-slide16-etapa${i+1}.png`)});
+  }
+  assert.equal(await page.locator(slide16+' [data-guided-next]').isDisabled(),true);
+  await page.locator(slide16+' [data-guided-target="0"]').click();
+  assert.equal(await page.locator(slide16+' #s16-step1').isVisible(),true);
+  assert.equal(await page.locator('#lesson-score').innerText(),score,'slide 16 não concede XP');
+}
+
 async function verifySlide15Tabs(page, browserName) {
   await openIndexSlide(page, 15);
   await assertActiveSlideFits(page, browserName + ' slide15');
@@ -304,6 +374,7 @@ async function runDesktop(browserName, browserType, baseUrl) {
   await assertActiveSlideFits(page, `${browserName} 1280×650 missão 4`);
   await page.screenshot({ path: path.join(OUTPUT_DIR, `${browserName}-1280x650-missao4.png`) });
   await verifyMissionFour(page);
+  await verifyGuidedSlides(page,browserName);
   await verifySlide15Tabs(page, browserName);
   await verifyMissionThree(page, browserName);
   await verifySlide24Readability(page, browserName);
@@ -343,6 +414,27 @@ async function runMobile(baseUrl) {
     `salto do índice deve alinhar slide abaixo dos controles: ${JSON.stringify(mobile)}`);
   assert.ok(mobile.scrollWidth <= mobile.innerWidth + 2, `mobile sem rolagem horizontal: ${JSON.stringify(mobile)}`);
   await page.screenshot({ path: path.join(OUTPUT_DIR, 'chromium-390x844-missao2.png'), fullPage: false });
+  for(const n of [12,16]){
+    await openIndexSlide(page,n);
+    const selector='#s'+n;
+    const stages=await page.locator(selector+' .guided-stage').count();
+    assert.equal(stages,n===12?2:4,'mobile: total de etapas do slide '+n);
+    assert.equal(await page.locator(selector+' .guided-stage:not([hidden])').count(),1,'mobile: apenas uma etapa de cada vez');
+    await page.locator(selector+' [data-guided-next]').click();
+    assert.equal(await page.locator(selector+' .guided-step-status').innerText(),`Etapa 2 de ${stages}`);
+    const geometry=await page.evaluate(number=>{
+      const slide=document.querySelector('#s'+number);
+      const node=slide.querySelector('.guided-stage:not([hidden])');
+      return{
+        scrollWidth:document.documentElement.scrollWidth,innerWidth,
+        stageOverflow:node.scrollWidth>node.clientWidth+2,
+        slideOverflow:slide.scrollWidth>slide.clientWidth+2
+      };
+    },n);
+    assert.ok(!geometry.stageOverflow&&!geometry.slideOverflow&&geometry.scrollWidth<=geometry.innerWidth+2,
+      'mobile: sem rolagem horizontal nos slides 12/16: '+JSON.stringify(geometry));
+    await page.screenshot({path:path.join(OUTPUT_DIR,'chromium-390x844-slide'+n+'.png')});
+  }
   await openIndexSlide(page, 15);
   await page.locator('#tab-eda').click();
   assert.equal(await page.locator('#panel-eda').isVisible(),true,'mobile: aba EDA deve responder ao toque');
