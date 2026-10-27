@@ -4,6 +4,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const { moduleFile } = require('./harness.cjs');
+const Content = require(moduleFile('content.js'));
 const Model = require(moduleFile('model.js'));
 const Rubric = require(moduleFile('rubric.js'));
 const Export = require(moduleFile('export.js'));
@@ -324,4 +325,38 @@ test('PRIVACY-01: production modules have no dynamic-code or network submission 
     const source = fs.readFileSync(moduleFile(file), 'utf8');
     assert.doesNotMatch(source, /\beval\s*\(|new\s+Function\s*\(|\bfetch\s*\(|XMLHttpRequest|sendBeacon|WebSocket/, file);
   }
+});
+
+
+test('UX-EDU-01: every required text field has distinct, specific help understandable to students', () => {
+  const prefixes = {
+    m1:'m1',technique:'m2.techniques.0',observation:'m3.observation',
+    document:'m3.document',ai:'m3.ai',ethicsText:'m4',m5:'m5',
+    evidence:'m6.records.0',author:'members.0'
+  };
+  for (const [group,prefix] of Object.entries(prefixes)) {
+    for (const [key] of Content.FIELDS[group]) {
+      const text = Content.hintFor(prefix+'.'+key);
+      assert.ok(text.length>=25, 'Missing concrete help for '+group+'.'+key);
+      assert.doesNotMatch(text,/Registre a resposta da equipe\. Preencher não equivale/i);
+    }
+  }
+  assert.ok(Content.hintFor('m3.questions.0.text').length>25);
+  assert.ok(Content.hintFor('m4.authorization.decision').length>25);
+  for (const [key] of Content.TECHNIQUES) assert.ok(Content.METHOD_HELP[key].length>30);
+});
+
+test('UX-EDU-02: both tracks have labeled, synthetic examples for seven missions', () => {
+  for (const track of ['memorias','permanencia']) {
+    assert.ok(Content.TRACKS[track].scenario.toLowerCase().includes('inventado'));
+    for(let mission=1;mission<=7;mission++) {
+      const examples=Content.EXAMPLES[track][mission];
+      assert.ok(Array.isArray(examples)&&examples.length>=2,'No example for '+track+' mission '+mission);
+      assert.ok(examples.every(pair=>pair.length===2&&pair.every(item=>item.length>=5)));
+    }
+  }
+  const source=Content.FIELDS.technique.find(([key])=>key==='source')[1];
+  const evidence=Content.FIELDS.technique.find(([key])=>key==='evidence')[1];
+  assert.equal(source,'Quem ou o que vamos consultar?');
+  assert.equal(evidence,'O que esperamos anotar ou encontrar?');
 });
