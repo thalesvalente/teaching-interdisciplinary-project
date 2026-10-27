@@ -1,0 +1,239 @@
+{
+  "mission": "PPI-A07-FICHA-AVALIATIVA-IMPLEMENT-MA-01",
+  "repository": "thalesvalente/teaching-interdisciplinary-project",
+  "baseline": {
+    "commit": "dc5ed18ebdab8dea9035f56a8f3bdedb2520af68",
+    "tree": "c517e16770ed329ad7353571279b2b1072b8e3d3"
+  },
+  "transport": "Authenticated GitHub Git Database API; exact tree SHA equality checked before every commit; no shell credential extraction.",
+  "coverage": "All local commits through the independent-QA integration checkpoint. The documentation commit that contains this map is intentionally excluded to avoid self-reference; the final local/remote HEAD and equal tree are recorded in PR #6.",
+  "integrated_checkpoint": {
+    "local": "92941ef81d987de23c6d70a918cb265d233bf20c",
+    "remote": "26f851f34e5e119736b856098e43a62ef1e2931d",
+    "tree": "33e57ee5571d841b61f8409acea42c1e904b5e8b"
+  },
+  "commits": [
+    {
+      "local": "dc5ed18ebdab8dea9035f56a8f3bdedb2520af68",
+      "remote": "dc5ed18ebdab8dea9035f56a8f3bdedb2520af68",
+      "tree": "c517e16770ed329ad7353571279b2b1072b8e3d3",
+      "tree_equal": true
+    },
+    {
+      "local": "495ea64a4647e1aef2a3b32fb9a36cc958d4889b",
+      "remote": "f9e6355a27a086d81bcb68478e7eaf2e3554b9c2",
+      "tree": "997a18f9d65321c1531636604cc3976871e6f4bc",
+      "tree_equal": true
+    },
+    {
+      "local": "12cb4a7391eddbd6017b141950e8754d623a3ca7",
+      "remote": "eba7819aa6324c405f7eb16a7f1c856e7fdb2431",
+      "tree": "3842ed22c07101aa0a621e6ea8943b40b3f4ad4e",
+      "tree_equal": true
+    },
+    {
+      "local": "5f6d4efffe006c734c78d4d5c7b08359837fa662",
+      "remote": "c08761f9c90d0c07abb04b88ce677d252b72c326",
+      "tree": "5380e9b0884fa47754f21f2ce4d877ed4cd99458",
+      "tree_equal": true
+    },
+    {
+      "local": "4bad646be02ec3835ea74713abe58f5e1c17d174",
+      "remote": "e17edd1b3235c35d95425807ffd41ad6fc191e4f",
+      "tree": "359892fdfe0ce9758d98d9f812a1e0d429b00933",
+      "tree_equal": true
+    },
+    {
+      "local": "87e808db0f4ced2e36b555f23e7bd1d6f6376575",
+      "remote": "0431a2ee35e13618dc538063751a71308283e9ae",
+      "tree": "9793feeebecb13519111e69483f80c9aaf8594b3",
+      "tree_equal": true
+    },
+    {
+      "local": "74a4a0b29849c066746fd4a552f745e278dbc492",
+      "remote": "47591ccb7050adb2c7ef39643220393b0f250a3c",
+      "tree": "c3fa39b457d2076f8894dc9edcef3f0515096741",
+      "tree_equal": true
+    },
+    {
+      "local": "801c9d011c521501f24d34300c1fcddd8bec79b5",
+      "remote": "51cdbc2b8ba7a36ae54dab8e4f58a9f8d7435441",
+      "tree": "a09c629a3a482fbf85aff411abaf94b38506b26c",
+      "tree_equal": true
+    },
+    {
+      "local": "c2f00a3c70ed98e056d3305e9403f96b59520981",
+      "remote": "4362e21dd549e49b2631df4d0b4875fe1b08ce36",
+      "tree": "34c30f3c67f6e65fbd2ec1da6d723a59491b7b77",
+      "tree_equal": true
+    },
+    {
+      "local": "81bce6de8a58f20295d23690f176bed3a484a52b",
+      "remote": "11fbe1aa74a7751b6a6981895bc55da36595cac6",
+      "tree": "63b6063fd5d4083fc4a6e9d8133aff9edb421fde",
+      "tree_equal": true
+    },
+    {
+      "local": "a52869e00e6fcb7863c72321daa69c64defcf9fe",
+      "remote": "17800d4f85cdaa12f1b57d0e97267f4b128bbb35",
+      "tree": "6cd9b78106550b1571ecd578d12205afff13b53a",
+      "tree_equal": true
+    },
+    {
+      "local": "3d8ba3fbc9fe7e96ede6befc118ff834b82cdae1",
+      "remote": "7e87148ca82fe6c5b5a369e8d0fd54f7c3ab20f6",
+      "tree": "80e66aa7578f9d4cdfe2ba883723ef030f4c4ced",
+      "tree_equal": true
+    },
+    {
+      "local": "9281ac1880940e5c9a4eb170ede9970d66c3c27e",
+      "remote": "1003190c0a2bfdf15eb4b1fc19051926488a98ba",
+      "tree": "d8efdff413c56e548e10ca44145cc5d8cb9c1068",
+      "tree_equal": true
+    },
+    {
+      "local": "53aab5db84c7875ccfc10f0687c7e798f31a1681",
+      "remote": "6efd569ff4a40adb480551507ff4c5a0b265d810",
+      "tree": "06a19a9150a4f0b46fe44051ff0a644d0868cdd8",
+      "tree_equal": true
+    },
+    {
+      "local": "ed61a4c1559f8455b7916d9a97fc3c990cf02fea",
+      "remote": "ac033f12d8e1d2fa1bfba5c006a852e37eec3072",
+      "tree": "1034d91403dffdbf9344ddde8882dd707c6c8779",
+      "tree_equal": true
+    },
+    {
+      "local": "778201acbc51367137b03f1d431d6467553bc094",
+      "remote": "7ac5aabceac98ba44e1354e4a63ab39efb4061ec",
+      "tree": "52c5d639a86a397017df7c00ce12ecc15b0ed789",
+      "tree_equal": true
+    },
+    {
+      "local": "09efcfa89092c6e4b21b969f89282cf71be1a359",
+      "remote": "27de61b39f12fdc604fe02c45990604c1991337f",
+      "tree": "2263d76222a6cce3e1662fbad121fb8183fba7d4",
+      "tree_equal": true
+    },
+    {
+      "local": "4d544b00d549f8bcb2d9b16d59463ab0b503f7c1",
+      "remote": "39c77990413a2dd4b368d09c1c19515598e56591",
+      "tree": "50d29d3642059d96045e263536363ae39adfa6bf",
+      "tree_equal": true
+    },
+    {
+      "local": "4aa693ffc24d5d27082af5de9cbff39800bce82e",
+      "remote": "c5ec60e45dbdabc223d9242bef46f80f726748de",
+      "tree": "6d049021343858cbf4b881db7df33beb3b54074b",
+      "tree_equal": true
+    },
+    {
+      "local": "a94f1043912e8d940eea77310fccb1466657f796",
+      "remote": "af4f1f4ee71e2e1e8eb07d699ea8630062314405",
+      "tree": "90c9e397cbc88d6b7dd228d4292c9d5fb3b38f8f",
+      "tree_equal": true
+    },
+    {
+      "local": "80078b143ce70028b4a6d3bebb384435f8933b75",
+      "remote": "d6eeecec36382b95570b6f5505688950bb66075c",
+      "tree": "c813edd8aadfd4fa5d9f7c2eeb1ce2d539fd8066",
+      "tree_equal": true
+    },
+    {
+      "local": "1ac77091af6efc7fa035be2d1b464bf08547fa65",
+      "remote": "94be29669435df0f3a7e15ca2b499cefcc3fcfd9",
+      "tree": "625b9b032fb19889f7f25d617502cfaadc206072",
+      "tree_equal": true
+    },
+    {
+      "local": "6ec1b9f9ba3f7ad04568c586e1b706bc38ff3072",
+      "remote": "c3b5315ac40fbf871bd098f727a02a56c1c5a94e",
+      "tree": "aa5bea504592a6c5b028ac285de1d430ce50dcdd",
+      "tree_equal": true
+    },
+    {
+      "local": "031a74436a64a9ade7cb8fa3a967d974cc164725",
+      "remote": "28e76b00507e746fe041fd6067d004802ba29834",
+      "tree": "b5e5927394c450fede60f7fb35538e191bf28914",
+      "tree_equal": true
+    },
+    {
+      "local": "866a9aeb0538c8366bbb2029eb813ec6ceeac26d",
+      "remote": "4806e6ae4a33739a395523705b315e877fa6e90b",
+      "tree": "ce7ff263fc27633f10414e83c65e4e80ad7534a0",
+      "tree_equal": true
+    },
+    {
+      "local": "631641b820e8d19c7235ba759979d57aefdfb8d8",
+      "remote": "2316f75ef63409a0964fc886278d9466b6778ef6",
+      "tree": "c7ab0d706b1a7e6228da309d6ba06f4e5258feef",
+      "tree_equal": true
+    },
+    {
+      "local": "82cc4a8587a32d0285d28b6f7c66bb79a64db77b",
+      "remote": "59d4154df8bfbc34f8a6b9cda8cc8112ea2eb5c4",
+      "tree": "b34e0634166ca8bc9f20bdbe0927a9b1a8387281",
+      "tree_equal": true
+    },
+    {
+      "local": "a71cae7ae9f03e7d8171d0254440a235c03ddda6",
+      "remote": "abbb1cea53741280dc2324263028287a87d18073",
+      "tree": "f1b8bd0b0d13738afe2f8ed7dd43aca598ad0051",
+      "tree_equal": true
+    },
+    {
+      "local": "f028b9e1644344fe3307f6a3fa1d2ad896652692",
+      "remote": "b4a63cc90c633f10bd3e83ba2019165c824901ec",
+      "tree": "0c0658a3203129f069b6277184274e901c23f2a8",
+      "tree_equal": true
+    },
+    {
+      "local": "ef6082927d3b16e542132302b7f5406dd4f72d4a",
+      "remote": "b82e4f9cef62c94534f1c40ce5a6a89e6616def3",
+      "tree": "a39744015d391c808f835eee9b91d7bd6d8d062f",
+      "tree_equal": true
+    },
+    {
+      "local": "3a797a4e2abb6de9750dd121943ca609157d99fb",
+      "remote": "b53a7ac5b05f18d8228bf28271bf395bb8187c08",
+      "tree": "6b1fb2e9bc1f3e71757edea8b611323be1966c61",
+      "tree_equal": true
+    },
+    {
+      "local": "2778438a02e1c5060369193e994e689e82feb30c",
+      "remote": "e909a8fc945f81914e463a51dd1cf3250c0fc23b",
+      "tree": "fdfa48849ece1b79226c04d09d232107e01e5bf2",
+      "tree_equal": true
+    },
+    {
+      "local": "dfb09ede3cb923802b7fb9369a44d82e071d555a",
+      "remote": "d5a03f3a4cc93b1626ceaff86da63bfe1b79d09a",
+      "tree": "884aab7cd5faf45e172ac3e6041c226f712afb59",
+      "tree_equal": true
+    },
+    {
+      "local": "f5c183d0c60ec87dae39356ad40cb8de104eee44",
+      "remote": "2fb09065874c1bed6686b22e3da909a91178f642",
+      "tree": "c0ad8d86a2610e38d4c59812d5b6a11f3918a601",
+      "tree_equal": true
+    },
+    {
+      "local": "92a37c225a1cece0961544220bd7269b7345f8b5",
+      "remote": "fa451aa0ecbc111d6a4befaf251dc68be3649987",
+      "tree": "d2c2bd70b80d80cc565ae373e99323d8b5047107",
+      "tree_equal": true
+    },
+    {
+      "local": "9328a74b63acf7de9fc6f2db12c63a72028217de",
+      "remote": "ad8cbb0b68ad9f15c6f13f13730781913db27cf5",
+      "tree": "0e7f3bbc428f6afd938a1f31fa0abc08f30faabf",
+      "tree_equal": true
+    },
+    {
+      "local": "92941ef81d987de23c6d70a918cb265d233bf20c",
+      "remote": "26f851f34e5e119736b856098e43a62ef1e2931d",
+      "tree": "33e57ee5571d841b61f8409acea42c1e904b5e8b",
+      "tree_equal": true
+    }
+  ]
+}

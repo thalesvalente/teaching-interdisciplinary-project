@@ -16,10 +16,10 @@ Cada participante trabalha em worktree própria. Nenhum agente pode editar os pa
 
 | Agente | Missão | Branch | Worktree relativa à pasta de trabalho | Ownership exclusivo | Acesso | Entregável | Gate | SHA de handoff |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Coordenador `/root` | Baseline, integração, portal, CI e entrega | `feat/aula07-ficha-avaliativa-20261027` | `ppi-repo` | raiz, `.github/**`, configuração global, `docs/implementation/aula07-ficha/**` | escrita/integrador | PR, decisões, evidência de CI e integração | G0/G3/G5; sem merge | PENDENTE |
-| Agente 1 `pedagogia` | Contrato pedagógico, rubrica e rastreabilidade | `work/aula07-ficha-pedagogia` | `ppi-pedagogia` | `docs/specs/aula07-ficha/**` | escrita exclusiva | matriz, critérios observáveis, riscos e equivalência | G1: 100 XP; duas trilhas equivalentes; completude não semântica | PENDENTE |
-| Agente 2 `implementacao` | Ficha funcional e módulos locais | `work/aula07-ficha-implementacao` | `ppi-implementacao` | `lessons/aula-07-da-pergunta-a-evidencia/ficha/**` | escrita exclusiva | interface, schema, pontuação, persistência, exportações e README | G2: sete missões, dados locais, exportações | PENDENTE |
-| Agente 3 `qa` | QA independente e adversarial | `work/aula07-ficha-qa` | `ppi-qa` | `tests/aula07-ficha/**`, `docs/reviews/aula07-ficha/**` | escrita exclusiva; implementação somente leitura | suíte, relatório, screenshots/PDF | G4: testes reais; zero crítico/alto aberto | PENDENTE |
+| Coordenador `/root` | Baseline, integração, portal, CI e entrega | `feat/aula07-ficha-avaliativa-20261027` | `ppi-repo` | raiz, `.github/**`, configuração global, `docs/implementation/aula07-ficha/**` | escrita/integrador | PR, decisões, evidência de CI e integração | G0/G3 PASS; G5 conferido no HEAD da PR | checkpoint integrado `92941ef81d987de23c6d70a918cb265d233bf20c`; fechamento na PR #6 |
+| Agente 1 `pedagogia` | Contrato pedagógico, rubrica e rastreabilidade | `work/aula07-ficha-pedagogia` | `ppi-pedagogia` | `docs/specs/aula07-ficha/**` | escrita exclusiva | matriz, 33 critérios observáveis, riscos e revisão independente | G1 PASS: 100 XP; duas trilhas equivalentes; completude não semântica | local `4bad646be02ec3835ea74713abe58f5e1c17d174`; remoto `e17edd1b3235c35d95425807ffd41ad6fc191e4f` |
+| Agente 2 `implementacao` | Ficha funcional e módulos locais | `work/aula07-ficha-implementacao` | `ppi-implementacao` | `lessons/aula-07-da-pergunta-a-evidencia/ficha/**` | escrita exclusiva | interface, schema, pontuação, persistência, exportações e README | G2 PASS: sete missões, dados locais, exportações | local `2778438a02e1c5060369193e994e689e82feb30c`; remoto `e909a8fc945f81914e463a51dd1cf3250c0fc23b` |
+| Agente 3 `qa` | QA independente e adversarial | `work/aula07-ficha-qa` | `ppi-qa` | `tests/aula07-ficha/**`, `docs/reviews/aula07-ficha/**` | escrita exclusiva; implementação somente leitura | suíte, relatório, screenshots/PDF | G4 PASS: testes reais; cinco findings médios fechados; zero crítico/alto aberto | local `9328a74b63acf7de9fc6f2db12c63a72028217de`; remoto `ad8cbb0b68ad9f15c6f13f13730781913db27cf5` |
 
 ## Políticas por fase
 
@@ -38,7 +38,9 @@ Cada participante trabalha em worktree própria. Nenhum agente pode editar os pa
 
 ## Registro de execução
 
-Manifesto criado antes de qualquer edição de produto, teste ou especificação. SHAs, árvores, testes e limitações serão registrados nos handoffs ao término das frentes.
+Manifesto criado antes de qualquer edição de produto, teste ou especificação, no commit local `495ea64a4647e1aef2a3b32fb9a36cc958d4889b` (remoto `f9e6355a27a086d81bcb68478e7eaf2e3554b9c2`). As três frentes trabalharam simultaneamente em worktrees isoladas; o coordenador integrou os commits por SHA, sem permitir escrita cruzada. As branches de cada frente também foram preservadas no GitHub.
+
+O transporte autenticado pela API Git do GitHub preservou exatamente cada árvore, mas gerou novos hashes de commit por usar metadados próprios do conector. A correspondência explícita está em [COMMIT_MAP.json](COMMIT_MAP.json). Os handoffs, snapshots efetivamente testados, gates e limites estão em [HANDOFFS.md](HANDOFFS.md). O HEAD final e sua árvore, posteriores a este registro, são conferidos e publicados na [PR #6](https://github.com/thalesvalente/teaching-interdisciplinary-project/pull/6), evitando autorreferência de hash dentro do próprio commit.
 
 ### Ajuste de escopo do coordenador — fixture legada
 

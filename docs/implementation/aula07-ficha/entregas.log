@@ -57,14 +57,14 @@ test at tests/ppi-entregas.test.cjs:162:1
 ✖ 02 — grupo: uma linha por estudante em ordem alfabética (6.147156ms)
   AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
   + actual - expected
-  
+
   + []
   - [
   -   'Ana Teste',
   -   'Bruno Teste',
   -   'Zoe Teste'
   - ]
-  
+
       at TestContext.<anonymous> (<repository>/tests/ppi-entregas.test.cjs:166:10)
       at Test.runInAsyncScope (node:async_hooks:227:14)
       at Test.run (node:internal/test_runner/test:1402:25)
@@ -84,13 +84,13 @@ test at tests/ppi-entregas.test.cjs:180:1
 ✖ 03b — reenvio com respostas apagadas diminui nota e preserva alunos (1.812845ms)
   AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
   + actual - expected
-  
+
   + []
   - [
   -   0,
   -   0
   - ]
-  
+
       at TestContext.<anonymous> (<repository>/tests/ppi-entregas.test.cjs:186:10)
       at Test.runInAsyncScope (node:async_hooks:227:14)
       at Test.run (node:internal/test_runner/test:1402:25)
@@ -154,14 +154,14 @@ test at tests/ppi-entregas.test.cjs:233:1
 ✖ 10 — outras abas do bimestre permanecem inalteradas (3.02006ms)
   AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
   + actual - expected
-  
+
     [
       '[["Aluno","Equipe","Média"]]',
       '[["Aluno","Equipe","Média"]]',
   +   '[["Aluno","Equipe","Aula 06","Média"],["Ana Teste","Equipe Teste",1.4,"=SUM(C2:C2)/1"]]'
   -   '[["Aluno","Equipe","Média"]]'
     ]
-  
+
       at TestContext.<anonymous> (<repository>/tests/ppi-entregas.test.cjs:237:10)
       at Test.runInAsyncScope (node:async_hooks:227:14)
       at Test.run (node:internal/test_runner/test:1402:25)
@@ -213,9 +213,9 @@ test at tests/ppi-entregas.test.cjs:292:1
 test at tests/ppi-entregas.test.cjs:346:1
 ✖ 31 — novos envios não apagaram notas de outras atividades (1.436991ms)
   AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
-  
+
   7 !== 1.4
-  
+
       at TestContext.<anonymous> (<repository>/tests/ppi-entregas.test.cjs:351:10)
       at Test.runInAsyncScope (node:async_hooks:227:14)
       at Test.run (node:internal/test_runner/test:1402:25)

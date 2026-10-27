@@ -47,7 +47,7 @@
       "sha256": "3d6762f7926b5e42e4001e538be3a6e1009a0930a2ac8d90f3081e16fb647011"
     },
     "entregas.log": {
-      "sha256": "4b264f7b8f9c74242971a7b269be3ad1c2a5915125d432e838dd693343633e21"
+      "sha256": "2542c964363aa8f4a4a63e16d9187c42f35780f0da0a8b4edebe8a536de3aabf"
     },
     "entregas-aligned.log": {
       "sha256": "9f558fc91221ac1c6291b355c47f890ce627098a25e7b49f1914d7c2dd76eaac"
@@ -55,5 +55,9 @@
     "browser-entrega.log": {
       "sha256": "6b03b9474b4ee32dbc396366e597b81f50a3af0fce5dadc4b21b1283a0c3091a"
     }
+  },
+  "log_normalization": {
+    "paths": "<repository>",
+    "trailing_whitespace": "removed; assertion text and observed outcomes retained"
   }
 }
