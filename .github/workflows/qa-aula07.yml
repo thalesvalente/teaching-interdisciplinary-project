@@ -1,0 +1,52 @@
+name: QA Aula 07
+on:
+  push:
+    branches:
+      - main
+      - feat/aula07-da-pergunta-a-evidencia-20261027
+    paths:
+      - 'lessons/aula-07-da-pergunta-a-evidencia/**'
+      - 'tests/aula07-qa.cjs'
+      - 'package*.json'
+      - 'index.html'
+      - 'README.md'
+      - '.github/workflows/qa-aula07.yml'
+  pull_request:
+    paths:
+      - 'lessons/aula-07-da-pergunta-a-evidencia/**'
+      - 'tests/aula07-qa.cjs'
+      - 'package*.json'
+      - 'index.html'
+      - 'README.md'
+      - '.github/workflows/qa-aula07.yml'
+permissions:
+  contents: read
+jobs:
+  accessibility-layout-and-missions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Dependências
+        run: npm ci
+      - name: Navegadores
+        run: npx playwright install --with-deps chromium firefox webkit
+      - name: QA da Aula 07
+        run: npm run test:aula07
+        env:
+          AULA07_BROWSERS: chromium,firefox,webkit
+          AULA07_EVIDENCE_DIR: tmp/aula07-ci
+      - name: Evidências
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aula07-qa
+          path: tmp/aula07-ci/
+          if-no-files-found: ignore
+          retention-days: 7
