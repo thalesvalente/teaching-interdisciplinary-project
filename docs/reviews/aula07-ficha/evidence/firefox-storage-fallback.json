@@ -1,0 +1,219 @@
+{
+  "schemaVersion": "1.0.0",
+  "worksheetVersion": "1.0.0",
+  "rubricVersion": "1.0.0",
+  "team": {
+    "name": "",
+    "date": "",
+    "track": "",
+    "repository": "",
+    "declaration": false
+  },
+  "members": [],
+  "m1": {
+    "objective": "Resposta sintética em memória.",
+    "need": "",
+    "decision": "",
+    "source": "",
+    "assumption": ""
+  },
+  "m2": {
+    "techniques": [
+      {
+        "id": "t-f0865467-695f-4b94-a9b8-ffc0f8f51af9",
+        "role": "principal",
+        "kind": "",
+        "source": "",
+        "purpose": "",
+        "evidence": "",
+        "limitation": "",
+        "justification": "",
+        "responsible": ""
+      },
+      {
+        "id": "t-eb6b3291-7117-49de-bbd3-c4cecabc332c",
+        "role": "complementar",
+        "kind": "",
+        "source": "",
+        "purpose": "",
+        "evidence": "",
+        "limitation": "",
+        "justification": "",
+        "responsible": ""
+      }
+    ]
+  },
+  "m3": {
+    "questions": [
+      {
+        "id": "q-25e52823-a199-4615-8bab-c82016b88249",
+        "category": "",
+        "text": "",
+        "purpose": ""
+      },
+      {
+        "id": "q-16a9327b-d7a9-4642-8b04-76c57ce639b6",
+        "category": "",
+        "text": "",
+        "purpose": ""
+      },
+      {
+        "id": "q-f4a8f2c8-a01a-45c3-a0f7-7b9ff5e5d45e",
+        "category": "",
+        "text": "",
+        "purpose": ""
+      },
+      {
+        "id": "q-b2565244-80b9-4c6d-95d1-36a2953a994d",
+        "category": "",
+        "text": "",
+        "purpose": ""
+      },
+      {
+        "id": "q-c1e03371-6a02-4a3e-b637-5528db9172a3",
+        "category": "",
+        "text": "",
+        "purpose": ""
+      },
+      {
+        "id": "q-669035b1-cf34-4d89-8bea-bf9ab6502d7a",
+        "category": "",
+        "text": "",
+        "purpose": ""
+      },
+      {
+        "id": "q-b7194cad-a397-4781-9390-794ae85e4e46",
+        "category": "fechamento",
+        "text": "Há algo importante que não perguntamos?",
+        "purpose": ""
+      }
+    ],
+    "observation": {
+      "activity": "",
+      "boundaries": "",
+      "people": "",
+      "tools": "",
+      "transfers": "",
+      "delays": "",
+      "practice": "",
+      "record": ""
+    },
+    "document": {
+      "name": "",
+      "author": "",
+      "version": "",
+      "purpose": "",
+      "terms": "",
+      "rules": "",
+      "gaps": "",
+      "restrictions": "",
+      "unanswered": ""
+    },
+    "ai": {
+      "used": "",
+      "tool": "",
+      "purpose": "",
+      "prompt": "",
+      "summary": "",
+      "decision": "",
+      "validator": ""
+    }
+  },
+  "m4": {
+    "authorization": {
+      "answer": "",
+      "decision": ""
+    },
+    "explained": {
+      "answer": "",
+      "decision": ""
+    },
+    "refusal": {
+      "answer": "",
+      "decision": ""
+    },
+    "recording": {
+      "answer": "",
+      "decision": ""
+    },
+    "personal": {
+      "answer": "",
+      "decision": ""
+    },
+    "substitution": {
+      "answer": "",
+      "decision": ""
+    },
+    "ai": {
+      "answer": "",
+      "decision": ""
+    },
+    "access": "",
+    "validator": "",
+    "citation": "",
+    "publication": "",
+    "risks": "",
+    "mitigation": ""
+  },
+  "m5": {
+    "type": "",
+    "participants": [],
+    "scenario": "",
+    "roles": "",
+    "worked": "",
+    "confusing": "",
+    "leading": "",
+    "sensitive": "",
+    "contradiction": "",
+    "difficulty": "",
+    "change": "",
+    "reason": "",
+    "before": "",
+    "after": "",
+    "summary": ""
+  },
+  "m6": {
+    "records": [
+      {
+        "id": "e-84c908e4-f793-40fd-8967-d280c5461201",
+        "raw": "",
+        "source": "",
+        "justification": "",
+        "validator": "",
+        "relation": "",
+        "restriction": "",
+        "classification": "",
+        "confidence": ""
+      },
+      {
+        "id": "e-d23e605e-fea7-4de0-a627-56e6339fd23b",
+        "raw": "",
+        "source": "",
+        "justification": "",
+        "validator": "",
+        "relation": "",
+        "restriction": "",
+        "classification": "",
+        "confidence": ""
+      },
+      {
+        "id": "e-1cb44a69-790b-406d-82f0-142f45d8dd76",
+        "raw": "",
+        "source": "",
+        "justification": "",
+        "validator": "",
+        "relation": "",
+        "restriction": "",
+        "classification": "",
+        "confidence": ""
+      }
+    ],
+    "limitation": "",
+    "needs": ""
+  },
+  "exportedAt": "2026-10-27T22:04:31.130Z",
+  "score": {
+    "xp": 2,
+    "grade": 0.2
+  }
+}

@@ -1,0 +1,4 @@
+PASS chromium STORAGE-LIFECYCLE: Rejected draft survives reload until an explicit edit
+PASS firefox STORAGE-LIFECYCLE: Rejected draft survives reload until an explicit edit
+PASS webkit STORAGE-LIFECYCLE: Rejected draft survives reload until an explicit edit
+{"pass":3,"fail":0,"blocked":0}

@@ -1,0 +1,2112 @@
+{
+  "identity": {
+    "sha": "3a797a4e2abb6de9750dd121943ca609157d99fb",
+    "tree": "6b1fb2e9bc1f3e71757edea8b611323be1966c61",
+    "worksheetTree": "587a68ca2f51c6e27ca369ec0fbd785797a1d1a0",
+    "dirty": "",
+    "testedAt": "2026-10-27T22:03:41.070Z"
+  },
+  "versions": {
+    "chromium": "141.0.7390.37",
+    "firefox": "142.0.1",
+    "webkit": "26.0"
+  },
+  "results": [
+    {
+      "engine": "chromium",
+      "id": "FLOW-01",
+      "label": "Empty worksheet, notice and separate grading status",
+      "status": "PASS",
+      "detail": {
+        "initialXP": 0,
+        "officialGrade": "not-calculated"
+      }
+    },
+    {
+      "engine": "chromium",
+      "id": "FLOW-02-memorias",
+      "label": "Complete all seven missions through actual form controls: memorias",
+      "status": "PASS",
+      "detail": {
+        "fieldsFilled": 143,
+        "xp": 100,
+        "grade": 10,
+        "downloadRoundTrip": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "id": "FLOW-02-permanencia",
+      "label": "Complete all seven missions through actual form controls: permanencia",
+      "status": "PASS",
+      "detail": {
+        "fieldsFilled": 143,
+        "xp": 100,
+        "grade": 10,
+        "downloadRoundTrip": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "id": "FLOW-03",
+      "label": "Deleting an answer recalculates XP; reload resumes answers and current mission",
+      "status": "PASS"
+    },
+    {
+      "engine": "chromium",
+      "id": "TEAM-UI",
+      "label": "Renaming/removing members preserves remaining authorship by stable ID",
+      "status": "PASS"
+    },
+    {
+      "engine": "chromium",
+      "id": "EVIDENCE-UI",
+      "label": "An unused extra evidence card does not contradict rubric completion",
+      "status": "PASS"
+    },
+    {
+      "engine": "chromium",
+      "id": "A11Y-01",
+      "label": "Axe-core WCAG checks on all stages and validation errors",
+      "status": "PASS",
+      "detail": {
+        "auditedStates": 10,
+        "criticalOrSerious": 0,
+        "allViolations": 0
+      }
+    },
+    {
+      "engine": "chromium",
+      "id": "VIEW-01",
+      "label": "All stages fit six required viewports without page overflow",
+      "status": "PASS",
+      "detail": [
+        {
+          "mission": 0,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 1,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 2,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 3,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 4,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 5,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 6,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 7,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 8,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 0,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 1,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 2,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 3,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 4,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 5,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 6,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 7,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 8,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 0,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 1,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 2,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 3,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 4,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 5,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 6,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 7,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 8,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 0,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 1,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 2,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 3,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 4,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 5,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 6,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 7,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 8,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 0,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 1,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 2,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 3,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 4,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 5,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 6,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 7,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 8,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 0,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "mission": 1,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "mission": 2,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "mission": 3,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "mission": 4,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "mission": 5,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "mission": 6,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "mission": 7,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "mission": 8,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        }
+      ]
+    },
+    {
+      "engine": "chromium",
+      "id": "A11Y-02",
+      "label": "Text zoom/spacing, reduced motion and high contrast remain usable",
+      "status": "PASS",
+      "detail": {
+        "textZoom": 200,
+        "spacing": true,
+        "reducedMotion": true,
+        "highContrast": true,
+        "forcedColors": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "id": "A11Y-03",
+      "label": "Keyboard traverses all stages, edits answers and reaches reset without trapping focus",
+      "status": "PASS",
+      "detail": {
+        "stages": [
+          {
+            "mission": 0,
+            "tabs": 9,
+            "focus": {
+              "id": "mission-title-0",
+              "tag": "H2"
+            }
+          },
+          {
+            "mission": 1,
+            "tabs": 8,
+            "focus": {
+              "id": "mission-title-1",
+              "tag": "H2"
+            }
+          },
+          {
+            "mission": 2,
+            "tabs": 9,
+            "focus": {
+              "id": "mission-title-2",
+              "tag": "H2"
+            }
+          },
+          {
+            "mission": 3,
+            "tabs": 6,
+            "focus": {
+              "id": "mission-title-3",
+              "tag": "H2"
+            }
+          },
+          {
+            "mission": 4,
+            "tabs": 5,
+            "focus": {
+              "id": "mission-title-4",
+              "tag": "H2"
+            }
+          },
+          {
+            "mission": 5,
+            "tabs": 4,
+            "focus": {
+              "id": "mission-title-5",
+              "tag": "H2"
+            }
+          },
+          {
+            "mission": 6,
+            "tabs": 3,
+            "focus": {
+              "id": "mission-title-6",
+              "tag": "H2"
+            }
+          },
+          {
+            "mission": 7,
+            "tabs": 2,
+            "focus": {
+              "id": "mission-title-7",
+              "tag": "H2"
+            }
+          },
+          {
+            "mission": 8,
+            "tabs": 1,
+            "focus": {
+              "id": "mission-title-8",
+              "tag": "H2"
+            }
+          }
+        ],
+        "keyboardEdit": true,
+        "resetReachable": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "id": "RESET-UI",
+      "label": "Reset per mission/total and track switching require confirmation",
+      "status": "PASS",
+      "detail": {
+        "cancelPreserves": true,
+        "missionReset": true,
+        "totalReset": true,
+        "trackReset": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "id": "IMPORT-UI",
+      "label": "Invalid imports show accessible errors, preserve answers and reject hostile input",
+      "status": "PASS",
+      "detail": {
+        "invalidImports": 5,
+        "preserved": true,
+        "tamperedScoreRecomputed": true,
+        "xssNeutralized": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "id": "URL-UI",
+      "label": "Optional repository validation associates error and leaves input available to fix",
+      "status": "PASS"
+    },
+    {
+      "engine": "chromium",
+      "id": "PRINT-filled",
+      "label": "A4 filled preview, native print action and preserved answers",
+      "status": "PASS",
+      "detail": {
+        "mode": "filled",
+        "nativePrintTriggered": true,
+        "pdfGenerated": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "id": "PRINT-partial",
+      "label": "A4 partial preview, native print action and preserved answers",
+      "status": "PASS",
+      "detail": {
+        "mode": "partial",
+        "nativePrintTriggered": true,
+        "pdfGenerated": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "id": "PRINT-blank",
+      "label": "A4 blank preview, native print action and preserved answers",
+      "status": "PASS",
+      "detail": {
+        "mode": "blank",
+        "nativePrintTriggered": true,
+        "pdfGenerated": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "id": "PRINT-long",
+      "label": "A valid long multiline answer remains complete across A4 page boundaries",
+      "status": "PASS",
+      "detail": {
+        "answerCharacters": 5616
+      }
+    },
+    {
+      "engine": "chromium",
+      "id": "STORAGE-UI",
+      "label": "Unavailable localStorage warns while fields remain editable and export works",
+      "status": "PASS"
+    },
+    {
+      "engine": "chromium",
+      "id": "OFFLINE-UI",
+      "label": "Loaded static application remains usable offline with local downloads",
+      "status": "PASS"
+    },
+    {
+      "engine": "chromium",
+      "id": "NOJS-UI",
+      "label": "Essential seven-mission paper worksheet works with JavaScript disabled",
+      "status": "PASS"
+    },
+    {
+      "engine": "chromium",
+      "id": "PRIVACY-UI",
+      "label": "No answers sent over network and console is clean",
+      "status": "PASS",
+      "detail": {
+        "requests": 40,
+        "externalRequests": 0,
+        "submissions": 0,
+        "pageErrors": 0,
+        "warnings": 0
+      }
+    },
+    {
+      "engine": "firefox",
+      "id": "FLOW-01",
+      "label": "Empty worksheet, notice and separate grading status",
+      "status": "PASS",
+      "detail": {
+        "initialXP": 0,
+        "officialGrade": "not-calculated"
+      }
+    },
+    {
+      "engine": "firefox",
+      "id": "FLOW-02-memorias",
+      "label": "Complete all seven missions through actual form controls: memorias",
+      "status": "PASS",
+      "detail": {
+        "fieldsFilled": 143,
+        "xp": 100,
+        "grade": 10,
+        "downloadRoundTrip": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "id": "FLOW-02-permanencia",
+      "label": "Complete all seven missions through actual form controls: permanencia",
+      "status": "PASS",
+      "detail": {
+        "fieldsFilled": 143,
+        "xp": 100,
+        "grade": 10,
+        "downloadRoundTrip": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "id": "FLOW-03",
+      "label": "Deleting an answer recalculates XP; reload resumes answers and current mission",
+      "status": "PASS"
+    },
+    {
+      "engine": "firefox",
+      "id": "TEAM-UI",
+      "label": "Renaming/removing members preserves remaining authorship by stable ID",
+      "status": "PASS"
+    },
+    {
+      "engine": "firefox",
+      "id": "EVIDENCE-UI",
+      "label": "An unused extra evidence card does not contradict rubric completion",
+      "status": "PASS"
+    },
+    {
+      "engine": "firefox",
+      "id": "A11Y-01",
+      "label": "Axe-core WCAG checks on all stages and validation errors",
+      "status": "PASS",
+      "detail": {
+        "auditedStates": 10,
+        "criticalOrSerious": 0,
+        "allViolations": 0
+      }
+    },
+    {
+      "engine": "firefox",
+      "id": "VIEW-01",
+      "label": "All stages fit six required viewports without page overflow",
+      "status": "PASS",
+      "detail": [
+        {
+          "mission": 0,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 1,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 2,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 3,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 4,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 5,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 6,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 7,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 8,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 0,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 1,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 2,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 3,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 4,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 5,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 6,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 7,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 8,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 0,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 1,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 2,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 3,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 4,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 5,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 6,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 7,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 8,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 0,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 1,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 2,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 3,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 4,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 5,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 6,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 7,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 8,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 0,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 1,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 2,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 3,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 4,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 5,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 6,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 7,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 8,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 0,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "mission": 1,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "mission": 2,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "mission": 3,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "mission": 4,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "mission": 5,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "mission": 6,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "mission": 7,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "mission": 8,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        }
+      ]
+    },
+    {
+      "engine": "firefox",
+      "id": "A11Y-02",
+      "label": "Text zoom/spacing, reduced motion and high contrast remain usable",
+      "status": "PASS",
+      "detail": {
+        "textZoom": 200,
+        "spacing": true,
+        "reducedMotion": true,
+        "highContrast": true,
+        "forcedColors": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "id": "A11Y-03",
+      "label": "Keyboard traverses all stages, edits answers and reaches reset without trapping focus",
+      "status": "PASS",
+      "detail": {
+        "stages": [
+          {
+            "mission": 0,
+            "tabs": 9,
+            "focus": {
+              "id": "mission-title-0",
+              "tag": "H2"
+            }
+          },
+          {
+            "mission": 1,
+            "tabs": 8,
+            "focus": {
+              "id": "mission-title-1",
+              "tag": "H2"
+            }
+          },
+          {
+            "mission": 2,
+            "tabs": 9,
+            "focus": {
+              "id": "mission-title-2",
+              "tag": "H2"
+            }
+          },
+          {
+            "mission": 3,
+            "tabs": 6,
+            "focus": {
+              "id": "mission-title-3",
+              "tag": "H2"
+            }
+          },
+          {
+            "mission": 4,
+            "tabs": 5,
+            "focus": {
+              "id": "mission-title-4",
+              "tag": "H2"
+            }
+          },
+          {
+            "mission": 5,
+            "tabs": 4,
+            "focus": {
+              "id": "mission-title-5",
+              "tag": "H2"
+            }
+          },
+          {
+            "mission": 6,
+            "tabs": 3,
+            "focus": {
+              "id": "mission-title-6",
+              "tag": "H2"
+            }
+          },
+          {
+            "mission": 7,
+            "tabs": 2,
+            "focus": {
+              "id": "mission-title-7",
+              "tag": "H2"
+            }
+          },
+          {
+            "mission": 8,
+            "tabs": 1,
+            "focus": {
+              "id": "mission-title-8",
+              "tag": "H2"
+            }
+          }
+        ],
+        "keyboardEdit": true,
+        "resetReachable": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "id": "RESET-UI",
+      "label": "Reset per mission/total and track switching require confirmation",
+      "status": "PASS",
+      "detail": {
+        "cancelPreserves": true,
+        "missionReset": true,
+        "totalReset": true,
+        "trackReset": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "id": "IMPORT-UI",
+      "label": "Invalid imports show accessible errors, preserve answers and reject hostile input",
+      "status": "PASS",
+      "detail": {
+        "invalidImports": 5,
+        "preserved": true,
+        "tamperedScoreRecomputed": true,
+        "xssNeutralized": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "id": "URL-UI",
+      "label": "Optional repository validation associates error and leaves input available to fix",
+      "status": "PASS"
+    },
+    {
+      "engine": "firefox",
+      "id": "PRINT-filled",
+      "label": "A4 filled preview, native print action and preserved answers",
+      "status": "PASS",
+      "detail": {
+        "mode": "filled",
+        "nativePrintTriggered": true,
+        "pdfGenerated": false
+      }
+    },
+    {
+      "engine": "firefox",
+      "id": "PRINT-partial",
+      "label": "A4 partial preview, native print action and preserved answers",
+      "status": "PASS",
+      "detail": {
+        "mode": "partial",
+        "nativePrintTriggered": true,
+        "pdfGenerated": false
+      }
+    },
+    {
+      "engine": "firefox",
+      "id": "PRINT-blank",
+      "label": "A4 blank preview, native print action and preserved answers",
+      "status": "PASS",
+      "detail": {
+        "mode": "blank",
+        "nativePrintTriggered": true,
+        "pdfGenerated": false
+      }
+    },
+    {
+      "engine": "firefox",
+      "id": "STORAGE-UI",
+      "label": "Unavailable localStorage warns while fields remain editable and export works",
+      "status": "PASS"
+    },
+    {
+      "engine": "firefox",
+      "id": "OFFLINE-UI",
+      "label": "Loaded static application remains usable offline with local downloads",
+      "status": "PASS"
+    },
+    {
+      "engine": "firefox",
+      "id": "NOJS-UI",
+      "label": "Essential seven-mission paper worksheet works with JavaScript disabled",
+      "status": "PASS"
+    },
+    {
+      "engine": "firefox",
+      "id": "PRIVACY-UI",
+      "label": "No answers sent over network and console is clean",
+      "status": "PASS",
+      "detail": {
+        "requests": 40,
+        "externalRequests": 0,
+        "submissions": 0,
+        "pageErrors": 0,
+        "warnings": 0
+      }
+    },
+    {
+      "engine": "webkit",
+      "id": "FLOW-01",
+      "label": "Empty worksheet, notice and separate grading status",
+      "status": "PASS",
+      "detail": {
+        "initialXP": 0,
+        "officialGrade": "not-calculated"
+      }
+    },
+    {
+      "engine": "webkit",
+      "id": "FLOW-02-memorias",
+      "label": "Complete all seven missions through actual form controls: memorias",
+      "status": "PASS",
+      "detail": {
+        "fieldsFilled": 143,
+        "xp": 100,
+        "grade": 10,
+        "downloadRoundTrip": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "id": "FLOW-02-permanencia",
+      "label": "Complete all seven missions through actual form controls: permanencia",
+      "status": "PASS",
+      "detail": {
+        "fieldsFilled": 143,
+        "xp": 100,
+        "grade": 10,
+        "downloadRoundTrip": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "id": "FLOW-03",
+      "label": "Deleting an answer recalculates XP; reload resumes answers and current mission",
+      "status": "PASS"
+    },
+    {
+      "engine": "webkit",
+      "id": "TEAM-UI",
+      "label": "Renaming/removing members preserves remaining authorship by stable ID",
+      "status": "PASS"
+    },
+    {
+      "engine": "webkit",
+      "id": "EVIDENCE-UI",
+      "label": "An unused extra evidence card does not contradict rubric completion",
+      "status": "PASS"
+    },
+    {
+      "engine": "webkit",
+      "id": "A11Y-01",
+      "label": "Axe-core WCAG checks on all stages and validation errors",
+      "status": "PASS",
+      "detail": {
+        "auditedStates": 10,
+        "criticalOrSerious": 0,
+        "allViolations": 0
+      }
+    },
+    {
+      "engine": "webkit",
+      "id": "VIEW-01",
+      "label": "All stages fit six required viewports without page overflow",
+      "status": "PASS",
+      "detail": [
+        {
+          "mission": 0,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 1,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 2,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 3,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 4,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 5,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 6,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 7,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 8,
+          "width": 1280,
+          "height": 650,
+          "viewport": 1280,
+          "document": 1280,
+          "body": 1280
+        },
+        {
+          "mission": 0,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 1,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 2,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 3,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 4,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 5,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 6,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 7,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 8,
+          "width": 1366,
+          "height": 768,
+          "viewport": 1366,
+          "document": 1366,
+          "body": 1366
+        },
+        {
+          "mission": 0,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 1,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 2,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 3,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 4,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 5,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 6,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 7,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 8,
+          "width": 1920,
+          "height": 1080,
+          "viewport": 1920,
+          "document": 1920,
+          "body": 1920
+        },
+        {
+          "mission": 0,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 1,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 2,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 3,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 4,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 5,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 6,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 7,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 8,
+          "width": 390,
+          "height": 844,
+          "viewport": 390,
+          "document": 390,
+          "body": 390
+        },
+        {
+          "mission": 0,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 1,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 2,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 3,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 4,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 5,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 6,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 7,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 8,
+          "width": 360,
+          "height": 800,
+          "viewport": 360,
+          "document": 360,
+          "body": 360
+        },
+        {
+          "mission": 0,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "mission": 1,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "mission": 2,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "mission": 3,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "mission": 4,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "mission": 5,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "mission": 6,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "mission": 7,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        },
+        {
+          "mission": 8,
+          "width": 320,
+          "height": 568,
+          "viewport": 320,
+          "document": 320,
+          "body": 320
+        }
+      ]
+    },
+    {
+      "engine": "webkit",
+      "id": "A11Y-02",
+      "label": "Text zoom/spacing, reduced motion and high contrast remain usable",
+      "status": "PASS",
+      "detail": {
+        "textZoom": 200,
+        "spacing": true,
+        "reducedMotion": true,
+        "highContrast": true,
+        "forcedColors": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "id": "A11Y-03",
+      "label": "Keyboard traverses all stages, edits answers and reaches reset without trapping focus",
+      "status": "PASS",
+      "detail": {
+        "stages": [
+          {
+            "mission": 0,
+            "tabs": 9,
+            "focus": {
+              "id": "mission-title-0",
+              "tag": "H2"
+            }
+          },
+          {
+            "mission": 1,
+            "tabs": 8,
+            "focus": {
+              "id": "mission-title-1",
+              "tag": "H2"
+            }
+          },
+          {
+            "mission": 2,
+            "tabs": 9,
+            "focus": {
+              "id": "mission-title-2",
+              "tag": "H2"
+            }
+          },
+          {
+            "mission": 3,
+            "tabs": 6,
+            "focus": {
+              "id": "mission-title-3",
+              "tag": "H2"
+            }
+          },
+          {
+            "mission": 4,
+            "tabs": 5,
+            "focus": {
+              "id": "mission-title-4",
+              "tag": "H2"
+            }
+          },
+          {
+            "mission": 5,
+            "tabs": 4,
+            "focus": {
+              "id": "mission-title-5",
+              "tag": "H2"
+            }
+          },
+          {
+            "mission": 6,
+            "tabs": 3,
+            "focus": {
+              "id": "mission-title-6",
+              "tag": "H2"
+            }
+          },
+          {
+            "mission": 7,
+            "tabs": 2,
+            "focus": {
+              "id": "mission-title-7",
+              "tag": "H2"
+            }
+          },
+          {
+            "mission": 8,
+            "tabs": 1,
+            "focus": {
+              "id": "mission-title-8",
+              "tag": "H2"
+            }
+          }
+        ],
+        "keyboardEdit": true,
+        "resetReachable": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "id": "RESET-UI",
+      "label": "Reset per mission/total and track switching require confirmation",
+      "status": "PASS",
+      "detail": {
+        "cancelPreserves": true,
+        "missionReset": true,
+        "totalReset": true,
+        "trackReset": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "id": "IMPORT-UI",
+      "label": "Invalid imports show accessible errors, preserve answers and reject hostile input",
+      "status": "PASS",
+      "detail": {
+        "invalidImports": 5,
+        "preserved": true,
+        "tamperedScoreRecomputed": true,
+        "xssNeutralized": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "id": "URL-UI",
+      "label": "Optional repository validation associates error and leaves input available to fix",
+      "status": "PASS"
+    },
+    {
+      "engine": "webkit",
+      "id": "PRINT-filled",
+      "label": "A4 filled preview, native print action and preserved answers",
+      "status": "PASS",
+      "detail": {
+        "mode": "filled",
+        "nativePrintTriggered": true,
+        "pdfGenerated": false
+      }
+    },
+    {
+      "engine": "webkit",
+      "id": "PRINT-partial",
+      "label": "A4 partial preview, native print action and preserved answers",
+      "status": "PASS",
+      "detail": {
+        "mode": "partial",
+        "nativePrintTriggered": true,
+        "pdfGenerated": false
+      }
+    },
+    {
+      "engine": "webkit",
+      "id": "PRINT-blank",
+      "label": "A4 blank preview, native print action and preserved answers",
+      "status": "PASS",
+      "detail": {
+        "mode": "blank",
+        "nativePrintTriggered": true,
+        "pdfGenerated": false
+      }
+    },
+    {
+      "engine": "webkit",
+      "id": "STORAGE-UI",
+      "label": "Unavailable localStorage warns while fields remain editable and export works",
+      "status": "PASS"
+    },
+    {
+      "engine": "webkit",
+      "id": "OFFLINE-UI",
+      "label": "Loaded static application remains usable offline with local downloads",
+      "status": "PASS"
+    },
+    {
+      "engine": "webkit",
+      "id": "NOJS-UI",
+      "label": "Essential seven-mission paper worksheet works with JavaScript disabled",
+      "status": "PASS"
+    },
+    {
+      "engine": "webkit",
+      "id": "PRIVACY-UI",
+      "label": "No answers sent over network and console is clean",
+      "status": "PASS",
+      "detail": {
+        "requests": 40,
+        "externalRequests": 0,
+        "submissions": 0,
+        "pageErrors": 0,
+        "warnings": 0
+      }
+    }
+  ],
+  "summary": {
+    "pass": 61,
+    "fail": 0,
+    "blocked": 0
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "status": "PASS",
+  "reviewedAt": "2026-10-27T22:12:23.755708+00:00",
+  "artifactSourceIdentity": {
+    "sha": "3a797a4e2abb6de9750dd121943ca609157d99fb",
+    "tree": "6b1fb2e9bc1f3e71757edea8b611323be1966c61",
+    "worksheetTree": "587a68ca2f51c6e27ca369ec0fbd785797a1d1a0"
+  },
+  "finalSnapshotIdentity": {
+    "sha": "92a37c225a1cece0961544220bd7269b7345f8b5",
+    "tree": "d2c2bd70b80d80cc565ae373e99323d8b5047107",
+    "worksheetTree": "a76418b010492f503d1f51dbbab95a776b50e520"
+  },
+  "finalProductDifference": {
+    "file": "app.js",
+    "change": "Only removed the redundant pagehide -> persist listener; synchronous edit/action persistence retained."
+  },
+  "unchangedProductFiles": [
+    {
+      "file": "content.js",
+      "gitBlob": "8cf173b17c5b0f46df277558154b7c1c91d13fef",
+      "sha256": "500afe242d1f77b1cda6444726bef2e32a5e79bc0c3b101318e8b0f3217eec7a"
+    },
+    {
+      "file": "model.js",
+      "gitBlob": "cf6a535ac40c215f8fbb470cb38b58843083aec4",
+      "sha256": "aeec8663b68b5b3f6e3968962e6e5c0906a8f21f517e6277a7df84d930ca9f49"
+    },
+    {
+      "file": "rubric.js",
+      "gitBlob": "ca8da337dfd211051b86e0e423b7f53df700e5e1",
+      "sha256": "2334a710507fdae2892c909a417f01df1f939940772d2dab9a17e6d3bfcc9727"
+    },
+    {
+      "file": "storage.js",
+      "gitBlob": "fe335f402a8c2dca95a3da5d3e58b244128d50ea",
+      "sha256": "3897e5fc91168fd079b350142611a6bc108be6d1f86ac3963d0075da51fd4c41"
+    },
+    {
+      "file": "export.js",
+      "gitBlob": "9acf2a4a9645e241203a7adef1a3e4531cdf394a",
+      "sha256": "8ba8cba0a5156148018e0add2ab21e945fc413327f7f57af5ea35bc83703b612"
+    },
+    {
+      "file": "ficha.css",
+      "gitBlob": "adcf46bc3baf766263e1017e38d8c39b7eefbac4",
+      "sha256": "af1556736fda2dee72e0d6054293d8026d94205a763664ef9a0a63c8aa3c24b9"
+    },
+    {
+      "file": "index.html",
+      "gitBlob": "08fa3d1b518714734c3463c4b517a334197abd70",
+      "sha256": "2cee4aaba3091e8c01552991acb767970197b727894ec51f509e386ab15a388c"
+    },
+    {
+      "file": "papel.html",
+      "gitBlob": "181cc3bec97eafd150404645793a3384eaf3158a",
+      "sha256": "e04517fc9f9c32ef3fbdc3b7dde4dfacced7aa3c0bbc1b4da23266cc1b121f3f"
+    },
+    {
+      "file": "schema.json",
+      "gitBlob": "bfc9f64ba960ad32a6abebc03a2ffae12b94776a",
+      "sha256": "48bca52b10c36051c281ab1d88e905819c11dccdb73a6d2322dda4c5a0359249"
+    },
+    {
+      "file": "README.md",
+      "gitBlob": "9578e336ba4059f6f0ab1447846df94681e420e2",
+      "sha256": "4d1d338d5ed63a5d32acffcaaec459a98971f212bee9cd59d42eaba9671350be"
+    }
+  ],
+  "inspection": {
+    "pdfDocuments": 4,
+    "renderedPages": 76,
+    "fullContactSheetsInspected": [
+      "pdf-filled-contact-sheet.png",
+      "pdf-partial-contact-sheet.png",
+      "pdf-blank-contact-sheet.png",
+      "pdf-long-contact-sheet.png"
+    ],
+    "enlargedPagesInspected": [
+      "pdf-filled-page15-review.png",
+      "pdf-partial-page20-authorship.png",
+      "pdf-blank-page22-handwriting.png",
+      "pdf-long-page05-continuation.png"
+    ],
+    "screenViewportsInspected": [
+      "1280x650",
+      "390x844"
+    ],
+    "screenStates": [
+      "mission1",
+      "summary"
+    ],
+    "result": "Readable screens; no visible overlap or clipping; teacher review block intact; partial and blank authorship writable; multiline answer continues across pages."
+  },
+  "artifacts": [
+    {
+      "file": "chromium-1280x650-mission1.png",
+      "bytes": 88643,
+      "sha256": "2c11a3c691e6bbd776a5365264fd890b0feaf1ed9e1d9e35157262dfe693af4c",
+      "purpose": "qualified print or screen artifact"
+    },
+    {
+      "file": "chromium-1280x650-summary.png",
+      "bytes": 91912,
+      "sha256": "e9255b6ea6f175861fa726c0b9561e91309a92312ca91c88c7a1f536e40bc05f",
+      "purpose": "qualified print or screen artifact"
+    },
+    {
+      "file": "chromium-390x844-mission1.png",
+      "bytes": 69354,
+      "sha256": "46fe42afe91cce19800fcdf355ee25e6f3ba4380346e04b3184bae7d8add9cb0",
+      "purpose": "qualified print or screen artifact"
+    },
+    {
+      "file": "chromium-390x844-summary.png",
+      "bytes": 58492,
+      "sha256": "93f8eb6fb13860e76630368a903d47b2aec0c620d6c455da91f9ba6c76f32212",
+      "purpose": "qualified print or screen artifact"
+    },
+    {
+      "file": "ficha-blank.pdf",
+      "bytes": 367503,
+      "sha256": "7f9676f2648da9ddd007c5787bfa7efc9015fb82435802f637b1233135eaa916",
+      "purpose": "qualified print or screen artifact"
+    },
+    {
+      "file": "ficha-filled.pdf",
+      "bytes": 80157,
+      "sha256": "b8308d9133a05fb52b41c3b469313855b9fe4c84ca714edc2e266272c62ea3da",
+      "purpose": "qualified print or screen artifact"
+    },
+    {
+      "file": "ficha-long.pdf",
+      "bytes": 82164,
+      "sha256": "9aa32094b1355cdf9005eede41427bb6cd27f6158f169c123341bf8566523001",
+      "purpose": "qualified print or screen artifact"
+    },
+    {
+      "file": "ficha-partial.pdf",
+      "bytes": 356793,
+      "sha256": "5a8b18ea114f5bd12f94677ee0029cd1afc91ac3530ca2691c39df14f6197bc9",
+      "purpose": "qualified print or screen artifact"
+    },
+    {
+      "file": "finding-print01-before.png",
+      "bytes": 697772,
+      "sha256": "151b240f53c38e799eded02567c7f31ae4a23c7248be9261513ee9c18f9a9648",
+      "purpose": "historical finding before repair"
+    },
+    {
+      "file": "finding-print02-before.png",
+      "bytes": 438415,
+      "sha256": "809a6937d5e5dd6b72bc8f97789ec5a9c69bd56be51a81399273955429bf9a6a",
+      "purpose": "historical finding before repair"
+    },
+    {
+      "file": "pdf-blank-contact-sheet.png",
+      "bytes": 500665,
+      "sha256": "62bcd6992fc3b04973ad39afa4918a2478102290407da427d138d9740982537d",
+      "purpose": "qualified print or screen artifact"
+    },
+    {
+      "file": "pdf-blank-page22-handwriting.png",
+      "bytes": 35547,
+      "sha256": "a51f20e2349b892d3e6f5cf0cadae39d8b63ad45391df002487350f3e9391d8b",
+      "purpose": "qualified print or screen artifact"
+    },
+    {
+      "file": "pdf-filled-contact-sheet.png",
+      "bytes": 700559,
+      "sha256": "3015e4f299117dae66807d7c23c58e23af4ea10b7269e92b1accdeb26d61f1da",
+      "purpose": "qualified print or screen artifact"
+    },
+    {
+      "file": "pdf-filled-page15-review.png",
+      "bytes": 24246,
+      "sha256": "4c15e507554676273956c198cd248ab67851705ce82b9cc435bb95082a969ec2",
+      "purpose": "qualified print or screen artifact"
+    },
+    {
+      "file": "pdf-long-contact-sheet.png",
+      "bytes": 929488,
+      "sha256": "ece364fd712855e0bfed37b3e0d240e9ba712da05f767767c01bd7099b8088c4",
+      "purpose": "qualified print or screen artifact"
+    },
+    {
+      "file": "pdf-long-page05-continuation.png",
+      "bytes": 256441,
+      "sha256": "7eebd93406b0b0236e49f1c5dd6c6e59b6bffacd29e58dccbf93d32b2860d257",
+      "purpose": "qualified print or screen artifact"
+    },
+    {
+      "file": "pdf-partial-contact-sheet.png",
+      "bytes": 514953,
+      "sha256": "ad04213cfe0c470c19fc24539c2e767a7d9a9fa9d43f1e70cdb91479912155e8",
+      "purpose": "qualified print or screen artifact"
+    },
+    {
+      "file": "pdf-partial-page20-authorship.png",
+      "bytes": 51522,
+      "sha256": "c70bffdf476c2eeb1b9f5bd765d78b0ae157d81a2b5f7bce5a6f31fed256397e",
+      "purpose": "qualified print or screen artifact"
+    }
+  ],
+  "limits": [
+    "Screen and PDF artifacts were generated on the full-suite snapshot; the final isolated persistence repair was retested separately in all three engines.",
+    "Contact-sheet and selected full-page inspection does not replace teacher review of classroom typography or a physical printer."
+  ]
+}
