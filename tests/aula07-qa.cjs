@@ -426,14 +426,16 @@ async function runMobile(baseUrl) {
     assert.equal(await page.locator(selector+' .guided-step-status').innerText(),`Etapa 2 de ${stages}`);
     const geometry=await page.evaluate(number=>{
       const slide=document.querySelector('#s'+number);
+      const body=slide.querySelector('.guided-lesson');
       const node=slide.querySelector('.guided-stage:not([hidden])');
       return{
         scrollWidth:document.documentElement.scrollWidth,innerWidth,
         stageOverflow:node.scrollWidth>node.clientWidth+2,
-        slideOverflow:slide.scrollWidth>slide.clientWidth+2
+        bodyOverflow:body.scrollWidth>body.clientWidth+2
       };
     },n);
-    assert.ok(!geometry.stageOverflow&&!geometry.slideOverflow&&geometry.scrollWidth<=geometry.innerWidth+2,
+    // Medir a área legível, não o scrollWidth do slide que inclui seu pseudo-elemento decorativo recortado.
+    assert.ok(!geometry.stageOverflow&&!geometry.bodyOverflow&&geometry.scrollWidth<=geometry.innerWidth+2,
       'mobile: sem rolagem horizontal nos slides 12/16: '+JSON.stringify(geometry));
     await page.screenshot({path:path.join(OUTPUT_DIR,'chromium-390x844-slide'+n+'.png')});
   }
