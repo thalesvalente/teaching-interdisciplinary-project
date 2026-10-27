@@ -9,6 +9,7 @@ const Model = require(moduleFile('model.js'));
 const Rubric = require(moduleFile('rubric.js'));
 const Storage = require(moduleFile('storage.js'));
 const { completeFixture, partialFixture } = require('./fixtures.cjs');
+const { rejectedDraftLifecycle } = require('./browser-storage.cjs');
 const requested = (process.env.PPI_FICHA_BROWSERS || 'chromium,firefox,webkit').split(',').filter(Boolean);
 const output = reporter('browser-report.json');
 const VIEWPORTS = [[1280,650], [1366,768], [1920,1080], [390,844], [360,800], [320,568]];
@@ -385,7 +386,7 @@ async function printMode(page, engine, mode) {
         return {answerCharacters:state.m1.objective.length};
       });
 
-      await check('STORAGE-UI','Unavailable localStorage warns while fields remain editable and export works',async()=>{
+      await check('STORAGE-UI','Unavailable storage allows export; rejected local draft survives reload until editing',async()=>{
         const probe=await context.newPage();
         try {
           await probe.addInitScript(()=>{Object.defineProperty(window,'localStorage',{get(){throw new DOMException('Blocked','SecurityError');}});});
@@ -396,6 +397,7 @@ async function printMode(page, engine, mode) {
           await nav(probe,8); const item=await download(probe,()=>probe.locator('#export-json').click(),engine+'-storage-fallback.json');
           assert.equal(Model.validateImport(fs.readFileSync(item.file,'utf8')).m1.objective,'Resposta sintética em memória.');
         } finally { await probe.close(); }
+        return rejectedDraftLifecycle(browser,url);
       });
 
       await check('OFFLINE-UI','Loaded static application remains usable offline with local downloads',async()=>{
