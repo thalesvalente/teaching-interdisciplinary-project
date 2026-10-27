@@ -1,0 +1,219 @@
+{
+  "schemaVersion": "1.0.0",
+  "worksheetVersion": "1.0.0",
+  "rubricVersion": "1.0.0",
+  "team": {
+    "name": "",
+    "date": "",
+    "track": "memorias",
+    "repository": "",
+    "declaration": false
+  },
+  "members": [],
+  "m1": {
+    "objective": "QA_PARTIAL_RESPONSE_MARKER: investigar uma dúvida inteiramente sintética.",
+    "need": "Necessidade sintética escrita offline.",
+    "decision": "",
+    "source": "",
+    "assumption": ""
+  },
+  "m2": {
+    "techniques": [
+      {
+        "id": "t-fdad1ad9-ed23-4046-8de3-01125d738c11",
+        "role": "principal",
+        "kind": "",
+        "source": "",
+        "purpose": "",
+        "evidence": "",
+        "limitation": "",
+        "justification": "",
+        "responsible": ""
+      },
+      {
+        "id": "t-429899a7-ce12-49c5-ab68-a438b39fd9c4",
+        "role": "complementar",
+        "kind": "",
+        "source": "",
+        "purpose": "",
+        "evidence": "",
+        "limitation": "",
+        "justification": "",
+        "responsible": ""
+      }
+    ]
+  },
+  "m3": {
+    "questions": [
+      {
+        "id": "q-cf23bdb4-f159-43d8-80e0-c3646f409296",
+        "category": "",
+        "text": "",
+        "purpose": ""
+      },
+      {
+        "id": "q-2ab33afe-003a-400a-8b9f-3b2c26328d98",
+        "category": "",
+        "text": "",
+        "purpose": ""
+      },
+      {
+        "id": "q-060aca8b-c739-488a-bbf8-c1bb887948d4",
+        "category": "",
+        "text": "",
+        "purpose": ""
+      },
+      {
+        "id": "q-e10836b4-331c-480c-8245-d0843bc43932",
+        "category": "",
+        "text": "",
+        "purpose": ""
+      },
+      {
+        "id": "q-9773805a-4b54-4fdf-80f5-6a7d65db4abd",
+        "category": "",
+        "text": "",
+        "purpose": ""
+      },
+      {
+        "id": "q-3b591b12-cb64-43ef-aaab-da27519e84bd",
+        "category": "",
+        "text": "",
+        "purpose": ""
+      },
+      {
+        "id": "q-97c36b6e-57c3-45b7-b13c-9021306fda25",
+        "category": "fechamento",
+        "text": "Há algo importante que não perguntamos?",
+        "purpose": ""
+      }
+    ],
+    "observation": {
+      "activity": "",
+      "boundaries": "",
+      "people": "",
+      "tools": "",
+      "transfers": "",
+      "delays": "",
+      "practice": "",
+      "record": ""
+    },
+    "document": {
+      "name": "",
+      "author": "",
+      "version": "",
+      "purpose": "",
+      "terms": "",
+      "rules": "",
+      "gaps": "",
+      "restrictions": "",
+      "unanswered": ""
+    },
+    "ai": {
+      "used": "",
+      "tool": "",
+      "purpose": "",
+      "prompt": "",
+      "summary": "",
+      "decision": "",
+      "validator": ""
+    }
+  },
+  "m4": {
+    "authorization": {
+      "answer": "",
+      "decision": ""
+    },
+    "explained": {
+      "answer": "",
+      "decision": ""
+    },
+    "refusal": {
+      "answer": "",
+      "decision": ""
+    },
+    "recording": {
+      "answer": "",
+      "decision": ""
+    },
+    "personal": {
+      "answer": "",
+      "decision": ""
+    },
+    "substitution": {
+      "answer": "",
+      "decision": ""
+    },
+    "ai": {
+      "answer": "",
+      "decision": ""
+    },
+    "access": "",
+    "validator": "",
+    "citation": "",
+    "publication": "",
+    "risks": "",
+    "mitigation": ""
+  },
+  "m5": {
+    "type": "",
+    "participants": [],
+    "scenario": "",
+    "roles": "",
+    "worked": "",
+    "confusing": "",
+    "leading": "",
+    "sensitive": "",
+    "contradiction": "",
+    "difficulty": "",
+    "change": "",
+    "reason": "",
+    "before": "",
+    "after": "",
+    "summary": ""
+  },
+  "m6": {
+    "records": [
+      {
+        "id": "e-61a4ab07-a23e-476e-89c9-602ad4582401",
+        "raw": "",
+        "source": "",
+        "justification": "",
+        "validator": "",
+        "relation": "",
+        "restriction": "",
+        "classification": "",
+        "confidence": ""
+      },
+      {
+        "id": "e-34abb3ff-4aa3-4fc6-b3eb-a24a22fe443d",
+        "raw": "",
+        "source": "",
+        "justification": "",
+        "validator": "",
+        "relation": "",
+        "restriction": "",
+        "classification": "",
+        "confidence": ""
+      },
+      {
+        "id": "e-c271e71f-8c9d-487e-8d22-0d96ff1b031d",
+        "raw": "",
+        "source": "",
+        "justification": "",
+        "validator": "",
+        "relation": "",
+        "restriction": "",
+        "classification": "",
+        "confidence": ""
+      }
+    ],
+    "limitation": "",
+    "needs": ""
+  },
+  "exportedAt": "2026-10-27T22:03:59.150Z",
+  "score": {
+    "xp": 4,
+    "grade": 0.4
+  }
+}

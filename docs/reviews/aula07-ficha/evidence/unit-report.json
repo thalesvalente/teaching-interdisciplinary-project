@@ -1,0 +1,198 @@
+{
+  "identity": {
+    "sha": "92a37c225a1cece0961544220bd7269b7345f8b5",
+    "tree": "d2c2bd70b80d80cc565ae373e99323d8b5047107",
+    "worksheetTree": "a76418b010492f503d1f51dbbab95a776b50e520",
+    "dirty": "",
+    "completedAt": "2026-10-27T22:12:23.707251+00:00"
+  },
+  "command": "node --test tests/aula07-ficha/unit.test.cjs",
+  "summary": {
+    "pass": 45,
+    "fail": 0,
+    "blocked": 0,
+    "skipped": 0
+  },
+  "results": [
+    {
+      "name": "SCORE-01: empty worksheet is 0 XP / 0.0 and not started",
+      "status": "PASS"
+    },
+    {
+      "name": "SCORE-02: seven mission maxima sum to exactly 100; stable criterion IDs are unique",
+      "status": "PASS"
+    },
+    {
+      "name": "SCORE-03-memorias: independent full fixture reaches 100 and 10.0",
+      "status": "PASS"
+    },
+    {
+      "name": "SCORE-03-permanencia: independent full fixture reaches 100 and 10.0",
+      "status": "PASS"
+    },
+    {
+      "name": "SCORE-04-M1: mission never exceeds its ceiling and reset removes its points only",
+      "status": "PASS"
+    },
+    {
+      "name": "SCORE-04-M2: mission never exceeds its ceiling and reset removes its points only",
+      "status": "PASS"
+    },
+    {
+      "name": "SCORE-04-M3: mission never exceeds its ceiling and reset removes its points only",
+      "status": "PASS"
+    },
+    {
+      "name": "SCORE-04-M4: mission never exceeds its ceiling and reset removes its points only",
+      "status": "PASS"
+    },
+    {
+      "name": "SCORE-04-M5: mission never exceeds its ceiling and reset removes its points only",
+      "status": "PASS"
+    },
+    {
+      "name": "SCORE-04-M6: mission never exceeds its ceiling and reset removes its points only",
+      "status": "PASS"
+    },
+    {
+      "name": "SCORE-04-M7: mission never exceeds its ceiling and reset removes its points only",
+      "status": "PASS"
+    },
+    {
+      "name": "SCORE-05: deleting or replacing a scored answer with whitespace reduces score immediately",
+      "status": "PASS"
+    },
+    {
+      "name": "SCORE-06: whitespace-only answers cannot earn mission points",
+      "status": "PASS"
+    },
+    {
+      "name": "SCORE-07: selecting ethical answers without decisions/mitigation earns no ethical credit",
+      "status": "PASS"
+    },
+    {
+      "name": "SCORE-08: testing mission cannot reach full points without explicit post-test revision",
+      "status": "PASS"
+    },
+    {
+      "name": "SCORE-09: a duplicate complementary technique cannot satisfy triangulation",
+      "status": "PASS"
+    },
+    {
+      "name": "SCORE-10: questionnaire cannot replace the principal core technique",
+      "status": "PASS"
+    },
+    {
+      "name": "SCORE-11: missing interview purpose/category and unsupported finding reduce credit",
+      "status": "PASS"
+    },
+    {
+      "name": "SCORE-12: no AI is optional and carries no point penalty",
+      "status": "PASS"
+    },
+    {
+      "name": "SCORE-13: every discovery field and every observation/document field affects its declared criterion",
+      "status": "PASS"
+    },
+    {
+      "name": "SCORE-14: questionnaire is accepted as complementary; interview upper/lower bounds are enforced",
+      "status": "PASS"
+    },
+    {
+      "name": "SCORE-15: missing ethical access/provenance/mitigation text or simulation roles reduces the expected group",
+      "status": "PASS"
+    },
+    {
+      "name": "SCORE-16: confidence labels carry equal points; missing required evidence classes remain pending",
+      "status": "PASS"
+    },
+    {
+      "name": "TEAM-01: authorship proportional to active member completion; zero members = zero authorship",
+      "status": "PASS"
+    },
+    {
+      "name": "TEAM-02: renaming a member preserves ID/authorship; removing clears only dependent references",
+      "status": "PASS"
+    },
+    {
+      "name": "TRACK-01: changing track preserves only compatible identification, clears all task content/authorship",
+      "status": "PASS"
+    },
+    {
+      "name": "TRACK-02: selecting the same track preserves all answers",
+      "status": "PASS"
+    },
+    {
+      "name": "TRACK-03: zero-XP unfinished answers still count as content at risk of track switching",
+      "status": "PASS"
+    },
+    {
+      "name": "IMPORT-01: complete and partial JSON round-trip without trusting saved points",
+      "status": "PASS"
+    },
+    {
+      "name": "IMPORT-02: malformed JSON, unknown version, missing field and unexpected property are rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "IMPORT-03: dangerous prototype properties are rejected at every depth",
+      "status": "PASS"
+    },
+    {
+      "name": "IMPORT-04: oversized, excessively deep and excessively long text imports are rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "IMPORT-05: duplicate IDs, unknown member references, invalid enums and wrong primitive types are rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "IMPORT-06: optional repository only accepts safe HTTPS URLs and rejects credentials/active schemes",
+      "status": "PASS"
+    },
+    {
+      "name": "IMPORT-07: real calendar dates are validated",
+      "status": "PASS"
+    },
+    {
+      "name": "RESET-01: total reset returns zero and cannot mutate prior answers",
+      "status": "PASS"
+    },
+    {
+      "name": "STORAGE-01: local save/reload validates and resumes the same answers",
+      "status": "PASS"
+    },
+    {
+      "name": "STORAGE-02: quota/unavailable storage returns actionable error without losing in-memory answers",
+      "status": "PASS"
+    },
+    {
+      "name": "STORAGE-03: corrupt local payload is rejected and is not overwritten",
+      "status": "PASS"
+    },
+    {
+      "name": "STORAGE-04: an invalid draft repository URL cannot erase other locally saved answers",
+      "status": "PASS"
+    },
+    {
+      "name": "EXPORT-01: partial Markdown states pending criteria and separates official assessment",
+      "status": "PASS"
+    },
+    {
+      "name": "EXPORT-02: Markdown and filenames neutralize hostile markup and path delimiters",
+      "status": "PASS"
+    },
+    {
+      "name": "EXPORT-03: JSON retains text safely; content is data, never executable",
+      "status": "PASS"
+    },
+    {
+      "name": "SCHEMA-01: versioned JSON schema is published and restricts unknown properties",
+      "status": "PASS"
+    },
+    {
+      "name": "PRIVACY-01: production modules have no dynamic-code or network submission primitives",
+      "status": "PASS"
+    }
+  ]
+}

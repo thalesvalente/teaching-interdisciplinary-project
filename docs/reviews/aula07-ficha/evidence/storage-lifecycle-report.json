@@ -1,0 +1,54 @@
+{
+  "identity": {
+    "sha": "92a37c225a1cece0961544220bd7269b7345f8b5",
+    "tree": "d2c2bd70b80d80cc565ae373e99323d8b5047107",
+    "worksheetTree": "a76418b010492f503d1f51dbbab95a776b50e520",
+    "dirty": "",
+    "testedAt": "2026-10-27T22:10:56.114Z"
+  },
+  "versions": {
+    "chromium": "141.0.7390.37",
+    "firefox": "142.0.1",
+    "webkit": "26.0"
+  },
+  "results": [
+    {
+      "engine": "chromium",
+      "id": "STORAGE-LIFECYCLE",
+      "label": "Rejected draft survives reload until an explicit edit",
+      "status": "PASS",
+      "detail": {
+        "rejectedRawPreserved": true,
+        "reloadsWithoutEditing": 2,
+        "newEditSurvivesImmediateReload": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "id": "STORAGE-LIFECYCLE",
+      "label": "Rejected draft survives reload until an explicit edit",
+      "status": "PASS",
+      "detail": {
+        "rejectedRawPreserved": true,
+        "reloadsWithoutEditing": 2,
+        "newEditSurvivesImmediateReload": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "id": "STORAGE-LIFECYCLE",
+      "label": "Rejected draft survives reload until an explicit edit",
+      "status": "PASS",
+      "detail": {
+        "rejectedRawPreserved": true,
+        "reloadsWithoutEditing": 2,
+        "newEditSurvivesImmediateReload": true
+      }
+    }
+  ],
+  "summary": {
+    "pass": 3,
+    "fail": 0,
+    "blocked": 0
+  }
+}

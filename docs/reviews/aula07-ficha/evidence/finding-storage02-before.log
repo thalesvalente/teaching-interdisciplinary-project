@@ -1,0 +1,4 @@
+{"sha":"3a797a4e2abb6de9750dd121943ca609157d99fb","tree":"6b1fb2e9bc1f3e71757edea8b611323be1966c61","worksheetTree":"587a68ca2f51c6e27ca369ec0fbd785797a1d1a0","dirty":"","testedAt":"2026-10-27T22:07:34.649Z"}
+Initial {"raw":"{broken-synthetic-draft","status":"O rascunho local não pôde ser retomado: Não foi possível ler o JSON. Selecione um rascunho válido desta ficha. O arquivo local foi preservado."}
+After reload {"preserved":false,"replacementLength":2743,"status":"Rascunho local retomado."}
+CONFIRMED QA-DATA-02: merely reloading replaces rejected local draft with empty state.

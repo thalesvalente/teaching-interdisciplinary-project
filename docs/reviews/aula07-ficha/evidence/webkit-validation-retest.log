@@ -1,0 +1,16 @@
+{
+  "identity": {
+    "sha": "3a797a4e2abb6de9750dd121943ca609157d99fb",
+    "tree": "6b1fb2e9bc1f3e71757edea8b611323be1966c61",
+    "worksheetTree": "587a68ca2f51c6e27ca369ec0fbd785797a1d1a0",
+    "dirty": "",
+    "testedAt": "2026-10-27T22:03:17.435Z"
+  },
+  "engine": "26.0"
+}
+PASS WebKit URL click, error focus and immediate reload repetition 1
+PASS WebKit URL click, error focus and immediate reload repetition 2
+PASS WebKit URL click, error focus and immediate reload repetition 3
+PASS WebKit URL click, error focus and immediate reload repetition 4
+PASS WebKit URL click, error focus and immediate reload repetition 5
+PASS WebKit URL click, error focus and immediate reload repetition 6
