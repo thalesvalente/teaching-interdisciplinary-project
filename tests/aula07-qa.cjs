@@ -156,6 +156,76 @@ async function verifySlide24Readability(page, browserName) {
   await page.screenshot({ path: path.join(OUTPUT_DIR, browserName + '-1280x650-slide24.png') });
 }
 
+async function verifySlide15Tabs(page, browserName) {
+  await openIndexSlide(page, 15);
+  await assertActiveSlideFits(page, browserName + ' slide15');
+  const geometry = await page.evaluate(() => {
+    const slide = document.querySelector('#s15');
+    const title = slide.querySelector('.title').getBoundingClientRect();
+    const tabs = slide.querySelector('.tab-list').getBoundingClientRect();
+    const panel = slide.querySelector('[role="tabpanel"]:not([hidden])').getBoundingClientRect();
+    const font = parseFloat(getComputedStyle(slide.querySelector('.question-cloud span')).fontSize);
+    return { titleBottom:title.bottom, tabsTop:tabs.top, tabsBottom:tabs.bottom, panelTop:panel.top, font };
+  });
+  assert.ok(geometry.tabsTop > geometry.titleBottom + 10, browserName + ': abas colidem com titulo: ' + JSON.stringify(geometry));
+  assert.ok(geometry.panelTop > geometry.tabsBottom + 7, browserName + ': abas colidem com painel: ' + JSON.stringify(geometry));
+  assert.ok(geometry.font >= 21, browserName + ': perguntas do slide 15 pequenas: ' + JSON.stringify(geometry));
+  await page.locator('#tab-eda').click();
+  assert.equal(await page.locator('#panel-eda').isVisible(), true, 'tab EDA precisa exibir conteúdo');
+  assert.equal(await page.locator('#panel-map').isVisible(), false, 'tab Mapa precisa ocultar conteúdo');
+  assert.equal(await page.locator('#tab-eda').getAttribute('aria-selected'), 'true');
+  await page.locator('#tab-eda').press('ArrowLeft');
+  assert.equal(await page.locator('#panel-map').isVisible(), true, 'seta esquerda reativa Mapa');
+  assert.equal(await page.locator('#panel-eda').isVisible(), false, 'seta esquerda oculta EDA');
+  assert.equal(await page.evaluate(() => document.activeElement.id), 'tab-map', 'foco deve acompanhar seleção');
+  await page.screenshot({path:path.join(OUTPUT_DIR, browserName + '-1280x650-slide15.png')});
+}
+
+async function verifyMissionThree(page, browserName) {
+  await openIndexSlide(page, 17);
+  await assertActiveSlideFits(page, browserName + ' slide17');
+  const host = '#mission-host-3';
+  const geometry = await page.evaluate(() => {
+    const slide = document.querySelector('#s17');
+    const shell = slide.querySelector('.mission-shell');
+    const r = shell.getBoundingClientRect();
+    const body = slide.querySelector('.body').getBoundingClientRect();
+    return {
+      promptSize:parseFloat(getComputedStyle(slide.querySelector('.stepper-question legend')).fontSize),
+      choiceSize:parseFloat(getComputedStyle(slide.querySelector('.mission-option')).fontSize),
+      boxInside:r.top >= body.top - 3 && r.bottom <= body.bottom + 3,
+      overflowing:shell.scrollHeight > shell.clientHeight + 3
+    };
+  });
+  assert.ok(geometry.promptSize >= 28 && geometry.choiceSize >= 24, browserName + ': tipografia pequena: ' + JSON.stringify(geometry));
+  assert.ok(geometry.boxInside && !geometry.overflowing, browserName + ': missão 3 cortada: ' + JSON.stringify(geometry));
+  assert.equal(await page.locator(host + ' .stepper-question').count(), 1);
+  assert.equal(await page.locator(host + ' .stepper-question input').count(), 4);
+  assert.equal((await page.locator(host + ' .stepper-step-label').innerText()).trim(), 'Etapa 1 de 4');
+  await page.screenshot({path:path.join(OUTPUT_DIR, browserName + '-1280x650-slide17.png')});
+  const before = parseInt((await page.locator('#lesson-score').innerText()).split('/')[0], 10);
+  await page.locator(host + ' input[value="judgment"]').check();
+  assert.match(await page.locator(host + ' .question-feedback').innerText(), /Ainda não/);
+  assert.equal(await page.locator(host + ' .stepper-nav button').last().isDisabled(),true,'resposta incorreta não avança');
+  await page.locator(host + ' input[value="fact"]').check();
+  await page.locator(host + ' .stepper-nav button').last().click();
+  assert.equal((await page.locator(host + ' .stepper-step-label').innerText()).trim(), 'Etapa 2 de 4');
+  await page.locator(host + ' input[value="interpretation"]').check();
+  await page.locator(host + ' .stepper-nav button').first().click();
+  assert.equal(await page.locator(host + ' input[value="fact"]').isChecked(),true,'voltar preserva resposta');
+  await page.locator(host + ' .stepper-nav button').last().click();
+  assert.equal(await page.locator(host + ' input[value="interpretation"]').isChecked(),true);
+  await page.locator(host + ' .stepper-nav button').last().click();
+  await page.locator(host + ' input[value="judgment"]').check();
+  await page.locator(host + ' .stepper-nav button').last().click();
+  await page.locator(host + ' input[value="validation"]').check();
+  await page.locator(host + ' .stepper-nav button').last().click();
+  assert.equal(parseInt((await page.locator('#lesson-score').innerText()).split('/')[0],10),before+15,'missão 3 concede somente 15 XP');
+  assert.match(await page.locator(host + ' .mission-status').innerText(),/concluída/);
+  await page.locator(host).getByRole('button',{name:'Reiniciar missão'}).click();
+  assert.equal(parseInt((await page.locator('#lesson-score').innerText()).split('/')[0],10),before,'reinício retira apenas XP da missão 3');
+}
+
 async function verifyMissionOne(page) {
   await openIndexSlide(page, 10);
   await page.locator('#mission-host-1 input[value="interview-observation"]').check();
@@ -226,10 +296,16 @@ async function runDesktop(browserName, browserType, baseUrl) {
   await page.locator('#contrast-btn').click();
 
   await page.setViewportSize({ width: 1280, height: 650 });
+  if (await page.locator('body').evaluate(node => node.classList.contains('reading'))) {
+    await page.locator('#read-btn').click();
+  }
+  assert.equal(await page.locator('body').evaluate(node => node.classList.contains('reading')),false,'1280x650 deve testar o modo apresentação');
   await openIndexSlide(page, 19);
   await assertActiveSlideFits(page, `${browserName} 1280×650 missão 4`);
   await page.screenshot({ path: path.join(OUTPUT_DIR, `${browserName}-1280x650-missao4.png`) });
   await verifyMissionFour(page);
+  await verifySlide15Tabs(page, browserName);
+  await verifyMissionThree(page, browserName);
   await verifySlide24Readability(page, browserName);
 
   if (browserName === 'chromium') {
@@ -267,6 +343,15 @@ async function runMobile(baseUrl) {
     `salto do índice deve alinhar slide abaixo dos controles: ${JSON.stringify(mobile)}`);
   assert.ok(mobile.scrollWidth <= mobile.innerWidth + 2, `mobile sem rolagem horizontal: ${JSON.stringify(mobile)}`);
   await page.screenshot({ path: path.join(OUTPUT_DIR, 'chromium-390x844-missao2.png'), fullPage: false });
+  await openIndexSlide(page, 15);
+  await page.locator('#tab-eda').click();
+  assert.equal(await page.locator('#panel-eda').isVisible(),true,'mobile: aba EDA deve responder ao toque');
+  assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 2),'mobile: slide 15 sem overflow horizontal');
+  await page.screenshot({path:path.join(OUTPUT_DIR,'chromium-390x844-slide15.png')});
+  await openIndexSlide(page, 17);
+  assert.equal(await page.locator('#mission-host-3 .stepper-question input').count(),4,'mobile: apenas uma pergunta por etapa');
+  assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 2),'mobile: slide 17 sem overflow horizontal');
+  await page.screenshot({path:path.join(OUTPUT_DIR,'chromium-390x844-slide17.png')});
   await openIndexSlide(page, 24);
   const mobileGate = await page.evaluate(() => ({
     font: parseFloat(getComputedStyle(document.querySelector('#s24 .gate-common li')).fontSize),
