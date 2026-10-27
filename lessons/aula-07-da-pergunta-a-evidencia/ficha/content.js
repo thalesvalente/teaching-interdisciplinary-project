@@ -106,7 +106,18 @@ const GUIDANCE={
  'm6.limitation':'Expliquem uma dúvida ou contradição do cartão. Se não houver, digam por que não conseguiram identificá-la.',
  'm6.needs':'Escrevam algo que o futuro projeto talvez precise oferecer. Ainda não é um requisito aprovado; isso será trabalhado na Aula 08.'
 };
+const ETHICS_GUIDANCE={
+ authorization:'Sem autorização real, fiquem apenas na simulação. Não afirmem que receberam uma permissão.',
+ explained:'Digam como explicariam o objetivo antes de uma atividade autorizada.',
+ refusal:'Como deixariam claro que a pessoa pode não participar, sem ser prejudicada?',
+ recording:'Se não precisam gravar, escolham não gravar e expliquem como fariam as anotações.',
+ personal:'Que informação poderia identificar alguém? Como evitariam incluí-la?',
+ substitution:'Qual exemplo inventado ou informação sem identificação pode substituir o dado real?',
+ ai:'Se houver dúvida sobre a privacidade, não enviem dados à IA. Expliquem a decisão.'
+};
 function hintFor(path){
+ const ethical=path.match(/^m4\.(authorization|explained|refusal|recording|personal|substitution|ai)\.decision$/);
+ if(ethical)return ETHICS_GUIDANCE[ethical[1]];
  const key=path.replace(/^m2\.techniques\.\d+\./,'technique.')
   .replace(/^m3\.questions\.\d+\./,'question.')
   .replace(/^m3\.observation\./,'observation.')
