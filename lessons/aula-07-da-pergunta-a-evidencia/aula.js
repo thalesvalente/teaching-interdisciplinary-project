@@ -456,6 +456,46 @@
     $('index-btn').addEventListener('click',()=>openDialog($('index-dialog')));$('missions-btn').addEventListener('click',()=>openDialog($('missions-dialog')));$('notes-btn').addEventListener('click',()=>{updateNotes();openDialog($('notes-dialog'));});$('help-btn').addEventListener('click',()=>openDialog($('help-dialog')));document.querySelectorAll('[data-close-dialog]').forEach(button=>button.addEventListener('click',()=>closeDialog(button.closest('dialog'))));document.querySelectorAll('dialog').forEach(dialog=>dialog.addEventListener('click',event=>{if(event.target===dialog)closeDialog(dialog);}));$('reset-all-missions').addEventListener('click',resetAllMissions);
   }
 
+  // Slides explicativos 12 e 16: uma ideia por etapa e nenhum XP adicional.
+  // Mantém os textos nos painéis sem gerar respostas, notas ou telemetria.
+  function setupGuidedLessons(){
+    document.querySelectorAll('[data-guided-lesson]').forEach(root => {
+      const stages=[...root.querySelectorAll('.guided-stage')];
+      const choices=[...root.querySelectorAll('[data-guided-target]')];
+      const previous=root.querySelector('[data-guided-prev]');
+      const next=root.querySelector('[data-guided-next]');
+      const status=root.querySelector('.guided-step-status');
+      if(!stages.length || stages.length!==choices.length || !previous || !next || !status)return;
+      let currentStep=0;
+      function activateStep(index,{focusStage=false}={}){
+        currentStep=Math.max(0,Math.min(stages.length-1,index));
+        stages.forEach((stage,i)=>{stage.hidden=i!==currentStep;});
+        choices.forEach((button,i)=>{
+          button.setAttribute('aria-pressed',String(i===currentStep));
+          button.classList.toggle('selected',i===currentStep);
+        });
+        previous.disabled=currentStep===0;
+        next.disabled=currentStep===stages.length-1;
+        status.textContent=`Etapa ${currentStep+1} de ${stages.length}`;
+        if(focusStage)stages[currentStep].focus({preventScroll:true});
+      }
+      choices.forEach((button,index)=>{
+        button.addEventListener('click',()=>activateStep(index,{focusStage:true}));
+        button.addEventListener('keydown',event=>{
+          if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
+          event.preventDefault();
+          const target=event.key==='Home'?0:event.key==='End'?choices.length-1:
+            (index+(event.key==='ArrowRight'?1:-1)+choices.length)%choices.length;
+          activateStep(target);
+          choices[target].focus({preventScroll:true});
+        });
+      });
+      previous.addEventListener('click',()=>activateStep(currentStep-1,{focusStage:true}));
+      next.addEventListener('click',()=>activateStep(currentStep+1,{focusStage:true}));
+      activateStep(0);
+    });
+  }
+
   function setupInteractions(){
     $('confirm-training').classList.toggle('confirmed',state.confirmed);$('confirm-training').textContent=state.confirmed?'Confirmado: XP é treino, não avaliação.':'Entendi: os XP servem para aprender, não para avaliar.';$('confirm-training').addEventListener('click',()=>{state.confirmed=true;saveState();$('confirm-training').classList.add('confirmed');$('confirm-training').textContent='Confirmado: XP é treino, não avaliação.';announce('Regras das missões confirmadas.');});
     document.querySelectorAll('[data-diagnostic] article').forEach(card=>{card.querySelectorAll('button[data-value]').forEach(button=>button.addEventListener('click',()=>{card.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));const correct=button.dataset.value===card.dataset.correct;const feedback=card.querySelector('.mini-feedback');feedback.className=`mini-feedback ${correct?'ok':'warn'}`;feedback.textContent=correct?'Boa leitura: ainda não há evidência suficiente para afirmar a frase.':'Reveja: a frase não possui fonte ou contexto suficiente para ser tratada como fato.';}));});
@@ -501,7 +541,7 @@
   }
 
   function init(){
-    buildIndex();setupDialogs();setupInteractions();setupControls();MISSIONS.forEach(mission=>renderMission(mission.id));paintScore();
+    buildIndex();setupDialogs();setupInteractions();setupGuidedLessons();setupControls();MISSIONS.forEach(mission=>renderMission(mission.id));paintScore();
     try{manualMode=localStorage.getItem(MODE_KEY);}catch{manualMode=null;}if(manualMode==='reading')setReading(true);else if(manualMode==='presentation')setReading(false);else setReading(requiresReading());show(current,{scroll:false});
   }
   init();
