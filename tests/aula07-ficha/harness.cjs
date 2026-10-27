@@ -16,6 +16,7 @@ function codeIdentity() {
     catch { return 'unavailable'; }
   };
   return { sha: command(['rev-parse', 'HEAD']), tree: command(['rev-parse', 'HEAD^{tree}']),
+    worksheetTree: command(['rev-parse', 'HEAD:' + FOLDER]),
     dirty: command(['status', '--porcelain', '--', FOLDER]),
     testedAt: new Date().toISOString() };
 }
