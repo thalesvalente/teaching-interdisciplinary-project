@@ -125,6 +125,37 @@ async function runAxe(page, browserName) {
   assert.equal(blocking.length, 0, `${browserName}: violações axe sérias/críticas: ${blocking.map(v => `${v.id} (${v.nodes.length})`).join(', ')}`);
 }
 
+// Regressão visual: leitura do slide 24 em projetor 720p.
+async function verifySlide24Readability(page, browserName) {
+  await openIndexSlide(page, 24);
+  await assertActiveSlideFits(page, browserName + ' 1280x650 gate etico');
+  const audit = await page.evaluate(() => {
+    const slide = document.querySelector('#s24');
+    const common = slide.querySelector('.gate-common');
+    const tracks = [...slide.querySelectorAll('.gate-track')];
+    const commonBox = common.getBoundingClientRect();
+    const trackBoxes = tracks.map(x => x.getBoundingClientRect());
+    const checkSize = parseFloat(getComputedStyle(common.querySelector('li')).fontSize);
+    const trackSizes = tracks.map(x => parseFloat(getComputedStyle(x.querySelector('p')).fontSize));
+    const contentsFit = [...common.querySelectorAll('li'), ...tracks.flatMap(x => [x.querySelector('h2'), x.querySelector('p')])]
+      .every(x => {
+        const r = x.getBoundingClientRect();
+        const parent = x.closest('.gate-common,.gate-track').getBoundingClientRect();
+        return r.left >= parent.left - 2 && r.right <= parent.right + 2 && r.bottom <= parent.bottom + 2;
+      });
+    return {
+      checkSize, trackSizes, contentsFit,
+      topSeparated: commonBox.bottom <= Math.min(...trackBoxes.map(x => x.top)) + 2,
+      sideBySide: trackBoxes[0].right <= trackBoxes[1].left + 2
+    };
+  });
+  assert.ok(audit.checkSize >= 24, browserName + ': texto do checklist pequeno: ' + JSON.stringify(audit));
+  assert.ok(audit.trackSizes.every(x => x >= 22), browserName + ': texto dos cartoes pequeno: ' + JSON.stringify(audit));
+  assert.ok(audit.contentsFit && audit.topSeparated && audit.sideBySide,
+    browserName + ': layout do slide 24 precisa manter separacao: ' + JSON.stringify(audit));
+  await page.screenshot({ path: path.join(OUTPUT_DIR, browserName + '-1280x650-slide24.png') });
+}
+
 async function verifyMissionOne(page) {
   await openIndexSlide(page, 10);
   await page.locator('#mission-host-1 input[value="interview-observation"]').check();
@@ -199,6 +230,7 @@ async function runDesktop(browserName, browserType, baseUrl) {
   await assertActiveSlideFits(page, `${browserName} 1280×650 missão 4`);
   await page.screenshot({ path: path.join(OUTPUT_DIR, `${browserName}-1280x650-missao4.png`) });
   await verifyMissionFour(page);
+  await verifySlide24Readability(page, browserName);
 
   if (browserName === 'chromium') {
     await page.reload({ waitUntil: 'networkidle' });
@@ -235,6 +267,14 @@ async function runMobile(baseUrl) {
     `salto do índice deve alinhar slide abaixo dos controles: ${JSON.stringify(mobile)}`);
   assert.ok(mobile.scrollWidth <= mobile.innerWidth + 2, `mobile sem rolagem horizontal: ${JSON.stringify(mobile)}`);
   await page.screenshot({ path: path.join(OUTPUT_DIR, 'chromium-390x844-missao2.png'), fullPage: false });
+  await openIndexSlide(page, 24);
+  const mobileGate = await page.evaluate(() => ({
+    font: parseFloat(getComputedStyle(document.querySelector('#s24 .gate-common li')).fontSize),
+    overflow: document.documentElement.scrollWidth > innerWidth + 2
+  }));
+  assert.ok(mobileGate.font >= 19 && !mobileGate.overflow,
+    'slide 24 mobile deve manter leitura e reflow: ' + JSON.stringify(mobileGate));
+  await page.screenshot({ path: path.join(OUTPUT_DIR, 'chromium-390x844-slide24.png') });
   assert.deepEqual(errors, [], `mobile: erros no navegador: ${errors.join(' | ')}`);
   await browser.close();
 }
