@@ -1,0 +1,43 @@
+✔ 01 — esquema e fluxo compatíveis (24.655327ms)
+✔ 02 — grupo: uma linha por estudante em ordem alfabética (3.833241ms)
+✔ 03 — reenvio substitui o recibo e conserva os colegas (2.76391ms)
+✔ 03b — reenvio com respostas apagadas diminui nota e preserva alunos (1.685435ms)
+✔ 04 — respostas diferentes produzem hashes diferentes (2.322482ms)
+✔ 05 — mesmo conteúdo mantém digest e recebe novo recibo (2.247201ms)
+✔ 06 — correção formativa parcial não exige preencher toda ficha (1.622784ms)
+✔ 07 — rubrica completa resulta em 100 XP (1.262555ms)
+✔ 08 — índice de risco não altera nota XP/10 (1.423721ms)
+✔ 09 — média simples com ausência = zero (1.400297ms)
+✔ 10 — outras abas do bimestre permanecem inalteradas (1.407928ms)
+✔ 11 — atividade não cadastrada rejeitada (1.192943ms)
+✔ 12 — esquema errado rejeitado (0.664235ms)
+✔ 13 — SHA-256 inválido rejeitado (0.768288ms)
+✔ 14 — limite de payload aplicado (1.479393ms)
+✔ 15 — projeto desconhecido rejeitado (0.779415ms)
+✔ 16 — respostas de alternativas fabricadas rejeitadas (0.888485ms)
+✔ 17 — chance/impacto fora do intervalo rejeitados (0.735971ms)
+✔ 18 — nomes duplicados por acento/caixa são rejeitados (0.656464ms)
+✔ 19 — entrada contendo fórmula no nome é rejeitada (0.628323ms)
+✔ 20 — equipe com prefixo de fórmula é gravada como texto (1.104492ms)
+✔ 21 — campos desconhecidos são recusados sem escrita (0.661882ms)
+✔ 22 — suporte a 30 integrantes, ordenação com acentos (3.652095ms)
+✔ 23 — 31 integrantes são rejeitados (0.895065ms)
+✔ 24 — nome conflitante em outra equipe é recusado (1.124142ms)
+✔ 25 — colunas futuras podem ser inseridas sem perder notas anteriores (3.988999ms)
+✔ 26 — HMAC vincula a data, atividade, documento, XP e respostas (1.250437ms)
+✔ 27 — chave secreta não aparece na resposta (2.801355ms)
+✔ 28 — lock sempre é liberado após escrita (1.054809ms)
+✔ 29 — falha de gravação NÃO retorna sucesso e solta lock (1.667659ms)
+✔ 30 — cabeçalho de auditoria divergente impede submissão (0.811632ms)
+✔ 31 — novos envios não apagaram notas de outras atividades (1.063152ms)
+✔ 32 — endpoints GET e POST não expõem informações pessoais (0.886052ms)
+✔ 33 — PDF real tem header, EOF e SHA-256 verificável (4.988808ms)
+✔ 34 — recebimento externo fica bloqueado até autorização explícita (1.348621ms)
+ℹ tests 35
+ℹ suites 0
+ℹ pass 35
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 92.020451

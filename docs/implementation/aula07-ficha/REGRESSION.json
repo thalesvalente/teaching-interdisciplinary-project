@@ -1,0 +1,59 @@
+{
+  "baseline": {
+    "commit": "dc5ed18ebdab8dea9035f56a8f3bdedb2520af68",
+    "tree": "c517e16770ed329ad7353571279b2b1072b8e3d3"
+  },
+  "runtime": {
+    "node": "v24.22.1",
+    "playwright": "1.56.1"
+  },
+  "regression": {
+    "aula06": {
+      "pass": 84,
+      "fail": 0,
+      "blocked": 0
+    },
+    "aula07": {
+      "chromium": "PASS",
+      "firefox": "PASS",
+      "webkit": "PASS",
+      "slide_content_modified": false
+    },
+    "legacy_delivery_before_fixture_alignment": {
+      "tests": 35,
+      "pass": 23,
+      "fail": 12,
+      "cause": "Fixture expected third term; baseline 9263d567bc4886c4045e6216d927de17d1f786f2 already configured fourth term."
+    },
+    "legacy_delivery_after_fixture_alignment": {
+      "tests": 35,
+      "pass": 35,
+      "fail": 0
+    },
+    "browser_delivery_mock": {
+      "scenarios": 5,
+      "status": "PASS",
+      "real_external_data_used": false
+    }
+  },
+  "logs": {
+    "slides.log": {
+      "sha256": "c2f7bfccc1bda7c89bcbdc21eef26a60275b91c3bc9ae4e619ac408069b77d53"
+    },
+    "slides-webkit.log": {
+      "sha256": "0150a305896a4fdf981aae44ad361133442ee81a0a753cda005c97f03d593a6e"
+    },
+    "aula06.log": {
+      "sha256": "3d6762f7926b5e42e4001e538be3a6e1009a0930a2ac8d90f3081e16fb647011"
+    },
+    "entregas.log": {
+      "sha256": "4b264f7b8f9c74242971a7b269be3ad1c2a5915125d432e838dd693343633e21"
+    },
+    "entregas-aligned.log": {
+      "sha256": "9f558fc91221ac1c6291b355c47f890ce627098a25e7b49f1914d7c2dd76eaac"
+    },
+    "browser-entrega.log": {
+      "sha256": "6b03b9474b4ee32dbc396366e597b81f50a3af0fce5dadc4b21b1283a0c3091a"
+    }
+  }
+}

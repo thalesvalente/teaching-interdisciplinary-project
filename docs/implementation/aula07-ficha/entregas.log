@@ -1,0 +1,232 @@
+✖ 01 — esquema e fluxo compatíveis (21.653333ms)
+✖ 02 — grupo: uma linha por estudante em ordem alfabética (6.147156ms)
+✔ 03 — reenvio substitui o recibo e conserva os colegas (2.280669ms)
+✖ 03b — reenvio com respostas apagadas diminui nota e preserva alunos (1.812845ms)
+✔ 04 — respostas diferentes produzem hashes diferentes (1.640026ms)
+✔ 05 — mesmo conteúdo mantém digest e recebe novo recibo (1.487566ms)
+✖ 06 — correção formativa parcial não exige preencher toda ficha (1.480786ms)
+✖ 07 — rubrica completa resulta em 100 XP (1.355007ms)
+✖ 08 — índice de risco não altera nota XP/10 (3.660914ms)
+✖ 09 — média simples com ausência = zero (2.26786ms)
+✖ 10 — outras abas do bimestre permanecem inalteradas (3.02006ms)
+✔ 11 — atividade não cadastrada rejeitada (1.239108ms)
+✔ 12 — esquema errado rejeitado (1.590811ms)
+✔ 13 — SHA-256 inválido rejeitado (1.910172ms)
+✔ 14 — limite de payload aplicado (0.728304ms)
+✔ 15 — projeto desconhecido rejeitado (0.895206ms)
+✔ 16 — respostas de alternativas fabricadas rejeitadas (0.677238ms)
+✔ 17 — chance/impacto fora do intervalo rejeitados (0.916417ms)
+✔ 18 — nomes duplicados por acento/caixa são rejeitados (0.794164ms)
+✔ 19 — entrada contendo fórmula no nome é rejeitada (0.685ms)
+✖ 20 — equipe com prefixo de fórmula é gravada como texto (1.94249ms)
+✔ 21 — campos desconhecidos são recusados sem escrita (1.379705ms)
+✖ 22 — suporte a 30 integrantes, ordenação com acentos (4.164962ms)
+✔ 23 — 31 integrantes são rejeitados (0.818671ms)
+✖ 24 — nome conflitante em outra equipe é recusado (2.62744ms)
+✔ 25 — colunas futuras podem ser inseridas sem perder notas anteriores (3.702236ms)
+✔ 26 — HMAC vincula a data, atividade, documento, XP e respostas (0.994214ms)
+✔ 27 — chave secreta não aparece na resposta (1.125472ms)
+✔ 28 — lock sempre é liberado após escrita (1.193334ms)
+✔ 29 — falha de gravação NÃO retorna sucesso e solta lock (1.08425ms)
+✔ 30 — cabeçalho de auditoria divergente impede submissão (0.896328ms)
+✖ 31 — novos envios não apagaram notas de outras atividades (1.436991ms)
+✔ 32 — endpoints GET e POST não expõem informações pessoais (1.393775ms)
+✔ 33 — PDF real tem header, EOF e SHA-256 verificável (7.613741ms)
+✔ 34 — recebimento externo fica bloqueado até autorização explícita (1.484221ms)
+ℹ tests 35
+ℹ suites 0
+ℹ pass 23
+ℹ fail 12
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 210.478252
+
+✖ failing tests:
+
+test at tests/ppi-entregas.test.cjs:152:1
+✖ 01 — esquema e fluxo compatíveis (21.653333ms)
+  TypeError [Error]: Cannot read properties of undefined (reading '2')
+      at TestContext.<anonymous> (<repository>/tests/ppi-entregas.test.cjs:158:28)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)
+
+test at tests/ppi-entregas.test.cjs:162:1
+✖ 02 — grupo: uma linha por estudante em ordem alfabética (6.147156ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   'Ana Teste',
+  -   'Bruno Teste',
+  -   'Zoe Teste'
+  - ]
+  
+      at TestContext.<anonymous> (<repository>/tests/ppi-entregas.test.cjs:166:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ 'Ana Teste', 'Bruno Teste', 'Zoe Teste' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/ppi-entregas.test.cjs:180:1
+✖ 03b — reenvio com respostas apagadas diminui nota e preserva alunos (1.812845ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   0,
+  -   0
+  - ]
+  
+      at TestContext.<anonymous> (<repository>/tests/ppi-entregas.test.cjs:186:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ 0, 0 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/ppi-entregas.test.cjs:202:1
+✖ 06 — correção formativa parcial não exige preencher toda ficha (1.480786ms)
+  TypeError [Error]: Cannot read properties of undefined (reading '2')
+      at TestContext.<anonymous> (<repository>/tests/ppi-entregas.test.cjs:208:35)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at tests/ppi-entregas.test.cjs:210:1
+✖ 07 — rubrica completa resulta em 100 XP (1.355007ms)
+  TypeError [Error]: Cannot read properties of undefined (reading '2')
+      at TestContext.<anonymous> (<repository>/tests/ppi-entregas.test.cjs:217:35)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at tests/ppi-entregas.test.cjs:219:1
+✖ 08 — índice de risco não altera nota XP/10 (3.660914ms)
+  TypeError [Error]: Cannot read properties of undefined (reading '2')
+      at TestContext.<anonymous> (<repository>/tests/ppi-entregas.test.cjs:222:35)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at tests/ppi-entregas.test.cjs:227:1
+✖ 09 — média simples com ausência = zero (2.26786ms)
+  TypeError [Error]: Cannot read properties of undefined (reading '3')
+      at TestContext.<anonymous> (<repository>/tests/ppi-entregas.test.cjs:230:35)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at tests/ppi-entregas.test.cjs:233:1
+✖ 10 — outras abas do bimestre permanecem inalteradas (3.02006ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      '[["Aluno","Equipe","Média"]]',
+      '[["Aluno","Equipe","Média"]]',
+  +   '[["Aluno","Equipe","Aula 06","Média"],["Ana Teste","Equipe Teste",1.4,"=SUM(C2:C2)/1"]]'
+  -   '[["Aluno","Equipe","Média"]]'
+    ]
+  
+      at TestContext.<anonymous> (<repository>/tests/ppi-entregas.test.cjs:237:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ '[["Aluno","Equipe","Média"]]', '[["Aluno","Equipe","Média"]]', '[["Aluno","Equipe","Aula 06","Média"],["Ana Teste","Equipe Teste",1.4,"=SUM(C2:C2)/1"]]' ],
+    expected: [ '[["Aluno","Equipe","Média"]]', '[["Aluno","Equipe","Média"]]', '[["Aluno","Equipe","Média"]]' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/ppi-entregas.test.cjs:269:1
+✖ 20 — equipe com prefixo de fórmula é gravada como texto (1.94249ms)
+  TypeError [Error]: Cannot read properties of undefined (reading '1')
+      at TestContext.<anonymous> (<repository>/tests/ppi-entregas.test.cjs:272:35)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at tests/ppi-entregas.test.cjs:279:1
+✖ 22 — suporte a 30 integrantes, ordenação com acentos (4.164962ms)
+  TypeError [Error]: Cannot read properties of undefined (reading '0')
+      at TestContext.<anonymous> (<repository>/tests/ppi-entregas.test.cjs:284:28)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at tests/ppi-entregas.test.cjs:292:1
+✖ 24 — nome conflitante em outra equipe é recusado (2.62744ms)
+  TypeError [Error]: Cannot read properties of undefined (reading '1')
+      at TestContext.<anonymous> (<repository>/tests/ppi-entregas.test.cjs:296:35)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at tests/ppi-entregas.test.cjs:346:1
+✖ 31 — novos envios não apagaram notas de outras atividades (1.436991ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  7 !== 1.4
+  
+      at TestContext.<anonymous> (<repository>/tests/ppi-entregas.test.cjs:351:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 7,
+    expected: 1.4,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

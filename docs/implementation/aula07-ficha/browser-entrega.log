@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "scenarios": 5,
+  "items": [
+    "PDF local não envia dados",
+    "PDF real + hash do POST + recibo no navegador",
+    "Recusa de confirmação por hash divergente",
+    "Envio sem identificação é bloqueado",
+    "Sem exceções JavaScript"
+  ]
+}
