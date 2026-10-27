@@ -340,6 +340,7 @@ async function verifyMissionSix(page) {
 
 async function runDesktop(browserName, browserType, baseUrl) {
   const browser = await browserType.launch({ headless: true });
+  try {
   const page = await browser.newPage({ viewport: { width: 1280, height: 720 }, deviceScaleFactor: 1 });
   const errors = [];
   page.on('pageerror', error => errors.push(`pageerror: ${error.message}`));
@@ -388,11 +389,12 @@ async function runDesktop(browserName, browserType, baseUrl) {
   }
 
   assert.deepEqual(errors, [], `${browserName}: erros no navegador: ${errors.join(' | ')}`);
-  await browser.close();
+  } finally { await browser.close(); }
 }
 
 async function runMobile(baseUrl) {
   const browser = await chromium.launch({ headless: true });
+  try {
   const page = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1 });
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
@@ -453,7 +455,7 @@ async function runMobile(baseUrl) {
     'slide 24 mobile deve manter leitura e reflow: ' + JSON.stringify(mobileGate));
   await page.screenshot({ path: path.join(OUTPUT_DIR, 'chromium-390x844-slide24.png') });
   assert.deepEqual(errors, [], `mobile: erros no navegador: ${errors.join(' | ')}`);
-  await browser.close();
+  } finally { await browser.close(); }
 }
 
 (async () => {
@@ -466,6 +468,7 @@ async function runMobile(baseUrl) {
     await runMobile(baseUrl);
     console.log(`QA Aula 07: PASS em ${requested.join(', ')}; evidências em ${OUTPUT_DIR}`);
   } finally {
+    server.closeAllConnections?.();
     await new Promise(resolve => server.close(resolve));
   }
 })().catch(error => {
