@@ -10,7 +10,7 @@ Ficha estática da equipe, com autoria individual, para PPI I — IFMA Campus It
 2. Cadastre identificação acadêmica mínima, trilha e integrantes. As duas trilhas compartilham os mesmos critérios e 100 XP.
 3. Percorra as sete missões pelo índice ou pelos botões anterior/próxima. O botão **Conferir pendências** orienta o preenchimento sem impedir exportação parcial.
 4. Em **Revisar e guardar**, baixe o JSON para continuar em outro momento/dispositivo ou abra a prévia de impressão. A impressão usa papel A4 e a opção **Salvar como PDF** do navegador.
-5. A versão em branco não apaga respostas. Na prévia interativa, ela oferece pelo menos quatro espaços de autoria, ampliados ao número de integrantes cadastrados. A versão estática tem quatro espaços e orienta imprimir cópias da autoria para equipes maiores.
+5. A versão em branco não apaga respostas. Na prévia interativa, ela oferece pelo menos quatro espaços de autoria, ampliados ao número de integrantes cadastrados. Uma ficha parcial sem integrantes também inclui quatro espaços de identificação/autoria; um quadro com menos de três registros ganha espaços vazios na impressão. Essas áreas manuais não alteram o estado nem os XP. A versão estática tem quatro espaços e orienta imprimir cópias da autoria para equipes maiores.
 
 O formulário funciona sem backend, login, telemetria, fonte remota, biblioteca de runtime ou etapa de build. Após carregar os arquivos estáticos, navegação, cálculos e exportações continuam sem conexão. A disponibilidade da página após fechar o navegador depende do armazenamento/cache do dispositivo; não há promessa de cache offline persistente nem service worker.
 
