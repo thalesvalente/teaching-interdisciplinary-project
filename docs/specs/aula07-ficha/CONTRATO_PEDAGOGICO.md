@@ -87,7 +87,7 @@ Responsáveis referenciam integrantes por IDs estáveis; renomear alguém preser
 | `m3-observation` | 6 | Oito registros: atividade; início/fim; pessoas/papéis; ferramentas; transferências; esperas/atrasos/retrabalho/improvisos; formal versus prática; registro de fatos sem julgamento. |
 | `m3-document` | 6 | Nove registros: fonte; autoria/responsabilidade; data/versão; finalidade original; termos/campos; regras; lacunas/ambiguidades; restrições; perguntas não respondidas. |
 
-**Decisão de contagem:** o fechamento faz parte do total de seis a oito perguntas. O roteiro inicial oferece sete posições: seis famílias e fechamento. Pode-se acrescentar uma oitava. Um roteiro de seis pode estar parcialmente preenchido, mas só atinge todos os critérios se cumprir as famílias e o fechamento; a interface não inventa equivalência semântica entre categorias.
+**Decisão de contagem:** o fechamento faz parte do total de seis a oito perguntas. O roteiro inicial oferece sete posições: seis famílias e fechamento. Pode-se acrescentar uma oitava. Como cada pergunta tem uma categoria, completar simultaneamente as seis famílias e o fechamento requer sete ou oito registros. Seis perguntas podem ser guardadas como rascunho parcial; a interface não inventa equivalência semântica entre categorias.
 
 Alertas de pergunta fechada, dupla, indutiva ou acusatória orientam a revisão. Não concedem nem retiram XP por um suposto julgamento automatizado de conteúdo. O registro opcional de IA oferece “Não utilizamos IA” sem perda; quando declarada, documenta ferramenta, finalidade, prompt sanitizado, resumo, aceites/rejeições/correções e validação humana. Saída de IA não vira evidência da realidade.
 
