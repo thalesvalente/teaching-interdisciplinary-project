@@ -64,6 +64,8 @@ function skeleton(fixture) {
 async function fillPanel(page, number, fixture) {
   await nav(page, number);
   const panel = page.locator('#mission-' + number);
+  // A ficha agora mostra apenas uma parte da tarefa por vez. Abra as partes antes de preencher o fixture completo.
+  await panel.locator('details.task-group').evaluateAll(groups => { for (const group of groups) group.open = true; });
   if (number === 3) await reveal(page, '[data-field="m3.ai.used"]');
   const fields = await panel.locator('[data-field]').evaluateAll(nodes => nodes.map(node => ({ key: node.dataset.field, tag: node.tagName, type: node.type })));
   let filled = 0;
