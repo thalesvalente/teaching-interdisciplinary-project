@@ -5,7 +5,9 @@
   "description": "Materiais estáticos de PPI I e verificações das aulas interativas",
   "scripts": {
     "test:aula06": "node tests/aula06-qa.cjs",
-    "test:aula07": "node tests/aula07-qa.cjs"
+    "test:aula07": "node tests/aula07-qa.cjs",
+    "test:ficha07:unit": "node --test tests/aula07-ficha/unit.test.cjs",
+    "test:ficha07": "node tests/aula07-ficha/browser.cjs"
   },
   "devDependencies": {
     "axe-core": "4.14.0",

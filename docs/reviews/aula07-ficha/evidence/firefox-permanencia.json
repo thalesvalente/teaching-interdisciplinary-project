@@ -1,0 +1,243 @@
+{
+  "schemaVersion": "1.0.0",
+  "worksheetVersion": "1.0.0",
+  "rubricVersion": "1.0.0",
+  "team": {
+    "name": "Equipe sintética QA",
+    "date": "2026-10-27",
+    "track": "permanencia",
+    "repository": "https://example.org/projeto-sintetico",
+    "declaration": true
+  },
+  "members": [
+    {
+      "id": "m-qa-1",
+      "name": "Integrante sintético 1",
+      "role": "Entrevista e revisão",
+      "contribution": "Escreveu e revisou o protocolo em cenário sintético.",
+      "improvement": "Substituiu uma pergunta dupla por uma pergunta aberta.",
+      "risk": "Identificou risco de publicar informação ainda não validada.",
+      "learning": "Precisa praticar triangulação e registro de contradições.",
+      "reviewed": true
+    },
+    {
+      "id": "m-qa-2",
+      "name": "Integrante sintético 2",
+      "role": "Observação e documentação",
+      "contribution": "Escreveu e revisou o protocolo em cenário sintético.",
+      "improvement": "Substituiu uma pergunta dupla por uma pergunta aberta.",
+      "risk": "Identificou risco de publicar informação ainda não validada.",
+      "learning": "Precisa praticar triangulação e registro de contradições.",
+      "reviewed": true
+    }
+  ],
+  "m1": {
+    "objective": "Descobrir o significado local do indicador sintético de permanência.",
+    "need": "A informação orienta a investigação e evita assumir uma interpretação sem fonte.",
+    "decision": "Definir quem revisa e em que condições uma informação pode ser reutilizada.",
+    "source": "Cartão inteiramente sintético e documento fictício preparado para o teste.",
+    "assumption": "A equipe ainda supõe que a definição seja compartilhada por todos os papéis."
+  },
+  "m2": {
+    "techniques": [
+      {
+        "id": "t-qa-1",
+        "role": "principal",
+        "kind": "entrevista",
+        "source": "Papel fictício de pessoa participante",
+        "purpose": "Conhecer o significado atribuído à informação.",
+        "evidence": "Relato sintético anotado.",
+        "limitation": "A fala não prova como o processo ocorre.",
+        "justification": "A pergunta exige conhecer o ponto de vista do papel simulado.",
+        "responsible": "m-qa-1"
+      },
+      {
+        "id": "t-qa-2",
+        "role": "complementar",
+        "kind": "documental",
+        "source": "Registro fictício v1",
+        "purpose": "Confrontar a definição com o registro.",
+        "evidence": "Campo e regra descritos no documento fictício.",
+        "limitation": "O documento pode estar desatualizado.",
+        "justification": "O registro permite triangular a fala com uma fonte de outra técnica.",
+        "responsible": "m-qa-2"
+      }
+    ]
+  },
+  "m3": {
+    "questions": [
+      {
+        "id": "q-qa-1",
+        "category": "contexto",
+        "text": "Como o processo funciona neste cenário sintético?",
+        "purpose": "Explorar contexto sem induzir a resposta do papel fictício."
+      },
+      {
+        "id": "q-qa-2",
+        "category": "pessoas",
+        "text": "Quais papéis participam de sua validação?",
+        "purpose": "Explorar pessoas sem induzir a resposta do papel fictício."
+      },
+      {
+        "id": "q-qa-3",
+        "category": "processo",
+        "text": "Como a informação passa entre os papéis?",
+        "purpose": "Explorar processo sem induzir a resposta do papel fictício."
+      },
+      {
+        "id": "q-qa-4",
+        "category": "problema",
+        "text": "Que dificuldades aparecem quando as versões diferem?",
+        "purpose": "Explorar problema sem induzir a resposta do papel fictício."
+      },
+      {
+        "id": "q-qa-5",
+        "category": "resultado",
+        "text": "Que resultado ajudaria a equipe a compreender o problema?",
+        "purpose": "Explorar resultado sem induzir a resposta do papel fictício."
+      },
+      {
+        "id": "q-qa-6",
+        "category": "validacao",
+        "text": "Como podemos verificar se entendemos corretamente?",
+        "purpose": "Explorar validacao sem induzir a resposta do papel fictício."
+      },
+      {
+        "id": "q-qa-7",
+        "category": "fechamento",
+        "text": "Há algo importante que não perguntamos?",
+        "purpose": "Explorar fechamento sem induzir a resposta do papel fictício."
+      }
+    ],
+    "observation": {
+      "activity": "Acompanhar o registro sintético e a revisão por dois papéis.",
+      "boundaries": "Começa na consulta do cartão e termina na marcação de pendências.",
+      "people": "Papéis fictícios de observador, participante e revisor.",
+      "tools": "Ficha em papel e quadro sintético.",
+      "transfers": "O primeiro papel entrega o registro ao revisor.",
+      "delays": "O revisor espera uma definição que o cartão não fornece.",
+      "practice": "A descrição formal prevê uma etapa de validação que a simulação ainda não conclui.",
+      "record": "Anotar ações, sequência e duração aproximada sem atribuir intenção."
+    },
+    "document": {
+      "name": "Cartão sintético de teste",
+      "author": "Equipe sintética QA",
+      "version": "2026-10-27, versão 1",
+      "purpose": "Servir a uma simulação de elicitação.",
+      "terms": "Definição, origem, versão e responsável.",
+      "rules": "Todo registro deve indicar a fonte fictícia.",
+      "gaps": "A periodicidade não foi definida no cartão.",
+      "restrictions": "Usar somente em teste educacional e não atribuir o relato a pessoas reais.",
+      "unanswered": "Quem resolverá a divergência ainda está pendente."
+    },
+    "ai": {
+      "used": "no",
+      "tool": "",
+      "purpose": "",
+      "prompt": "",
+      "summary": "",
+      "decision": "",
+      "validator": ""
+    }
+  },
+  "m4": {
+    "authorization": {
+      "answer": "yes",
+      "decision": "Decisão registrada apenas para o cenário sintético; qualquer coleta real exigiria validação própria."
+    },
+    "explained": {
+      "answer": "yes",
+      "decision": "Decisão registrada apenas para o cenário sintético; qualquer coleta real exigiria validação própria."
+    },
+    "refusal": {
+      "answer": "yes",
+      "decision": "Decisão registrada apenas para o cenário sintético; qualquer coleta real exigiria validação própria."
+    },
+    "recording": {
+      "answer": "no",
+      "decision": "Decisão registrada apenas para o cenário sintético; qualquer coleta real exigiria validação própria."
+    },
+    "personal": {
+      "answer": "no",
+      "decision": "Decisão registrada apenas para o cenário sintético; qualquer coleta real exigiria validação própria."
+    },
+    "substitution": {
+      "answer": "yes",
+      "decision": "Decisão registrada apenas para o cenário sintético; qualquer coleta real exigiria validação própria."
+    },
+    "ai": {
+      "answer": "no",
+      "decision": "Decisão registrada apenas para o cenário sintético; qualquer coleta real exigiria validação própria."
+    },
+    "access": "Somente os papéis da equipe durante a simulação.",
+    "validator": "Docente e parte interessada autorizada em etapa futura.",
+    "citation": "Cartão inteiramente sintético, versão 1, 2026-10-27.",
+    "publication": "Não publicar informação não validada ou identificadora.",
+    "risks": "Risco de confundir hipótese com evidência.",
+    "mitigation": "Marcar a hipótese e pedir validação antes de utilizá-la."
+  },
+  "m5": {
+    "type": "synthetic",
+    "participants": [
+      "m-qa-1",
+      "m-qa-2"
+    ],
+    "scenario": "Simulação integralmente inventada com duas versões divergentes de um registro.",
+    "roles": "Integrante sintético 1 entrevista; integrante sintético 2 representa e registra.",
+    "worked": "A pergunta de contexto produziu uma explicação descritiva.",
+    "confusing": "Uma pergunta reunia atualização e validação em uma só frase.",
+    "leading": "A expressão sempre correto poderia induzir concordância.",
+    "sensitive": "O cenário indicava que uma localização fictícia seria restrita.",
+    "contradiction": "A fala sintética e o documento fictício apresentam sequências diferentes.",
+    "difficulty": "A pergunta dupla tomou tempo adicional para ser entendida.",
+    "change": "Separou a pergunta dupla e removeu a expressão indutiva após o teste.",
+    "reason": "Permitir descrever cada etapa sem sugerir uma resposta.",
+    "before": "O registro está sempre correto e atualizado?",
+    "after": "Como o registro é atualizado?",
+    "summary": "Após o teste, a pergunta fechada e dupla foi substituída por uma pergunta aberta."
+  },
+  "m6": {
+    "records": [
+      {
+        "id": "e-qa-1",
+        "raw": "O registro sintético apresenta duas versões.",
+        "source": "Cartão sintético QA v1, item 1",
+        "justification": "Confiança declarada no cenário de teste; o significado exige revisão humana.",
+        "validator": "Papel fictício de revisor e docente.",
+        "relation": "Ajuda a responder a dúvida central sobre a definição.",
+        "restriction": "Uso sintético em teste; não divulgar como relato real.",
+        "classification": "achado",
+        "confidence": "alta"
+      },
+      {
+        "id": "e-qa-2",
+        "raw": "A equipe supõe que as versões usam critérios diferentes.",
+        "source": "Cartão sintético QA v1, item 2",
+        "justification": "Confiança declarada no cenário de teste; o significado exige revisão humana.",
+        "validator": "Papel fictício de revisor e docente.",
+        "relation": "Ajuda a responder a dúvida central sobre a definição.",
+        "restriction": "Uso sintético em teste; não divulgar como relato real.",
+        "classification": "hipotese",
+        "confidence": "baixa"
+      },
+      {
+        "id": "e-qa-3",
+        "raw": "Ainda falta decidir quem valida a definição.",
+        "source": "Cartão sintético QA v1, item 3",
+        "justification": "Confiança declarada no cenário de teste; o significado exige revisão humana.",
+        "validator": "Papel fictício de revisor e docente.",
+        "relation": "Ajuda a responder a dúvida central sobre a definição.",
+        "restriction": "Uso sintético em teste; não divulgar como relato real.",
+        "classification": "pendencia",
+        "confidence": "media"
+      }
+    ],
+    "limitation": "O cenário contém uma divergência entre fala e registro; nenhuma versão foi escolhida como verdade.",
+    "needs": "Necessidade candidata de explicitar as versões, ainda pendente de validação. QA_FINAL_EVIDENCE_MARKER"
+  },
+  "exportedAt": "2026-10-27T22:04:11.614Z",
+  "score": {
+    "xp": 100,
+    "grade": 10
+  }
+}

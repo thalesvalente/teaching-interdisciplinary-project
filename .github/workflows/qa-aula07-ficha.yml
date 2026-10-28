@@ -1,0 +1,57 @@
+name: QA Ficha Avaliativa Aula 07
+
+on:
+  push:
+    branches:
+      - feat/aula07-ficha-avaliativa-20261027
+    paths:
+      - 'lessons/aula-07-da-pergunta-a-evidencia/ficha/**'
+      - 'tests/aula07-ficha/**'
+      - 'package*.json'
+      - 'index.html'
+      - '.github/workflows/qa-aula07-ficha.yml'
+  pull_request:
+    paths:
+      - 'lessons/aula-07-da-pergunta-a-evidencia/ficha/**'
+      - 'tests/aula07-ficha/**'
+      - 'package*.json'
+      - 'index.html'
+      - '.github/workflows/qa-aula07-ficha.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  local-data-accessibility-and-print:
+    name: Pontuação, dados, três navegadores e impressão
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Dependências existentes de QA
+        run: npm ci
+      - name: Chromium, Firefox e WebKit
+        run: npx playwright install --with-deps chromium firefox webkit
+      - name: Contrato de pontuação e importação hostil
+        run: npm run test:ficha07:unit
+      - name: Fluxos, acessibilidade, reflow e PDF
+        run: npm run test:ficha07
+        env:
+          PPI_FICHA_BROWSERS: chromium,firefox,webkit
+          PPI_FICHA_EVIDENCE_DIR: tmp/aula07-ficha-ci
+      - name: Regressão de entrega da Aula 06
+        run: node --test tests/ppi-entregas.test.cjs
+      - name: Evidências da ficha
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aula07-ficha-qa
+          path: tmp/aula07-ficha-ci/
+          if-no-files-found: warn
+          retention-days: 14

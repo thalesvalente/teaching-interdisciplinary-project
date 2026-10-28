@@ -1,0 +1,842 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thalesvalente.github.io/teaching-interdisciplinary-project/lessons/aula-07-da-pergunta-a-evidencia/ficha/schema.json",
+  "title": "Ficha Avaliativa PPI Aula 07 — rascunho 1.0.0",
+  "description": "Contrato fechado. model.js valida este contrato sem carregar rede; acrescenta limites totais (512 KB), profundidade (12), IDs únicos, referências aos integrantes, data calendárica e URL HTTPS. exportedAt e score são metadados descartáveis; pontuação sempre recalculada.",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "worksheetVersion": {
+      "const": "1.0.0"
+    },
+    "rubricVersion": {
+      "const": "1.0.0"
+    },
+    "team": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "maxLength": 160
+        },
+        "date": {
+          "type": "string",
+          "maxLength": 160,
+          "pattern": "^$|^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "track": {
+          "type": "string",
+          "enum": [
+            "",
+            "memorias",
+            "permanencia"
+          ]
+        },
+        "repository": {
+          "type": "string",
+          "maxLength": 2048,
+          "description": "Vazio ou HTTPS absoluto, sem credenciais; validação adicional em model.js."
+        },
+        "declaration": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "date",
+        "track",
+        "repository",
+        "declaration"
+      ],
+      "additionalProperties": false
+    },
+    "members": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z][a-zA-Z0-9_-]{0,79}$",
+            "maxLength": 80
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 6000
+          },
+          "role": {
+            "type": "string",
+            "maxLength": 6000
+          },
+          "contribution": {
+            "type": "string",
+            "maxLength": 6000
+          },
+          "improvement": {
+            "type": "string",
+            "maxLength": 6000
+          },
+          "risk": {
+            "type": "string",
+            "maxLength": 6000
+          },
+          "learning": {
+            "type": "string",
+            "maxLength": 6000
+          },
+          "reviewed": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "role",
+          "contribution",
+          "improvement",
+          "risk",
+          "learning",
+          "reviewed"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0,
+      "maxItems": 12
+    },
+    "m1": {
+      "type": "object",
+      "properties": {
+        "objective": {
+          "type": "string",
+          "maxLength": 6000
+        },
+        "need": {
+          "type": "string",
+          "maxLength": 6000
+        },
+        "decision": {
+          "type": "string",
+          "maxLength": 6000
+        },
+        "source": {
+          "type": "string",
+          "maxLength": 6000
+        },
+        "assumption": {
+          "type": "string",
+          "maxLength": 6000
+        }
+      },
+      "required": [
+        "objective",
+        "need",
+        "decision",
+        "source",
+        "assumption"
+      ],
+      "additionalProperties": false
+    },
+    "m2": {
+      "type": "object",
+      "properties": {
+        "techniques": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-zA-Z][a-zA-Z0-9_-]{0,79}$",
+                "maxLength": 80
+              },
+              "role": {
+                "type": "string",
+                "enum": [
+                  "principal",
+                  "complementar"
+                ]
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "",
+                  "entrevista",
+                  "observacao",
+                  "documental",
+                  "questionario"
+                ]
+              },
+              "source": {
+                "type": "string",
+                "maxLength": 6000
+              },
+              "purpose": {
+                "type": "string",
+                "maxLength": 6000
+              },
+              "evidence": {
+                "type": "string",
+                "maxLength": 6000
+              },
+              "limitation": {
+                "type": "string",
+                "maxLength": 6000
+              },
+              "justification": {
+                "type": "string",
+                "maxLength": 6000
+              },
+              "responsible": {
+                "type": "string",
+                "pattern": "^$|^[a-zA-Z][a-zA-Z0-9_-]{0,79}$",
+                "maxLength": 80
+              }
+            },
+            "required": [
+              "id",
+              "role",
+              "kind",
+              "source",
+              "purpose",
+              "evidence",
+              "limitation",
+              "justification",
+              "responsible"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 2,
+          "maxItems": 4
+        }
+      },
+      "required": [
+        "techniques"
+      ],
+      "additionalProperties": false
+    },
+    "m3": {
+      "type": "object",
+      "properties": {
+        "questions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-zA-Z][a-zA-Z0-9_-]{0,79}$",
+                "maxLength": 80
+              },
+              "category": {
+                "type": "string",
+                "enum": [
+                  "",
+                  "contexto",
+                  "pessoas",
+                  "processo",
+                  "problema",
+                  "resultado",
+                  "validacao",
+                  "fechamento"
+                ]
+              },
+              "text": {
+                "type": "string",
+                "maxLength": 6000
+              },
+              "purpose": {
+                "type": "string",
+                "maxLength": 6000
+              }
+            },
+            "required": [
+              "id",
+              "category",
+              "text",
+              "purpose"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 6,
+          "maxItems": 8
+        },
+        "observation": {
+          "type": "object",
+          "properties": {
+            "activity": {
+              "type": "string",
+              "maxLength": 6000
+            },
+            "boundaries": {
+              "type": "string",
+              "maxLength": 6000
+            },
+            "people": {
+              "type": "string",
+              "maxLength": 6000
+            },
+            "tools": {
+              "type": "string",
+              "maxLength": 6000
+            },
+            "transfers": {
+              "type": "string",
+              "maxLength": 6000
+            },
+            "delays": {
+              "type": "string",
+              "maxLength": 6000
+            },
+            "practice": {
+              "type": "string",
+              "maxLength": 6000
+            },
+            "record": {
+              "type": "string",
+              "maxLength": 6000
+            }
+          },
+          "required": [
+            "activity",
+            "boundaries",
+            "people",
+            "tools",
+            "transfers",
+            "delays",
+            "practice",
+            "record"
+          ],
+          "additionalProperties": false
+        },
+        "document": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "maxLength": 6000
+            },
+            "author": {
+              "type": "string",
+              "maxLength": 6000
+            },
+            "version": {
+              "type": "string",
+              "maxLength": 6000
+            },
+            "purpose": {
+              "type": "string",
+              "maxLength": 6000
+            },
+            "terms": {
+              "type": "string",
+              "maxLength": 6000
+            },
+            "rules": {
+              "type": "string",
+              "maxLength": 6000
+            },
+            "gaps": {
+              "type": "string",
+              "maxLength": 6000
+            },
+            "restrictions": {
+              "type": "string",
+              "maxLength": 6000
+            },
+            "unanswered": {
+              "type": "string",
+              "maxLength": 6000
+            }
+          },
+          "required": [
+            "name",
+            "author",
+            "version",
+            "purpose",
+            "terms",
+            "rules",
+            "gaps",
+            "restrictions",
+            "unanswered"
+          ],
+          "additionalProperties": false
+        },
+        "ai": {
+          "type": "object",
+          "properties": {
+            "used": {
+              "type": "string",
+              "enum": [
+                "",
+                "no",
+                "yes"
+              ]
+            },
+            "tool": {
+              "type": "string",
+              "maxLength": 6000
+            },
+            "purpose": {
+              "type": "string",
+              "maxLength": 6000
+            },
+            "prompt": {
+              "type": "string",
+              "maxLength": 6000
+            },
+            "summary": {
+              "type": "string",
+              "maxLength": 6000
+            },
+            "decision": {
+              "type": "string",
+              "maxLength": 6000
+            },
+            "validator": {
+              "type": "string",
+              "pattern": "^$|^[a-zA-Z][a-zA-Z0-9_-]{0,79}$",
+              "maxLength": 80
+            }
+          },
+          "required": [
+            "used",
+            "tool",
+            "purpose",
+            "prompt",
+            "summary",
+            "decision",
+            "validator"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "questions",
+        "observation",
+        "document",
+        "ai"
+      ],
+      "additionalProperties": false
+    },
+    "m4": {
+      "type": "object",
+      "properties": {
+        "authorization": {
+          "type": "object",
+          "properties": {
+            "answer": {
+              "type": "string",
+              "enum": [
+                "",
+                "yes",
+                "no",
+                "pending",
+                "na"
+              ]
+            },
+            "decision": {
+              "type": "string",
+              "maxLength": 6000
+            }
+          },
+          "required": [
+            "answer",
+            "decision"
+          ],
+          "additionalProperties": false
+        },
+        "explained": {
+          "type": "object",
+          "properties": {
+            "answer": {
+              "type": "string",
+              "enum": [
+                "",
+                "yes",
+                "no",
+                "pending",
+                "na"
+              ]
+            },
+            "decision": {
+              "type": "string",
+              "maxLength": 6000
+            }
+          },
+          "required": [
+            "answer",
+            "decision"
+          ],
+          "additionalProperties": false
+        },
+        "refusal": {
+          "type": "object",
+          "properties": {
+            "answer": {
+              "type": "string",
+              "enum": [
+                "",
+                "yes",
+                "no",
+                "pending",
+                "na"
+              ]
+            },
+            "decision": {
+              "type": "string",
+              "maxLength": 6000
+            }
+          },
+          "required": [
+            "answer",
+            "decision"
+          ],
+          "additionalProperties": false
+        },
+        "recording": {
+          "type": "object",
+          "properties": {
+            "answer": {
+              "type": "string",
+              "enum": [
+                "",
+                "yes",
+                "no",
+                "pending",
+                "na"
+              ]
+            },
+            "decision": {
+              "type": "string",
+              "maxLength": 6000
+            }
+          },
+          "required": [
+            "answer",
+            "decision"
+          ],
+          "additionalProperties": false
+        },
+        "personal": {
+          "type": "object",
+          "properties": {
+            "answer": {
+              "type": "string",
+              "enum": [
+                "",
+                "yes",
+                "no",
+                "pending",
+                "na"
+              ]
+            },
+            "decision": {
+              "type": "string",
+              "maxLength": 6000
+            }
+          },
+          "required": [
+            "answer",
+            "decision"
+          ],
+          "additionalProperties": false
+        },
+        "substitution": {
+          "type": "object",
+          "properties": {
+            "answer": {
+              "type": "string",
+              "enum": [
+                "",
+                "yes",
+                "no",
+                "pending",
+                "na"
+              ]
+            },
+            "decision": {
+              "type": "string",
+              "maxLength": 6000
+            }
+          },
+          "required": [
+            "answer",
+            "decision"
+          ],
+          "additionalProperties": false
+        },
+        "ai": {
+          "type": "object",
+          "properties": {
+            "answer": {
+              "type": "string",
+              "enum": [
+                "",
+                "yes",
+                "no",
+                "pending",
+                "na"
+              ]
+            },
+            "decision": {
+              "type": "string",
+              "maxLength": 6000
+            }
+          },
+          "required": [
+            "answer",
+            "decision"
+          ],
+          "additionalProperties": false
+        },
+        "access": {
+          "type": "string",
+          "maxLength": 6000
+        },
+        "validator": {
+          "type": "string",
+          "maxLength": 6000
+        },
+        "citation": {
+          "type": "string",
+          "maxLength": 6000
+        },
+        "publication": {
+          "type": "string",
+          "maxLength": 6000
+        },
+        "risks": {
+          "type": "string",
+          "maxLength": 6000
+        },
+        "mitigation": {
+          "type": "string",
+          "maxLength": 6000
+        }
+      },
+      "required": [
+        "authorization",
+        "explained",
+        "refusal",
+        "recording",
+        "personal",
+        "substitution",
+        "ai",
+        "access",
+        "validator",
+        "citation",
+        "publication",
+        "risks",
+        "mitigation"
+      ],
+      "additionalProperties": false
+    },
+    "m5": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "",
+            "synthetic",
+            "authorized"
+          ]
+        },
+        "participants": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^$|^[a-zA-Z][a-zA-Z0-9_-]{0,79}$",
+            "maxLength": 80
+          },
+          "minItems": 0,
+          "maxItems": 12,
+          "uniqueItems": true
+        },
+        "scenario": {
+          "type": "string",
+          "maxLength": 6000
+        },
+        "roles": {
+          "type": "string",
+          "maxLength": 6000
+        },
+        "worked": {
+          "type": "string",
+          "maxLength": 6000
+        },
+        "confusing": {
+          "type": "string",
+          "maxLength": 6000
+        },
+        "leading": {
+          "type": "string",
+          "maxLength": 6000
+        },
+        "sensitive": {
+          "type": "string",
+          "maxLength": 6000
+        },
+        "contradiction": {
+          "type": "string",
+          "maxLength": 6000
+        },
+        "difficulty": {
+          "type": "string",
+          "maxLength": 6000
+        },
+        "change": {
+          "type": "string",
+          "maxLength": 6000
+        },
+        "reason": {
+          "type": "string",
+          "maxLength": 6000
+        },
+        "before": {
+          "type": "string",
+          "maxLength": 6000
+        },
+        "after": {
+          "type": "string",
+          "maxLength": 6000
+        },
+        "summary": {
+          "type": "string",
+          "maxLength": 6000
+        }
+      },
+      "required": [
+        "type",
+        "participants",
+        "scenario",
+        "roles",
+        "worked",
+        "confusing",
+        "leading",
+        "sensitive",
+        "contradiction",
+        "difficulty",
+        "change",
+        "reason",
+        "before",
+        "after",
+        "summary"
+      ],
+      "additionalProperties": false
+    },
+    "m6": {
+      "type": "object",
+      "properties": {
+        "records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-zA-Z][a-zA-Z0-9_-]{0,79}$",
+                "maxLength": 80
+              },
+              "raw": {
+                "type": "string",
+                "maxLength": 6000
+              },
+              "source": {
+                "type": "string",
+                "maxLength": 6000
+              },
+              "justification": {
+                "type": "string",
+                "maxLength": 6000
+              },
+              "validator": {
+                "type": "string",
+                "maxLength": 6000
+              },
+              "relation": {
+                "type": "string",
+                "maxLength": 6000
+              },
+              "restriction": {
+                "type": "string",
+                "maxLength": 6000
+              },
+              "classification": {
+                "type": "string",
+                "enum": [
+                  "",
+                  "achado",
+                  "evidencia",
+                  "hipotese",
+                  "pendencia"
+                ]
+              },
+              "confidence": {
+                "type": "string",
+                "enum": [
+                  "",
+                  "alta",
+                  "media",
+                  "baixa"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "raw",
+              "source",
+              "justification",
+              "validator",
+              "relation",
+              "restriction",
+              "classification",
+              "confidence"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "maxItems": 20
+        },
+        "limitation": {
+          "type": "string",
+          "maxLength": 6000
+        },
+        "needs": {
+          "type": "string",
+          "maxLength": 6000
+        }
+      },
+      "required": [
+        "records",
+        "limitation",
+        "needs"
+      ],
+      "additionalProperties": false
+    },
+    "exportedAt": {
+      "type": "string",
+      "maxLength": 80,
+      "description": "Metadado opcional, descartado na importação."
+    },
+    "score": {
+      "description": "Metadado opcional não confiável: descartado integralmente. Todo o objeto passa pelas verificações de tamanho, profundidade e propriedades perigosas. Nunca usado no cálculo."
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "worksheetVersion",
+    "rubricVersion",
+    "team",
+    "members",
+    "m1",
+    "m2",
+    "m3",
+    "m4",
+    "m5",
+    "m6"
+  ],
+  "additionalProperties": false
+}

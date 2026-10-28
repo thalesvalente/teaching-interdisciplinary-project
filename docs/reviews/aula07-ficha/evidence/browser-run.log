@@ -1,0 +1,74 @@
+PASS chromium FLOW-01: Empty worksheet, notice and separate grading status
+PASS chromium FLOW-02-memorias: Complete all seven missions through actual form controls: memorias
+PASS chromium FLOW-02-permanencia: Complete all seven missions through actual form controls: permanencia
+PASS chromium FLOW-03: Deleting an answer recalculates XP; reload resumes answers and current mission
+PASS chromium TEAM-UI: Renaming/removing members preserves remaining authorship by stable ID
+PASS chromium EVIDENCE-UI: An unused extra evidence card does not contradict rubric completion
+PASS chromium A11Y-01: Axe-core WCAG checks on all stages and validation errors
+PASS chromium VIEW-01: All stages fit six required viewports without page overflow
+PASS chromium A11Y-02: Text zoom/spacing, reduced motion and high contrast remain usable
+PASS chromium A11Y-03: Keyboard traverses all stages, edits answers and reaches reset without trapping focus
+PASS chromium RESET-UI: Reset per mission/total and track switching require confirmation
+PASS chromium IMPORT-UI: Invalid imports show accessible errors, preserve answers and reject hostile input
+PASS chromium URL-UI: Optional repository validation associates error and leaves input available to fix
+PASS chromium PRINT-filled: A4 filled preview, native print action and preserved answers
+PASS chromium PRINT-partial: A4 partial preview, native print action and preserved answers
+PASS chromium PRINT-blank: A4 blank preview, native print action and preserved answers
+PASS chromium PRINT-long: A valid long multiline answer remains complete across A4 page boundaries
+PASS chromium STORAGE-UI: Unavailable localStorage warns while fields remain editable and export works
+PASS chromium OFFLINE-UI: Loaded static application remains usable offline with local downloads
+PASS chromium NOJS-UI: Essential seven-mission paper worksheet works with JavaScript disabled
+PASS chromium PRIVACY-UI: No answers sent over network and console is clean
+PASS firefox FLOW-01: Empty worksheet, notice and separate grading status
+PASS firefox FLOW-02-memorias: Complete all seven missions through actual form controls: memorias
+PASS firefox FLOW-02-permanencia: Complete all seven missions through actual form controls: permanencia
+PASS firefox FLOW-03: Deleting an answer recalculates XP; reload resumes answers and current mission
+PASS firefox TEAM-UI: Renaming/removing members preserves remaining authorship by stable ID
+PASS firefox EVIDENCE-UI: An unused extra evidence card does not contradict rubric completion
+PASS firefox A11Y-01: Axe-core WCAG checks on all stages and validation errors
+PASS firefox VIEW-01: All stages fit six required viewports without page overflow
+PASS firefox A11Y-02: Text zoom/spacing, reduced motion and high contrast remain usable
+PASS firefox A11Y-03: Keyboard traverses all stages, edits answers and reaches reset without trapping focus
+PASS firefox RESET-UI: Reset per mission/total and track switching require confirmation
+PASS firefox IMPORT-UI: Invalid imports show accessible errors, preserve answers and reject hostile input
+PASS firefox URL-UI: Optional repository validation associates error and leaves input available to fix
+PASS firefox PRINT-filled: A4 filled preview, native print action and preserved answers
+PASS firefox PRINT-partial: A4 partial preview, native print action and preserved answers
+PASS firefox PRINT-blank: A4 blank preview, native print action and preserved answers
+PASS firefox STORAGE-UI: Unavailable localStorage warns while fields remain editable and export works
+PASS firefox OFFLINE-UI: Loaded static application remains usable offline with local downloads
+PASS firefox NOJS-UI: Essential seven-mission paper worksheet works with JavaScript disabled
+PASS firefox PRIVACY-UI: No answers sent over network and console is clean
+PASS webkit FLOW-01: Empty worksheet, notice and separate grading status
+PASS webkit FLOW-02-memorias: Complete all seven missions through actual form controls: memorias
+PASS webkit FLOW-02-permanencia: Complete all seven missions through actual form controls: permanencia
+PASS webkit FLOW-03: Deleting an answer recalculates XP; reload resumes answers and current mission
+PASS webkit TEAM-UI: Renaming/removing members preserves remaining authorship by stable ID
+PASS webkit EVIDENCE-UI: An unused extra evidence card does not contradict rubric completion
+PASS webkit A11Y-01: Axe-core WCAG checks on all stages and validation errors
+PASS webkit VIEW-01: All stages fit six required viewports without page overflow
+PASS webkit A11Y-02: Text zoom/spacing, reduced motion and high contrast remain usable
+PASS webkit A11Y-03: Keyboard traverses all stages, edits answers and reaches reset without trapping focus
+PASS webkit RESET-UI: Reset per mission/total and track switching require confirmation
+PASS webkit IMPORT-UI: Invalid imports show accessible errors, preserve answers and reject hostile input
+PASS webkit URL-UI: Optional repository validation associates error and leaves input available to fix
+PASS webkit PRINT-filled: A4 filled preview, native print action and preserved answers
+PASS webkit PRINT-partial: A4 partial preview, native print action and preserved answers
+PASS webkit PRINT-blank: A4 blank preview, native print action and preserved answers
+PASS webkit STORAGE-UI: Unavailable localStorage warns while fields remain editable and export works
+PASS webkit OFFLINE-UI: Loaded static application remains usable offline with local downloads
+PASS webkit NOJS-UI: Essential seven-mission paper worksheet works with JavaScript disabled
+PASS webkit PRIVACY-UI: No answers sent over network and console is clean
+{
+  "summary": {
+    "pass": 61,
+    "fail": 0,
+    "blocked": 0
+  },
+  "versions": {
+    "chromium": "141.0.7390.37",
+    "firefox": "142.0.1",
+    "webkit": "26.0"
+  },
+  "evidence": "<qa-worktree>/docs/reviews/aula07-ficha/evidence"
+}

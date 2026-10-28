@@ -1,0 +1,54 @@
+{
+  "stage": "All checks passed before a concurrent update to main was detected.",
+  "candidate": "8da607ebdf16abddfa1222ff3156a1dd2a07d4d5",
+  "candidate_tree": "588fba18b4c8b55edc65c76e03bbc1e1ad4e8fd1",
+  "concurrent_main": "afa73357ce0893bf4342b139dc1b8e90ace0fb1f",
+  "action": "Merged current main into the feature branch without changing main; rerun final CI after integration. Final checks are recorded in PR #6.",
+  "runs": [
+    {
+      "id": 40593658914,
+      "name": "PPI I | Bateria de Entregas",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "8da607ebdf16abddfa1222ff3156a1dd2a07d4d5",
+      "url": "https://github.com/thalesvalente/teaching-interdisciplinary-project/actions/runs/40593658914",
+      "event": "pull_request"
+    },
+    {
+      "id": 40593658906,
+      "name": "QA Aula 07",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "8da607ebdf16abddfa1222ff3156a1dd2a07d4d5",
+      "url": "https://github.com/thalesvalente/teaching-interdisciplinary-project/actions/runs/40593658906",
+      "event": "pull_request"
+    },
+    {
+      "id": 40593659495,
+      "name": "QA Aula 06",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "8da607ebdf16abddfa1222ff3156a1dd2a07d4d5",
+      "url": "https://github.com/thalesvalente/teaching-interdisciplinary-project/actions/runs/40593659495",
+      "event": "pull_request"
+    },
+    {
+      "id": 40593658936,
+      "name": "QA Ficha Avaliativa Aula 07",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "8da607ebdf16abddfa1222ff3156a1dd2a07d4d5",
+      "url": "https://github.com/thalesvalente/teaching-interdisciplinary-project/actions/runs/40593658936",
+      "event": "pull_request"
+    },
+    {
+      "id": 40593651926,
+      "name": "QA Ficha Avaliativa Aula 07",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "8da607ebdf16abddfa1222ff3156a1dd2a07d4d5",
+      "url": "https://github.com/thalesvalente/teaching-interdisciplinary-project/actions/runs/40593651926",
+      "event": "push"
+    }
+  ]
+}
