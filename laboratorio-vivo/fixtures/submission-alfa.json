@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "request_id": "qa-alfa-submit-0001",
+  "payload": {
+    "lesson_id": "AULA08",
+    "activity_id": "AULA08-FORMATIVA",
+    "activity_version": "1.0.0",
+    "track_id": "QUILOMBOLA",
+    "criteria_version": "FORM-1.0.0",
+    "answers": [
+      {
+        "question_id": "q_problema",
+        "answer_kind": "text",
+        "value": "No cenário fictício, a equipe precisa localizar registros de memória sem divulgar pessoas nem locais sensíveis."
+      },
+      {
+        "question_id": "q_evidencia",
+        "answer_kind": "text",
+        "value": "Em três fichas inteiramente sintéticas, a origem do conteúdo estava ausente. É um achado do exercício, sem entrevista real."
+      },
+      {
+        "question_id": "q_hipotese",
+        "answer_kind": "text",
+        "value": "A falta de um campo obrigatório de proveniência pode causar registros sem origem; comparar fichas fictícias com e sem esse campo."
+      },
+      {
+        "question_id": "q_rf",
+        "answer_kind": "text",
+        "value": "RF-01: O sistema deve permitir consultar registros fictícios por tema e indicar quando nenhum item corresponde ao filtro."
+      },
+      {
+        "question_id": "q_rnf",
+        "answer_kind": "text",
+        "value": "RNF-01: A interface deve permitir o fluxo de consulta por teclado, sem depender de cor para indicar estado."
+      },
+      {
+        "question_id": "q_dados",
+        "answer_kind": "text",
+        "value": "RD-01: Cada registro sintético tem código único, tema e proveniência declarada; não armazenar nome, CPF ou localização sensível."
+      },
+      {
+        "question_id": "q_aceite",
+        "answer_kind": "text",
+        "value": "Dado um catálogo fictício, quando um tema sem registros é selecionado, então mostrar mensagem de vazio mantendo os dados originais."
+      },
+      {
+        "question_id": "q_rastreabilidade",
+        "answer_kind": "text",
+        "value": "PROB-01 → EVD-01 → RF-01/RNF-01/RD-01 → CA-01 → TEST-01; cada ligação precisa de revisão docente."
+      }
+    ],
+    "reflection": "Registro sintético: formulei RF-01 e CA-01; preciso melhorar a verificação do RNF. O cenário foi elaborado para teste, não representa evidência de campo nem aluno real.",
+    "self_assessment": {
+      "understood": true,
+      "evidence_checked": true,
+      "authorship_declared": true
+    }
+  },
+  "payload_hash": "bee80b99a0dc52872e3eddae58cb39ec160f9d389d7f4173ae5a16b9fcbc7a4e"
+}

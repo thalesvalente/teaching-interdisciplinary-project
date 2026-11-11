@@ -1,0 +1,140 @@
+{
+  "test": "GOOGLE_SHEETS_FORMULA_ENGINE_ONLY",
+  "locale": "pt_BR",
+  "connectedAppsScript": false,
+  "synthetic": true,
+  "cases": [
+    {
+      "stage": 3,
+      "case": "approved_max",
+      "expected": 10,
+      "actual": 10,
+      "status": "PASS"
+    },
+    {
+      "stage": 3,
+      "case": "missing_item",
+      "expected": "",
+      "actual": "",
+      "status": "PASS"
+    },
+    {
+      "stage": 3,
+      "case": "approved_zero",
+      "expected": 0,
+      "actual": 0,
+      "status": "PASS"
+    },
+    {
+      "stage": 3,
+      "case": "over_limit",
+      "expected": "",
+      "actual": "",
+      "status": "PASS"
+    },
+    {
+      "stage": 3,
+      "case": "proposed_item",
+      "expected": "",
+      "actual": "",
+      "status": "PASS"
+    },
+    {
+      "stage": 3,
+      "case": "old_plan_version",
+      "expected": "",
+      "actual": "",
+      "status": "PASS"
+    },
+    {
+      "stage": 3,
+      "case": "draft_row_plan",
+      "expected": "",
+      "actual": "",
+      "status": "PASS"
+    },
+    {
+      "stage": 3,
+      "case": "formula_like_text",
+      "expected": "",
+      "actual": "",
+      "status": "PASS"
+    },
+    {
+      "stage": 4,
+      "case": "approved_max",
+      "expected": 10,
+      "actual": 10,
+      "status": "PASS"
+    },
+    {
+      "stage": 4,
+      "case": "missing_item",
+      "expected": "",
+      "actual": "",
+      "status": "PASS"
+    },
+    {
+      "stage": 4,
+      "case": "approved_zero",
+      "expected": 0,
+      "actual": 0,
+      "status": "PASS"
+    },
+    {
+      "stage": 4,
+      "case": "over_limit",
+      "expected": "",
+      "actual": "",
+      "status": "PASS"
+    },
+    {
+      "stage": 4,
+      "case": "proposed_item",
+      "expected": "",
+      "actual": "",
+      "status": "PASS"
+    },
+    {
+      "stage": 4,
+      "case": "old_plan_version",
+      "expected": "",
+      "actual": "",
+      "status": "PASS"
+    },
+    {
+      "stage": 4,
+      "case": "draft_row_plan",
+      "expected": "",
+      "actual": "",
+      "status": "PASS"
+    },
+    {
+      "stage": 4,
+      "case": "formula_like_text",
+      "expected": "",
+      "actual": "",
+      "status": "PASS"
+    },
+    {
+      "stage": 3,
+      "case": "revoked_plan",
+      "expected": "",
+      "actual": "",
+      "status": "PASS"
+    },
+    {
+      "stage": 4,
+      "case": "revoked_plan",
+      "expected": "",
+      "actual": "",
+      "status": "PASS"
+    }
+  ],
+  "timestamp": "2026-11-11T01:43:33.375Z",
+  "initial_failure": "native-formulas-initial-failure.json",
+  "formula_text_preserved": true,
+  "restore_accepted": true,
+  "restored_empty_keys": true,
+  "status": "PASS"
+}

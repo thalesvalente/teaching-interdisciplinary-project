@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ppi-laboratorio:submission:1.0.0",
+  "title": "Envelope de atividade PPI Laboratório Vivo v1",
+  "description": "Estrutura de rascunho e envio. O servidor aplica regras adicionais de obrigatoriedade, limites em bytes, identidade, versão e unicidade de question_id. Não contém autoridade de equipe, nota ou papel.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "request_id",
+    "payload"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+    },
+    "payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lesson_id",
+        "activity_id",
+        "activity_version",
+        "track_id",
+        "criteria_version",
+        "answers",
+        "reflection",
+        "self_assessment"
+      ],
+      "properties": {
+        "lesson_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+        },
+        "activity_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+        },
+        "activity_version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+          "maxLength": 30
+        },
+        "track_id": {
+          "enum": [
+            "QUILOMBOLA",
+            "PERMANENCIA"
+          ]
+        },
+        "criteria_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+        },
+        "answers": {
+          "type": "array",
+          "maxItems": 32,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "question_id",
+              "answer_kind",
+              "value"
+            ],
+            "properties": {
+              "question_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+              },
+              "answer_kind": {
+                "const": "text"
+              },
+              "value": {
+                "type": "string",
+                "maxLength": 4000
+              }
+            }
+          }
+        },
+        "reflection": {
+          "type": "string",
+          "maxLength": 3000
+        },
+        "self_assessment": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "understood",
+            "evidence_checked",
+            "authorship_declared"
+          ],
+          "properties": {
+            "understood": {
+              "type": "boolean"
+            },
+            "evidence_checked": {
+              "type": "boolean"
+            },
+            "authorship_declared": {
+              "type": "boolean"
+            }
+          }
+        },
+        "previous_submission_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+        },
+        "on_behalf_of": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+          "description": "Somente docente/admin pode mediar registro para participante previamente validado; estudante não pode preencher."
+        }
+      }
+    },
+    "payload_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  },
+  "$comment": "payload_hash obrigatório para importação de arquivo. Hash não autentica o autor. Limite UTF-8 60000 bytes verificado em runtime."
+}

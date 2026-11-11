@@ -1,0 +1,134 @@
+{
+  "schema_version": "1.0.0",
+  "mission": "PPI-LV-01",
+  "status": "PPI_LAB_PARTIAL_CHAT_FIRST",
+  "snapshot_utc": "2026-11-11T01:55:04.265Z",
+  "teaching_timezone": "America/Fortaleza",
+  "teaching_date": "2026-11-10",
+  "repository": "thalesvalente/teaching-interdisciplinary-project",
+  "base_main": "b9a1e960bc5531429c627429dea0259d565d9666",
+  "branch": "feat/ppi-laboratorio-vivo-20261110",
+  "allowed_paths": [
+    "laboratorio-vivo/**",
+    ".github/workflows/qa-ppi-laboratorio-vivo.yml"
+  ],
+  "protected_resource_aliases": [
+    "PPI_LEGACY",
+    "WEB_QA"
+  ],
+  "private_ids_location": "Private handoff receipt, never committed",
+  "agents": [
+    {
+      "role": "C1",
+      "scope": "Architecture, schemas, draft catalog and manuals"
+    },
+    {
+      "role": "C2",
+      "scope": "Apps Script implementation and author backend tests"
+    },
+    {
+      "role": "C3",
+      "scope": "Frontend, offline flow, accessibility and author browser tests"
+    },
+    {
+      "role": "C4",
+      "scope": "Independent review and independent security/browser regressions"
+    },
+    {
+      "role": "Coordinator",
+      "scope": "New Sheets provisioning, native formula tests, preservation, integration and GitHub delivery"
+    }
+  ],
+  "phases": [
+    {
+      "id": "F0",
+      "status": "PASS",
+      "evidence": "evidence/protected-sources-preservation.json"
+    },
+    {
+      "id": "F1",
+      "status": "PASS",
+      "evidence": "docs/ARQUITETURA.md"
+    },
+    {
+      "id": "F2",
+      "status": "PASS",
+      "evidence": "evidence/new-sheets-readback.json"
+    },
+    {
+      "id": "F3",
+      "status": "PARTIAL",
+      "completed": "Sanitized copy of new production; distinct native QA Sheet and fictitious Alfa/Beta",
+      "not_run": "Native Apps Script project and runtime binding"
+    },
+    {
+      "id": "F4",
+      "status": "PASS_LOCAL",
+      "tests": 66,
+      "ci": "PENDING_AT_SNAPSHOT; inspect the actual PR checks",
+      "evidence": "evidence/independent-qa.json"
+    },
+    {
+      "id": "F5",
+      "status": "NOT_RUN",
+      "reason": "No connected native Apps Script creation/deployment capability and no user-initiated Google browser session",
+      "required": [
+        "Native QA project",
+        "OAuth",
+        "Private /exec",
+        "Browser submission",
+        "Server receipt and QA readback",
+        "Exact replay NO_OP",
+        "Changed-payload CONFLICT",
+        "Teacher proposal/approval",
+        "Grade/progress/audit reconciliation",
+        "Real authorization and privacy verification"
+      ]
+    },
+    {
+      "id": "F6",
+      "status": "PASS",
+      "scope": "Exact before/after spreadsheet and Drive metadata; zero protected-source writes",
+      "evidence": "evidence/protected-sources-preservation.json"
+    },
+    {
+      "id": "F7",
+      "status": "NOT_RUN",
+      "reason": "F5 has not passed; no production publication or merge authorized by this delivery"
+    }
+  ],
+  "gates": {
+    "connected_qa_pass": false,
+    "production_authorized": false,
+    "production_writes_enabled": false,
+    "student_access_enabled": false,
+    "public_endpoint": "",
+    "native_qa_script_id": null,
+    "native_production_script_id": null
+  },
+  "verification": {
+    "unit_and_independent": 66,
+    "failed": 0,
+    "skipped": 0,
+    "browser_viewport_cases": 8,
+    "browser_local_adapter_cases": 2,
+    "browser_engines_local": [
+      "Chromium",
+      "Firefox"
+    ],
+    "webkit_local": "NOT_RUN_HOST_DEPENDENCIES",
+    "native_formula_cases": 18,
+    "native_formula_passes": 18,
+    "generated_html_byte_identical": true,
+    "independent_source_hashes_match": 36,
+    "official_grades_in_new_production": 0
+  },
+  "limits": [
+    "Native formula tests are not Apps Script round-trip tests",
+    "Service doubles do not prove native Session identity or permissions",
+    "Axe checks do not prove complete WCAG 2.2 AA conformance",
+    "Plan and rubrics remain draft; no N1/N2 or annual grade invented",
+    "CI result and PR URL belong to the final external delivery receipt"
+  ],
+  "handoff": "deploy/README.md"
+}
