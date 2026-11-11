@@ -72,6 +72,7 @@
       data.columns.forEach(column => {
         const cell = el('td', String(record[column.key]));
         cell.dataset.label = column.label;
+        cell.setAttribute('aria-label', column.label + ': ' + String(record[column.key]));
         row.append(cell);
       });
       body.append(row);
@@ -130,7 +131,8 @@
     const top = el('div', null, 'mission-top');
     top.append(el('h3', 'Questão ' + (index + 1) + ' de ' + qs.length));
     const status = el('p', result.completed ? 'Concluída · ' + result.xp + ' XP' : 'Não concluída · ' + result.correct + '/' + result.total + ' corretas · 0/' + result.max + ' XP', 'mission-state');
-    status.dataset.complete = String(result.completed); top.append(status); host.append(top);
+    status.dataset.complete = String(result.completed); top.append(status);
+    top.append(button('Ver dados do caso', 'case-reference-button', showNotes)); host.append(top);
     const nav = el('div', null, 'question-nav'); nav.setAttribute('role', 'group'); nav.setAttribute('aria-label', 'Questões da missão ' + missionId.slice(1));
     qs.forEach((item, i) => {
       const correct = state.tracks[state.activeTrack].answers[item.id] === item.correct;
@@ -142,7 +144,6 @@
       nav.append(b);
     });
     host.append(nav);
-    host.append(button('Ver dados do caso (tabela com 6 registros)', 'case-reference-button', showNotes));
     const field = el('fieldset', null, 'question-fieldset'); field.dataset.question = q.id;
     const legend = el('legend', q.prompt, 'prompt'); legend.tabIndex = -1; field.append(legend);
     const options = el('div', null, 'options');
