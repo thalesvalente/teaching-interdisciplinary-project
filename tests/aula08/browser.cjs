@@ -78,6 +78,30 @@ async function printCheck(page,engine,label){
         const identity=await page.locator('input,textarea').evaluateAll(nodes=>nodes.filter(n=>/matr[ií]cula|nome do aluno|student_name/i.test(n.name+' '+n.id+' '+(n.labels?.[0]?.textContent||''))).map(n=>n.id));assert.deepEqual(identity,[]);
         return{slides:26,tracks:2,xp:0,identityFields:0};
       });
+      await check('DOSSIE','Progressive D0-D11 dossier is visible, cumulative and track-isolated',async()=>{
+        const summaries=[];
+        for(const track of ['memorias','permanencia']){
+          const prefix=track==='memorias'?'M':'P';
+          await page.locator('#track-select').selectOption(track);
+          await nav(page,'s03');
+          assert.match(await page.locator('#s03 .kicker').innerText(),/Dossiê D0/i);
+          await page.locator('#notes-btn').click();
+          assert.match(await page.locator('#notes-content').innerText(),new RegExp('EV-'+prefix+'01'));
+          assert.equal(await page.locator('#notes-content .dossier-history li').count(),1);
+          await page.keyboard.press('Escape');
+          await nav(page,'s21');
+          assert.match(await page.locator('#s21 .kicker').innerText(),/Dossiê D9/i);
+          await page.locator('#notes-btn').click();
+          const history=page.locator('#notes-content .dossier-history');
+          assert.equal(await history.locator('li').count(),10);
+          assert.match(await history.innerText(),new RegExp('RF-'+prefix+'01'));
+          assert.match(await history.innerText(),new RegExp('CA-'+prefix+'01'));
+          await page.keyboard.press('Escape');
+          summaries.push({track,stagesShown:10,source:'EV-'+prefix+'01'});
+        }
+        await page.locator('#track-select').selectOption('memorias');
+        return {summaries};
+      });
       for(const track of ['memorias','permanencia'])await check('MISSIONS-'+track,'All six missions through visible controls, error feedback and retry: '+track,async()=>{
         await page.locator('#track-select').selectOption(track);await assertXP(page,0);const details=[];let sum=0;
         for(const m of Content.missions){details.push(await answerMission(page,track,m,{wrongFirst:m.id==='m1'}));sum+=m.xp;await assertXP(page,sum);}

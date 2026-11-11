@@ -2,7 +2,7 @@
 
 Versão: **1.0.0**. Data de elaboração: **10/11/2026**. Disciplina: **Prática Profissional Integrada I**, IFMA Campus Itapecuru-Mirim, 2º ano do Técnico em Informática Integrado, 2026.2.
 
-## 1. Produto e fronteira
+> **Revisão pedagógica em PR (11/11/2026):** a fundamentação literária, o encadeamento EV → ACH → HIP/PEND → NEC/RU → RF/RNF/RD → CA e os estágios cumulativos D0–D11 estão detalhados no [Guia do dossiê progressivo](aula08/GUIA_DOSSIE_PROGRESSIVO.md). Este documento preserva o registro da especificação da v1.0.0; para os novos exemplos por tela e critérios da revisão, o guia é a referência principal. A revisão não altera contrato de dados, XP, plano SUAP ou a versão publicada até o merge.\n\n## 1. Produto e fronteira
 
 A apresentação “Da evidência ao requisito” oferece 26 telas, seis missões formativas e um rascunho local de catálogo mínimo: **1 RF, 1 RNF verificável e 1 requisito de dados**, cada qual ligado a uma fonte sintética ou hipótese marcada como pendente. O catálogo é uma atividade de aprendizagem e não uma ficha avaliativa formal.
 
@@ -51,36 +51,38 @@ Os blocos de explicação e missão se alternam para permitir prática logo apó
 
 São 17 perguntas por trilha. O motor deve apresentar **uma pergunta por vez em cada missão**, com tentativas livres e feedback, para preservar a legibilidade. O professor pode projetar e colher respostas orais, com um operador; não é necessário que toda a turma tenha dispositivo. Se o tempo de leitura aumentar, continuar a oficina com o material local sem acelerar a ponto de suprimir as explicações.
 
-### Sumário por tela
+### Sumário por tela — revisão do caso contínuo D0–D11
 
-| Tela | Título | Função |
+| Tela | Título | Parte do dossiê / objetivo |
 | --- | --- | --- |
-| s01 | Da evidência ao requisito | Uma boa ideia precisa de origem, precisão e um jeito de conferir. |
-| s02 | Antes de propor, o que sabemos? | O material da Aula 07 reúne entrevista, observação e documentos. Agora vamos analisar seus possíveis resultados. |
-| s03 | Um laboratório de decisões | Escolha a trilha no topo. Os exemplos mudam e cada trilha guarda seu próprio percurso. |
-| s04 | Da pista ao teste | O registro vem primeiro; a interpretação precisa continuar ligada a ele. |
-| s05 | O que este registro permite dizer? | Um registro pode servir como evidência de um achado, sem confirmar sua causa. |
-| s06 | Dúvida e pedido também têm lugar | “Não sabemos” é um resultado útil quando a lacuna fica registrada. |
-| s07 | Separe as pistas | Missão objetiva M1 |
-| s08 | Necessidade do usuário ≠ solução pronta | Detalhar não significa escolher uma tecnologia cedo demais. Valide a necessidade. |
-| s09 | Uma necessidade, uma resposta verificável | Compare o objetivo da pessoa com o comportamento esperado do sistema. |
-| s10 | Reconheça a necessidade e o sistema | Missão objetiva M2 |
-| s11 | Função e qualidade | Usabilidade e acessibilidade precisam de condições de teste. “Fácil” sozinho não basta. |
-| s12 | Dados e regras do domínio | Aqui, RD é uma categoria didática do catálogo. Não é uma taxonomia exclusiva imposta pela ISO. |
-| s13 | Seis perguntas para revisar | Uma obrigação por item ajuda a revisar, priorizar e testar. Divida frases que misturam funções. |
-| s14 | Dê o nome certo a cada condição | Missão objetiva M3 |
-| s15 | Troque “rápido” por um teste | Declare operação, ambiente, carga, medida e limite. |
-| s16 | Quem consegue usar? O que pode aparecer? | Não transforme “seguro” em promessa absoluta. Defina uma ameaça, uma condição e uma verificação. |
-| s17 | Conserte o requisito vago | Missão objetiva M4 |
-| s18 | Dado · Quando · Então | Um critério não cobre tudo. Inclua também situações vazias, inválidas ou restritas quando aplicável. |
-| s19 | O que precisa caber na primeira entrega? | Decida por valor, risco, esforço e dependências. Privacidade e acesso não viram enfeite opcional. |
-| s20 | Defina o aceite e faça escolhas | Missão objetiva M5 |
-| s21 | Cada requisito precisa de um caminho de volta | IDs permitem explicar de onde veio, por que existe e como será verificado. |
-| s22 | O que fazer quando a fonte não basta? | Não envie dados pessoais para ferramentas. Uma resposta de IA não comprova uma necessidade real. |
-| s23 | Feche a cadeia sem inventar elos | Missão objetiva M6 |
-| s24 | Seu catálogo mínimo | Escrevam um RF, um RNF verificável e um requisito de dados. Usem somente o cenário sintético. |
-| s25 | Uma dupla escreve; outra tenta verificar | Leiam o catálogo da equipe e procurem um ponto que ainda possa causar dúvida. |
-| s26 | Uma decisão que você consegue explicar | Qual requisito você consegue rastrear? Que hipótese ainda precisa de validação? |
+| s01 | Da evidência ao requisito | Apresentar o caso único e a entrega final rastreável. |
+| s02 | O que já temos da Aula 07? | Retomar a fonte, a parte interessada e o problema. |
+| s03 | Um laboratório de decisões | **D0:** registro sintético identificado (EV). |
+| s04 | Afinal, o que é um requisito? | Definições de ISO 29148, Pfleeger e Nuseibeh/Easterbrook. |
+| s05 | O que sabemos e o que interpretamos? | **D1:** evidência, achado e hipótese do mesmo registro. |
+| s06 | Separar pedido, necessidade e suposição | **D2:** hipótese, pendência e cautela com validação. |
+| s07 | Separe as pistas | Missão 1, retomando EV/ACH/HIP/PEND do caso. |
+| s08 | Necessidade, requisito de usuário e de sistema | **D3:** necessidade e RU do mesmo problema. |
+| s09 | Do problema ao requisito verificável | **D4:** especificar RF ancorado em EV/NEC/RU. |
+| s10 | Reconheça a necessidade e o sistema | Missão 2, mesma necessidade e RF. |
+| s11 | Que função? Sob quais condições? | RF e RNF da mesma operação. |
+| s12 | Que informação e qual política? | **D5:** RD e RN do mesmo domínio. |
+| s13 | Como distinguir requisito bom de frase vaga? | Revisão de clareza, singularidade e teste do mesmo RF. |
+| s14 | Dê o nome certo a cada condição | Missão 3, RF/RNF/RD/RN do caso. |
+| s15 | Corrigir “o filtro deve ser rápido” | **D6:** RNF mensurável e carga de desempenho distinta da EV inicial. |
+| s16 | Quem consegue usar? O que pode aparecer? | Teclado e proteção como condições separadas do mesmo RF. |
+| s17 | Conserte o requisito vago | Missão 4, qualidade da mesma função. |
+| s18 | Como provar que o RF foi atendido? | **D7:** CA Dado/Quando/Então usando os seis registros de EV. |
+| s19 | O que entra na primeira versão? | **D8:** prioridade, risco e escopo mínimo. |
+| s20 | Defina o aceite e faça escolhas | Missão 5; extensão ambígua do mesmo RF. |
+| s21 | Mostre como o documento foi construído | **D9:** construir rastro EV→ACH→NEC/RU→RF→CA. |
+| s22 | Verificação não é validação | Testar RF versus confirmar necessidade; gerenciar mudança. |
+| s23 | Feche a cadeia sem inventar elos | Missão 6, sobre os mesmos IDs. |
+| s24 | Complete o dossiê do mesmo caso | **D10:** estudante escreve RF/RNF/RD e respectivas fontes. |
+| s25 | Outra equipe audita seu dossiê | **D11:** revisar por pares e registrar pendências. |
+| s26 | Do mesmo registro a um catálogo rastreável | Ticket de saída e síntese do dossiê. |
+
+**Rastreabilidade visual:** a apresentação conserva o número da etapa na linha superior. Em **Dossiê e fontes**, um histórico cumulativo mostra os registros criados até a tela atual. Não há preenchimento automático do trabalho da equipe.
 
 ## 4. Contrato de XP e avaliação
 
