@@ -71,10 +71,27 @@
     const dialog = $(id);
     if (!dialog.open) dialog.showModal();
   }
+  const typeNames = { RF: 'Requisito funcional (RF)', RNF: 'Requisito não funcional (RNF)', RD: 'Requisito de dados (RD)' };
+  function showGlossary() {
+    const host = $('glossary-content'); host.replaceChildren();
+    const example = state.activeTrack === 'permanencia'
+      ? 'EV-P01 = primeira evidência da trilha Permanência. P1, P2 e P3 são períodos fictícios; L01 a L06 são linhas da tabela, nunca códigos de alunos.'
+      : 'EV-M01 = primeira evidência da trilha Memórias. R01 a R06 são os seis relatos inventados, nunca códigos de pessoas.';
+    host.append(el('p', 'As letras são etiquetas para encontrar partes do mesmo documento. Não é preciso decorar: leia primeiro o nome completo.', 'dialog-intro'));
+    host.append(el('p', example, 'glossary-example'));
+    const entries = el('dl', null, 'glossary-list');
+    C.glossary.forEach(item => {
+      const entry = el('div', null, 'glossary-term');
+      entry.append(el('dt', item.code + ' — ' + item.term), el('dd', item.meaning));
+      entries.append(entry);
+    });
+    host.append(entries);
+    openDialog('glossary-dialog');
+  }
   function showExample(type) {
     const example = track().catalogExamples[type];
     const container = $('notes-content'); container.replaceChildren();
-    container.append(el('h3', 'Exemplo sintético · ' + type + ' · ' + track().shortLabel));
+    container.append(el('h3', 'Exemplo sintético · ' + typeNames[type] + ' · ' + track().shortLabel));
     for (const [label, value] of [['Enunciado', example.text], ['Fonte', example.source], ['Critério de aceitação', example.criterion]]) {
       container.append(el('h4', label), el('p', value));
     }
@@ -170,11 +187,11 @@
     host.replaceChildren();
     const tabs = el('div', null, 'catalog-tabs'); tabs.setAttribute('role', 'group'); tabs.setAttribute('aria-label', 'Tipos de requisito do catálogo');
     M.TYPES.forEach(type => {
-      const b = button(type + (type === 'RD' ? ' · Dados' : ''), '', () => { catalogType = type; catalogRenderer(host, true); });
+      const b = button(typeNames[type], '', () => { catalogType = type; catalogRenderer(host, true); });
       b.dataset.catalogTab = type; b.setAttribute('aria-pressed', String(type === catalogType)); tabs.append(b);
     }); host.append(tabs);
     const entry = el('section', null, 'catalog-entry'); entry.dataset.catalogKind = catalogType;
-    entry.setAttribute('aria-label', 'Rascunho do requisito ' + catalogType);
+    entry.setAttribute('aria-label', 'Rascunho: ' + typeNames[catalogType]);
     const grid = el('div', null, 'catalog-grid');
     function field(label, key, type, choices) {
       const group = el('div', null, 'catalog-field'); const id = 'catalog-' + catalogType + '-' + key;
@@ -188,7 +205,7 @@
       });
       group.append(input); grid.append(group);
     }
-    field(catalogType + ' · Enunciado do requisito', 'text', 'textarea');
+    field('Descrição do ' + typeNames[catalogType].toLowerCase(), 'text', 'textarea');
     field('Critério · Dado / Quando / Então', 'criterion', 'textarea');
     field('ID e resumo da fonte sintética', 'source', 'input');
     field('Situação da fonte', 'sourceStatus', 'select', [['pending_hypothesis', 'Hipótese pendente'], ['evidence', 'Evidência sintética']]);
@@ -226,7 +243,9 @@
     C.slides.forEach((source, i) => {
       const data = slideData(source); const slide = el('article', null, 'slide ' + data.kind);
       slide.id = data.id; slide.tabIndex = -1; slide.dataset.title = data.title; slide.setAttribute('aria-labelledby', data.id + '-title');
-      const heading = el('header', null, 'slide-heading'); heading.append(el('p', data.kicker + (data.dossierStage ? ' · Dossiê ' + data.dossierStage.id : ''), 'kicker'));
+      const heading = el('header', null, 'slide-heading');
+      const step = data.dossierStage ? ' · Etapa ' + (Number(data.dossierStage.id.slice(1)) + 1) + ': ' + data.dossierStage.title.toLowerCase() : '';
+      heading.append(el('p', data.kicker + step, 'kicker'));
       const title = el(i === 0 ? 'h1' : 'h2', data.title); title.id = data.id + '-title'; heading.append(title);
       if (data.lead) heading.append(el('p', data.lead, 'lead')); slide.append(heading);
       const body = el('div', null, 'slide-body');
@@ -286,10 +305,11 @@
   function showNotes() {
     const data = slideData(C.slides[current]); const host = $('notes-content'); host.replaceChildren();
     host.append(el('h3', data.title), el('p', data.note || data.lead || 'Converse com a turma antes de avançar.'));
+    host.append(el('p', 'Os códigos das fichas são identificadores internos, não siglas para decorar. Use “Entenda os códigos” para consultar cada termo.'));
     const progress = el('ol', null, 'dossier-history');
     const activeSlideIndex = C.slides.findIndex(s => s.id === data.id);
     track().dossierStages.filter(stage => C.slides.findIndex(s => s.id === stage.slideId) <= activeSlideIndex)
-      .forEach(stage => { const item = el('li'); item.append(el('strong', stage.id + ' · ' + stage.title + ' [' + stage.artifactId + ']'), el('p', stage.excerpt)); progress.append(item); });
+      .forEach(stage => { const item = el('li'); item.append(el('strong', 'Etapa ' + (Number(stage.id.slice(1)) + 1) + ' · ' + stage.title + ' (código do documento: ' + stage.artifactId + ')'), el('p', stage.excerpt)); progress.append(item); });
     if (progress.childElementCount) {
       host.append(el('h4', 'Dossiê em construção · ' + track().shortLabel), progress);
       host.append(el('p', 'Cada versão incorpora a anterior. A fonte continua sintética; a validação de utilidade permanece pendente.'));
@@ -312,9 +332,9 @@
     }); table.append(tbody); host.append(table);
     host.append(el('h2', 'Catálogo mínimo · rascunho'), el('p', data.completeness.filled_fields + '/9 campos de texto registrados. Completude não comprova qualidade.'));
     data.catalog.requirements.forEach(item => {
-      const section = el('section'); section.append(el('h3', item.type === 'RD' ? 'RD · Requisito de dados' : item.type));
+      const section = el('section'); section.append(el('h3', typeNames[item.type]));
       const dl = el('dl');
-      const pairs = [['ID', item.requirement_id], ['Enunciado', item.text], ['Fonte sintética', item.source_ref], ['Situação da fonte', item.source_status === 'evidence' ? 'Evidência do cenário sintético' : 'Hipótese pendente de validação'], ['Critério de aceitação · Dado / Quando / Então', item.acceptance_criterion], ['Prioridade proposta', { must: 'Essencial agora', should: 'Importante depois', could: 'Pode esperar', later: 'Fora do escopo atual' }[item.priority]]];
+      const pairs = [['Código interno do requisito', item.requirement_id], ['Enunciado', item.text], ['Fonte sintética', item.source_ref], ['Situação da fonte', item.source_status === 'evidence' ? 'Evidência do cenário sintético' : 'Hipótese pendente de validação'], ['Critério de aceitação · Dado / Quando / Então', item.acceptance_criterion], ['Prioridade proposta', { must: 'Essencial agora', should: 'Importante depois', could: 'Pode esperar', later: 'Fora do escopo atual' }[item.priority]]];
       pairs.forEach(([k, v]) => dl.append(el('dt', k), el('dd', v.trim() || 'Pendente — ainda não registrado.')));
       section.append(dl); host.append(section);
     });
@@ -327,6 +347,7 @@
   $('next-btn').addEventListener('click', () => goSlide(current + 1));
   $('index-btn').addEventListener('click', () => openDialog('index-dialog'));
   $('notes-btn').addEventListener('click', showNotes);
+  $('glossary-btn').addEventListener('click', showGlossary);
   $('mode-btn').addEventListener('click', () => { manualReading = !isReading(); updateView(true); });
   $('contrast-btn').addEventListener('click', () => { const active = document.body.classList.toggle('contrast'); $('contrast-btn').setAttribute('aria-pressed', String(active)); });
   $('fullscreen-btn').addEventListener('click', async () => {
