@@ -97,6 +97,62 @@
   }
   function buildTrack(c) {
     const id = c.prefix;
+
+    const userRequirement = id === 'M'
+      ? 'Como visitante do acervo fictício, quero consultar relatos por tema para ler os itens pertinentes.'
+      : 'Como integrante da equipe pedagógica fictícia, quero consultar linhas agregadas por período sem identificar alunos.';
+    const fixture = id === 'M'
+      ? 'R01=festa; R02=festa; R03=festa; R04=trabalho; R05=trabalho; R06=paisagem (todos inventados).'
+      : 'L01=P1; L02=P1; L03=P1; L04=P2; L05=P2; L06=P3 (linhas agregadas fictícias).';
+    const dossierStages = [
+      { id:'D0', slideId:'s03', title:'Registro', artifactId:c.source, excerpt:fixture },
+      { id:'D1', slideId:'s05', title:'Achado', artifactId:`ACH-${id}01`, excerpt:c.finding },
+      { id:'D2', slideId:'s06', title:'Hipótese e pendência', artifactId:`HIP-${id}01`, excerpt:c.pending },
+      { id:'D3', slideId:'s08', title:'Necessidade e RU', artifactId:`RU-${id}01`, excerpt:userRequirement },
+      { id:'D4', slideId:'s09', title:'RF de sistema', artifactId:`RF-${id}01`, excerpt:c.rf },
+      { id:'D5', slideId:'s12', title:'Dados e regra', artifactId:`RD-${id}01`, excerpt:c.rd },
+      { id:'D6', slideId:'s15', title:'Qualidade mensurável', artifactId:`RNF-${id}02`, excerpt:'Carga de 100 registros; meta de 1 segundo em 10 execuções, ainda pendente de validação.' },
+      { id:'D7', slideId:'s18', title:'Critério de aceitação', artifactId:`CA-${id}01`, excerpt:c.accept },
+      { id:'D8', slideId:'s19', title:'Escopo mínimo', artifactId:`MVP-${id}01`, excerpt:'Consulta, domínio de dados, acesso e proteção; animações fora do primeiro recorte.' },
+      { id:'D9', slideId:'s21', title:'Rastreabilidade', artifactId:`TRACE-${id}01`, excerpt:`${c.source} → ACH-${id}01 → NEC/RU-${id}01 → RF-${id}01 → CA-${id}01` },
+      { id:'D10', slideId:'s24', title:'Catálogo mínimo', artifactId:`CAT-${id}01`, excerpt:'Registrar RF, RNF e RD com fonte, prioridade e critério verificável.' },
+      { id:'D11', slideId:'s25', title:'Revisão por pares', artifactId:`REV-${id}01`, excerpt:'Revisar a redação; validar a necessidade com pessoas autorizadas em outra etapa.' }
+    ];
+    const narrativeOverrides = {
+      s03: { kicker:'D0 · Registro da Aula 07', lead:c.description,
+        cards:[card(c.source+' · ficha identificada',fixture),card('ACH? · o que o registro mostra',c.finding),card('HIP? · o que ele NÃO comprova',c.hypothesis)],
+        note:'Todos os dados são fictícios. A hipótese de utilidade continua pendente.' },
+      s05: { cards:[card(c.source+' · evidência',fixture),card(`ACH-${id}01 · achado`,c.finding),card(`HIP-${id}01 · hipótese`,c.hypothesis)],
+        note:'O achado descreve o conjunto de teste; a hipótese sobre utilidade precisa ser validada.' },
+      s06: { cards:[card(`HIP-${id}01 · suposição`,c.hypothesis),card(`PEND-${id}01 · validar`,c.pending),card('Decisão para o dossiê','O requisito pode ser candidato, mas não será declarado aprovado.')],
+        note:'Não confunda um pedido de botão com a necessidade de uma pessoa.' },
+      s08: { cards:[card(`NEC-${id}01 · necessidade`,c.need),card(`RU-${id}01 · requisito de usuário`,userRequirement),card('Próximo passo','Transformar o serviço desejado em comportamento do sistema.')],
+        note:'Necessidade e requisito são níveis distintos; o benefício permanece hipótese.' },
+      s09: { cards:[card(`NEC-${id}01 · objetivo`,c.need),card(`RU-${id}01 · serviço esperado`,userRequirement),card(`RF-${id}01 · especificação`,c.rf)],
+        note:`A fonte é ${c.source}. O critério CA-${id}01 verificará este RF usando os mesmos seis registros.` },
+      s11: { cards:[card(`RF-${id}01 · função`,c.rf),card(`RNF-${id}01 · acesso`,c.rnf),card('Evolução D4 → D5','O comportamento é o mesmo; adicionamos condições de qualidade.')],
+        note:'Um RF pode possuir RNFs distintos, cada um com seu próprio teste.' },
+      s12: { cards:[card(`RD-${id}01 · dado`,c.rd),card(`RN-${id}01 · política fictícia`,c.rule),card('Impacto no caso','Os valores permitidos limitam o filtro; a revisão limita a saída pública.')],
+        note:'Consulta interna aos seis itens e publicação pública são operações diferentes.' },
+      s13: { cards:[card(`RF-${id}01 · obrigação`,c.rf),card('Verificação prevista',`Ao selecionar ${c.filter}, exibir ${c.count} e preservar ${c.total}.`),card('Decisão pendente',c.pending)],
+        note:'Se a fonte mudar, revise o RF, o dado e o critério ao mesmo tempo.' },
+      s15: { cards:[card(`RF-${id}01 · já definido`,c.rf),card(`RNF-${id}02 · novo teste`,'Com 100 itens sintéticos, filtrar em até 1 s em 10 execuções.'),card('Atenção à fonte','Os 100 itens são carga de desempenho adicional, NÃO a ficha EV-01 de seis itens.')],
+        note:'Documentar o ambiente e validar a meta antes de afirmar atendimento.' },
+      s16: { cards:[card(`RNF-${id}01 · teclado`,c.rnf),card(`RNF-${id}03 · proteção`,c.protect),card('Teste negativo','Campo restrito não pode aparecer na saída pública simulada.')],
+        note:'São duas obrigações separadas e verificáveis vinculadas à mesma consulta.' },
+      s18: { lead:c.accept,cards:[card('Dado · origem',`${c.source} contém ${c.total}.`),card('Quando · operação',`Selecionar ${c.filter}.`),card('Então · resultado',`Exibir ${c.count}; manter ${c.total} originais.`)],
+        note:`CA-${id}01 verifica RF-${id}01; não valida por si a utilidade para pessoas reais.` },
+      s19: { cards:[card('Must · primeira entrega',`RF-${id}01 + RD-${id}01 + acesso e proteção.`),card('Should · depois','Filtros extras após validar a necessidade.'),card('Could · adiar','Animações decorativas e personalização opcional.')],
+        note:'Priorizar por valor, riscos, dependências e esforço; regras de proteção continuam necessárias.' },
+      s21: { steps:[`${c.source}: fonte`,`ACH-${id}01: achado`,`NEC/RU-${id}01: objetivo`,`RF-${id}01: requisito`,`CA-${id}01: teste`],
+        example:c.accept, note:`TRACE-${id}01 mantém HIP-${id}01 como pendente de validação.` },
+      s22: { cards:[card(`Verificar RF-${id}01`,`CA-${id}01 retorna ${c.count} ao escolher ${c.filter}?`),card('Validar a necessidade',c.pending),card('Gerenciar mudança','Revisar juntos os IDs da fonte, RF, RD, critério e rastro.')],
+        note:'Uma IA pode revisar redação, não comprovar uma necessidade não validada.' },
+      s24: { lead:`Construa o catálogo do mesmo caso ${c.shortLabel}: EV → ACH → NEC/RU → RF + RNF + RD → CA.`,
+        note:`Registre RF-${id}01, RNF-${id}01 e RD-${id}01, incluindo a pendência PEND-${id}01.` },
+      s25: { note:`Audite ${c.source} → NEC-${id}01 → RF-${id}01 → CA-${id}01. Revisar o texto não substitui validar com partes interessadas.` },
+      s26: { note:`O dossiê ${id} evoluiu de D0 a D11. Próximo passo: modelar dados a partir do catálogo sem apagar o rastro.` }
+    };
     const missionsById = {
       m1: { questions: [
         question('m1', 1, `${c.source}: ${c.sourceDescription} Qual é o papel desse registro?`, categories('b'), 'b', 'A ficha/tabela identificada é a evidência do exercício. Ela permite conferir a coleção fictícia, mas não retrata uma comunidade ou turma real.', 'Distinguir evidência de interpretação.', c.source, 'Identifica o registro consultável e seu limite.'),
@@ -179,9 +235,11 @@
         s22: { example: `HIP-${id}01: ${c.hypothesis}`, note: c.pending + ' Não substitua a validação por uma resposta de IA.' },
         s24: { lead: `Produzam o catálogo da trilha ${c.shortLabel}. Usem ${c.source}, os registros fictícios complementares ou uma hipótese marcada como pendente.`, note: 'Os exemplos são ponto de partida, não respostas automaticamente aprovadas. Revise e escreva suas decisões.' },
         s25: { example: `Par coerente: ${c.source} + RF-${id}01 + CA-${id}01. Par incoerente: contagem de linhas + afirmação sobre todas as pessoas.`, note: 'Pergunte à outra dupla qual alteração deixaria o requisito testável. Registre a pendência quando não houver resposta.' },
-        s26: { example: c.next }
+        s26: { example: c.next },
+        ...narrativeOverrides
       },
       missions: missionsById,
+      dossierStages,
       catalogExamples: {
         RF: { text: c.rf, source: c.source + ': ' + c.sourceDescription, sourceStatus: 'evidence', criterion: c.accept },
         RNF: { text: c.rnf, source: c.sourceRnf, sourceStatus: 'evidence', criterion: 'Dado o filtro carregado e o ponteiro sem uso, quando navegar com Tab e selecionar a opção pelo teclado, então concluir a filtragem com foco visível e sem bloqueio de navegação.' },
