@@ -57,6 +57,28 @@
     $('mission-progress').textContent = result.completed + ' de 6 missões concluídas';
     return result;
   }
+  function caseTableView(data) {
+    const container = el('section', null, 'case-data');
+    container.append(el('h3', data.title), el('p', data.intro, 'case-intro'));
+    const table = el('table', null, 'case-table');
+    const caption = el('caption', 'Dados criados exclusivamente para esta aula', 'sr-only');
+    table.append(caption);
+    const head = el('thead'); const heading = el('tr');
+    data.columns.forEach(column => { const th = el('th', column.label); th.scope = 'col'; heading.append(th); });
+    head.append(heading); table.append(head);
+    const body = el('tbody');
+    data.rows.forEach(record => {
+      const row = el('tr');
+      data.columns.forEach(column => {
+        const cell = el('td', String(record[column.key]));
+        cell.dataset.label = column.label;
+        row.append(cell);
+      });
+      body.append(row);
+    });
+    table.append(body); container.append(table);
+    return container;
+  }
   function cards(items) {
     const group = el('div', null, 'cards');
     items.forEach(item => {
@@ -120,6 +142,7 @@
       nav.append(b);
     });
     host.append(nav);
+    host.append(button('Ver dados do caso (tabela com 6 registros)', 'case-reference-button', showNotes));
     const field = el('fieldset', null, 'question-fieldset'); field.dataset.question = q.id;
     const legend = el('legend', q.prompt, 'prompt'); legend.tabIndex = -1; field.append(legend);
     const options = el('div', null, 'options');
@@ -244,12 +267,12 @@
       const data = slideData(source); const slide = el('article', null, 'slide ' + data.kind);
       slide.id = data.id; slide.tabIndex = -1; slide.dataset.title = data.title; slide.setAttribute('aria-labelledby', data.id + '-title');
       const heading = el('header', null, 'slide-heading');
-      const step = data.dossierStage ? ' · Etapa ' + (Number(data.dossierStage.id.slice(1)) + 1) + ': ' + data.dossierStage.title.toLowerCase() : '';
-      heading.append(el('p', data.kicker + step, 'kicker'));
+      heading.append(el('p', data.kicker, 'kicker'));
       const title = el(i === 0 ? 'h1' : 'h2', data.title); title.id = data.id + '-title'; heading.append(title);
       if (data.lead) heading.append(el('p', data.lead, 'lead')); slide.append(heading);
       const body = el('div', null, 'slide-body');
       if (data.kind === 'mission') { const host = el('div'); body.append(host); missionRenderer(host, data.missionId); }
+      else if (data.kind === 'case') body.append(caseTableView(track().caseTable));
       else if (data.kind === 'catalog') catalogRenderer(body);
       else if (data.kind === 'review') reviewRenderer(body);
       else if (data.kind === 'exit') exitRenderer(body);
@@ -304,21 +327,30 @@
   }
   function showNotes() {
     const data = slideData(C.slides[current]); const host = $('notes-content'); host.replaceChildren();
-    host.append(el('h3', data.title), el('p', data.note || data.lead || 'Converse com a turma antes de avançar.'));
-    host.append(el('p', 'Os códigos das fichas são identificadores internos, não siglas para decorar. Use “Entenda os códigos” para consultar cada termo.'));
+    host.append(el('h3', 'Material do caso · ' + track().shortLabel));
+    host.append(el('p', 'Este material faz parte da própria página. Não há ficha externa a procurar. Todos os registros abaixo são inventados para a atividade.'));
+    host.append(caseTableView(track().caseTable));
     const progress = el('ol', null, 'dossier-history');
-    const activeSlideIndex = C.slides.findIndex(s => s.id === data.id);
-    track().dossierStages.filter(stage => C.slides.findIndex(s => s.id === stage.slideId) <= activeSlideIndex)
-      .forEach(stage => { const item = el('li'); item.append(el('strong', 'Etapa ' + (Number(stage.id.slice(1)) + 1) + ' · ' + stage.title + ' (código do documento: ' + stage.artifactId + ')'), el('p', stage.excerpt)); progress.append(item); });
-    if (progress.childElementCount) {
-      host.append(el('h4', 'Dossiê em construção · ' + track().shortLabel), progress);
-      host.append(el('p', 'Cada versão incorpora a anterior. A fonte continua sintética; a validação de utilidade permanece pendente.'));
-    }
-    host.append(el('h4', 'Ritmo de referência · 50 minutos'), el('p', 'Retomada 5 min; exemplos e conceitos 10 min; missões guiadas 20 min; catálogo e revisão em equipe 10 min; síntese/ticket 5 min. Intercale explicação e prática.'));
-    host.append(el('h4', 'Mediação e limites'), el('p', 'Nos exercícios abertos, discuta fonte, clareza, teste e limites. Não avalie qualidade por tamanho do texto. Casos sintéticos; nenhuma coleta externa.'));
-    host.append(el('p', 'Proposta de replanejamento: formalizar requisitos antes da modelagem lógica prevista para 11/11 no plano fornecido. Não altera o SUAP. A publicação da Aula 07 não prova que foi ministrada.'));
-    const list = el('ul'); C.sources.forEach(source => { const li = el('li'); const a = el('a', source.title); a.href = source.url; a.target = '_blank'; a.rel = 'noopener noreferrer'; li.append(a); list.append(li); });
-    host.append(el('h4', 'Referências consultadas'), list); openDialog('notes-dialog');
+    const currentSlideIndex = C.slides.findIndex(item => item.id === data.id);
+    track().dossierStages.filter(stage => C.slides.findIndex(item => item.id === stage.slideId) <= currentSlideIndex)
+      .forEach(stage => {
+        const item = el('li');
+        const displayIndex = Number(stage.id.slice(1)) + 1;
+        item.append(el('strong', 'Parte ' + displayIndex + ': ' + stage.title), el('p', stage.excerpt));
+        progress.append(item);
+      });
+    host.append(el('h4', 'Como as decisões evoluem nesta aula'));
+    if (progress.childElementCount) host.append(progress);
+    else host.append(el('p', 'Começaremos a analisar esta tabela na tela 3. Antes disso, observe os dados.'));
+    host.append(el('p', 'O histórico aumenta quando avançamos nos conteúdos. Requisitos e testes são propostas didáticas, não resultados de entrevistas reais.'));
+    const teacher = el('details', null, 'teacher-references');
+    teacher.append(el('summary', 'Notas para o professor e bibliografia'));
+    teacher.append(el('p', data.note || data.lead || 'Explique o caso em linguagem comum antes das abreviações.'));
+    teacher.append(el('p', 'Ritmo de referência: 50 minutos. Intercale leitura da tabela, discussão, missões e escrita do catálogo. As fontes são fictícias; não autorizar coleta externa.'));
+    const list = el('ul');
+    C.sources.forEach(source => { const item = el('li'); const anchor = el('a', source.title); anchor.href = source.url; anchor.target = '_blank'; anchor.rel = 'noopener noreferrer'; item.append(anchor); list.append(item); });
+    teacher.append(list); host.append(teacher);
+    openDialog('notes-dialog');
   }
   function buildPrint() {
     const data = M.exportData(state); const host = $('print-summary'); host.replaceChildren();
