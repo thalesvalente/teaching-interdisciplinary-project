@@ -224,6 +224,19 @@ dialog::backdrop { background: #062619b0; }
 .notes-content li { margin-bottom: 10px; }
 .nojs-message { background: var(--paper); border: 1px solid var(--line); padding: 25px; border-radius: 10px; }
 
+/* Glossário de siglas: sempre por extenso, acessível também em celular e teclado. */
+.glossary-content { font-size: 16px; line-height: 1.45; }
+.glossary-example { padding: 14px 16px; margin: 0 0 15px; border-left: 4px solid var(--ifma); background: var(--green-pale); border-radius: 6px; font-size: 17px; }
+.glossary-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; }
+.glossary-term { min-width: 0; border: 1px solid var(--line); border-radius: 7px; padding: 14px; background: var(--paper); }
+.glossary-term dt { font-weight: 800; color: var(--ifma-dark); font-size: 17px; }
+.glossary-term dd { margin: 7px 0 0; line-height: 1.4; color: var(--ink); }
+@media (max-width: 760px) {
+  .glossary-list { grid-template-columns: 1fr; gap: 9px; }
+  .glossary-term { padding: 13px; }
+  .glossary-example { font-size: 16px; }
+}
+
 /* Modo leitura: todas as telas em ordem e sem escala de texto. */
 .reading { display: block; }
 .reading .toolbar { position: static; }
