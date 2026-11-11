@@ -78,19 +78,46 @@ async function printCheck(page,engine,label){
         const identity=await page.locator('input,textarea').evaluateAll(nodes=>nodes.filter(n=>/matr[ií]cula|nome do aluno|student_name/i.test(n.name+' '+n.id+' '+(n.labels?.[0]?.textContent||''))).map(n=>n.id));assert.deepEqual(identity,[]);
         return{slides:26,tracks:2,xp:0,identityFields:0};
       });
+      await check('GLOSSARY','Codes are explained with plain-language labels in both example tracks',async()=>{
+        const results=[];
+        for(const track of ['memorias','permanencia']){
+          await page.locator('#track-select').selectOption(track);
+          await nav(page,'s03');
+          const cards=await page.locator('#s03 .concept-card h3').allInnerTexts();
+          assert.deepEqual(cards.map(x=>x.trim()),['1. O registro que recebemos','2. O que conseguimos afirmar','3. O que ainda é só uma ideia']);
+          const fixture=await page.locator('#s03 .concept-card').first().innerText();
+          if(track==='permanencia'){
+            assert.match(fixture,/P1.*P2.*P3/s);
+            assert.match(fixture,/não uma pessoa/i);
+          }else assert.match(fixture,/Seis relatos inventados/i);
+          await page.locator('#glossary-btn').click();
+          assert.equal(await page.locator('#glossary-dialog').isVisible(),true);
+          const dialog=await page.locator('#glossary-dialog').innerText();
+          assert.match(dialog,/Evidência/); assert.match(dialog,/Achado/); assert.match(dialog,/Hipótese/);
+          assert.match(dialog,/Requisito funcional/); assert.match(dialog,/P1 \/ P2 \/ P3/);
+          assert.match(dialog,new RegExp(track==='memorias'?'EV-M01':'EV-P01'));
+          assert.equal(await page.locator('.glossary-term').count(),Content.glossary.length);
+          const accessibility=await axe(page);assert.deepEqual(accessibility.violations,[]);
+          await page.keyboard.press('Escape');
+          assert.equal(await page.locator('#glossary-dialog').isVisible(),false);
+          assert.equal(await page.evaluate(()=>document.activeElement?.id),'glossary-btn');
+          results.push({track,cards:cards.length,definitions:Content.glossary.length,accessible:true});
+        }
+        return {results};
+      });
       await check('DOSSIE','Progressive D0-D11 dossier is visible, cumulative and track-isolated',async()=>{
         const summaries=[];
         for(const track of ['memorias','permanencia']){
           const prefix=track==='memorias'?'M':'P';
           await page.locator('#track-select').selectOption(track);
           await nav(page,'s03');
-          assert.match(await page.locator('#s03 .kicker').innerText(),/Dossiê D0/i);
+          assert.match(await page.locator('#s03 .kicker').innerText(),/Etapa 1: registro/i);
           await page.locator('#notes-btn').click();
           assert.match(await page.locator('#notes-content').innerText(),new RegExp('EV-'+prefix+'01'));
           assert.equal(await page.locator('#notes-content .dossier-history li').count(),1);
           await page.keyboard.press('Escape');
           await nav(page,'s21');
-          assert.match(await page.locator('#s21 .kicker').innerText(),/Dossiê D9/i);
+          assert.match(await page.locator('#s21 .kicker').innerText(),/Etapa 10: rastreabilidade/i);
           await page.locator('#notes-btn').click();
           const history=page.locator('#notes-content .dossier-history');
           assert.equal(await history.locator('li').count(),10);

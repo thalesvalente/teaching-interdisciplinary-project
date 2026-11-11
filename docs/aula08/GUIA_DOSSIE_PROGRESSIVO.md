@@ -26,6 +26,41 @@ A primeira versão tinha boa cobertura de classificação, seis missões operaci
 
 **Nota terminológica:** a ISO/IEC 25010:2023 usa nove características do modelo de qualidade e revisa nomes usados na edição de 2011 (por exemplo, *interaction capability*). Não atribuir à norma um limite de um segundo ou uma política inventada para este exercício. A meta e a política são **propostas do cenário fictício**.
 
+## 1.1 Correção de linguagem: explicar antes de abreviar
+
+**Problema observado em 11/11/2026:** a primeira tela do exemplo começava por `EV-P01` / `EV-M01`, `ACH?` e `HIP?`, acompanhada de linhas como `L01=P1` e `R01=festa` **sem explicar o código no contexto**. Uma pessoa que não conhece a notação de Engenharia de Requisitos ficava obrigada a decodificar siglas antes de entender o conteúdo.
+
+**Regra de apresentação:** começar pelo significado em linguagem natural, mencionar o código apenas como referência secundária, depois de explicá-lo. A aula passou a ter um botão constante **“Entenda os códigos”**, com glossário das duas trilhas, e o marcador de fase agora aparece como **“Etapa 1: registro”** em vez de `D0`. O identificador bruto continua disponível em “Dossiê e fontes”, para manter rastreabilidade.
+
+### Exemplo correto para projeção — trilha Memórias
+
+| Elemento | Texto mostrado ao aluno |
+| --- | --- |
+| Registro | **O registro que recebemos:** seis relatos inventados: três sobre festas, dois sobre trabalho e um sobre paisagens; sem nomes ou locais reais |
+| Achado | **O que conseguimos afirmar:** a coleção de teste contém relatos de três temas |
+| Hipótese | **O que ainda é só uma ideia:** talvez agrupar por tema facilite a consulta; isso precisa de confirmação |
+| Código de referência (não título principal) | `EV-M01` significa *primeira evidência da trilha Memórias*; `R01–R06` são relatos numerados e fictícios |
+
+### Exemplo correto para projeção — trilha Permanência
+
+| Elemento | Texto mostrado ao aluno |
+| --- | --- |
+| Registro | **O registro que recebemos:** seis linhas fictícias: três do período 1, duas do período 2 e uma do período 3; cada linha resume um grupo, sem identificar estudantes |
+| Achado | **O que conseguimos afirmar:** a tabela de teste contém linhas de três períodos |
+| Hipótese | **O que ainda é só uma ideia:** talvez consultar por período ajude a planejar ações de apoio; isso precisa de confirmação |
+| Código de referência (não título principal) | `EV-P01` significa *primeira evidência da trilha Permanência*; `L01–L06` são linhas de tabela; `P1/P2/P3` significam períodos 1/2/3 |
+
+### Vocabulário que deve ser introduzido gradualmente
+
+- **Evidência (EV):** registro consultável; **achado (ACH):** conclusão sustentada; **hipótese (HIP):** ideia ainda não comprovada; **pendência (PEND):** decisão ou pergunta aberta.
+- **Necessidade (NEC):** problema da parte interessada; **requisito de usuário (RU):** serviço esperado; **requisito funcional (RF):** comportamento do sistema.
+- **Requisito não funcional (RNF):** qualidade ou restrição; **requisito de dados (RD):** definição do campo; **regra de negócio (RN):** política do domínio; **critério de aceitação (CA):** exemplo de teste.
+- **D0–D11:** etiquetas internas das etapas do dossiê, exibidas ao aluno como *Etapa 1–12*; **XP:** pontos formativos, sem equivalência com nota oficial.
+
+**Mediação recomendada:** o professor lê a primeira ficha em linguagem comum e pergunta “O que isso mostra?” antes de introduzir o termo *achado*. Só então pergunta “O que ainda não podemos afirmar?” para ensinar *hipótese*. Os códigos entram como suporte à documentação, não como pré-requisito para entender o problema.
+
+**QA adicional:** verificar ambos os cartões iniciais em 1280×720, 390×844 e 320 px; conferir vocabulário e leitura por teclado, preservando 26 telas, 100 XP, contratos e exportação local.
+
 ## 2. Duas trilhas, uma única estrutura narrativa
 
 ### Trilha M — Mapa de Memórias Quilombolas (inteiramente inventado)

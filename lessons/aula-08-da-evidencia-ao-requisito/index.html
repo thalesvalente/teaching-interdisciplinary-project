@@ -6,13 +6,13 @@
   <meta name="color-scheme" content="light">
   <meta name="referrer" content="no-referrer">
   <meta name="ppi-lesson-version" content="1.0.0">
-  <meta name="ppi-release" content="aula08-20261110-v1">
+  <meta name="ppi-release" content="aula08-20261111-siglas-explicadas-v2">
   <meta name="description" content="Aula 08 de PPI I: transforme evidências em requisitos verificáveis, com seis missões de treino e um catálogo local de rascunho.">
   <title>Aula 08 · Da evidência ao requisito · PPI I</title>
-  <link rel="stylesheet" href="aula.css">
-  <script defer src="content.js"></script>
+  <link rel="stylesheet" href="aula.css?v=20261111-2">
+  <script defer src="content.js?v=20261111-2"></script>
   <script defer src="model.js"></script>
-  <script defer src="aula.js"></script>
+  <script defer src="aula.js?v=20261111-2"></script>
 </head>
 <body class="reading">
   <a class="skip-link" href="#deck">Pular para o conteúdo da aula</a>
@@ -40,6 +40,7 @@
       <button id="index-btn" type="button" aria-haspopup="dialog" aria-controls="index-dialog">Índice</button>
       <button id="mode-btn" type="button" aria-pressed="false">Modo leitura</button>
       <button id="contrast-btn" type="button" aria-pressed="false">Alto contraste</button>
+      <button id="glossary-btn" type="button" aria-haspopup="dialog" aria-controls="glossary-dialog">Entenda os códigos</button>
       <button id="notes-btn" type="button" aria-haspopup="dialog" aria-controls="notes-dialog">Dossiê e fontes</button>
       <button id="fullscreen-btn" type="button">Tela cheia</button>
     </nav>
@@ -80,6 +81,11 @@
   <dialog id="notes-dialog" aria-labelledby="notes-title">
     <div class="dialog-heading"><div><p class="kicker">Mediação em sala</p><h2 id="notes-title">Dossiê em evolução e notas</h2></div><button type="button" data-close aria-label="Fechar notas do professor">Fechar</button></div>
     <div id="notes-content" class="notes-content"></div>
+  </dialog>
+
+  <dialog id="glossary-dialog" aria-labelledby="glossary-title">
+    <div class="dialog-heading"><div><p class="kicker">Consulta rápida · linguagem simples</p><h2 id="glossary-title">Entenda os códigos e as siglas</h2></div><button type="button" data-close aria-label="Fechar glossário">Fechar</button></div>
+    <div id="glossary-content" class="glossary-content"></div>
   </dialog>
 
   <section id="print-summary" aria-label="Síntese local para impressão" hidden></section>
