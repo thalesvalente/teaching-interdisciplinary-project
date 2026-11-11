@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="referrer" content="no-referrer">
+  <meta name="ppi-lesson-version" content="1.0.0">
+  <meta name="ppi-release" content="aula08-20261110-v1">
+  <meta name="description" content="Aula 08 de PPI I: transforme evidências em requisitos verificáveis, com seis missões de treino e um catálogo local de rascunho.">
+  <title>Aula 08 · Da evidência ao requisito · PPI I</title>
+  <link rel="stylesheet" href="aula.css">
+  <script defer src="content.js"></script>
+  <script defer src="model.js"></script>
+  <script defer src="aula.js"></script>
+</head>
+<body class="reading">
+  <a class="skip-link" href="#deck">Pular para o conteúdo da aula</a>
+
+  <header class="toolbar" id="toolbar">
+    <div class="toolbar-top">
+      <a class="portal-link" href="../../index.html" aria-label="Voltar ao portal de PPI I">
+        <span class="brand-mark" aria-hidden="true">08</span>
+        <span class="brand-copy"><strong>PPI I · IFMA</strong><span>Da evidência ao requisito</span></span>
+      </a>
+      <div class="lesson-progress" role="group" aria-label="Progresso formativo">
+        <strong id="xp-total">0 / 100 XP</strong>
+        <span id="mission-progress">0 de 6 missões concluídas</span>
+      </div>
+      <p class="xp-disclaimer">XP formativo · <strong>não é nota oficial</strong></p>
+    </div>
+    <nav class="toolbar-controls" aria-label="Controles da apresentação">
+      <div class="track-control">
+        <label for="track-select">Trilha</label>
+        <select id="track-select">
+          <option value="memorias">Memórias Quilombolas</option>
+          <option value="permanencia">Permanência Estudantil</option>
+        </select>
+      </div>
+      <button id="index-btn" type="button" aria-haspopup="dialog" aria-controls="index-dialog">Índice</button>
+      <button id="mode-btn" type="button" aria-pressed="false">Modo leitura</button>
+      <button id="contrast-btn" type="button" aria-pressed="false">Alto contraste</button>
+      <button id="notes-btn" type="button" aria-haspopup="dialog" aria-controls="notes-dialog">Notas do professor</button>
+      <button id="fullscreen-btn" type="button">Tela cheia</button>
+    </nav>
+  </header>
+
+  <p class="lesson-policy" id="policy-banner"><span class="policy-dot" aria-hidden="true"></span>Somente casos sintéticos · respostas neste dispositivo</p>
+
+  <div id="stage" class="deck-viewport">
+    <main id="deck" tabindex="-1" aria-label="Conteúdo da Aula 08">
+      <noscript>
+        <section class="nojs-message">
+          <h1>Da evidência ao requisito</h1>
+          <p>Esta aula precisa de JavaScript para as missões, a navegação e o rascunho local. Habilite-o no navegador para usar os arquivos baixados.</p>
+          <p>Sem JavaScript, use o <a href="README.md">guia da aula</a> com apoio do professor. Nenhuma resposta é enviada.</p>
+        </section>
+      </noscript>
+    </main>
+  </div>
+
+  <footer class="navigation" id="lesson-footer" aria-label="Navegação entre telas">
+    <button id="prev-btn" type="button" aria-label="Tela anterior"><span aria-hidden="true">←</span> Anterior</button>
+    <div class="navigation-status">
+      <span id="slide-counter" aria-live="polite" aria-atomic="true">1 / 26</span>
+      <span id="storage-status" role="status">Rascunho local</span>
+    </div>
+    <button id="next-btn" type="button" aria-label="Próxima tela">Próxima <span aria-hidden="true">→</span></button>
+  </footer>
+
+  <p class="sr-only" id="live-region" role="status" aria-live="polite" aria-atomic="true"></p>
+
+  <dialog id="index-dialog" aria-labelledby="index-title">
+    <div class="dialog-heading"><div><p class="kicker">Seu percurso</p><h2 id="index-title">Índice da aula</h2></div><button type="button" data-close aria-label="Fechar índice">Fechar</button></div>
+    <p class="dialog-intro">Escolha uma tela. Você pode voltar às missões e tentar novamente.</p>
+    <div id="index-list" class="index-list"></div>
+    <div class="local-data-actions"><p>Em um computador compartilhado, guarde sua síntese e apague os rascunhos ao terminar.</p><button id="clear-local-btn" type="button">Apagar rascunhos</button></div>
+  </dialog>
+
+  <dialog id="notes-dialog" aria-labelledby="notes-title">
+    <div class="dialog-heading"><div><p class="kicker">Mediação em sala</p><h2 id="notes-title">Notas do professor</h2></div><button type="button" data-close aria-label="Fechar notas do professor">Fechar</button></div>
+    <div id="notes-content" class="notes-content"></div>
+  </dialog>
+
+  <section id="print-summary" aria-label="Síntese local para impressão" hidden></section>
+</body>
+</html>

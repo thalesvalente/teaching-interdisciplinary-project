@@ -1,0 +1,62 @@
+name: QA Aula 08
+
+on:
+  push:
+    branches: [main, 'feat/aula08**']
+    paths:
+      - 'lessons/aula-08-da-evidencia-ao-requisito/**'
+      - 'tests/aula08/**'
+      - 'contracts/ppi-aula08*'
+      - 'contracts/examples/aula08*'
+      - 'docs/aula08*'
+      - 'docs/aula08/**'
+      - 'index.html'
+      - 'README.md'
+      - 'package*.json'
+      - '.github/workflows/qa-aula08.yml'
+  pull_request:
+    paths:
+      - 'lessons/aula-08-da-evidencia-ao-requisito/**'
+      - 'tests/aula08/**'
+      - 'contracts/ppi-aula08*'
+      - 'contracts/examples/aula08*'
+      - 'docs/aula08*'
+      - 'docs/aula08/**'
+      - 'index.html'
+      - 'README.md'
+      - 'package*.json'
+      - '.github/workflows/qa-aula08.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  aula08-three-browsers:
+    name: Aula 08 · aprendizagem, contrato e acessibilidade
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Dependências de verificação
+        run: npm ci
+      - name: Chromium, Firefox e WebKit
+        run: npx playwright install --with-deps chromium firefox webkit
+      - name: Contrato, pontuação e isolamento
+        run: npm run test:aula08:unit
+      - name: Missões, reflow, teclado, acessibilidade, exportação e impressão
+        run: npm run test:aula08
+        env:
+          AULA08_BROWSERS: chromium,firefox,webkit
+          AULA08_EVIDENCE_DIR: tmp/aula08-ci
+      - name: Evidências da Aula 08
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aula08-qa
+          path: tmp/aula08-ci/
+          if-no-files-found: error
+          retention-days: 14

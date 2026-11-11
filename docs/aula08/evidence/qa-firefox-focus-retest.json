@@ -1,0 +1,121 @@
+{
+  "time": "2026-11-11T01:55:27.320Z",
+  "browser": "142.0.1",
+  "aula_js_sha256": "cc96ece36e452cfb720950093b60f53f4d20a550ea52ac3c1165bf6c4ecbdea8",
+  "states": 8,
+  "cases": [
+    {
+      "viewport": 1280,
+      "question": 1,
+      "prompt": {
+        "tag": "LEGEND",
+        "cls": "prompt",
+        "text": "EV-M01: Ficha de teste fictícia v1: 6 relatos sintéticos; 3 de tema festa, 2 de trabalho e"
+      },
+      "afterAnswer": {
+        "tag": "BUTTON",
+        "cls": "option",
+        "selected": "true"
+      }
+    },
+    {
+      "viewport": 1280,
+      "question": 2,
+      "prompt": {
+        "tag": "LEGEND",
+        "cls": "prompt",
+        "text": "Após ler EV-M01, a equipe conclui: “A coleção de teste contém relatos de três temas.” Como"
+      },
+      "afterAnswer": {
+        "tag": "BUTTON",
+        "cls": "option",
+        "selected": "true"
+      }
+    },
+    {
+      "viewport": 1280,
+      "question": 3,
+      "prompt": {
+        "tag": "LEGEND",
+        "cls": "prompt",
+        "text": "A equipe escreve: “Talvez agrupar por tema facilite a consulta de quem usa o acervo.” Qual"
+      },
+      "afterAnswer": {
+        "tag": "BUTTON",
+        "cls": "option",
+        "selected": "true"
+      }
+    },
+    {
+      "viewport": 1280,
+      "question": 4,
+      "prompt": {
+        "tag": "LEGEND",
+        "cls": "prompt",
+        "text": "Falta validar com o professor se tema é o melhor filtro para este objetivo. Essa informaçã"
+      },
+      "afterAnswer": {
+        "tag": "BUTTON",
+        "cls": "option",
+        "selected": "true"
+      }
+    },
+    {
+      "viewport": 320,
+      "question": 1,
+      "prompt": {
+        "tag": "LEGEND",
+        "cls": "prompt",
+        "text": "EV-M01: Ficha de teste fictícia v1: 6 relatos sintéticos; 3 de tema festa, 2 de trabalho e"
+      },
+      "afterAnswer": {
+        "tag": "BUTTON",
+        "cls": "option",
+        "selected": "true"
+      }
+    },
+    {
+      "viewport": 320,
+      "question": 2,
+      "prompt": {
+        "tag": "LEGEND",
+        "cls": "prompt",
+        "text": "Após ler EV-M01, a equipe conclui: “A coleção de teste contém relatos de três temas.” Como"
+      },
+      "afterAnswer": {
+        "tag": "BUTTON",
+        "cls": "option",
+        "selected": "true"
+      }
+    },
+    {
+      "viewport": 320,
+      "question": 3,
+      "prompt": {
+        "tag": "LEGEND",
+        "cls": "prompt",
+        "text": "A equipe escreve: “Talvez agrupar por tema facilite a consulta de quem usa o acervo.” Qual"
+      },
+      "afterAnswer": {
+        "tag": "BUTTON",
+        "cls": "option",
+        "selected": "true"
+      }
+    },
+    {
+      "viewport": 320,
+      "question": 4,
+      "prompt": {
+        "tag": "LEGEND",
+        "cls": "prompt",
+        "text": "Falta validar com o professor se tema é o melhor filtro para este objetivo. Essa informaçã"
+      },
+      "afterAnswer": {
+        "tag": "BUTTON",
+        "cls": "option",
+        "selected": "true"
+      }
+    }
+  ],
+  "status": "PASS"
+}

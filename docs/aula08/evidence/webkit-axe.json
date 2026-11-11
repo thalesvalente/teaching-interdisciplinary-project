@@ -1,0 +1,744 @@
+[
+  {
+    "track": "memorias",
+    "slide": "s01",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 11
+      }
+    ],
+    "passes": 26
+  },
+  {
+    "track": "memorias",
+    "slide": "s02",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 9
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "track": "memorias",
+    "slide": "s03",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 10
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "track": "memorias",
+    "slide": "s04",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 12
+      }
+    ],
+    "passes": 26
+  },
+  {
+    "track": "memorias",
+    "slide": "s05",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 11
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "track": "memorias",
+    "slide": "s06",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 10
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "track": "memorias",
+    "slide": "s07",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 2
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 21
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "track": "memorias",
+    "slide": "s08",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 9
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "track": "memorias",
+    "slide": "s09",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 9
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "track": "memorias",
+    "slide": "s10",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 2
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 18
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "track": "memorias",
+    "slide": "s11",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 8
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "track": "memorias",
+    "slide": "s12",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 7
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "track": "memorias",
+    "slide": "s13",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 11
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "track": "memorias",
+    "slide": "s14",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 2
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 21
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "track": "memorias",
+    "slide": "s15",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 8
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "track": "memorias",
+    "slide": "s16",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 7
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "track": "memorias",
+    "slide": "s17",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 2
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 17
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "track": "memorias",
+    "slide": "s18",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 9
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "track": "memorias",
+    "slide": "s19",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 9
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "track": "memorias",
+    "slide": "s20",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 2
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 18
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "track": "memorias",
+    "slide": "s21",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 11
+      }
+    ],
+    "passes": 26
+  },
+  {
+    "track": "memorias",
+    "slide": "s22",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 9
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "track": "memorias",
+    "slide": "s23",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 2
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 18
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "track": "memorias",
+    "slide": "s24",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 2
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 23
+      }
+    ],
+    "passes": 25
+  },
+  {
+    "track": "memorias",
+    "slide": "s25",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 9
+      }
+    ],
+    "passes": 25
+  },
+  {
+    "track": "memorias",
+    "slide": "s26",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 1
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 12
+      }
+    ],
+    "passes": 25
+  },
+  {
+    "track": "permanencia",
+    "slide": "s07",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 2
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 21
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "track": "permanencia",
+    "slide": "s10",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 2
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 16
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "track": "permanencia",
+    "slide": "s14",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 2
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 21
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "track": "permanencia",
+    "slide": "s17",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 2
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 17
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "track": "permanencia",
+    "slide": "s20",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 2
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 18
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "track": "permanencia",
+    "slide": "s23",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "nodes": 2
+      },
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": 18
+      }
+    ],
+    "passes": 24
+  },
+  {
+    "state": "index-dialog",
+    "violations": [],
+    "incomplete": [],
+    "passes": 14
+  }
+]

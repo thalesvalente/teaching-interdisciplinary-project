@@ -1,0 +1,7 @@
+{
+  "verified_at_utc": "2026-11-11T01:47:28.415274+00:00",
+  "screen_tested_css_sha256": "22b9cbe4df04df81e2280081c52204327ac9e9491841701769b4a2f7a17af93f",
+  "final_css_sha256": "959738257252e66d7a67ee08b637a3ffa60e69dd601b660712321d3a580c7afc",
+  "only_delta": "@media print: #print-summary dt adds break-after: avoid",
+  "screen_rules_byte_identical": true
+}

@@ -1,0 +1,40 @@
+{
+  "baseline": "b9a1e960bc5531429c627429dea0259d565d9666",
+  "tracked_changes": [
+    "README.md",
+    "index.html",
+    "package-lock.json",
+    "package.json"
+  ],
+  "cards_01_07": [
+    {
+      "card": "aula-01",
+      "byte_equal": true
+    },
+    {
+      "card": "aula-02",
+      "byte_equal": true
+    },
+    {
+      "card": "aula-03",
+      "byte_equal": true
+    },
+    {
+      "card": "aula-04",
+      "byte_equal": true
+    },
+    {
+      "card": "aula-05",
+      "byte_equal": true
+    },
+    {
+      "card": "aula-06",
+      "byte_equal": true
+    },
+    {
+      "card": "aula-07",
+      "byte_equal": true
+    }
+  ],
+  "previous_lessons_changed": false
+}

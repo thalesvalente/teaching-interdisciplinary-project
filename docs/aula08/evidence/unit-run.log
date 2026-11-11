@@ -1,0 +1,38 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> teaching-interdisciplinary-project@1.0.0 test:aula08:unit
+> node --test tests/aula08/unit.test.cjs
+
+✔ CONTENT-01: 26 unique slides, six linked missions and the requested 100 XP (1.726171ms)
+✔ CONTENT-02-memorias: all questions have unique versioned IDs and justified choices (0.507936ms)
+✔ SCORE-01-memorias: zero before practice, 100 after all six missions, no official grade (1.028319ms)
+✔ SCORE-02-memorias: a mission awards its XP only after every answer is correct (0.342826ms)
+✔ SCORE-03-memorias: retry never duplicates XP and changing a correct choice recalculates (0.405111ms)
+✔ CONTENT-02-permanencia: all questions have unique versioned IDs and justified choices (0.173111ms)
+✔ SCORE-01-permanencia: zero before practice, 100 after all six missions, no official grade (0.227663ms)
+✔ SCORE-02-permanencia: a mission awards its XP only after every answer is correct (0.249916ms)
+✔ SCORE-03-permanencia: retry never duplicates XP and changing a correct choice recalculates (0.154252ms)
+✔ RESET-m1: reset removes only this mission's answers and XP (0.394404ms)
+✔ RESET-m2: reset removes only this mission's answers and XP (0.187363ms)
+✔ RESET-m3: reset removes only this mission's answers and XP (0.15887ms)
+✔ RESET-m4: reset removes only this mission's answers and XP (0.118358ms)
+✔ RESET-m5: reset removes only this mission's answers and XP (0.079369ms)
+✔ RESET-m6: reset removes only this mission's answers and XP (0.104647ms)
+✔ ISOLATION-01: toggling tracks preserves separate answers, catalog and completion (0.833476ms)
+✔ OPEN-01: free text and self-review do not award mission XP or teacher approval (7.109312ms)
+✔ STATE-01: serialization and validation round-trip preserve answers and timestamps (0.480063ms)
+✔ STATE-02: malformed, unknown-version and hostile prototype payloads are rejected (0.462607ms)
+✔ STATE-03: unrecognized question/choice and injected scoring are rejected (3.542708ms)
+✔ SCHEMA-01-memorias: empty and complete exports meet the 2020-12 contract (0.666915ms)
+✔ SCHEMA-01-permanencia: empty and complete exports meet the 2020-12 contract (0.421385ms)
+✔ SCHEMA-02: score, identity, assessment and kind corruption is rejected (1.23495ms)
+✔ SCHEMA-03: two committed synthetic examples validate and cover both tracks (1.900624ms)
+✔ STATIC-01: lesson uses only local runtime files and contains no transport or telemetry (0.533334ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 285.585311
