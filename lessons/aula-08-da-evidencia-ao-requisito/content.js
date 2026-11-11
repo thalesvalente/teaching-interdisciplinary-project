@@ -492,7 +492,7 @@
     { code: 'RD', term: 'Requisito de dados', meaning: 'Definição dos dados usados, por exemplo os valores aceitos no campo período.' },
     { code: 'RN', term: 'Regra de negócio', meaning: 'Política do contexto que continuaria valendo mesmo sem o software.' },
     { code: 'CA', term: 'Critério de aceitação', meaning: 'Exemplo de teste com situação inicial, ação e resultado esperado.' },
-    { code: 'D0 a D11', term: 'Etapas do dossiê', meaning: 'Numeração interna da evolução do documento. D0 é a ficha inicial e D11 é a revisão final.' },
+    { code: 'D0 a D11', term: 'Fases do exemplo', meaning: 'Identificadores internos da evolução nesta mesma página; o aluno acompanha as etapas pelos títulos por extenso.' },
     { code: 'M / P', term: 'Trilhas', meaning: 'M identifica Memórias; P identifica Permanência. Não são nomes nem códigos de pessoas.' },
     { code: 'R01 / L01', term: 'Registros do exercício', meaning: 'R é relato fictício numerado; L é linha agregada da tabela fictícia. Não representam indivíduos.' },
     { code: 'P1 / P2 / P3', term: 'Períodos fictícios', meaning: 'Período 1, período 2 e período 3. Servem apenas ao exemplo de Permanência.' },
@@ -657,7 +657,7 @@
     const narrativeOverrides = teachingOverrides(c,id,userRequirement,caseTable);
     const missionsById = {
       m1: { questions: [
-        question('m1', 1, `Na tela 3 mostramos uma tabela criada para a aula. Chamamos seu registro de evidência (${c.source}). Que tipo de informação é essa tabela?`, categories('b'), 'b', 'A ficha/tabela identificada é a evidência do exercício. Ela permite conferir a coleção fictícia, mas não retrata uma comunidade ou turma real.', 'Distinguir evidência de interpretação.', c.source, 'Identifica o registro consultável e seu limite.'),
+        question('m1', 1, `Na tela 3 mostramos uma tabela criada para a aula. Chamamos seu registro de evidência (${c.source}). Que tipo de informação é essa tabela?`, categories('b'), 'b', 'A tabela que você viu na tela 3 é a evidência deste exercício. Ela permite conferir o conjunto inventado, não representa pessoas reais.', 'Distinguir evidência de interpretação.', c.source, 'Identifica o registro consultável e seu limite.'),
         question('m1', 2, `Depois de observar a tabela da tela 3, concluímos: “${c.finding}” Como chamamos uma conclusão apoiada nos dados?`, categories('a'), 'a', 'O achado resulta da leitura da evidência. A conclusão limita-se ao conjunto examinado.', 'Reconhecer um achado sustentado.', c.source, 'Relaciona a conclusão ao registro que a sustenta.'),
         question('m1', 3, `A equipe escreve: “${c.hypothesis}” Qual é a classificação?`, categories('c'), 'c', '“Talvez” sinaliza uma explicação a testar. O conteúdo não foi validado pela existência da tabela.', 'Manter incerteza explícita.', `HIP-${id}01`, 'Não promove uma suposição a fato.'),
         question('m1', 4, c.pending + ' Essa informação deve ser registrada como:', categories('d'), 'd', 'A validação ainda necessária vira pendência. Não é preciso inventar uma resposta para continuar o rascunho.', 'Registrar uma pendência de validação.', `PEND-${id}01`, 'Identifica o que falta e não fabrica confirmação.')
@@ -716,7 +716,7 @@
           option('c', 'Uma sugestão da IA → “fonte confirmada” → publicação automática.', 'A IA não confirma uma fonte nem autoriza publicar dados.')
         ], 'b', 'O rastro deve permitir seguir do teste ao requisito e voltar à fonte, inclusive quando algum elo é uma hipótese pendente.', 'Montar cadeia de rastreabilidade.', c.source, 'Relaciona os cinco elos sem inventar confirmação.'),
         question('m6', 2, 'Na revisão de pares, qual decisão preserva a coerência entre evidência e requisito?', [
-          option('a', `Usar a ficha de exemplo (${c.source}) para prever ${c.count} ao escolher ${c.filter}; manter a utilidade como hipótese a confirmar.`, 'O teste usa a coleção conhecida e não transforma a hipótese sobre utilidade em fato.'),
+          option('a', `Usar a tabela mostrada na tela 3 (${c.source}) para prever ${c.count} ao selecionar ${c.filter}; manter a utilidade como hipótese a confirmar.`, 'O teste usa a coleção conhecida e não transforma a hipótese sobre utilidade em fato.'),
           option('b', 'Usar o número de linhas como prova de que o sistema resolve todos os problemas do público.', 'A quantidade de registros não prova utilidade geral, causas ou impacto.'),
           option('c', 'Apagar a fonte e escolher um critério que sempre devolve “aprovado”.', 'Sem origem e resultado observável, o critério não verifica o requisito.')
         ], 'a', 'Um dado pode sustentar o resultado esperado de um teste sem validar a necessidade em todos os contextos. A revisão humana identifica esse limite.', 'Revisar fonte, requisito e critério em conjunto.', `${c.source} / HIP-${id}01`, 'Preserva resultado verificável e incerteza contextual.')
@@ -724,41 +724,24 @@
     };
     return {
       label: c.label, shortLabel: c.shortLabel, description: c.description,
-      slides: {
-        s03: { lead: c.description, cards: [card(c.source + ' · evidência fictícia', c.sourceDescription), card('Hipótese a investigar', c.hypothesis), card('Objetivo do exercício', c.need)], note: 'Sem coleta real, contato externo ou dados de pessoas. Mudar de trilha não mistura respostas.' },
-        s06: { example: c.sourceDescription, note: `${c.pending} A existência do registro não elimina essa pendência.` },
-        s09: { cards: [card(`NEC-${id}01 · necessidade candidata`, c.need), card(`RF-${id}01 · requisito proposto`, c.rf), card(`CA-${id}01 · verificação`, c.accept)], note: 'A necessidade é candidata no caso didático; a equipe deve confirmar sua adequação antes de uma implementação real.' },
-        s11: { cards: [card(`RF-${id}01 · comportamento`, c.rf), card(`RNF-${id}01 · acesso`, c.rnf), card('Por que são diferentes?', 'O RF define a resposta do sistema; o RNF limita uma condição em que ela deve funcionar.')] },
-        s12: { cards: [card(`RD-${id}01 · dado`, c.rd), card(`RN-${id}01 · regra fictícia`, c.rule), card('Como se relacionam?', 'Uma regra de revisão pode gerar um RF de validação e restrições de proteção.')], note: 'A política é inventada para o exercício. Não é regra institucional nem decisão de uma comunidade real.' },
-        s16: { cards: [card('Acesso verificável', c.rnf), card('Proteção verificável', c.protect), card('Dois itens no catálogo', 'Escreva um RNF para cada obrigação e teste também a tentativa de exibir algo restrito.')], note: 'Não há autenticação ou dados pessoais nesta aula. O cenário de proteção é apenas uma especificação fictícia.' },
-        s18: { lead: c.accept, cards: [card('Dado', `${c.source}: ${c.total} em uma coleção conhecida.`), card('Quando', `Selecionar ${c.filter} no filtro.`), card('Então', `Exibir ${c.count} e preservar os ${c.total} da coleção original.`)], note: 'Crie também um critério para filtro sem resultado e para dado inválido. Não apague a coleção ao filtrar.' },
-        s19: { cards: [card('Essencial agora', `Consultar ${c.noun}, preservar a fonte, garantir teclado e proteção da saída.`), card('Importante depois', 'Combinar filtros adicionais, se a necessidade for validada e o esforço couber.'), card('Pode esperar', 'Animações decorativas e temas visuais personalizados.')], note: 'A prioridade proposta deve ser justificada; não é uma regra fixa para qualquer projeto.' },
-        s21: { steps: [`${c.source}: registro`, `ACH-${id}01: achado`, `NEC-${id}01: necessidade`, `RF-${id}01: requisito`, `CA-${id}01: critério`], example: c.accept, note: `Registre HIP-${id}01 como pendente. O resultado esperado do teste não prova utilidade fora deste cenário.` },
-        s22: { example: `HIP-${id}01: ${c.hypothesis}`, note: c.pending + ' Não substitua a validação por uma resposta de IA.' },
-        s24: { lead: `Produzam o catálogo da trilha ${c.shortLabel}. Usem ${c.source}, os registros fictícios complementares ou uma hipótese marcada como pendente.`, note: 'Os exemplos são ponto de partida, não respostas automaticamente aprovadas. Revise e escreva suas decisões.' },
-        s25: { example: `Par coerente: ${c.source} + RF-${id}01 + CA-${id}01. Par incoerente: contagem de linhas + afirmação sobre todas as pessoas.`, note: 'Pergunte à outra dupla qual alteração deixaria o requisito testável. Registre a pendência quando não houver resposta.' },
-        s26: { example: c.next },
-        ...narrativeOverrides
-      },
+      slides: narrativeOverrides,
       missions: missionsById,
       dossierStages,
       caseTable,
       catalogExamples: {
         RF: { text: c.rf, source: c.source + ': ' + c.sourceDescription, sourceStatus: 'evidence', criterion: c.accept },
         RNF: { text: c.rnf, source: c.sourceRnf, sourceStatus: 'pending_hypothesis', criterion: 'Dado o filtro carregado e o ponteiro sem uso, quando navegar com Tab e selecionar a opção pelo teclado, então concluir a filtragem com foco visível e sem bloqueio de navegação.' },
-        RD: { text: c.rd, source: c.sourceRd, sourceStatus: 'pending_hypothesis', criterion: `Dado um registro da base v1, quando validar o campo ${c.filter === 'festa' ? 'tema' : 'período'}, então aceitar somente um dos três valores definidos no dicionário e rejeitar campo vazio ou outro valor.` }
+        RD: { text: c.rd, source: c.sourceRd, sourceStatus: 'pending_hypothesis', criterion: `Dado um registro da tabela da tela 3, quando validar o campo ${c.filter === 'festa' ? 'tema' : 'período'}, então aceitar apenas os três valores apresentados e rejeitar outros valores ou campo vazio.` }
       },
       syntheticRecords: [
         { id: c.source, kind: 'evidence', description: c.sourceDescription },
-        { id: `EV-${id}02`, kind: 'evidence', description: c.sourceRd },
-        { id: `EV-${id}03`, kind: 'evidence', description: c.sourceRnf },
         { id: `HIP-${id}01`, kind: 'hypothesis_pending', description: c.hypothesis },
         { id: `RN-${id}01`, kind: 'fictional_policy', description: c.rule }
       ]
     };
   }
   return {
-    version: '1.0.0', criteriaVersion: '1.0.0', answerKeyVersion: '1.0.0', lessonId: 'ppi-aula08',
+    version: '1.0.0', contentRevision: '2026-11-11-pedagogia-3', criteriaVersion: '1.0.0', answerKeyVersion: '1.0.0', lessonId: 'ppi-aula08',
     tracks: { memorias: buildTrack(contexts.memorias), permanencia: buildTrack(contexts.permanencia) },
     slides, missions, glossary,
     sources: [
