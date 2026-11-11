@@ -65,7 +65,7 @@
         "kind": "concept",
         "kicker": "Conceito · Engenharia de Requisitos",
         "title": "Afinal, o que é um requisito?",
-        "lead": "É uma condição ou capacidade necessária para atingir um objetivo, que o sistema deverá atender.",
+        "lead": "A ISO/IEC/IEEE 29148:2018 relaciona requisitos às condições e capacidades necessárias para alcançar objetivos.",
         "cards": [
             {
                 "title": "Em palavras simples",
@@ -449,34 +449,34 @@
   const contexts = {
     memorias: {
       label: 'Mapa de Memórias Quilombolas', shortLabel: 'Memórias', description: 'Acervo fictício de relatos, sem pessoas, narrativas ou locais reais.', prefix: 'M',
-      source: 'EV-M01', sourceDescription: 'Ficha fictícia: seis relatos, três sobre festas, dois sobre trabalho e um sobre paisagens.', fixtureOverview: 'Seis relatos inventados: três sobre festas, dois sobre trabalho e um sobre paisagens. Não há nomes ou locais reais.',
-      finding: 'A coleção de teste contém relatos de três temas.', hypothesis: 'Talvez agrupar por tema facilite a consulta de quem usa o acervo.', pending: 'Falta validar com o professor se tema é o melhor filtro para este objetivo.',
-      need: 'Quem consulta precisa localizar relatos do tema escolhido.', rf: 'O sistema deve exibir os relatos do tema selecionado sem alterar a coleção original.',
-      rnf: 'A filtragem deve ser concluída usando apenas o teclado, com foco visível e sem bloqueio de navegação.',
-      rd: 'O campo tema é obrigatório e aceita somente festa, trabalho ou paisagem na coleção fictícia.',
-      rule: 'Política inventada para o exercício: só itens revisados poderiam aparecer numa divulgação pública.',
-      accept: 'Dada a coleção fictícia com seis relatos, quando escolher o tema festa, então mostrar os três relatos de festa e preservar os seis originais.',
+      source: 'EV-M01', sourceDescription: 'Tabela da tela 3: seis relatos inventados, três sobre festas, dois sobre trabalho e um sobre paisagens.', fixtureOverview: 'Seis relatos inventados: três sobre festas, dois sobre trabalho e um sobre paisagens. Não há nomes ou locais reais.',
+      finding: 'Na tabela há três relatos com tema festa, dois com tema trabalho e um com tema paisagem.', hypothesis: 'Talvez filtrar por tema ajude alguém a encontrar um relato.', pending: 'Precisamos perguntar a quem usaria o acervo se o filtro por tema ajuda na tarefa.',
+      need: 'A pessoa que consultaria o acervo deseja encontrar relatos de um tema sem percorrer todos os registros.', rf: 'Ao escolher um tema, o sistema deve mostrar somente os relatos daquele tema e preservar a coleção completa.',
+      rnf: 'A pessoa deve conseguir selecionar o filtro só pelo teclado, com foco visível e sem bloqueio.',
+      rd: 'Na tabela fictícia, o campo tema é obrigatório e aceita apenas festa, trabalho ou paisagem.',
+      rule: 'Regra fictícia da atividade: somente relatos marcados como revisados poderiam ser publicados.',
+      accept: 'Dada a tabela da tela 3, quando escolher o tema festa, então exibir R01, R02 e R03 e conservar os seis registros originais.',
       filter: 'festa', count: '3 relatos', total: '6 relatos', dataset: 'acervo sintético', noun: 'relatos',
-      protect: 'Na saída pública simulada, mostrar somente código, título e tema dos itens revisados; omitir os itens restritos.',
+      protect: 'Na publicação simulada, mostrar somente código, título e tema dos relatos com Revisado = Sim.',
       unsafe: 'Exibir coordenadas exatas e nomes reais para deixar o mapa completo.',
-      sourceRd: 'EV-M02: dicionário fictício v1 define tema obrigatório com três valores permitidos.',
-      sourceRnf: 'EV-M03: roteiro fictício de teste solicita filtragem por teclado; a meta deve ser validada pelo professor.',
+      sourceRd: 'Tela 3: coluna Tema; tela 12: regra didática sobre seus valores permitidos.',
+      sourceRnf: 'Tela 16: condição de acessibilidade proposta para o filtro; a necessidade externa não foi validada.',
       next: 'Derivar os campos tema, título e status de revisão; depois discutir suas relações.'
     },
     permanencia: {
       label: 'Permanência / Evasão Estudantil', shortLabel: 'Permanência', description: 'Painel de contagens sintéticas agregadas, sem matrícula, nome, frequência ou nota individual.', prefix: 'P',
-      source: 'EV-P01', sourceDescription: 'Tabela fictícia: seis linhas agregadas, três do período 1, duas do período 2 e uma do período 3.', fixtureOverview: 'Seis linhas de exemplo: três do período 1 (P1), duas do período 2 (P2), uma do período 3 (P3). Cada linha resume um grupo, não uma pessoa.',
-      finding: 'A tabela de teste contém linhas de três períodos.', hypothesis: 'Talvez consultar por período facilite o planejamento de ações de apoio.', pending: 'Falta validar com o professor se o recorte por período responde à decisão proposta.',
-      need: 'A equipe precisa consultar contagens agregadas do período escolhido para planejar apoio.', rf: 'O sistema deve exibir as linhas agregadas do período selecionado sem alterar a tabela original.',
-      rnf: 'A filtragem deve ser concluída usando apenas o teclado, com foco visível e sem bloqueio de navegação.',
-      rd: 'O campo período é obrigatório e aceita apenas P1 (período 1), P2 (período 2) ou P3 (período 3), todos fictícios.',
-      rule: 'Política inventada para o exercício: só tabelas agregadas revisadas poderiam aparecer na apresentação pública.',
-      accept: 'Dada a tabela fictícia com seis linhas, quando escolher o período 1 (P1), então mostrar as três linhas desse período e preservar as seis originais.',
+      source: 'EV-P01', sourceDescription: 'Tabela da tela 3: seis linhas fictícias, três do período 1, duas do período 2 e uma do período 3.', fixtureOverview: 'Seis linhas de exemplo: três do período 1 (P1), duas do período 2 (P2), uma do período 3 (P3). Cada linha resume um grupo, não uma pessoa.',
+      finding: 'Na tabela há três linhas do período 1, duas do período 2 e uma do período 3.', hypothesis: 'Talvez consultar por período ajude a comparar categorias de apoio.', pending: 'Precisamos perguntar à equipe autorizada se consultar por período ajudaria sua tarefa.',
+      need: 'A equipe que usaria o painel deseja localizar linhas agregadas de um período, sem identificar estudantes.', rf: 'Ao escolher um período, o sistema deve mostrar somente as linhas daquele período e preservar a tabela completa.',
+      rnf: 'A pessoa deve conseguir selecionar o filtro só pelo teclado, com foco visível e sem bloqueio.',
+      rd: 'Na tabela fictícia, o campo período é obrigatório e aceita P1 (1), P2 (2) ou P3 (3).',
+      rule: 'Regra fictícia da atividade: somente linhas agregadas revisadas poderiam ser publicadas.',
+      accept: 'Dada a tabela da tela 3, quando escolher P1 (período 1), então exibir L01, L02 e L03 e conservar as seis linhas originais.',
       filter: 'P1', count: '3 linhas', total: '6 linhas', dataset: 'tabela sintética', noun: 'linhas agregadas',
-      protect: 'Na saída pública simulada, permitir apenas período, categoria e contagem agregada revisada; omitir qualquer identificador individual.',
+      protect: 'Na publicação simulada, mostrar somente período, categoria e quantidade das linhas com Revisado = Sim.',
       unsafe: 'Exibir matrículas e notas individuais para descobrir quem vai abandonar o curso.',
-      sourceRd: 'EV-P02: dicionário fictício v1 define período obrigatório com três valores permitidos.',
-      sourceRnf: 'EV-P03: roteiro fictício de teste solicita filtragem por teclado; a meta deve ser validada pelo professor.',
+      sourceRd: 'Tela 3: coluna Período; tela 12: regra didática sobre P1, P2 e P3.',
+      sourceRnf: 'Tela 16: condição de acessibilidade proposta para o filtro; a necessidade externa não foi validada.',
       next: 'Derivar os campos período, categoria e contagem; depois discutir suas relações.'
     }
   };
@@ -657,8 +657,8 @@
     const narrativeOverrides = teachingOverrides(c,id,userRequirement,caseTable);
     const missionsById = {
       m1: { questions: [
-        question('m1', 1, `Na documentação, a ficha se chama ${c.source} (evidência número 1). ${c.sourceDescription} Qual papel ela desempenha?`, categories('b'), 'b', 'A ficha/tabela identificada é a evidência do exercício. Ela permite conferir a coleção fictícia, mas não retrata uma comunidade ou turma real.', 'Distinguir evidência de interpretação.', c.source, 'Identifica o registro consultável e seu limite.'),
-        question('m1', 2, `Depois de ler a ficha do exercício, a equipe conclui: “${c.finding}” Como classificar essa conclusão?`, categories('a'), 'a', 'O achado resulta da leitura da evidência. A conclusão limita-se ao conjunto examinado.', 'Reconhecer um achado sustentado.', c.source, 'Relaciona a conclusão ao registro que a sustenta.'),
+        question('m1', 1, `Na tela 3 mostramos uma tabela criada para a aula. Chamamos seu registro de evidência (${c.source}). Que tipo de informação é essa tabela?`, categories('b'), 'b', 'A ficha/tabela identificada é a evidência do exercício. Ela permite conferir a coleção fictícia, mas não retrata uma comunidade ou turma real.', 'Distinguir evidência de interpretação.', c.source, 'Identifica o registro consultável e seu limite.'),
+        question('m1', 2, `Depois de observar a tabela da tela 3, concluímos: “${c.finding}” Como chamamos uma conclusão apoiada nos dados?`, categories('a'), 'a', 'O achado resulta da leitura da evidência. A conclusão limita-se ao conjunto examinado.', 'Reconhecer um achado sustentado.', c.source, 'Relaciona a conclusão ao registro que a sustenta.'),
         question('m1', 3, `A equipe escreve: “${c.hypothesis}” Qual é a classificação?`, categories('c'), 'c', '“Talvez” sinaliza uma explicação a testar. O conteúdo não foi validado pela existência da tabela.', 'Manter incerteza explícita.', `HIP-${id}01`, 'Não promove uma suposição a fato.'),
         question('m1', 4, c.pending + ' Essa informação deve ser registrada como:', categories('d'), 'd', 'A validação ainda necessária vira pendência. Não é preciso inventar uma resposta para continuar o rascunho.', 'Registrar uma pendência de validação.', `PEND-${id}01`, 'Identifica o que falta e não fabrica confirmação.')
       ] },
@@ -681,9 +681,9 @@
         question('m3', 4, c.rule + ' Qual é o foco desse item?', typeOptions('d'), 'd', 'É uma política criada para o exercício, não uma norma real do IFMA ou de uma comunidade. Ela pode existir mesmo numa organização em papel.', 'Classificar regra do domínio sem inventar norma real.', `RN-${id}01`, 'Reconhece a política e mantém sua natureza fictícia.')
       ] },
       m4: { questions: [
-        question('m4', 1, 'A equipe escreveu “o filtro deve ser rápido”. Qual proposta permite testar esse requisito de desempenho?', [
+        question('m4', 1, 'Para a função de filtrar os seis registros da tela 3, qual proposta de desempenho pode ser verificada?', [
           option('a', 'O filtro deve responder imediatamente e nunca atrasar.', '“Imediatamente” e “nunca” não delimitam medida, carga ou ambiente.'),
-          option('b', 'Com 100 registros sintéticos carregados, responder em até 1 s em cada uma de 10 execuções no computador e navegador de referência documentados.', 'Operação, carga, medida, limite e ambiente estão declarados; a meta ainda precisa ser combinada.'),
+          option('b', 'Com os seis registros da tabela desta aula, responder em até 1 segundo em cada uma de 10 tentativas no navegador de referência.', 'Operação, carga, medida, limite e ambiente estão declarados; a meta ainda precisa ser combinada.'),
           option('c', 'O filtro deve usar a tecnologia mais moderna disponível.', 'A tecnologia não determina sozinha o desempenho observado e pode mudar.')
         ], 'b', 'A meta é fictícia e proposta. Registrar o ambiente e validar a viabilidade faz parte do requisito; o enunciado não prova que o desempenho foi alcançado.', 'Tornar desempenho mensurável.', `RNF-${id}02`, 'Inclui condição, carga, métrica, limite e repetição.'),
         question('m4', 2, 'Qual par de condições trata de acesso e proteção de forma verificável?', [
@@ -698,11 +698,11 @@
           option('b', 'Dado que a tela abriu, quando a pessoa usar, então tudo deve funcionar bem.', 'Falta definir a ação e o resultado observável; “bem” é ambíguo.'),
           option('c', 'Dado que o sistema é bonito, quando terminar, então o usuário ficará feliz.', 'A frase não testa o filtro e usa julgamentos sem procedimento de avaliação.')
         ], 'a', 'Dado/Quando/Então organiza um exemplo verificável. A quantidade esperada vem da base de teste identificada.', 'Selecionar um critério Dado/Quando/Então.', `${c.source} → CA-${id}01`, 'Inclui dados conhecidos, ação e resultado exato.'),
-        question('m5', 2, `A equipe quer ampliar o requisito funcional do filtro (código RF-${id}01) e escreve “listar registros recentes e gerar relatórios úteis”. Como revisar essa proposta?`, [
-          option('a', 'Manter a frase: o desenvolvedor decidirá o sentido de recente e útil.', 'Delegar a interpretação não elimina a ambiguidade e pode contrariar a necessidade.'),
-          option('b', 'Separar listar e gerar em dois requisitos; definir o período de “recente” e o conteúdo esperado do relatório com a fonte.', 'A revisão reduz a ambiguidade e deixa uma obrigação principal em cada item.'),
-          option('c', 'Trocar “úteis” por “excelentes” e aumentar a prioridade.', 'Apenas trocar o adjetivo não cria uma condição verificável.')
-        ], 'b', 'Clareza, singularidade e verificabilidade trabalham juntas. Se a fonte não definir o período, registre a pendência.', 'Detectar ambiguidade e múltiplas obrigações.', `REV-${id}01`, 'Divide obrigações e pede definições verificáveis.'),
+        question('m5', 2, `A equipe escreveu “mostrar rapidamente todos os resultados bonitos e úteis” sobre o mesmo filtro. Como revisar essa frase?`, [
+          option('a', 'Manter a frase: cada pessoa definirá depois o que significa bonito e útil.', 'Delegar a interpretação não elimina a ambiguidade e pode contrariar a necessidade.'),
+          option('b', 'Separar o comportamento do filtro da meta de desempenho; para a função, indicar os registros esperados; para a qualidade, definir uma medida.', 'A revisão reduz a ambiguidade e deixa uma obrigação principal em cada item.'),
+          option('c', 'Trocar “bonitos” por “modernos” e elevar a prioridade.', 'Apenas trocar o adjetivo não cria uma condição verificável.')
+        ], 'b', 'A função do filtro é conferida pela tabela; o desempenho usa outra condição e outro teste. Separe as obrigações.', 'Detectar ambiguidade e múltiplas obrigações.', `REV-${id}01`, 'Divide obrigações e pede definições verificáveis.'),
         question('m5', 3, 'Há tempo para uma primeira entrega pequena. Qual conjunto atende melhor ao objetivo e aos limites do caso?', [
           option('a', 'Animações, ranking de pessoas e cores personalizadas.', 'O conjunto não resolve a consulta prioritária e o ranking expõe pessoas.'),
           option('b', 'Todas as funções imaginadas, mesmo sem fonte ou teste.', 'O escopo não cabe e inclui decisões sem necessidade sustentada.'),
@@ -710,9 +710,9 @@
         ], 'c', 'Prioridade considera valor, risco, esforço e dependências. Requisitos essenciais de acesso e proteção precisam entrar no recorte.', 'Priorizar um escopo mínimo responsável.', `MVP-${id}01`, 'Preserva o propósito e as proteções no recorte.')
       ] },
       m6: { questions: [
-        question('m6', 1, 'Qual cadeia mantém a relação entre origem, necessidade, requisito e verificação?', [
+        question('m6', 1, 'Qual sequência liga a tabela que vimos na tela 3 ao filtro e ao seu teste?', [
           option('a', `Requisito funcional (RF-${id}01) → opinião sem fonte → nota oficial.`, 'A cadeia perde a origem e mistura treinamento com avaliação oficial.'),
-          option('b', `Evidência (${c.source}) → achado (ACH-${id}01) → necessidade (NEC-${id}01) → requisito (RF-${id}01) → teste (CA-${id}01).`, 'Os IDs ligam registro, interpretação, objetivo, comportamento e teste.'),
+          option('b', `Evidência (${c.source}) → achado (ACH-${id}01) → necessidade (NEC-${id}01) → requisito (RF-${id}01) → teste (CA-${id}01).`, 'Cada etapa usa a mesma tabela, que pode ser reaberta em qualquer missão.'),
           option('c', 'Uma sugestão da IA → “fonte confirmada” → publicação automática.', 'A IA não confirma uma fonte nem autoriza publicar dados.')
         ], 'b', 'O rastro deve permitir seguir do teste ao requisito e voltar à fonte, inclusive quando algum elo é uma hipótese pendente.', 'Montar cadeia de rastreabilidade.', c.source, 'Relaciona os cinco elos sem inventar confirmação.'),
         question('m6', 2, 'Na revisão de pares, qual decisão preserva a coerência entre evidência e requisito?', [
@@ -745,8 +745,8 @@
       caseTable,
       catalogExamples: {
         RF: { text: c.rf, source: c.source + ': ' + c.sourceDescription, sourceStatus: 'evidence', criterion: c.accept },
-        RNF: { text: c.rnf, source: c.sourceRnf, sourceStatus: 'evidence', criterion: 'Dado o filtro carregado e o ponteiro sem uso, quando navegar com Tab e selecionar a opção pelo teclado, então concluir a filtragem com foco visível e sem bloqueio de navegação.' },
-        RD: { text: c.rd, source: c.sourceRd, sourceStatus: 'evidence', criterion: `Dado um registro da base v1, quando validar o campo ${c.filter === 'festa' ? 'tema' : 'período'}, então aceitar somente um dos três valores definidos no dicionário e rejeitar campo vazio ou outro valor.` }
+        RNF: { text: c.rnf, source: c.sourceRnf, sourceStatus: 'pending_hypothesis', criterion: 'Dado o filtro carregado e o ponteiro sem uso, quando navegar com Tab e selecionar a opção pelo teclado, então concluir a filtragem com foco visível e sem bloqueio de navegação.' },
+        RD: { text: c.rd, source: c.sourceRd, sourceStatus: 'pending_hypothesis', criterion: `Dado um registro da base v1, quando validar o campo ${c.filter === 'festa' ? 'tema' : 'período'}, então aceitar somente um dos três valores definidos no dicionário e rejeitar campo vazio ou outro valor.` }
       },
       syntheticRecords: [
         { id: c.source, kind: 'evidence', description: c.sourceDescription },
