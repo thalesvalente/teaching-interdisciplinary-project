@@ -16,7 +16,7 @@
         "id": "s01",
         "kind": "cover",
         "kicker": "Aula 08 · Prática Profissional Integrada · 50 minutos",
-        "title": "Da observação ao requisito",
+        "title": "Da evidência ao requisito",
         "lead": "Hoje vamos trabalhar com um caso completo, desde os dados de exemplo até um requisito que podemos testar.",
         "cards": [
             {
@@ -567,7 +567,7 @@
    ],note:"A tabela sustenta o achado. Ela não comprova que o filtro é útil para pessoas reais."},
    s06:{cards:[
      card("Informação comprovável na tabela",c.finding),
-     card("Necessidade candidata",c.need),
+     card("Possível objetivo de quem usará",c.need),
      card("Pergunta de validação",c.pending)
    ],note:"A utilidade do filtro é uma hipótese: só uma validação autorizada com partes interessadas poderia confirmá-la."},
    s08:{cards:[
