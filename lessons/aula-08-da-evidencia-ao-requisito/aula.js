@@ -42,7 +42,15 @@
     catch (_) { storageStatus('Só em memória: baixe sua síntese para guardar.'); }
   }
   function track() { return C.tracks[state.activeTrack]; }
-  function slideData(source) { return { ...source, ...(track().slides[source.id] || {}) }; }
+  function dossierStageFor(slideId) {
+    const target = C.slides.findIndex(s => s.id === slideId);
+    const found = track().dossierStages.filter(stage =>
+      C.slides.findIndex(s => s.id === stage.slideId) <= target);
+    return found.length ? found[found.length - 1] : null;
+  }
+  function slideData(source) {
+    return { ...source, ...(track().slides[source.id] || {}), dossierStage: dossierStageFor(source.id) };
+  }
   function updateScore() {
     const result = M.score(state);
     $('xp-total').textContent = result.xp + ' / 100 XP';
@@ -218,7 +226,7 @@
     C.slides.forEach((source, i) => {
       const data = slideData(source); const slide = el('article', null, 'slide ' + data.kind);
       slide.id = data.id; slide.tabIndex = -1; slide.dataset.title = data.title; slide.setAttribute('aria-labelledby', data.id + '-title');
-      const heading = el('header', null, 'slide-heading'); heading.append(el('p', data.kicker, 'kicker'));
+      const heading = el('header', null, 'slide-heading'); heading.append(el('p', data.kicker + (data.dossierStage ? ' · Dossiê ' + data.dossierStage.id : ''), 'kicker'));
       const title = el(i === 0 ? 'h1' : 'h2', data.title); title.id = data.id + '-title'; heading.append(title);
       if (data.lead) heading.append(el('p', data.lead, 'lead')); slide.append(heading);
       const body = el('div', null, 'slide-body');
@@ -278,6 +286,14 @@
   function showNotes() {
     const data = slideData(C.slides[current]); const host = $('notes-content'); host.replaceChildren();
     host.append(el('h3', data.title), el('p', data.note || data.lead || 'Converse com a turma antes de avançar.'));
+    const progress = el('ol', null, 'dossier-history');
+    const current = C.slides.findIndex(s => s.id === data.id);
+    track().dossierStages.filter(stage => C.slides.findIndex(s => s.id === stage.slideId) <= current)
+      .forEach(stage => { const item = el('li'); item.append(el('strong', stage.id + ' · ' + stage.title + ' [' + stage.artifactId + ']'), el('p', stage.excerpt)); progress.append(item); });
+    if (progress.childElementCount) {
+      host.append(el('h4', 'Dossiê em construção · ' + track().shortLabel), progress);
+      host.append(el('p', 'Cada versão incorpora a anterior. A fonte continua sintética; a validação de utilidade permanece pendente.'));
+    }
     host.append(el('h4', 'Ritmo de referência · 50 minutos'), el('p', 'Retomada 5 min; exemplos e conceitos 10 min; missões guiadas 20 min; catálogo e revisão em equipe 10 min; síntese/ticket 5 min. Intercale explicação e prática.'));
     host.append(el('h4', 'Mediação e limites'), el('p', 'Nos exercícios abertos, discuta fonte, clareza, teste e limites. Não avalie qualidade por tamanho do texto. Casos sintéticos; nenhuma coleta externa.'));
     host.append(el('p', 'Proposta de replanejamento: formalizar requisitos antes da modelagem lógica prevista para 11/11 no plano fornecido. Não altera o SUAP. A publicação da Aula 07 não prova que foi ministrada.'));
