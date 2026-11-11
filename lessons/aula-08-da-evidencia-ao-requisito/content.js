@@ -36,8 +36,8 @@
     { id: 's22', kind: 'concept', kicker: 'Verificar e validar', title: 'Verificação não é validação', cards: [card('Verificar', 'Conferir se o produto atende ao RF e ao critério escrito: o filtro retorna os registros esperados?'), card('Validar', 'Conferir se o RF responde à necessidade real: filtrar por essa categoria de fato ajuda quem usa?'), card('Gerenciar mudanças', 'Se a resposta mudar, registre motivo, versão, impacto em RF, RD, teste e rastro; preserve a hipótese pendente.')], note: 'A ISO 29148 inclui verificação, validação e gestão ao longo do ciclo. Sugestão de IA não equivale a confirmação de fonte.' },
     { id: 's23', kind: 'mission', kicker: 'Missão 6 · 20 XP', title: 'Feche a cadeia sem inventar elos', missionId: 'm6', lead: 'Monte o rastro correto e confira se fonte, requisito e critério combinam.' },
     { id: 's24', kind: 'catalog', kicker: 'Oficina · 7 min', title: 'Complete o dossiê do mesmo caso', lead: 'Use EV-01 e o rastro construído: redija um RF, um RNF verificável e um RD. Compare com os exemplos; não copie automaticamente.', note: 'O formulário é um rascunho local. Identifique fonte, estado, prioridade e critério para cada requisito; a qualidade depende de revisão humana.' },
-    { id: 's25', kind: 'review', kicker: 'Revisão em dupla · 3 min', title: 'Outra equipe audita seu dossiê', lead: 'O registro sustenta a necessidade? O RF e o teste conversam? Qual pendência ainda exige confirmação?', note: 'Revisão deve checar clareza, consistência, verificabilidade e limites das evidências. A nota oficial não é calculada automaticamente.' },
-    { id: 's26', kind: 'exit', kicker: 'Síntese · 5 min', title: 'Do mesmo registro a um catálogo rastreável', lead: 'Explique uma decisão documentada: fonte → achado → necessidade → RF/RNF/RD → critério → revisão.', note: 'Registre uma hipótese pendente no ticket de saída. A exportação ou impressão são voluntárias e locais; nenhuma nota oficial é criada.' }
+    { id: 's25', kind: 'review', kicker: 'Revisão em dupla · 3 min', title: 'Outra equipe audita seu dossiê', lead: 'A fonte sustenta a necessidade? O requisito combina com o teste? O que falta validar?', note: 'Revisão deve checar clareza, consistência, verificabilidade e limites das evidências. A nota oficial não é calculada automaticamente.' },
+    { id: 's26', kind: 'exit', kicker: 'Síntese · 5 min', title: 'Do mesmo registro a um catálogo rastreável', lead: 'Explique a evolução: fonte → conclusão → necessidade → requisito → teste → revisão.', note: 'Registre uma hipótese pendente no ticket de saída. A exportação ou impressão são voluntárias e locais; nenhuma nota oficial é criada.' }
   ];
   const missions = [
     { id: 'm1', title: 'Separe as pistas', xp: 10, slideId: 's07', objective: 'Distinguir achado, evidência, hipótese e pendência.' },
@@ -257,11 +257,11 @@
         note: 'Para cada requisito, escrevam o que ele exige, de onde surgiu, como testar e o que ainda precisa ser confirmado.'
       },
       s25: {
-        note: 'Outra equipe verifica se a fonte sustenta a necessidade, se a função está clara e se o teste confere com os dados. Sem inventar validação externa.'
+        note: 'Revisar em dupla não substitui validar com quem usará o sistema.'
       },
       s26: {
         example: c.next,
-        note: 'Da ficha inicial ao catálogo: registro → conclusão → necessidade → requisito → teste → revisão. Os códigos são etiquetas, não conteúdo para decorar.'
+        note: 'A ficha inicial virou um catálogo rastreável. Os códigos são apenas etiquetas.'
       }
     };
     const missionsById = {
