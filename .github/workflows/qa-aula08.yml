@@ -44,7 +44,7 @@ jobs:
       - name: Dependências de verificação
         run: npm ci
       - name: Chromium, Firefox e WebKit
-        run: npx playwright install --with-deps chromium firefox webkit
+        run: npx playwright install chromium firefox webkit
       - name: Contrato, pontuação e isolamento
         run: npm run test:aula08:unit
       - name: Missões, reflow, teclado, acessibilidade, exportação e impressão
