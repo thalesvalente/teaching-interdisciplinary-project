@@ -186,6 +186,10 @@ body:not(.reading) .options:has(> :nth-child(3):last-child) { grid-template-colu
 .slide:has(.catalog-grid) .lead { font-size: 22px; }
 .slide:has(.catalog-grid) .slide-body { gap: 14px; }
 .slide:has(.catalog-grid) .slide-note { margin-top: 12px; font-size: 18px; padding-top: 9px; padding-bottom: 9px; }
+/* A revisão em dupla reúne quatro itens; compacte espaços, não corte conteúdo. */
+.slide:has(.review-list) .slide-heading { margin-bottom: 14px; }
+.slide:has(.review-list) .lead { font-size: 23px; }
+.slide:has(.review-list) .slide-note { margin-top: 9px; padding: 9px 12px; font-size: 18px; }
 .review-list { display: grid; gap: 13px; }
 .review-list label { display: flex; align-items: flex-start; gap: 14px; padding: 15px 19px; border: 1px solid var(--line); border-radius: 7px; background: var(--green-pale); font-size: 25px; line-height: 1.28; cursor: pointer; }
 .review-list input[type="checkbox"] { width: 25px; height: 25px; margin: 4px 0 0; flex: 0 0 25px; accent-color: var(--ifma); }
