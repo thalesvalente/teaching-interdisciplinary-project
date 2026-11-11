@@ -12,33 +12,432 @@
     id: `a08.${mission}.q${n}.v1`, prompt, options, correct, explanation, objective, evidence, criterion
   });
   const slides = [
-    { id: 's01', kind: 'cover', kicker: 'PPI I · Aula 08 · 50 minutos', title: 'Da evidência ao requisito', lead: 'Um caso, um dossiê: acompanhe cada decisão da primeira ficha ao catálogo final.', cards: [card('O desafio', 'Continuar o registro fictício da Aula 07, sem inventar necessidades.'), card('A entrega', 'Um requisito funcional, um de qualidade e um de dados, todos com origem e teste.')], note: '26 telas · 6 missões · 100 XP formativos. Exemplos e dados inteiramente fictícios.' },
-    { id: 's02', kind: 'concept', kicker: 'Retomada · ficha inicial', title: 'O que já temos da Aula 07?', lead: 'Antes de escrever requisitos, precisamos da pergunta de investigação e de registros identificados.', cards: [card('Parte interessada', 'Pessoa ou organização afetada pelo sistema, por seu uso ou por suas decisões.'), card('Problema', 'Como localizar uma parte da coleção sem perder os registros originais?'), card('Como ler um código', 'Exemplo: EV-P01 = primeira evidência da trilha Permanência. EV significa evidência; P identifica a trilha; 01 é o número da ficha.')], note: 'Retome a Aula 07: entrevista, observação e documentos são técnicas de elicitação; um pedido isolado não é prova de uma necessidade.' },
-    { id: 's03', kind: 'concept', kicker: 'Escolha uma trilha', title: 'Um laboratório de decisões', lead: 'Escolha a trilha no topo. Os exemplos mudam e cada trilha guarda seu próprio percurso.', cards: [card('Memórias', 'Localizar relatos inventados por tema, sem nomes, vozes ou coordenadas reais.'), card('Permanência', 'Consultar contagens sintéticas por período, sem identificar estudantes.'), card('Limite comum', 'Nenhum caso autoriza coleta, contato externo ou decisões sobre pessoas.')], note: 'Casos fictícios para aprender requisitos; não são retratos de comunidades ou turmas reais.' },
-    { id: 's04', kind: 'concept', kicker: 'Literatura · três perspectivas', title: 'Afinal, o que é um requisito?', lead: 'Para a ISO/IEC/IEEE 29148:2018, é uma declaração que expressa necessidade, condições e restrições associadas.', steps: ['Registro com fonte', 'Achado e limites', 'Necessidade', 'Requisito', 'Critério verificável', 'Rastro e revisão'], cards: [card('Pfleeger (2004)', 'Característica ou capacidade do sistema para alcançar objetivos.'), card('Nuseibeh e Easterbrook (2000)', 'Expressão de necessidades de partes interessadas para atingir objetivos específicos.')], note: 'Definições em paráfrase das fontes docentes e da ISO 29148, §3.1.19. O SWEBOK v4 relaciona requisitos às necessidades e restrições do software.' },
-    { id: 's05', kind: 'concept', kicker: 'Evidência e interpretação', title: 'O que sabemos e o que interpretamos?', cards: [card('Evidência', 'Registro identificado, consultável e delimitado por uma fonte.'), card('Achado', 'Conclusão sustentada pelo que foi examinado, sem extrapolar os dados.'), card('Hipótese', 'Explicação ou benefício esperado que ainda requer confirmação.'), card('Pendência', 'Questão, regra ou decisão que falta verificar com a parte interessada.')], note: 'Uma contagem observada na tabela de teste não comprova, por si, que um filtro será útil ao público.' },
-    { id: 's06', kind: 'concept', kicker: 'Hipóteses e dúvidas', title: 'Separar pedido, necessidade e suposição', lead: 'O próximo passo do dossiê não é inventar uma função: é explicitar a incerteza.', cards: [card('Pedido de solução', '“Adicione um botão de busca.” Não explica qual problema precisa ser resolvido.'), card('Hipótese candidata', 'Talvez filtrar a coleção ajude a localizar o conteúdo desejado.'), card('Pergunta de validação', 'Quem consultará a coleção? Qual recorte resolve a tarefa de fato?')], note: 'Pendência registrada não é erro: é uma decisão que exige confirmação. Nenhuma hipótese é apresentada como observação real.' },
-    { id: 's07', kind: 'mission', kicker: 'Missão 1 · 10 XP', title: 'Separe as pistas', missionId: 'm1', lead: 'Leia o registro e escolha a classificação que melhor representa sua função.' },
-    { id: 's08', kind: 'concept', kicker: 'Necessidade e especificação', title: 'Necessidade, requisito de usuário e de sistema', cards: [card('Necessidade', 'Resultado que uma parte interessada precisa alcançar no contexto investigado.'), card('Requisito de usuário', 'Declaração do serviço ou resultado esperado em linguagem compreensível para essa pessoa.'), card('Requisito de sistema', 'Comportamento ou condição especificados com precisão suficiente para verificar sua implementação.')], note: 'São níveis de abstração distintos, conforme a engenharia de requisitos. A tecnologia escolhida pertence à etapa posterior de projeto.' },
-    { id: 's09', kind: 'concept', kicker: 'Do problema ao requisito', title: 'Do problema ao requisito verificável', lead: 'Vamos manter a mesma fonte e documentar três frases: necessidade, requisito do usuário e obrigação do sistema.', cards: [card('NEC · problema', 'Identificar a parte relevante de uma coleção sem percorrê-la inteira.'), card('RU · serviço esperado', 'Quero consultar registros de uma categoria escolhida.'), card('RF · comportamento', 'O sistema deve exibir só os registros da categoria selecionada e preservar a coleção.')], note: 'O RF é candidato enquanto o benefício esperado não for validado com as partes interessadas. Um critério será anexado ao mesmo RF nas próximas telas.' },
-    { id: 's10', kind: 'mission', kicker: 'Missão 2 · 15 XP', title: 'Reconheça a necessidade e o sistema', missionId: 'm2', lead: 'Escolha primeiro o objetivo do usuário e depois a especificação do sistema.' },
-    { id: 's11', kind: 'concept', kicker: 'Comportamento e qualidade', title: 'Que função? Sob quais condições?', cards: [card('Requisito funcional (RF)', 'Descreve comportamento, serviço ou transformação de informação exigida do sistema.'), card('Requisito não funcional (RNF)', 'Define qualidade ou restrição do produto, com medida, condição e teste quando aplicável.'), card('No nosso dossiê', 'Filtrar é a função. Navegação por teclado, tempo de resposta e proteção são condições distintas.')], note: 'Tipologia didática apoiada em Sommerville e SWEBOK v4. Qualidade do produto: ISO/IEC 25010:2023.' },
-    { id: 's12', kind: 'concept', kicker: 'Dados e regras do domínio', title: 'Que informação e qual política?', cards: [card('Requisito de dados (RD)', 'Define significado, domínio, obrigatoriedade e origem de um campo usado pelo RF.'), card('Regra de negócio (RN)', 'Política do contexto de trabalho, independentemente de existir software.'), card('No dossiê', 'O campo do filtro tem valores definidos; uma política fictícia exige revisão antes de divulgação.')], note: 'RD e RN são categorias complementares usadas neste catálogo didático, não uma taxonomia exclusiva da ISO 29148.' },
-    { id: 's13', kind: 'concept', kicker: 'Revisar o que foi escrito', title: 'Como distinguir requisito bom de frase vaga?', cards: [card('Clareza e singularidade', 'Uma obrigação principal, com termos definidos e sem interpretações concorrentes.'), card('Verificabilidade e consistência', 'É possível demonstrar atendimento? Não contradiz outra regra do mesmo caso?'), card('Necessidade e viabilidade', 'Há fonte ou hipótese marcada? A solução pode ser implementada no escopo proposto?')], note: 'A revisão de cada enunciado é feita antes da modelagem: evite “rápido”, “fácil”, “seguro” e “tudo” sem definir testes.' },
-    { id: 's14', kind: 'mission', kicker: 'Missão 3 · 20 XP', title: 'Dê o nome certo a cada condição', missionId: 'm3', lead: 'Identifique RF, RNF, requisito de dados e regra de negócio pelo foco da frase.' },
-    { id: 's15', kind: 'concept', kicker: 'Qualidade mensurável', title: 'Corrigir “o filtro deve ser rápido”', lead: 'O mesmo RF agora recebe uma condição de desempenho, separada do comportamento.', cards: [card('Antes · vago', '“O filtro deve responder rapidamente.”'), card('Depois · testável', 'Com 100 registros sintéticos carregados, concluir a filtragem em até 1 s em cada uma de 10 tentativas.'), card('Condições pendentes', 'Registrar computador e navegador de referência; validar carga, meta e viabilidade com a equipe.')], note: 'Os 100 registros são uma carga adicional para teste de desempenho, não os 6 registros da evidência inicial. A meta ainda não foi medida.' },
-    { id: 's16', kind: 'concept', kicker: 'Qualidade também é acesso e proteção', title: 'Quem consegue usar? O que pode aparecer?', cards: [card('Acesso', 'Concluir a filtragem só com teclado, com foco visível e sem ficar preso.'), card('Proteção', 'Na saída pública do caso fictício, revelar apenas campos explicitamente permitidos.'), card('Teste negativo', 'Tente o caminho proibido: dado restrito, opção ausente ou acesso não permitido.')], note: 'Não transforme “seguro” em promessa absoluta. Defina uma ameaça, uma condição e uma verificação.' },
-    { id: 's17', kind: 'mission', kicker: 'Missão 4 · 15 XP', title: 'Conserte o requisito vago', missionId: 'm4', lead: 'Prefira condições mensuráveis e verificações de acesso e proteção.' },
-    { id: 's18', kind: 'concept', kicker: 'Critério de aceitação', title: 'Como provar que o RF foi atendido?', cards: [card('Dado', 'Estado inicial conhecido: os seis registros sintéticos da fonte identificada.'), card('Quando', 'O usuário selecionar o mesmo valor de filtro do requisito.'), card('Então', 'O sistema apresentará exatamente os registros esperados, mantendo os seis originais.')], note: 'O exemplo Dado/Quando/Então verifica o comportamento com uma base conhecida. Depois incluir caso vazio e dado inválido.' },
-    { id: 's19', kind: 'concept', kicker: 'Prioridades e primeira entrega', title: 'O que entra na primeira versão?', cards: [card('Essencial · Must', 'RF de consulta, RD de valores, teclado e regra de proteção da saída.'), card('Depois · Should', 'Combinar filtros adicionais, se a necessidade for confirmada.'), card('Fora da primeira versão · Could', 'Efeitos visuais sem contribuição comprovada à tarefa.')], note: 'Exemplo de priorização por valor, dependência, risco e esforço. Segurança e acessibilidade não são opcionais se necessárias ao uso.' },
-    { id: 's20', kind: 'mission', kicker: 'Missão 5 · 20 XP', title: 'Defina o aceite e faça escolhas', missionId: 'm5', lead: 'Construa um teste claro, encontre a ambiguidade e priorize o mínimo útil.' },
-    { id: 's21', kind: 'concept', kicker: 'Ligar origem e teste', title: 'Mostre como o documento foi construído', lead: 'Cada identificador liga a decisão ao registro que a justificou e ao teste que poderá verificar o resultado.', steps: ['EV: fonte', 'ACH: achado', 'NEC/RU: objetivo', 'RF: obrigação', 'CA: teste'], cards: [card('Volta à origem', 'Da falha em um teste, retorne ao requisito, à necessidade e à evidência para revisar a decisão.')], note: 'A hipótese sobre utilidade permanece pendente, mesmo quando um teste funcional com dados fictícios passa.' },
-    { id: 's22', kind: 'concept', kicker: 'Verificar e validar', title: 'Verificação não é validação', cards: [card('Verificar', 'Conferir se o produto atende ao RF e ao critério escrito: o filtro retorna os registros esperados?'), card('Validar', 'Conferir se o RF responde à necessidade real: filtrar por essa categoria de fato ajuda quem usa?'), card('Gerenciar mudanças', 'Se a resposta mudar, registre motivo, versão, impacto em RF, RD, teste e rastro; preserve a hipótese pendente.')], note: 'A ISO 29148 inclui verificação, validação e gestão ao longo do ciclo. Sugestão de IA não equivale a confirmação de fonte.' },
-    { id: 's23', kind: 'mission', kicker: 'Missão 6 · 20 XP', title: 'Feche a cadeia sem inventar elos', missionId: 'm6', lead: 'Monte o rastro correto e confira se fonte, requisito e critério combinam.' },
-    { id: 's24', kind: 'catalog', kicker: 'Oficina · 7 min', title: 'Complete o dossiê do mesmo caso', lead: 'Use EV-01 e o rastro construído: redija um RF, um RNF verificável e um RD. Compare com os exemplos; não copie automaticamente.', note: 'O formulário é um rascunho local. Identifique fonte, estado, prioridade e critério para cada requisito; a qualidade depende de revisão humana.' },
-    { id: 's25', kind: 'review', kicker: 'Revisão em dupla · 3 min', title: 'Outra equipe audita seu dossiê', lead: 'A fonte sustenta a necessidade? O requisito combina com o teste? O que falta validar?', note: 'Revisão deve checar clareza, consistência, verificabilidade e limites das evidências. A nota oficial não é calculada automaticamente.' },
-    { id: 's26', kind: 'exit', kicker: 'Síntese · 5 min', title: 'Do mesmo registro a um catálogo rastreável', lead: 'Explique a evolução: fonte → conclusão → necessidade → requisito → teste → revisão.', note: 'Registre uma hipótese pendente no ticket de saída. A exportação ou impressão são voluntárias e locais; nenhuma nota oficial é criada.' }
-  ];
+    {
+        "id": "s01",
+        "kind": "cover",
+        "kicker": "Aula 08 · Prática Profissional Integrada · 50 minutos",
+        "title": "Da observação ao requisito",
+        "lead": "Hoje vamos trabalhar com um caso completo, desde os dados de exemplo até um requisito que podemos testar.",
+        "cards": [
+            {
+                "title": "Um caso que você poderá consultar",
+                "text": "Na tela 3 há uma tabela fictícia com seis registros. Ela será nossa fonte durante a aula."
+            },
+            {
+                "title": "O que você produzirá",
+                "text": "Uma função do sistema, uma condição de qualidade, um requisito de dados e seus testes."
+            }
+        ],
+        "note": "Os exemplos foram criados para esta aula. Nada foi coletado de pessoas ou comunidades reais."
+    },
+    {
+        "id": "s02",
+        "kind": "concept",
+        "kicker": "Etapa de preparação · contexto",
+        "title": "Que problema vamos investigar?",
+        "lead": "Escolha uma das duas histórias fictícias no campo Trilha, acima. A estrutura de aprendizado é a mesma.",
+        "cards": [
+            {
+                "title": "Contexto",
+                "text": "Vamos construir um pequeno sistema de consulta a registros de exemplo."
+            },
+            {
+                "title": "Pergunta inicial",
+                "text": "Como mostrar apenas os registros procurados sem perder a coleção original?"
+            },
+            {
+                "title": "A fonte estará na tela seguinte",
+                "text": "Primeiro conheceremos os dados. Só depois criaremos hipóteses e requisitos."
+            }
+        ],
+        "note": "As histórias são simulações didáticas, não relatos de uma visita ou entrevista já realizada."
+    },
+    {
+        "id": "s03",
+        "kind": "case",
+        "kicker": "Estudo de caso · dados disponíveis aqui",
+        "title": "Esta é a tabela do nosso exercício",
+        "lead": "Leia os seis registros fictícios. Esta tabela é nossa fonte e poderá ser reaberta em qualquer missão.",
+        "note": "Consulte as linhas; você não precisa procurar um arquivo externo. Todos os campos e valores são inventados."
+    },
+    {
+        "id": "s04",
+        "kind": "concept",
+        "kicker": "Conceito · Engenharia de Requisitos",
+        "title": "Afinal, o que é um requisito?",
+        "lead": "É uma condição ou capacidade necessária para atingir um objetivo, que o sistema deverá atender.",
+        "cards": [
+            {
+                "title": "Em palavras simples",
+                "text": "Um requisito diz o que a solução precisa oferecer ou respeitar."
+            },
+            {
+                "title": "Um requisito deste caso",
+                "text": "O sistema deve permitir filtrar os registros por uma categoria escolhida."
+            },
+            {
+                "title": "Uma frase que ainda não é requisito claro",
+                "text": "“O aplicativo deve ser excelente.” Como saber se isso foi atendido?"
+            }
+        ],
+        "note": "Definição didática baseada na ISO/IEC/IEEE 29148:2018, Pfleeger (2004) e Nuseibeh/Easterbrook (2000)."
+    },
+    {
+        "id": "s05",
+        "kind": "concept",
+        "kicker": "Entender a tabela · antes de propor solução",
+        "title": "O que é fato e o que é interpretação?",
+        "cards": [
+            {
+                "title": "Evidência",
+                "text": "O registro que podemos consultar para conferir uma afirmação."
+            },
+            {
+                "title": "Achado",
+                "text": "A conclusão que os dados sustentam, sem extrapolar o que foi mostrado."
+            },
+            {
+                "title": "Hipótese",
+                "text": "Uma ideia que pode fazer sentido, mas ainda precisa ser confirmada."
+            },
+            {
+                "title": "Pendência",
+                "text": "Uma pergunta ou decisão para a qual ainda não temos resposta."
+            }
+        ],
+        "note": "Na próxima missão, você identificará cada elemento usando os seis registros da tela 3."
+    },
+    {
+        "id": "s06",
+        "kind": "concept",
+        "kicker": "Do registro ao problema",
+        "title": "Um dado não vira requisito automaticamente",
+        "lead": "Ter três registros de uma categoria não prova que alguém precisa de um filtro. É necessário distinguir informação e necessidade.",
+        "cards": [
+            {
+                "title": "O que sabemos",
+                "text": "A tabela possui registros organizados por categoria."
+            },
+            {
+                "title": "O que imaginamos",
+                "text": "Talvez seja útil consultar apenas uma categoria por vez."
+            },
+            {
+                "title": "O que falta descobrir",
+                "text": "Quem consultará? Para qual tarefa? A divisão por categoria realmente ajuda?"
+            }
+        ],
+        "note": "A hipótese é útil para investigar, mas ainda não equivale a uma necessidade validada."
+    },
+    {
+        "id": "s07",
+        "kind": "mission",
+        "kicker": "Missão 1 · 10 XP formativos",
+        "title": "Leia a tabela e classifique",
+        "missionId": "m1",
+        "lead": "Use a tabela da tela 3 ou o botão “Ver dados do caso” para responder."
+    },
+    {
+        "id": "s08",
+        "kind": "concept",
+        "kicker": "Transformação 1 · necessidade do usuário",
+        "title": "Qual é o objetivo de quem usa?",
+        "lead": "A mesma situação pode ser descrita como necessidade, serviço esperado e comportamento do sistema.",
+        "cards": [
+            {
+                "title": "Necessidade",
+                "text": "O resultado que a pessoa deseja alcançar."
+            },
+            {
+                "title": "Requisito de usuário",
+                "text": "O serviço que ela espera, descrito em linguagem próxima da sua."
+            },
+            {
+                "title": "Requisito de sistema",
+                "text": "O comportamento ou a condição que o software precisará cumprir."
+            }
+        ],
+        "note": "A necessidade é candidata neste exercício; o uso real ainda dependeria de confirmação."
+    },
+    {
+        "id": "s09",
+        "kind": "concept",
+        "kicker": "Transformação 2 · escrever o requisito",
+        "title": "Um exemplo completo, três níveis",
+        "lead": "Veja a evolução do mesmo filtro: objetivo → serviço esperado → obrigação do sistema.",
+        "cards": [
+            {
+                "title": "Necessidade",
+                "text": "Localizar os registros pertinentes sem ler a coleção inteira."
+            },
+            {
+                "title": "Requisito de usuário",
+                "text": "Quero escolher uma categoria e ver apenas os registros correspondentes."
+            },
+            {
+                "title": "Requisito de sistema",
+                "text": "O sistema deve exibir a seleção e manter todos os registros originais."
+            }
+        ],
+        "note": "A ação concreta do sistema permitirá escrever um teste objetivo mais adiante."
+    },
+    {
+        "id": "s10",
+        "kind": "mission",
+        "kicker": "Missão 2 · 15 XP formativos",
+        "title": "Da necessidade à função",
+        "missionId": "m2",
+        "lead": "Identifique o objetivo da pessoa e o comportamento do sistema no mesmo exemplo."
+    },
+    {
+        "id": "s11",
+        "kind": "concept",
+        "kicker": "Classificar requisitos · comportamento e qualidade",
+        "title": "O que o sistema faz? Como deve funcionar?",
+        "cards": [
+            {
+                "title": "Funcional",
+                "text": "Descreve um comportamento do sistema, por exemplo filtrar registros."
+            },
+            {
+                "title": "Não funcional",
+                "text": "Descreve uma condição de qualidade: acessibilidade, segurança, desempenho."
+            },
+            {
+                "title": "No nosso exemplo",
+                "text": "Filtrar é a função; permitir o uso por teclado é uma condição de qualidade."
+            }
+        ],
+        "note": "Na documentação, essas categorias são abreviadas como RF e RNF, mas não é preciso decorá-las."
+    },
+    {
+        "id": "s12",
+        "kind": "concept",
+        "kicker": "Classificar requisitos · informações e regras",
+        "title": "Quais dados serão usados? Que regra respeitar?",
+        "cards": [
+            {
+                "title": "Requisito de dados",
+                "text": "Define campos, significados, valores permitidos e origem dos registros."
+            },
+            {
+                "title": "Regra de negócio",
+                "text": "Política do contexto que poderia existir mesmo sem software."
+            },
+            {
+                "title": "Aplicação ao caso",
+                "text": "A categoria define o filtro; a revisão do registro determina se ele pode ser publicado."
+            }
+        ],
+        "note": "A regra de publicação foi inventada para a atividade. Não é regra oficial de nenhuma instituição ou comunidade."
+    },
+    {
+        "id": "s13",
+        "kind": "concept",
+        "kicker": "Qualidade da especificação",
+        "title": "Como escrever sem gerar dúvidas?",
+        "cards": [
+            {
+                "title": "Uma obrigação por frase",
+                "text": "Evite misturar várias funções e qualidades em uma mesma declaração."
+            },
+            {
+                "title": "Resultado que se pode conferir",
+                "text": "Diga quais registros devem aparecer e quais devem permanecer guardados."
+            },
+            {
+                "title": "Origem e consistência",
+                "text": "A redação deve combinar com a tabela e com as regras já apresentadas."
+            }
+        ],
+        "note": "Clareza, verificabilidade, necessidade e consistência ajudam a revisar uma especificação."
+    },
+    {
+        "id": "s14",
+        "kind": "mission",
+        "kicker": "Missão 3 · 20 XP formativos",
+        "title": "Diferencie os tipos de requisito",
+        "missionId": "m3",
+        "lead": "Classifique a função, a qualidade, os campos e a política do mesmo caso."
+    },
+    {
+        "id": "s15",
+        "kind": "concept",
+        "kicker": "Qualidade verificável · desempenho",
+        "title": "“Rápido” não é uma medida",
+        "lead": "Para avaliar desempenho, devemos declarar a operação, os dados, o tempo esperado e como testar.",
+        "cards": [
+            {
+                "title": "Vago",
+                "text": "“O filtro deve ser rápido.”"
+            },
+            {
+                "title": "Proposta de requisito verificável",
+                "text": "Com os seis registros do exercício, filtrar em até 1 segundo, nas 10 tentativas feitas no navegador de referência."
+            },
+            {
+                "title": "Ainda falta validar",
+                "text": "A equipe precisa definir o ambiente de teste e confirmar se a meta é viável."
+            }
+        ],
+        "note": "Um segundo é uma meta fictícia proposta, não uma medição feita nesta aula."
+    },
+    {
+        "id": "s16",
+        "kind": "concept",
+        "kicker": "Qualidade verificável · acesso e proteção",
+        "title": "O mesmo filtro precisa ser acessível e seguro",
+        "cards": [
+            {
+                "title": "Acesso por teclado",
+                "text": "A pessoa deve conseguir escolher a categoria e concluir o filtro sem usar mouse."
+            },
+            {
+                "title": "Proteção da saída pública",
+                "text": "Só registros marcados como revisados poderiam aparecer em uma publicação."
+            },
+            {
+                "title": "Verificação",
+                "text": "Testar teclado e tentar publicar um registro não revisado: ele deve ficar de fora."
+            }
+        ],
+        "note": "Filtrar internamente não é o mesmo que publicar. As duas operações têm regras distintas."
+    },
+    {
+        "id": "s17",
+        "kind": "mission",
+        "kicker": "Missão 4 · 15 XP formativos",
+        "title": "Torne a qualidade verificável",
+        "missionId": "m4",
+        "lead": "Compare uma exigência vaga com condições concretas para o mesmo filtro."
+    },
+    {
+        "id": "s18",
+        "kind": "concept",
+        "kicker": "Especificação de teste · critério de aceitação",
+        "title": "Como saber se o filtro ficou correto?",
+        "lead": "Um critério de aceitação descreve a situação inicial, a ação realizada e o resultado observável.",
+        "cards": [
+            {
+                "title": "Dado",
+                "text": "Existe uma coleção conhecida de seis registros."
+            },
+            {
+                "title": "Quando",
+                "text": "A pessoa escolhe a categoria indicada."
+            },
+            {
+                "title": "Então",
+                "text": "Aparecem exatamente os registros esperados, sem apagar os originais."
+            }
+        ],
+        "note": "O exemplo usa os mesmos seis registros da tela 3; experimente conferir quais códigos aparecem."
+    },
+    {
+        "id": "s19",
+        "kind": "concept",
+        "kicker": "Planejar a primeira entrega",
+        "title": "O que é essencial agora?",
+        "cards": [
+            {
+                "title": "Essencial",
+                "text": "Filtrar corretamente, preservar a coleção e respeitar as proteções necessárias."
+            },
+            {
+                "title": "Desejável depois",
+                "text": "Oferecer filtros adicionais, se a necessidade for confirmada."
+            },
+            {
+                "title": "Pode esperar",
+                "text": "Animações e temas visuais que não mudam a tarefa principal."
+            }
+        ],
+        "note": "Esta escolha organiza a lista de trabalho, também chamada de backlog: o conjunto de itens a implementar."
+    },
+    {
+        "id": "s20",
+        "kind": "mission",
+        "kicker": "Missão 5 · 20 XP formativos",
+        "title": "Escolha o teste e a prioridade",
+        "missionId": "m5",
+        "lead": "Verifique o mesmo filtro, revise uma frase ambígua e decida o mínimo útil."
+    },
+    {
+        "id": "s21",
+        "kind": "concept",
+        "kicker": "Organizar a documentação",
+        "title": "Como explicar de onde veio o requisito?",
+        "lead": "Rastreabilidade é conseguir percorrer o mesmo caso da fonte até o teste — e voltar quando algo mudar.",
+        "cards": [
+            {
+                "title": "Origem",
+                "text": "Começamos com a tabela fictícia que você consultou."
+            },
+            {
+                "title": "Decisão",
+                "text": "A equipe registra o achado, a necessidade candidata e a obrigação do filtro."
+            },
+            {
+                "title": "Verificação",
+                "text": "O critério de aceitação confere o resultado usando aquela mesma tabela."
+            }
+        ],
+        "note": "O botão “Ver dados e evolução” reúne o material mostrado nesta página. Não existe arquivo externo oculto."
+    },
+    {
+        "id": "s22",
+        "kind": "concept",
+        "kicker": "Revisão crítica · duas perguntas",
+        "title": "Verificar não é o mesmo que validar",
+        "cards": [
+            {
+                "title": "Verificação",
+                "text": "O sistema filtra exatamente as linhas que a especificação determinou?"
+            },
+            {
+                "title": "Validação",
+                "text": "Filtrar por essa categoria realmente ajuda a pessoa a resolver o problema?"
+            },
+            {
+                "title": "Se a resposta mudar",
+                "text": "Ajustamos necessidade, requisito e teste; preservamos o motivo da mudança."
+            }
+        ],
+        "note": "Sem contato autorizado com pessoas reais, a validação da utilidade permanece pendente."
+    },
+    {
+        "id": "s23",
+        "kind": "mission",
+        "kicker": "Missão 6 · 20 XP formativos",
+        "title": "Ligue fonte, requisito e teste",
+        "missionId": "m6",
+        "lead": "Escolha a cadeia de decisões que usa a mesma tabela e não transforma hipótese em fato."
+    },
+    {
+        "id": "s24",
+        "kind": "catalog",
+        "kicker": "Oficina · 7 minutos",
+        "title": "Escreva os requisitos do seu caso",
+        "lead": "Com a tabela visível no botão “Ver dados e evolução”, escreva uma função, uma condição de qualidade e um requisito de dados.",
+        "note": "Cada item precisa de texto, origem e teste. O formulário é local; exemplos são apenas apoio à reflexão."
+    },
+    {
+        "id": "s25",
+        "kind": "review",
+        "kicker": "Revisão em dupla · 3 minutos",
+        "title": "Outra pessoa consegue testar seu requisito?",
+        "lead": "Confiram juntos se cada enunciado combina com a tabela e se o teste deixa claro o resultado esperado.",
+        "note": "Marcar o checklist registra uma autoavaliação, não uma aprovação automática."
+    },
+    {
+        "id": "s26",
+        "kind": "exit",
+        "kicker": "Síntese · 5 minutos",
+        "title": "Da tabela ao requisito que podemos testar",
+        "lead": "Explique um exemplo completo: dado conhecido → conclusão → necessidade → requisito → teste.",
+        "note": "As atividades usam dados inventados. Os pontos de treino não são nota oficial; a exportação é voluntária."
+    }
+];
   const missions = [
     { id: 'm1', title: 'Separe as pistas', xp: 10, slideId: 's07', objective: 'Distinguir achado, evidência, hipótese e pendência.' },
     { id: 'm2', title: 'Da necessidade ao sistema', xp: 15, slideId: 's10', objective: 'Relacionar o objetivo do usuário à especificação do sistema.' },
