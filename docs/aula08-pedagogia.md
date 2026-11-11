@@ -2,13 +2,13 @@
 
 Versão: **1.0.0**. Data de elaboração: **10/11/2026**. Disciplina: **Prática Profissional Integrada I**, IFMA Campus Itapecuru-Mirim, 2º ano do Técnico em Informática Integrado, 2026.2.
 
-> **Revisão pedagógica em PR (11/11/2026):** a fundamentação literária, o encadeamento EV → ACH → HIP/PEND → NEC/RU → RF/RNF/RD → CA e os estágios cumulativos D0–D11 estão detalhados no [Guia do dossiê progressivo](aula08/GUIA_DOSSIE_PROGRESSIVO.md). Este documento preserva o registro da especificação da v1.0.0; para os novos exemplos por tela e critérios da revisão, o guia é a referência principal. A revisão não altera contrato de dados, XP, plano SUAP ou a versão publicada até o merge.\n\n## 1. Produto e fronteira
+> **Revisão pedagógica (11/11/2026):** a aula usa agora duas tabelas de seis registros efetivamente renderizadas, antes de qualquer missão. O conceito de requisito é apresentado separadamente do processo de análise. [Guia pedagógico com as tabelas, os exemplos e os critérios de QA](aula08/GUIA_DOSSIE_PROGRESSIVO.md). O esquema JSON e os 100 XP permanecem; nenhuma coleta real, submissão institucional ou nota oficial é criada.\n\n## 1. Produto e fronteira
 
 A apresentação “Da evidência ao requisito” oferece 26 telas, seis missões formativas e um rascunho local de catálogo mínimo: **1 RF, 1 RNF verificável e 1 requisito de dados**, cada qual ligado a uma fonte sintética ou hipótese marcada como pendente. O catálogo é uma atividade de aprendizagem e não uma ficha avaliativa formal.
 
 A Aula 07 publicada apresenta entrevista, observação, documentos, ética, evidências e hipóteses. Seu contrato pedagógico reserva a formalização de RF/RNF/dados para a Aula 08. Esse encaixe foi conferido no README, no arquivo docs/aula07-revisao-2026-10-27.md e em docs/specs/aula07-ficha/CONTRATO_PEDAGOGICO.md. Publicação não comprova que a aula foi ministrada.
 
-**Não há nova autorização de coleta, contato com comunidade, uso de dados pessoais, inferência de evasão individual ou submissão externa.** Os registros EV-M01/02/03 e EV-P01/02/03 foram inventados para os exercícios. Os prefixos M e P identificam trilhas, nunca pessoas. A atividade não solicita nomes ou matrículas.
+**Não há nova autorização de coleta, contato com comunidade, uso de dados pessoais, inferência de evasão individual ou submissão externa.** As fontes EV-M01 e EV-P01 correspondem às tabelas sintéticas efetivamente exibidas na tela 3; os outros requisitos são propostas formuladas nas telas seguintes, sem fingir documentos externos. Os prefixos M e P identificam trilhas, nunca pessoas. A atividade não solicita nomes ou matrículas.
 
 ### Proposta de replanejamento, sem alteração institucional
 
@@ -27,62 +27,52 @@ O plano anexado, rotulado DRAFT_WITH_PENDING, prevê para **11/11/2026** modelo 
 
 As categorias são didáticas e podem se relacionar: uma regra do domínio pode gerar RFs, RNFs e restrições de dados. A aula não apresenta a divisão em quatro categorias como taxonomia exclusiva da ISO. A ISO/IEC/IEEE 29148 orienta conceitualmente a passagem de necessidades para requisitos; a ISO/IEC 25010 orienta a especificação e a avaliação da qualidade de produto. Não se declara certificação ou conformidade integral com normas.
 
-## 3. Roteiro de 50 minutos
+## 3. Sequência pedagógica e cronograma
 
-Os blocos de explicação e missão se alternam para permitir prática logo após o conceito. O total preserva **5 min de retomada + 10 de explicação + 20 de missões + 10 de oficina + 5 de síntese**.
+**Regra da versão revisada:** a fonte que fundamenta as perguntas aparece integralmente na **tela 3**. A definição conceitual de requisito é ensinada na **tela 4** sem misturar uma lista de passos. As demais telas aplicam os conceitos sempre ao **mesmo conjunto de seis registros**, que pode ser consultado sem abandonar o slide atual. O botão **Ver dados e evolução** mostra a tabela e as decisões efetivamente construídas na aplicação; não há material externo oculto.
 
-| Telas | Tempo | Ação docente / discente |
+| Etapa | Minutos de referência | Execução |
 | --- | ---: | --- |
-| 01–03 | 5 min | Apresentar produto, diagnosticar a solicitação vaga e escolher um cenário. |
-| 04–06 | 2 min | Explicar a cadeia e diferenciar as classificações. |
-| 07 | 3 min | Missão 1, com discussão dos erros. |
-| 08–09 | 1,5 min | Comparar necessidade e especificação por exemplo. |
-| 10 | 2 min | Missão 2. |
-| 11–13 | 2 min | RF, RNF, dados, regras e seis atributos de qualidade. |
-| 14 | 4 min | Missão 3. |
-| 15–16 | 1,5 min | RNFs mensuráveis, teclado e proteção. |
-| 17 | 3 min | Missão 4. |
-| 18–19 | 1,5 min | Dado/Quando/Então e recorte por valor, risco e esforço. |
-| 20 | 4 min | Missão 5. |
-| 21–22 | 1,5 min | Rastreabilidade, hipótese e limites da IA. |
-| 23 | 4 min | Missão 6. |
-| 24–25 | 10 min | Escrever catálogo em equipe (7 min) e revisar em pares (3 min). |
-| 26 | 5 min | Síntese, ticket de saída e exportação voluntária. |
+| Contextualização e leitura da fonte (01–03) | 7 | Mostrar as duas trilhas e estudar a tabela fictícia |
+| Conceitos comentados intercalados (04–06 e ao longo da aula) | 8 | Explicar sem siglas preliminares ou fontes não exibidas |
+| Seis missões contextualizadas (07, 10, 14, 17, 20, 23) | 20 | Feedback imediato e possibilidade de consultar a tabela |
+| Catálogo e revisão por pares (24–25) | 10 | Escrever função, qualidade e dados com origem e teste |
+| Síntese (26) | 5 | Defender a cadeia do caso e registrar pendências |
 
-São 17 perguntas por trilha. O motor deve apresentar **uma pergunta por vez em cada missão**, com tentativas livres e feedback, para preservar a legibilidade. O professor pode projetar e colher respostas orais, com um operador; não é necessário que toda a turma tenha dispositivo. Se o tempo de leitura aumentar, continuar a oficina com o material local sem acelerar a ponto de suprimir as explicações.
+Este tempo é planejamento, **não uma duração efetivamente medida**. Caso a discussão seja mais longa, a turma pode concluir o catálogo na atividade orientada, sem eliminar explicações fundamentais.
 
-### Sumário por tela — revisão do caso contínuo D0–D11
+### Objetivo explícito de cada tela
 
-| Tela | Título | Parte do dossiê / objetivo |
+| Tela | Título exibido | Objetivo e pré-requisito |
 | --- | --- | --- |
-| s01 | Da evidência ao requisito | Apresentar o caso único e a entrega final rastreável. |
-| s02 | O que já temos da Aula 07? | Retomar a fonte, a parte interessada e o problema. |
-| s03 | Um laboratório de decisões | **D0:** registro sintético identificado (EV). |
-| s04 | Afinal, o que é um requisito? | Definições de ISO 29148, Pfleeger e Nuseibeh/Easterbrook. |
-| s05 | O que sabemos e o que interpretamos? | **D1:** evidência, achado e hipótese do mesmo registro. |
-| s06 | Separar pedido, necessidade e suposição | **D2:** hipótese, pendência e cautela com validação. |
-| s07 | Separe as pistas | Missão 1, retomando EV/ACH/HIP/PEND do caso. |
-| s08 | Necessidade, requisito de usuário e de sistema | **D3:** necessidade e RU do mesmo problema. |
-| s09 | Do problema ao requisito verificável | **D4:** especificar RF ancorado em EV/NEC/RU. |
-| s10 | Reconheça a necessidade e o sistema | Missão 2, mesma necessidade e RF. |
-| s11 | Que função? Sob quais condições? | RF e RNF da mesma operação. |
-| s12 | Que informação e qual política? | **D5:** RD e RN do mesmo domínio. |
-| s13 | Como distinguir requisito bom de frase vaga? | Revisão de clareza, singularidade e teste do mesmo RF. |
-| s14 | Dê o nome certo a cada condição | Missão 3, RF/RNF/RD/RN do caso. |
-| s15 | Corrigir “o filtro deve ser rápido” | **D6:** RNF mensurável e carga de desempenho distinta da EV inicial. |
-| s16 | Quem consegue usar? O que pode aparecer? | Teclado e proteção como condições separadas do mesmo RF. |
-| s17 | Conserte o requisito vago | Missão 4, qualidade da mesma função. |
-| s18 | Como provar que o RF foi atendido? | **D7:** CA Dado/Quando/Então usando os seis registros de EV. |
-| s19 | O que entra na primeira versão? | **D8:** prioridade, risco e escopo mínimo. |
-| s20 | Defina o aceite e faça escolhas | Missão 5; extensão ambígua do mesmo RF. |
-| s21 | Mostre como o documento foi construído | **D9:** construir rastro EV→ACH→NEC/RU→RF→CA. |
-| s22 | Verificação não é validação | Testar RF versus confirmar necessidade; gerenciar mudança. |
-| s23 | Feche a cadeia sem inventar elos | Missão 6, sobre os mesmos IDs. |
-| s24 | Complete o dossiê do mesmo caso | **D10:** estudante escreve RF/RNF/RD e respectivas fontes. |
-| s25 | Outra equipe audita seu dossiê | **D11:** revisar por pares e registrar pendências. |
-| s26 | Do mesmo registro a um catálogo rastreável | Ticket de saída e síntese do dossiê. |
+| s01 | Da observação ao requisito | Apresentar um caso completo e um produto concreto |
+| s02 | Que problema vamos investigar? | Delimitar contexto, papel e pergunta do caso |
+| s03 | Esta é a tabela do nosso exercício | Exibir a tabela de seis registros antes das perguntas |
+| s04 | Afinal, o que é um requisito? | Definir requisito e mostrar um contraexemplo, sem passos soltos |
+| s05 | O que é fato e o que é interpretação? | Ensinar evidência, achado, hipótese e pendência com a tabela |
+| s06 | Um dado não vira requisito automaticamente | Explicitar diferença entre observação e necessidade candidata |
+| s07 | Leia a tabela e classifique | Missão 1: classificar informações já apresentadas |
+| s08 | Qual é o objetivo de quem usa? | Ensinar necessidade, serviço esperado e obrigação de sistema |
+| s09 | Um exemplo completo, três níveis | Comparar três níveis do mesmo exemplo |
+| s10 | Da necessidade à função | Missão 2: identificar necessidade e obrigação |
+| s11 | O que o sistema faz? Como deve funcionar? | Distinguir funcional de não funcional no mesmo filtro |
+| s12 | Quais dados serão usados? Que regra respeitar? | Definir dados e política fictícia a partir das colunas mostradas |
+| s13 | Como escrever sem gerar dúvidas? | Revisar redação, origem e resultado testável |
+| s14 | Diferencie os tipos de requisito | Missão 3: classificar requisitos do próprio caso |
+| s15 | “Rápido” não é uma medida | Transformar desempenho vago em meta proposta com seis itens |
+| s16 | O mesmo filtro precisa ser acessível e seguro | Testar teclado e política de publicação usando Revisado? |
+| s17 | Torne a qualidade verificável | Missão 4: identificar qualidade mensurável |
+| s18 | Como saber se o filtro ficou correto? | Critério Dado/Quando/Então com IDs e linhas exibidos |
+| s19 | O que é essencial agora? | Priorizar a primeira entrega do filtro |
+| s20 | Escolha o teste e a prioridade | Missão 5: aceitar, separar obrigações e priorizar |
+| s21 | Como explicar de onde veio o requisito? | Explicar a rastreabilidade sem um arquivo externo oculto |
+| s22 | Verificar não é o mesmo que validar | Distinguir teste do requisito da validação da necessidade |
+| s23 | Ligue fonte, requisito e teste | Missão 6: encadear a mesma fonte e o mesmo teste |
+| s24 | Escreva os requisitos do seu caso | Produzir rascunho local de três tipos de requisitos |
+| s25 | Outra pessoa consegue testar seu requisito? | Revisar coerência do catálogo com os registros |
+| s26 | Da tabela ao requisito que podemos testar | Sintetizar o caso e justificar o que é verificável |
 
-**Rastreabilidade visual:** a apresentação conserva o número da etapa na linha superior. Em **Dossiê e fontes**, um histórico cumulativo mostra os registros criados até a tela atual. Não há preenchimento automático do trabalho da equipe.
+As seis missões preservam **17 perguntas por trilha** e **100 XP formativos**. A pontuação é treino, não avaliação oficial. Os campos livres exigem julgamento humano e não possuem correção semântica confiável.
 
 ## 4. Contrato de XP e avaliação
 
