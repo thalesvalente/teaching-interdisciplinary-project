@@ -287,8 +287,8 @@
     const data = slideData(C.slides[current]); const host = $('notes-content'); host.replaceChildren();
     host.append(el('h3', data.title), el('p', data.note || data.lead || 'Converse com a turma antes de avançar.'));
     const progress = el('ol', null, 'dossier-history');
-    const current = C.slides.findIndex(s => s.id === data.id);
-    track().dossierStages.filter(stage => C.slides.findIndex(s => s.id === stage.slideId) <= current)
+    const activeSlideIndex = C.slides.findIndex(s => s.id === data.id);
+    track().dossierStages.filter(stage => C.slides.findIndex(s => s.id === stage.slideId) <= activeSlideIndex)
       .forEach(stage => { const item = el('li'); item.append(el('strong', stage.id + ' · ' + stage.title + ' [' + stage.artifactId + ']'), el('p', stage.excerpt)); progress.append(item); });
     if (progress.childElementCount) {
       host.append(el('h4', 'Dossiê em construção · ' + track().shortLabel), progress);
