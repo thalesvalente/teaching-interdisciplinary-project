@@ -137,48 +137,55 @@ A origem executável dos enunciados, opções, gabaritos e justificativas é con
 | a08.m6.q1.v1 | permanencia | Montar cadeia de rastreabilidade. | EV-P01 | Relaciona os cinco elos sem inventar confirmação. | B |
 | a08.m6.q2.v1 | permanencia | Revisar fonte, requisito e critério em conjunto. | EV-P01 / HIP-P01 | Preserva resultado verificável e incerteza contextual. | A |
 
-### Gabaritos comentados
+### Gabaritos comentados e interpretação pedagógica
 
-As letras são iguais entre as duas trilhas porque o objetivo de cada pergunta é equivalente. Os enunciados, registros, necessidades e resultados esperados são contextualizados e não se misturam.
+As respostas corretas usam a mesma letra nas duas trilhas; os **dados que justificam a resposta variam** com a tabela da tela 3. A tabela foi realmente construída dentro da aula — não há ficha, roteiro ou dicionário de dados externo.
 
-| Pergunta | Resposta correta — síntese | Justificativa |
+| Questão | Alternativa correta | O que deve ser explicado ao aluno |
 | --- | --- | --- |
-| a08.m1.q1.v1 | B: Evidência | A ficha/tabela identificada é a evidência do exercício. Ela permite conferir a coleção fictícia, mas não retrata uma comunidade ou turma real. |
-| a08.m1.q2.v1 | A: Achado | O achado resulta da leitura da evidência. A conclusão limita-se ao conjunto examinado. |
-| a08.m1.q3.v1 | C: Hipótese | “Talvez” sinaliza uma explicação a testar. O conteúdo não foi validado pela existência da tabela. |
-| a08.m1.q4.v1 | D: Pendência | A validação ainda necessária vira pendência. Não é preciso inventar uma resposta para continuar o rascunho. |
-| a08.m2.q1.v1 | C: Quem consulta precisa localizar relatos do tema escolhido. | A necessidade explica para quê a solução existe. A implementação é detalhada depois, com validação. |
-| a08.m2.q2.v1 | A: O sistema deve exibir os relatos do tema selecionado sem alterar a coleção original. | O requisito deve traduzir a necessidade em comportamento ou condição verificável, evitando detalhes de implementação desnecessários. |
-| a08.m3.q1.v1 | A: RF · requisito funcional | Exibir a seleção é uma função do sistema. O requisito também evita o efeito indevido de apagar a fonte. |
-| a08.m3.q2.v1 | B: RNF · requisito não funcional | A condição define como a função deve poder ser utilizada e permite um teste de teclado. |
-| a08.m3.q3.v1 | C: RD · requisito de dados | O item define obrigatoriedade e valores permitidos de um campo. No catálogo didático, isso é requisito de dados. |
-| a08.m3.q4.v1 | D: RN · regra de negócio | É uma política criada para o exercício, não uma norma real do IFMA ou de uma comunidade. Ela pode existir mesmo numa organização em papel. |
-| a08.m4.q1.v1 | B: Com 100 registros sintéticos carregados, responder em até 1 s em cada uma de 10 execuções no computador e navegador de referência documentados. | A meta é fictícia e proposta. Registrar o ambiente e validar a viabilidade faz parte do requisito; o enunciado não prova que o desempenho foi alcançado. |
-| a08.m4.q2.v1 | C: Testar a filtragem só com teclado, foco visível e sem bloqueio. Na saída pública simulada, permitir apenas id, título e tema dos itens revisados; omitir os itens restritos. | Cada condição deve virar um RNF separado no catálogo: uma para acesso por teclado e outra para minimização/proteção da saída. |
-| a08.m5.q1.v1 | A: Dado o acervo EV-M01 com 6 relatos, quando selecionar festa, então exibir exatamente os 3 relatos desse tema e manter os 6 na coleção original. | Dado/Quando/Então organiza um exemplo verificável. A quantidade esperada vem da base de teste identificada. |
-| a08.m5.q2.v1 | B: Separar listar e gerar em dois requisitos; definir o período de “recente” e o conteúdo esperado do relatório com a fonte. | Clareza, singularidade e verificabilidade trabalham juntas. Se a fonte não definir o período, registre a pendência. |
-| a08.m5.q3.v1 | C: Consulta por tema, proteção da saída e uso por teclado; adiar animações decorativas. | Prioridade considera valor, risco, esforço e dependências. Requisitos essenciais de acesso e proteção precisam entrar no recorte. |
-| a08.m6.q1.v1 | B: EV-M01 → ACH-M01 → NEC-M01 → RF-M01 → CA-M01. | O rastro deve permitir seguir do teste ao requisito e voltar à fonte, inclusive quando algum elo é uma hipótese pendente. |
-| a08.m6.q2.v1 | A: Usar EV-M01 para testar 3 relatos ao escolher festa; manter a hipótese de utilidade pendente de validação. | Um dado pode sustentar o resultado esperado de um teste sem validar a necessidade em todos os contextos. A revisão humana identifica esse limite. |
+| Missão 1 · questão 1 | **B: Evidência** | A tabela de seis linhas pode ser consultada para conferir a distribuição dos registros. |
+| Missão 1 · questão 2 | **A: Achado** | A conclusão se limita aos seis registros: três de festa na trilha Memórias, ou três linhas P1 na trilha Permanência. |
+| Missão 1 · questão 3 | **C: Hipótese** | A utilidade do filtro é possível, mas não foi confirmada. |
+| Missão 1 · questão 4 | **D: Pendência** | É necessário consultar pessoas autorizadas para saber se o filtro atende a uma necessidade real. |
+| Missão 2 · questão 1 | **C: Necessidade** | O objetivo de localizar registros não equivale a escolher uma tecnologia. |
+| Missão 2 · questão 2 | **A: Requisito de sistema** | Especifica mostrar apenas os registros escolhidos e preservar a tabela completa. |
+| Missão 3 · questão 1 | **A: Funcional** | Filtrar registros é uma operação do sistema. |
+| Missão 3 · questão 2 | **B: Não funcional** | Operar apenas com teclado e foco visível é condição de qualidade. |
+| Missão 3 · questão 3 | **C: Dados** | Valores válidos dos campos tema ou período estão visíveis na tabela. |
+| Missão 3 · questão 4 | **D: Regra de negócio** | A política de publicar apenas itens revisados é fictícia e distinta da operação interna de filtrar. |
+| Missão 4 · questão 1 | **B: Meta verificável** | A meta proposta usa **seis** registros, um segundo e dez execuções; não afirma desempenho medido. |
+| Missão 4 · questão 2 | **C: Acesso e proteção** | Teclado e publicação controlada são verificações distintas. |
+| Missão 5 · questão 1 | **A: Critério Dado/Quando/Então** | Selecionar festa retorna R01/R02/R03; selecionar P1 retorna L01/L02/L03. A fonte permanece intacta. |
+| Missão 5 · questão 2 | **B: Separar obrigações** | Separar o resultado funcional da meta de desempenho da mesma consulta. Não introduzir outro projeto. |
+| Missão 5 · questão 3 | **C: Escopo mínimo** | Consulta, proteção e acessibilidade têm prioridade sobre decoração. |
+| Missão 6 · questão 1 | **B: Cadeia rastreável** | Partir da tabela mostrada, distinguir conclusão e necessidade, especificar filtro e testar. |
+| Missão 6 · questão 2 | **A: Revisão responsável** | O teste do filtro é verificável, mas a hipótese sobre utilidade ainda precisa ser validada. |
 
-## 6. Casos e registros sintéticos
+## 6. Casos e registros sintéticos existentes na própria apresentação
+
+O arquivo **content.js** contém dois conjuntos com **seis registros cada**, expostos integralmente em uma tabela HTML semântica na **tela 3**. O botão **Ver dados e evolução** e o botão contextual das missões permitem reler a tabela sem sair da questão.
 
 ### Memórias
 
-EV-M01 descreve seis relatos inventados: três do tema festa, dois de trabalho e um de paisagem. A filtragem por festa deve exibir três, preservando os seis originais. EV-M02 define o domínio de valores do campo tema; EV-M03 contém um roteiro fictício de teste por teclado. HIP-M01 propõe a utilidade do filtro, ainda pendente. RN-M01 é uma política fictícia de revisão antes da saída pública, sem pretender falar por lideranças ou comunidades.
+- R01, R02 e R03 têm o tema **festa**; R04 e R05, **trabalho**; R06, **paisagem**. Os títulos são apenas Relato inventado A–F.
+- A hipótese de utilidade de filtrar por tema permanece pendente. A seleção de festa, no exemplo interno, retorna R01, R02 e R03.
+- A coluna **Revisado?** permite discutir uma política de publicação fictícia, sem alegar validação por comunidade real.
 
 ### Permanência
 
-EV-P01 descreve seis linhas **agregadas e inteiramente fabricadas**: três no período P1, duas em P2 e uma em P3. O filtro P1 deve exibir três e preservar as seis. EV-P02 define o domínio de período; EV-P03 contém o roteiro fictício por teclado. HIP-P01 propõe a utilidade da consulta para planejar apoio, sem declarar impacto ou causa. RN-P01 restringe a saída do exercício a agregados revisados. Não há previsão de abandono, classificação de estudantes, notas, frequências ou critérios institucionais inventados.
+- L01, L02 e L03 têm **P1 (período 1)**; L04 e L05, **P2 (período 2)**; L06, **P3 (período 3)**.
+- As categorias e quantidades são **fabricadas para o exercício** e não representam estudantes, matrícula ou dados do IFMA.
+- A seleção P1 retorna L01, L02 e L03. Isso não permite inferir causas de evasão, risco individual nem efetividade de políticas.
+- A política de publicação de linhas marcadas Revisado = Sim é **uma regra inventada para ensinar proteção**.
 
 ### Observações de precisão
 
-- A evidência sustenta um achado dentro de limites; não é prova universal nem prova de causalidade.
-- Uma solicitação sugere uma solução; uma dúvida pode tornar-se pendência. Nenhuma delas vira requisito validado automaticamente.
-- A meta de 1 segundo, 100 registros e 10 execuções é uma **proposta fictícia de RNF**, a ser negociada e testada. Não é resultado de medição da aula.
-- Acessibilidade e proteção são ensinadas com procedimentos observáveis; não se promete segurança absoluta.
-- O filtro é especificado para preservar a fonte. O exemplo não autoriza baixar nem importar dados reais.
-- Uma IA pode apoiar a revisão e também pode inventar. Sua resposta não substitui fonte ou validação humana.
+- Não existem neste percurso materiais externos chamados **EV-M02, EV-M03, EV-P02 ou EV-P03**. Os campos de dados são apresentados na tela 3; suas regras são discutidas na tela 12; a acessibilidade, na tela 16.
+- O desempenho proposto usa **seis registros e dez tentativas**. Um segundo é uma meta a verificar posteriormente, não resultado obtido.
+- Uma fonte sintética sustenta resultados sobre o conjunto de teste, não confirma necessidades, causalidade ou impacto na comunidade.
+- Respostas de IA e hipóteses não se convertem em evidências validadas; não há coleta de informações pessoais ou publicação automática.
+
+Para cada linha e valor dos dados, consultar também o [guia pedagógico da versão revisada](aula08/GUIA_DOSSIE_PROGRESSIVO.md).
 
 ## 7. Oficina, revisão e ticket de saída
 
