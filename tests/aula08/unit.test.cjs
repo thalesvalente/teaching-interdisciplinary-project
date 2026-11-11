@@ -109,19 +109,49 @@ test('DOSSIE-02: concept, user/system levels, quality and verification/validatio
   assert.match(texts('s22'),/verifica[çc][aã]o/i);
   assert.match(texts('s22'),/valida[çc][aã]o/i);
 });
-test('DOSSIE-03: both stories reuse EV/RU/RF/CA and the same synthetic fixture across examples and missions',()=>{
+test('DOSSIE-03: both stories reuse source, behavior and test without opaque card titles',()=>{
   for(const track of tracks){
     const t=Content.tracks[track],id=track==='memorias'?'M':'P';
     const ev='EV-'+id+'01',rf='RF-'+id+'01';
+    const beginning=t.slides.s03.cards;
+    assert.deepEqual(beginning.map(c=>c.title),[
+      '1. O registro que recebemos',
+      '2. O que conseguimos afirmar',
+      '3. O que ainda é só uma ideia'
+    ]);
     for(const slideId of ['s03','s05','s09','s11','s13','s15','s18','s21']){
       assert.ok(t.slides[slideId],slideId);
-      assert.ok(JSON.stringify(t.slides[slideId]).includes(slideId==='s15'?rf:slideId==='s13'?rf:slideId==='s03'?ev:slideId==='s05'?ev:slideId==='s21'?ev:slideId==='s18'?ev:rf),'same story on '+slideId);
+      for(const c of t.slides[slideId].cards||[]){
+        assert.doesNotMatch(c.title,/^(?:EV|ACH|HIP|NEC|RU|RF|RNF|RD|RN|CA)[-?]/,'unexplained code in '+slideId);
+      }
     }
-    const question=t.missions.m5.questions[1];
-    assert.match(question.prompt,new RegExp(rf));
-    assert.equal(question.correct,'b');
+    const system=t.catalogExamples.RF.text;
+    assert.ok(t.slides.s09.cards.some(c=>c.text===system),'same requirement in the progressive example');
+    assert.ok(t.slides.s11.cards.some(c=>c.text===system),'same requirement in the quality example');
+    assert.ok(t.slides.s15.cards.some(c=>c.text===system),'same requirement in the performance example');
+    assert.match(t.missions.m5.questions[1].prompt,new RegExp(rf));
+    assert.equal(t.missions.m5.questions[1].correct,'b');
     const trace=t.dossierStages.find(x=>x.id==='D9');
     assert.ok(trace.excerpt.includes(ev));
     assert.ok(trace.excerpt.includes(rf));
   }
+});
+test('LINGUAGEM-01: glossary decodes technical identifiers and data labels before students need them',()=>{
+  const entries=new Map(Content.glossary.map(x=>[x.code,x]));
+  for(const code of ['EV','ACH','HIP','PEND','NEC','RU','RF','RNF','RD','RN','CA','D0 a D11','R01 / L01','P1 / P2 / P3','XP']){
+    const entry=entries.get(code);assert.ok(entry,code);assert.ok(entry.term.length>2);assert.ok(entry.meaning.length>18);
+  }
+  const s02=Content.slides.find(s=>s.id==='s02');
+  assert.match(JSON.stringify(s02),/EV-P01/);
+  assert.match(JSON.stringify(s02),/evid[eê]ncia/i);
+  assert.match(Content.tracks.permanencia.slides.s03.cards[0].text,/P1.*P2.*P3/);
+  assert.match(Content.tracks.permanencia.slides.s03.cards[0].text,/n[aã]o uma pessoa/i);
+  assert.match(Content.tracks.memorias.slides.s03.cards[0].text,/Seis relatos inventados/i);
+});
+test('LINGUAGEM-02: permanent glossary exists in the HTML without external dependencies',()=>{
+  const html=fs.readFileSync(moduleFile('index.html'),'utf8');
+  assert.match(html,/id="glossary-btn"/);
+  assert.match(html,/aria-controls="glossary-dialog"/);
+  assert.match(html,/id="glossary-dialog"/);
+  assert.match(html,/id="glossary-content"/);
 });
