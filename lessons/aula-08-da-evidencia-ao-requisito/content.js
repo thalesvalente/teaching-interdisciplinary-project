@@ -514,155 +514,147 @@
       option('d', 'Regra de negócio (RN)', correct === 'd' ? 'É uma política fictícia do domínio, válida mesmo se a tarefa fosse feita em papel.' : 'RN é uma condição do domínio; ela pode motivar vários requisitos.')
     ];
   }
-  function buildTrack(c) {
+  function buildCaseTable(c,id){
+  if(id==="M")return{
+    title:"Seis relatos inventados para o exercício",
+    intro:"Nenhum relato foi coletado. Os títulos A–F e os temas são dados criados nesta aula para praticar análise e requisitos.",
+    columns:[{key:"code",label:"Registro"},{key:"theme",label:"Tema"},{key:"title",label:"Título fictício"},{key:"review",label:"Revisado?"}],
+    rows:[
+      {code:"R01",theme:"festa",title:"Relato inventado A",review:"Sim"},
+      {code:"R02",theme:"festa",title:"Relato inventado B",review:"Sim"},
+      {code:"R03",theme:"festa",title:"Relato inventado C",review:"Não"},
+      {code:"R04",theme:"trabalho",title:"Relato inventado D",review:"Sim"},
+      {code:"R05",theme:"trabalho",title:"Relato inventado E",review:"Sim"},
+      {code:"R06",theme:"paisagem",title:"Relato inventado F",review:"Não"}],
+    filterLabel:"festa",expectedCodes:["R01","R02","R03"],
+    summary:"Há seis relatos fictícios: três de festa, dois de trabalho e um de paisagem."
+  };
+  return{
+    title:"Seis linhas agregadas inventadas para o exercício",
+    intro:"A tabela não representa nenhuma turma. As quantidades e categorias foram inventadas; L01–L06 são códigos de linhas, não de estudantes.",
+    columns:[{key:"code",label:"Linha"},{key:"period",label:"Período"},{key:"category",label:"Categoria fictícia"},{key:"count",label:"Quantidade"},{key:"review",label:"Revisado?"}],
+    rows:[
+      {code:"L01",period:"P1 (período 1)",category:"Transporte",count:"8",review:"Sim"},
+      {code:"L02",period:"P1 (período 1)",category:"Material",count:"5",review:"Sim"},
+      {code:"L03",period:"P1 (período 1)",category:"Apoio pedagógico",count:"7",review:"Não"},
+      {code:"L04",period:"P2 (período 2)",category:"Transporte",count:"6",review:"Sim"},
+      {code:"L05",period:"P2 (período 2)",category:"Material",count:"4",review:"Sim"},
+      {code:"L06",period:"P3 (período 3)",category:"Apoio pedagógico",count:"9",review:"Não"}],
+    filterLabel:"P1 (período 1)",expectedCodes:["L01","L02","L03"],
+    summary:"Há seis linhas agregadas inventadas: três do período 1, duas do período 2 e uma do período 3. As quantidades não representam estudantes reais."
+  };
+}
+  function teachingOverrides(c,id,userRequirement,caseTable) {
+ const selector=id==="M"?"o tema festa":"o período 1 (P1)";
+ const expected=id==="M"?"R01, R02 e R03":"L01, L02 e L03";
+ return {
+   s02:{cards:[
+     card("Quem usaria uma consulta?",id==="M"?"Uma pessoa interessada em um acervo de relatos fictícios.":"Uma equipe pedagógica fictícia que consulta dados agregados, não individuais."),
+     card("Que material teremos?",caseTable.summary),
+     card("Nossa pergunta",`Como selecionar registros por ${id==="M"?"tema":"período"} sem perder os dados originais?`)
+   ],note:"Esta situação e a tabela da próxima tela foram criadas para ensinar; nenhuma coleta externa ocorreu."},
+   s03:{caseTable,note:"A tabela está aqui, nesta tela. Você poderá reabri-la pelo botão “Ver dados e evolução”."},
+   s04:{cards:[
+     card("Exemplo concreto do nosso caso",c.rf),
+     card("Por que isso é requisito?",`O sistema tem uma obrigação observável: mostrar os registros de ${id==="M"?"um tema":"um período"} escolhido.`),
+     card("O que ainda não basta?","“O aplicativo deve ser excelente”: a frase não indica um comportamento que possamos verificar.")
+   ],note:"Pfleeger enfatiza capacidades do sistema; Nuseibeh/Easterbrook, necessidades das partes interessadas. Aqui traduzimos ambas em uma obrigação testável."},
+   s05:{cards:[
+     card("Evidência · o que existe no exercício",caseTable.summary),
+     card("Achado · o que podemos concluir",c.finding),
+     card("Hipótese · o que ainda não sabemos",c.hypothesis),
+     card("Pendência · pergunta em aberto",c.pending)
+   ],note:"A tabela sustenta o achado. Ela não comprova que o filtro é útil para pessoas reais."},
+   s06:{cards:[
+     card("Informação comprovável na tabela",c.finding),
+     card("Necessidade candidata",c.need),
+     card("Pergunta de validação",c.pending)
+   ],note:"A utilidade do filtro é uma hipótese: só uma validação autorizada com partes interessadas poderia confirmá-la."},
+   s08:{cards:[
+     card("Necessidade: o objetivo",c.need),
+     card("Requisito de usuário: o serviço esperado",userRequirement),
+     card("Requisito de sistema: a obrigação",c.rf)
+   ],note:"São três maneiras de detalhar a mesma situação, não três projetos desconectados."},
+   s09:{cards:[
+     card("1. Para quê?",c.need),
+     card("2. Qual serviço?",userRequirement),
+     card("3. O que o software fará?",c.rf)
+   ],note:"Passamos de uma necessidade candidata a um comportamento que podemos testar com a tabela da tela 3."},
+   s11:{cards:[
+     card("O que o sistema faz · funcional",c.rf),
+     card("Como ele deve funcionar · não funcional",c.rnf),
+     card("Por que separar?","Podemos verificar se o filtro retorna dados corretos e, em outro teste, se funciona pelo teclado.")
+   ],note:"São requisitos diferentes para a mesma função; a abreviação não é importante para compreender o conceito."},
+   s12:{cards:[
+     card("Dados necessários ao filtro",c.rd),
+     card("Regra inventada de publicação",c.rule),
+     card("Como a tabela ajuda?","Ela contém categorias e a coluna “Revisado?”. Filtrar internamente não significa autorizar divulgação pública.")
+   ],note:"A política é hipotética e existe apenas nesta aula; nenhuma instituição ou comunidade a aprovou."},
+   s13:{cards:[
+     card("Enunciado que vamos revisar",c.rf),
+     card("Resultado esperado",`Ao selecionar ${selector}, exibir apenas ${expected} e manter os seis registros originais.`),
+     card("Uma questão ainda aberta",c.pending)
+   ],note:"O requisito deve ter origem, redação clara e resultado que possa ser comparado com a tabela."},
+   s15:{cards:[
+     card("Frase vaga","“O filtro precisa ser muito rápido.”"),
+     card("Como torná-la verificável","Proposta: com as seis linhas desta aula, resposta em até 1 segundo, em 10 tentativas no ambiente combinado."),
+     card("Isso já foi medido?","Não. Um segundo é uma meta didática proposta; é necessário testá-la e validar sua viabilidade.")
+   ],note:"O teste usa os seis registros que você pode consultar, sem inventar uma segunda base de dados."},
+   s16:{cards:[
+     card("Teste de acessibilidade",c.rnf),
+     card("Teste de proteção",c.protect),
+     card("Exemplo com a coluna Revisado?","Um registro marcado “Não” pode aparecer na consulta interna fictícia, mas não na publicação simulada.")
+   ],note:"Acessibilidade e privacidade são condições distintas, cada uma com sua verificação."},
+   s18:{lead:"Confira o resultado usando os códigos que aparecem na tabela da tela 3.",cards:[
+     card("Dado · situação inicial","Temos seis linhas na tabela fictícia, já apresentada."),
+     card("Quando · ação",`Selecionar ${selector} no filtro.`),
+     card("Então · resultado",`Mostrar ${expected} e conservar os seis registros originais.`)
+   ],note:"Esse é um critério de aceitação: se o resultado divergir, o requisito ainda não foi atendido."},
+   s19:{cards:[
+     card("Essencial agora","Filtrar, preservar a coleção, respeitar o teclado e impedir publicação indevida."),
+     card("Para outra entrega","Adicionar filtros mais complexos, se a necessidade for validada."),
+     card("Pode esperar","Efeitos decorativos sem benefício comprovado para a tarefa.")
+   ],note:"Essas prioridades valem para o projeto inventado, não são regras de toda situação."},
+   s21:{lead:"A ligação entre os documentos do exemplo responde: de onde surgiu a obrigação e como vamos conferi-la?",cards:[
+     card("1. De onde veio?",`Da tabela fictícia: ${caseTable.summary}`),
+     card("2. O que decidimos?",c.rf),
+     card("3. Como vamos testar?",`Selecionar ${selector}; mostrar ${expected}, mantendo a tabela original.`)
+   ],note:"“Ver dados e evolução” exibe a tabela e as decisões feitas nesta própria página. Não há arquivo externo."},
+   s22:{cards:[
+     card("Verificar: atende ao texto do requisito?",`Ao escolher ${selector}, aparecem ${expected}?`),
+     card("Validar: a necessidade é real?",c.pending),
+     card("Gerenciar mudança","Se a decisão mudar, revisar necessidade, requisito, dados e teste juntos.")
+   ],note:"Passar no teste com dados inventados não confirma que a solução será útil na realidade."},
+   s24:{lead:`Com a tabela de ${c.shortLabel} à vista, descreva uma função de consulta, uma condição de qualidade e os dados necessários.`,
+     note:"Clique em “Ver dados e evolução” para conferir a tabela. O rascunho é local e sua qualidade será revisada por pessoas."},
+   s25:{lead:"Compare seu catálogo com a tabela exibida nesta aula: as fontes, as funções e os testes combinam?",
+     note:"Uma dupla verifica a clareza; o julgamento docente e a validação externa continuam separados."},
+   s26:{example:`Próxima aula: usar os campos da tabela de ${c.shortLabel} para começar a modelar os dados.`,
+     note:"O resultado é um catálogo preliminar sobre este caso inventado, não uma pesquisa concluída."}
+ };
+}
+    function buildTrack(c) {
     const id = c.prefix;
 
     const userRequirement = id === 'M'
       ? 'Como visitante do acervo fictício, quero consultar relatos por tema para ler os itens pertinentes.'
       : 'Como integrante da equipe pedagógica fictícia, quero consultar linhas agregadas por período sem identificar alunos.';
-    const fixture = id === 'M'
-      ? 'Seis relatos fictícios: R01, R02 e R03 sobre festas; R04 e R05 sobre trabalho; R06 sobre paisagem. R significa relato, e o número só identifica um registro.'
-      : 'Seis linhas de grupos fictícios: L01, L02 e L03 do período 1 (P1); L04 e L05 do período 2 (P2); L06 do período 3 (P3). L significa linha de tabela; não é identificação de estudante.';
+    const caseTable = buildCaseTable(c,id);
     const dossierStages = [
-      { id:'D0', slideId:'s03', title:'Registro', artifactId:c.source, excerpt:fixture },
-      { id:'D1', slideId:'s05', title:'Achado', artifactId:`ACH-${id}01`, excerpt:c.finding },
-      { id:'D2', slideId:'s06', title:'Hipótese e pendência', artifactId:`HIP-${id}01`, excerpt:c.pending },
-      { id:'D3', slideId:'s08', title:'Necessidade e requisito de usuário', artifactId:`RU-${id}01`, excerpt:userRequirement },
-      { id:'D4', slideId:'s09', title:'Requisito funcional', artifactId:`RF-${id}01`, excerpt:c.rf },
-      { id:'D5', slideId:'s12', title:'Dados e regra', artifactId:`RD-${id}01`, excerpt:c.rd },
-      { id:'D6', slideId:'s15', title:'Qualidade mensurável', artifactId:`RNF-${id}02`, excerpt:'Carga de 100 registros; meta de 1 segundo em 10 execuções, ainda pendente de validação.' },
-      { id:'D7', slideId:'s18', title:'Critério de aceitação', artifactId:`CA-${id}01`, excerpt:c.accept },
-      { id:'D8', slideId:'s19', title:'Escopo mínimo', artifactId:`MVP-${id}01`, excerpt:'Consulta, domínio de dados, acesso e proteção; animações fora do primeiro recorte.' },
-      { id:'D9', slideId:'s21', title:'Rastreabilidade', artifactId:`TRACE-${id}01`, excerpt:`${c.source} → ACH-${id}01 → NEC/RU-${id}01 → RF-${id}01 → CA-${id}01` },
-      { id:'D10', slideId:'s24', title:'Catálogo mínimo', artifactId:`CAT-${id}01`, excerpt:'Registrar RF, RNF e RD com fonte, prioridade e critério verificável.' },
-      { id:'D11', slideId:'s25', title:'Revisão por pares', artifactId:`REV-${id}01`, excerpt:'Revisar a redação; validar a necessidade com pessoas autorizadas em outra etapa.' }
+      { id:'D0', slideId:'s03', title:'Tabela de dados mostrada na aula', artifactId:c.source, excerpt:caseTable.summary },
+      { id:'D1', slideId:'s05', title:'Conclusão apoiada nos dados', artifactId:`ACH-${id}01`, excerpt:c.finding },
+      { id:'D2', slideId:'s06', title:'Hipótese e pergunta aberta', artifactId:`HIP-${id}01`, excerpt:c.hypothesis+' '+c.pending },
+      { id:'D3', slideId:'s08', title:'Necessidade e serviço esperado', artifactId:`RU-${id}01`, excerpt:userRequirement },
+      { id:'D4', slideId:'s09', title:'Comportamento do sistema', artifactId:`RF-${id}01`, excerpt:c.rf },
+      { id:'D5', slideId:'s12', title:'Definição de dados e regra fictícia', artifactId:`RD-${id}01`, excerpt:c.rd },
+      { id:'D6', slideId:'s15', title:'Condição de desempenho proposta', artifactId:`RNF-${id}02`, excerpt:'Com as seis linhas exibidas, propor até 1 segundo em 10 tentativas; resultado não medido.' },
+      { id:'D7', slideId:'s18', title:'Critério de aceitação com os seis registros', artifactId:`CA-${id}01`, excerpt:c.accept },
+      { id:'D8', slideId:'s19', title:'Prioridades de trabalho', artifactId:`MVP-${id}01`, excerpt:'Primeiro: filtrar, preservar registros e garantir acesso e proteção.' },
+      { id:'D9', slideId:'s21', title:'Ligações da fonte ao teste', artifactId:`TRACE-${id}01`, excerpt:`${c.source} → achado → necessidade → requisito → critério de aceitação.` },
+      { id:'D10', slideId:'s24', title:'Catálogo que a equipe escreve', artifactId:`CAT-${id}01`, excerpt:'Um requisito funcional, um de qualidade e um de dados, com origem e teste.' },
+      { id:'D11', slideId:'s25', title:'Revisão por outra equipe', artifactId:`REV-${id}01`, excerpt:'Verificar clareza e coerência entre a tabela, os requisitos e os testes.' }
     ];
-    const narrativeOverrides = {
-      s03: {
-        kicker: 'Aula 07 → Aula 08 · exemplo de partida',
-        lead: 'Vamos acompanhar a mesma ficha fictícia até chegar a requisitos que possam ser testados.',
-        cards: [
-          card('1. O registro que recebemos', c.fixtureOverview),
-          card('2. O que conseguimos afirmar', c.finding, 'Achado: conclusão apoiada nos dados.'),
-          card('3. O que ainda é só uma ideia', c.hypothesis, 'Hipótese: precisa ser confirmada.')
-        ],
-        note: `Tudo é inventado. Para localizar esta ficha no dossiê, usamos o código ${c.source}: evidência número 1 da trilha ${c.shortLabel}.`
-      },
-      s05: {
-        cards: [
-          card('Evidência: o registro', c.fixtureOverview),
-          card('Achado: a conclusão', c.finding),
-          card('Hipótese: a ideia a testar', c.hypothesis),
-          card('Pendência: o que falta saber', c.pending)
-        ],
-        note: 'Observe: os dados mostram a distribuição, mas não demonstram que a consulta proposta será útil.'
-      },
-      s06: {
-        cards: [
-          card('Ideia ainda não comprovada', c.hypothesis),
-          card('Pergunta em aberto', c.pending),
-          card('Decisão responsável', 'Podemos escrever um requisito provisório, sem afirmar que a necessidade foi validada.')
-        ],
-        note: 'Uma sugestão de botão é uma possível solução, não uma prova do problema.'
-      },
-      s08: {
-        cards: [
-          card('Necessidade: o problema a resolver', c.need),
-          card('Requisito de usuário: o serviço esperado', userRequirement),
-          card('Próximo passo', 'Escrever o que o sistema deverá fazer para atender ao serviço esperado.')
-        ],
-        note: 'Primeiro compreendemos o objetivo da pessoa; só depois descrevemos a obrigação do software.'
-      },
-      s09: {
-        cards: [
-          card('Necessidade de quem consulta', c.need),
-          card('Serviço esperado por quem usa', userRequirement),
-          card('Comportamento que o sistema deve oferecer', c.rf)
-        ],
-        note: 'São três níveis do MESMO problema. O próximo passo é verificar o comportamento com a ficha inicial.'
-      },
-      s11: {
-        cards: [
-          card('Requisito funcional: o que o sistema faz', c.rf),
-          card('Requisito não funcional: como deve funcionar', c.rnf),
-          card('Mesma função, outra condição', 'O filtro continua igual. Agora exigimos que ele também funcione por teclado.')
-        ],
-        note: 'Na documentação, RF é requisito funcional e RNF é requisito não funcional; as siglas são apenas abreviações.'
-      },
-      s12: {
-        cards: [
-          card('Requisito de dados: campo e valores', c.rd),
-          card('Regra de negócio: política fictícia', c.rule),
-          card('Ligação com o filtro', 'O campo limita as opções da consulta. A regra determina o que poderia ser divulgado.')
-        ],
-        note: 'RD significa requisito de dados e RN significa regra de negócio. Os códigos documentais não são dados de alunos ou de comunidades.'
-      },
-      s13: {
-        cards: [
-          card('Requisito que vamos revisar', c.rf),
-          card('Qual resultado permitiria testá-lo?', `Selecionar ${c.filter === 'P1' ? 'período 1 (P1)' : 'tema festa'}, mostrar ${c.count} e preservar ${c.total}.`),
-          card('O que ainda falta confirmar?', c.pending)
-        ],
-        note: 'A redação precisa ser clara e verificar um resultado; a utilidade ainda requer confirmação.'
-      },
-      s15: {
-        cards: [
-          card('Função já definida', c.rf),
-          card('Condição de desempenho proposta', 'Com 100 registros fictícios, o filtro deverá responder em até um segundo em 10 testes.'),
-          card('Por que são 100 agora?', 'São dados extras para medir desempenho, diferentes dos seis registros usados na explicação.')
-        ],
-        note: 'A meta é uma proposta de requisito, não um resultado medido. É preciso definir o computador e validar a viabilidade.'
-      },
-      s16: {
-        cards: [
-          card('Acessibilidade: funcionar por teclado', c.rnf),
-          card('Proteção: mostrar somente o permitido', c.protect),
-          card('Como verificar?', 'Tentar acessar dados restritos e confirmar que eles não aparecem na saída pública simulada.')
-        ],
-        note: 'São duas condições distintas da mesma função, e cada uma precisa de um teste.'
-      },
-      s18: {
-        lead: c.accept,
-        cards: [
-          card('Dado: situação inicial', `A ficha de exemplo contém ${c.total}.`),
-          card('Quando: ação realizada', `A pessoa escolhe ${c.filter === 'P1' ? 'período 1 (P1)' : 'tema festa'}.`),
-          card('Então: resultado esperado', `Aparecem ${c.count}, sem apagar os ${c.total}.`)
-        ],
-        note: 'Isto é um critério de aceitação: um exemplo verificável. Não comprova, sozinho, a utilidade para pessoas reais.'
-      },
-      s19: {
-        cards: [
-          card('Essencial na primeira versão', 'Consulta, dados corretos, uso por teclado e proteção da saída.'),
-          card('Desejável depois', 'Adicionar outros filtros apenas se a necessidade for confirmada.'),
-          card('Pode esperar', 'Efeitos visuais e personalizações não essenciais.')
-        ],
-        note: 'Priorizar é decidir o que fazer agora, considerando valor, riscos, esforço e dependências.'
-      },
-      s21: {
-        steps: ['Evidência: registro', 'Achado: conclusão', 'Necessidade: objetivo', 'Requisito: obrigação', 'Critério: teste'],
-        example: `Exemplo: selecionar ${c.filter === 'P1' ? 'o período 1' : 'o tema festa'} deve mostrar ${c.count} e preservar ${c.total}. A fonte é a ficha inicial.`,
-        note: 'Os códigos ligam documentos. Consulte “Entenda os códigos”; não é preciso decorá-los.'
-      },
-      s22: {
-        cards: [
-          card('Verificar: o sistema faz o que foi escrito?', `Ao escolher ${c.filter === 'P1' ? 'período 1 (P1)' : 'festa'}, o filtro mostra ${c.count}?`),
-          card('Validar: isso resolve a necessidade?', c.pending),
-          card('Se algo mudar...', 'Revisamos juntos a fonte, o requisito, o campo e o teste. Mantemos o histórico.')
-        ],
-        note: 'Um teste passar não prova que o filtro é a melhor solução para quem o utilizará.'
-      },
-      s24: {
-        lead: `Na trilha ${c.shortLabel}, continuem o mesmo exemplo: registrem a função do sistema, uma condição de qualidade e os dados necessários.`,
-        note: 'Para cada requisito, escrevam o que ele exige, de onde surgiu, como testar e o que ainda precisa ser confirmado.'
-      },
-      s25: {
-        note: 'Revisar em dupla não substitui validar com quem usará o sistema.'
-      },
-      s26: {
-        example: c.next,
-        note: 'A ficha inicial virou um catálogo rastreável. Os códigos são apenas etiquetas.'
-      }
-    };
+    const narrativeOverrides = teachingOverrides(c,id,userRequirement,caseTable);
     const missionsById = {
       m1: { questions: [
         question('m1', 1, `Na documentação, a ficha se chama ${c.source} (evidência número 1). ${c.sourceDescription} Qual papel ela desempenha?`, categories('b'), 'b', 'A ficha/tabela identificada é a evidência do exercício. Ela permite conferir a coleção fictícia, mas não retrata uma comunidade ou turma real.', 'Distinguir evidência de interpretação.', c.source, 'Identifica o registro consultável e seu limite.'),
@@ -750,6 +742,7 @@
       },
       missions: missionsById,
       dossierStages,
+      caseTable,
       catalogExamples: {
         RF: { text: c.rf, source: c.source + ': ' + c.sourceDescription, sourceStatus: 'evidence', criterion: c.accept },
         RNF: { text: c.rnf, source: c.sourceRnf, sourceStatus: 'evidence', criterion: 'Dado o filtro carregado e o ponteiro sem uso, quando navegar com Tab e selecionar a opção pelo teclado, então concluir a filtragem com foco visível e sem bloqueio de navegação.' },
