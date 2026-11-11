@@ -84,13 +84,13 @@ async function printCheck(page,engine,label){
           const prefix=track==='memorias'?'M':'P';
           await page.locator('#track-select').selectOption(track);
           await nav(page,'s03');
-          assert.match(await page.locator('#s03 .kicker').innerText(),/Dossiê D0/);
+          assert.match(await page.locator('#s03 .kicker').innerText(),/Dossiê D0/i);
           await page.locator('#notes-btn').click();
           assert.match(await page.locator('#notes-content').innerText(),new RegExp('EV-'+prefix+'01'));
           assert.equal(await page.locator('#notes-content .dossier-history li').count(),1);
           await page.keyboard.press('Escape');
           await nav(page,'s21');
-          assert.match(await page.locator('#s21 .kicker').innerText(),/Dossiê D9/);
+          assert.match(await page.locator('#s21 .kicker').innerText(),/Dossiê D9/i);
           await page.locator('#notes-btn').click();
           const history=page.locator('#notes-content .dossier-history');
           assert.equal(await history.locator('li').count(),10);
