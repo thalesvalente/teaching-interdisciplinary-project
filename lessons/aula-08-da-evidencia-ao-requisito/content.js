@@ -240,9 +240,9 @@
         note: 'Priorizar é decidir o que fazer agora, considerando valor, riscos, esforço e dependências.'
       },
       s21: {
-        steps: ['Evidência: a ficha', 'Achado: conclusão observada', 'Necessidade: objetivo', 'Requisito: obrigação do sistema', 'Critério: teste do resultado'],
-        example: `No nosso caso: a ficha de ${c.total} justifica examinar a consulta por ${c.filter === 'P1' ? 'período' : 'tema'}. O filtro e o teste usam os mesmos dados.`,
-        note: 'Cada etapa recebe um código interno no dossiê. Veja “Entenda os códigos” para localizar o mesmo item sem memorizar siglas.'
+        steps: ['Evidência: registro', 'Achado: conclusão', 'Necessidade: objetivo', 'Requisito: obrigação', 'Critério: teste'],
+        example: `Exemplo: selecionar ${c.filter === 'P1' ? 'o período 1' : 'o tema festa'} deve mostrar ${c.count} e preservar ${c.total}. A fonte é a ficha inicial.`,
+        note: 'Os códigos ligam documentos. Consulte “Entenda os códigos”; não é preciso decorá-los.'
       },
       s22: {
         cards: [
