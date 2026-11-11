@@ -1,0 +1,37 @@
+{
+  "synthetic": true,
+  "environment": "QA",
+  "teams": [
+    {
+      "team_id": "TEAM-ALFA",
+      "display_name": "Equipe Alfa (fictícia)",
+      "track_id": "QUILOMBOLA",
+      "status": "ATIVA"
+    },
+    {
+      "team_id": "TEAM-BETA",
+      "display_name": "Equipe Beta (fictícia)",
+      "track_id": "PERMANENCIA",
+      "status": "ATIVA"
+    }
+  ],
+  "participants": [
+    {
+      "participant_id": "EST-ALFA-01",
+      "team_id": "TEAM-ALFA",
+      "display_name": "Participante Alfa 01 (fictício)",
+      "role": "ESTUDANTE",
+      "status": "ATIVA",
+      "authorship_validated": true
+    },
+    {
+      "participant_id": "EST-BETA-01",
+      "team_id": "TEAM-BETA",
+      "display_name": "Participante Beta 01 (fictício)",
+      "role": "ESTUDANTE",
+      "status": "ATIVA",
+      "authorship_validated": true
+    }
+  ],
+  "warning": "Não contém login ou permissão. As identidades reais de execução do QA precisam de allowlist privada verificada; pseudônimo não autentica."
+}

@@ -1,0 +1,952 @@
+{
+  "schema_version": "1.0.0",
+  "environment": "PRODUCTION",
+  "synthetic": false,
+  "contains_student_records": false,
+  "tables": {
+    "Config": {
+      "headers": [
+        "config_key",
+        "config_value",
+        "value_type",
+        "version",
+        "approval_status",
+        "updated_at",
+        "updated_by"
+      ],
+      "rows": [
+        {
+          "config_key": "schema_version",
+          "config_value": "1.0.0",
+          "value_type": "string",
+          "version": "1.0.0",
+          "approval_status": "RASCUNHO",
+          "updated_at": "",
+          "updated_by": ""
+        },
+        {
+          "config_key": "environment",
+          "config_value": "PRODUCTION",
+          "value_type": "string",
+          "version": "1.0.0",
+          "approval_status": "RASCUNHO",
+          "updated_at": "",
+          "updated_by": ""
+        },
+        {
+          "config_key": "spreadsheet_id",
+          "config_value": "",
+          "value_type": "string",
+          "version": "1.0.0",
+          "approval_status": "RASCUNHO",
+          "updated_at": "",
+          "updated_by": ""
+        },
+        {
+          "config_key": "binding_nonce",
+          "config_value": "",
+          "value_type": "string",
+          "version": "1.0.0",
+          "approval_status": "RASCUNHO",
+          "updated_at": "",
+          "updated_by": ""
+        },
+        {
+          "config_key": "period",
+          "config_value": "2026.2",
+          "value_type": "string",
+          "version": "1.0.0",
+          "approval_status": "RASCUNHO",
+          "updated_at": "",
+          "updated_by": ""
+        },
+        {
+          "config_key": "timezone",
+          "config_value": "America/Fortaleza",
+          "value_type": "string",
+          "version": "1.0.0",
+          "approval_status": "RASCUNHO",
+          "updated_at": "",
+          "updated_by": ""
+        },
+        {
+          "config_key": "writes_enabled",
+          "config_value": "false",
+          "value_type": "boolean",
+          "version": "1.0.0",
+          "approval_status": "RASCUNHO",
+          "updated_at": "",
+          "updated_by": ""
+        },
+        {
+          "config_key": "plan_version",
+          "config_value": "PLANO-RASCUNHO-1.0.0",
+          "value_type": "string",
+          "version": "1.0.0",
+          "approval_status": "RASCUNHO",
+          "updated_at": "",
+          "updated_by": ""
+        },
+        {
+          "config_key": "plan_status",
+          "config_value": "RASCUNHO",
+          "value_type": "string",
+          "version": "1.0.0",
+          "approval_status": "RASCUNHO",
+          "updated_at": "",
+          "updated_by": ""
+        },
+        {
+          "config_key": "plan_approval_ref",
+          "config_value": "",
+          "value_type": "string",
+          "version": "1.0.0",
+          "approval_status": "RASCUNHO",
+          "updated_at": "",
+          "updated_by": ""
+        },
+        {
+          "config_key": "student_access_enabled",
+          "config_value": "false",
+          "value_type": "boolean",
+          "version": "1.0.0",
+          "approval_status": "RASCUNHO",
+          "updated_at": "",
+          "updated_by": ""
+        },
+        {
+          "config_key": "retention_days",
+          "config_value": "90",
+          "value_type": "integer",
+          "version": "1.0.0",
+          "approval_status": "RASCUNHO",
+          "updated_at": "",
+          "updated_by": ""
+        },
+        {
+          "config_key": "plan_max_PPI1-3A",
+          "config_value": "2",
+          "value_type": "integer",
+          "version": "1.0.0",
+          "approval_status": "RASCUNHO",
+          "updated_at": "",
+          "updated_by": ""
+        },
+        {
+          "config_key": "plan_max_PPI1-3B",
+          "config_value": "3",
+          "value_type": "integer",
+          "version": "1.0.0",
+          "approval_status": "RASCUNHO",
+          "updated_at": "",
+          "updated_by": ""
+        },
+        {
+          "config_key": "plan_max_PPI1-3C",
+          "config_value": "5",
+          "value_type": "integer",
+          "version": "1.0.0",
+          "approval_status": "RASCUNHO",
+          "updated_at": "",
+          "updated_by": ""
+        },
+        {
+          "config_key": "plan_max_PPI1-4A",
+          "config_value": "2",
+          "value_type": "integer",
+          "version": "1.0.0",
+          "approval_status": "RASCUNHO",
+          "updated_at": "",
+          "updated_by": ""
+        },
+        {
+          "config_key": "plan_max_PPI1-4B",
+          "config_value": "4",
+          "value_type": "integer",
+          "version": "1.0.0",
+          "approval_status": "RASCUNHO",
+          "updated_at": "",
+          "updated_by": ""
+        },
+        {
+          "config_key": "plan_max_PPI1-4C",
+          "config_value": "4",
+          "value_type": "integer",
+          "version": "1.0.0",
+          "approval_status": "RASCUNHO",
+          "updated_at": "",
+          "updated_by": ""
+        },
+        {
+          "config_key": "plan_items_json",
+          "config_value": "[{\"activity_id\":\"PPI1-3A\",\"activity_version\":\"1.0.0\",\"criteria_version\":\"PLANO-RASCUNHO-1.0.0\",\"official_max\":2},{\"activity_id\":\"PPI1-3B\",\"activity_version\":\"1.0.0\",\"criteria_version\":\"PLANO-RASCUNHO-1.0.0\",\"official_max\":3},{\"activity_id\":\"PPI1-3C\",\"activity_version\":\"1.0.0\",\"criteria_version\":\"PLANO-RASCUNHO-1.0.0\",\"official_max\":5},{\"activity_id\":\"PPI1-4A\",\"activity_version\":\"1.0.0\",\"criteria_version\":\"PLANO-RASCUNHO-1.0.0\",\"official_max\":2},{\"activity_id\":\"PPI1-4B\",\"activity_version\":\"1.0.0\",\"criteria_version\":\"PLANO-RASCUNHO-1.0.0\",\"official_max\":4},{\"activity_id\":\"PPI1-4C\",\"activity_version\":\"1.0.0\",\"criteria_version\":\"PLANO-RASCUNHO-1.0.0\",\"official_max\":4}]",
+          "value_type": "json",
+          "version": "1.0.0",
+          "approval_status": "RASCUNHO",
+          "updated_at": "",
+          "updated_by": ""
+        }
+      ]
+    },
+    "Atividades": {
+      "headers": [
+        "activity_id",
+        "activity_version",
+        "lesson_id",
+        "stage",
+        "track_id",
+        "title",
+        "kind",
+        "official_item_id",
+        "official_max",
+        "xp_max",
+        "criteria_version",
+        "schema_version",
+        "status",
+        "questions_json",
+        "updated_at"
+      ],
+      "rows": [
+        {
+          "activity_id": "AULA08-FORMATIVA",
+          "activity_version": "1.0.0",
+          "lesson_id": "AULA08",
+          "stage": 3,
+          "track_id": "AMBOS",
+          "title": "Missão de campo: do achado ao requisito",
+          "kind": "FORMATIVA",
+          "official_item_id": "",
+          "official_max": null,
+          "xp_max": 100,
+          "criteria_version": "FORM-1.0.0",
+          "schema_version": "1.0.0",
+          "status": "RASCUNHO",
+          "questions_json": "[{\"question_id\":\"q_problema\",\"answer_kind\":\"text\",\"label\":\"Problema e contexto\",\"prompt\":\"Descreva um problema específico, quem ele afeta e o contexto observado.\",\"help\":\"Um problema verificável, sem nome ou dado pessoal.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_evidencia\",\"answer_kind\":\"text\",\"label\":\"Evidência ou achado\",\"prompt\":\"Registre o que foi observado e a origem autorizada/sintética da evidência.\",\"help\":\"Separe observação de interpretação; IA não constitui evidência.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_hipotese\",\"answer_kind\":\"text\",\"label\":\"Hipótese a verificar\",\"prompt\":\"O que pode explicar o achado? Como você poderia verificar essa hipótese?\",\"help\":\"Formule hipótese como possibilidade, não como fato comprovado.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_rf\",\"answer_kind\":\"text\",\"label\":\"Requisito funcional\",\"prompt\":\"Escreva um RF com ator, ação e resultado esperado.\",\"help\":\"RF-01: O sistema deve permitir ...\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_rnf\",\"answer_kind\":\"text\",\"label\":\"Requisito não funcional\",\"prompt\":\"Escreva um RNF mensurável adequado ao contexto.\",\"help\":\"RNF-01: A consulta deve ... sob as condições ...\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_dados\",\"answer_kind\":\"text\",\"label\":\"Requisito de dados\",\"prompt\":\"Quais dados são necessários? Inclua origem, qualidade e acesso permitido.\",\"help\":\"RD-01: código anônimo, tipo, regra de validação e retenção.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_aceite\",\"answer_kind\":\"text\",\"label\":\"Critérios de aceitação\",\"prompt\":\"Descreva como verificar RF/RNF/RD com dados fictícios.\",\"help\":\"Dado ..., quando ..., então ...\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_rastreabilidade\",\"answer_kind\":\"text\",\"label\":\"Rastreabilidade\",\"prompt\":\"Relacione problema → evidência → requisito → critério → modelo/teste.\",\"help\":\"Indique IDs estáveis e as ligações entre os artefatos.\",\"required\":true,\"maxLength\":4000}]",
+          "updated_at": ""
+        },
+        {
+          "activity_id": "PPI1-3A",
+          "activity_version": "1.0.0",
+          "lesson_id": "PLANO-PPI-2026.2",
+          "stage": 3,
+          "track_id": "AMBOS",
+          "title": "Estudo de caso individual: problema e partes interessadas",
+          "kind": "OFICIAL",
+          "official_item_id": "PPI1-3A",
+          "official_max": 2,
+          "xp_max": 0,
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "schema_version": "1.0.0",
+          "status": "RASCUNHO",
+          "questions_json": "[{\"question_id\":\"q_problema\",\"answer_kind\":\"text\",\"label\":\"Problema e contexto\",\"prompt\":\"Descreva um problema específico, quem ele afeta e o contexto observado.\",\"help\":\"Um problema verificável, sem nome ou dado pessoal.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_evidencia\",\"answer_kind\":\"text\",\"label\":\"Evidência ou achado\",\"prompt\":\"Registre o que foi observado e a origem autorizada/sintética da evidência.\",\"help\":\"Separe observação de interpretação; IA não constitui evidência.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_hipotese\",\"answer_kind\":\"text\",\"label\":\"Hipótese a verificar\",\"prompt\":\"O que pode explicar o achado? Como você poderia verificar essa hipótese?\",\"help\":\"Formule hipótese como possibilidade, não como fato comprovado.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_rf\",\"answer_kind\":\"text\",\"label\":\"Requisito funcional\",\"prompt\":\"Escreva um RF com ator, ação e resultado esperado.\",\"help\":\"RF-01: O sistema deve permitir ...\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_rnf\",\"answer_kind\":\"text\",\"label\":\"Requisito não funcional\",\"prompt\":\"Escreva um RNF mensurável adequado ao contexto.\",\"help\":\"RNF-01: A consulta deve ... sob as condições ...\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_dados\",\"answer_kind\":\"text\",\"label\":\"Requisito de dados\",\"prompt\":\"Quais dados são necessários? Inclua origem, qualidade e acesso permitido.\",\"help\":\"RD-01: código anônimo, tipo, regra de validação e retenção.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_aceite\",\"answer_kind\":\"text\",\"label\":\"Critérios de aceitação\",\"prompt\":\"Descreva como verificar RF/RNF/RD com dados fictícios.\",\"help\":\"Dado ..., quando ..., então ...\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_rastreabilidade\",\"answer_kind\":\"text\",\"label\":\"Rastreabilidade\",\"prompt\":\"Relacione problema → evidência → requisito → critério → modelo/teste.\",\"help\":\"Indique IDs estáveis e as ligações entre os artefatos.\",\"required\":true,\"maxLength\":4000}]",
+          "updated_at": ""
+        },
+        {
+          "activity_id": "PPI1-3B",
+          "activity_version": "1.0.0",
+          "lesson_id": "PLANO-PPI-2026.2",
+          "stage": 3,
+          "track_id": "AMBOS",
+          "title": "Protocolo de elicitação e catálogo de requisitos",
+          "kind": "OFICIAL",
+          "official_item_id": "PPI1-3B",
+          "official_max": 3,
+          "xp_max": 0,
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "schema_version": "1.0.0",
+          "status": "RASCUNHO",
+          "questions_json": "[{\"question_id\":\"q_problema\",\"answer_kind\":\"text\",\"label\":\"Problema e contexto\",\"prompt\":\"Descreva um problema específico, quem ele afeta e o contexto observado.\",\"help\":\"Um problema verificável, sem nome ou dado pessoal.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_evidencia\",\"answer_kind\":\"text\",\"label\":\"Evidência ou achado\",\"prompt\":\"Registre o que foi observado e a origem autorizada/sintética da evidência.\",\"help\":\"Separe observação de interpretação; IA não constitui evidência.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_hipotese\",\"answer_kind\":\"text\",\"label\":\"Hipótese a verificar\",\"prompt\":\"O que pode explicar o achado? Como você poderia verificar essa hipótese?\",\"help\":\"Formule hipótese como possibilidade, não como fato comprovado.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_rf\",\"answer_kind\":\"text\",\"label\":\"Requisito funcional\",\"prompt\":\"Escreva um RF com ator, ação e resultado esperado.\",\"help\":\"RF-01: O sistema deve permitir ...\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_rnf\",\"answer_kind\":\"text\",\"label\":\"Requisito não funcional\",\"prompt\":\"Escreva um RNF mensurável adequado ao contexto.\",\"help\":\"RNF-01: A consulta deve ... sob as condições ...\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_dados\",\"answer_kind\":\"text\",\"label\":\"Requisito de dados\",\"prompt\":\"Quais dados são necessários? Inclua origem, qualidade e acesso permitido.\",\"help\":\"RD-01: código anônimo, tipo, regra de validação e retenção.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_aceite\",\"answer_kind\":\"text\",\"label\":\"Critérios de aceitação\",\"prompt\":\"Descreva como verificar RF/RNF/RD com dados fictícios.\",\"help\":\"Dado ..., quando ..., então ...\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_rastreabilidade\",\"answer_kind\":\"text\",\"label\":\"Rastreabilidade\",\"prompt\":\"Relacione problema → evidência → requisito → critério → modelo/teste.\",\"help\":\"Indique IDs estáveis e as ligações entre os artefatos.\",\"required\":true,\"maxLength\":4000}]",
+          "updated_at": ""
+        },
+        {
+          "activity_id": "PPI1-3C",
+          "activity_version": "1.0.0",
+          "lesson_id": "PLANO-PPI-2026.2",
+          "stage": 3,
+          "track_id": "AMBOS",
+          "title": "Dossiê parcial, escopo, backlog e protocolo da visita",
+          "kind": "OFICIAL",
+          "official_item_id": "PPI1-3C",
+          "official_max": 5,
+          "xp_max": 0,
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "schema_version": "1.0.0",
+          "status": "RASCUNHO",
+          "questions_json": "[{\"question_id\":\"q_problema\",\"answer_kind\":\"text\",\"label\":\"Problema e contexto\",\"prompt\":\"Descreva um problema específico, quem ele afeta e o contexto observado.\",\"help\":\"Um problema verificável, sem nome ou dado pessoal.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_evidencia\",\"answer_kind\":\"text\",\"label\":\"Evidência ou achado\",\"prompt\":\"Registre o que foi observado e a origem autorizada/sintética da evidência.\",\"help\":\"Separe observação de interpretação; IA não constitui evidência.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_hipotese\",\"answer_kind\":\"text\",\"label\":\"Hipótese a verificar\",\"prompt\":\"O que pode explicar o achado? Como você poderia verificar essa hipótese?\",\"help\":\"Formule hipótese como possibilidade, não como fato comprovado.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_rf\",\"answer_kind\":\"text\",\"label\":\"Requisito funcional\",\"prompt\":\"Escreva um RF com ator, ação e resultado esperado.\",\"help\":\"RF-01: O sistema deve permitir ...\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_rnf\",\"answer_kind\":\"text\",\"label\":\"Requisito não funcional\",\"prompt\":\"Escreva um RNF mensurável adequado ao contexto.\",\"help\":\"RNF-01: A consulta deve ... sob as condições ...\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_dados\",\"answer_kind\":\"text\",\"label\":\"Requisito de dados\",\"prompt\":\"Quais dados são necessários? Inclua origem, qualidade e acesso permitido.\",\"help\":\"RD-01: código anônimo, tipo, regra de validação e retenção.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_aceite\",\"answer_kind\":\"text\",\"label\":\"Critérios de aceitação\",\"prompt\":\"Descreva como verificar RF/RNF/RD com dados fictícios.\",\"help\":\"Dado ..., quando ..., então ...\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_rastreabilidade\",\"answer_kind\":\"text\",\"label\":\"Rastreabilidade\",\"prompt\":\"Relacione problema → evidência → requisito → critério → modelo/teste.\",\"help\":\"Indique IDs estáveis e as ligações entre os artefatos.\",\"required\":true,\"maxLength\":4000}]",
+          "updated_at": ""
+        },
+        {
+          "activity_id": "PPI1-4A",
+          "activity_version": "1.0.0",
+          "lesson_id": "PLANO-PPI-2026.2",
+          "stage": 4,
+          "track_id": "AMBOS",
+          "title": "Relatório da visita/oficina e reflexão individual",
+          "kind": "OFICIAL",
+          "official_item_id": "PPI1-4A",
+          "official_max": 2,
+          "xp_max": 0,
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "schema_version": "1.0.0",
+          "status": "RASCUNHO",
+          "questions_json": "[{\"question_id\":\"q_problema\",\"answer_kind\":\"text\",\"label\":\"Problema e contexto\",\"prompt\":\"Descreva um problema específico, quem ele afeta e o contexto observado.\",\"help\":\"Um problema verificável, sem nome ou dado pessoal.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_evidencia\",\"answer_kind\":\"text\",\"label\":\"Evidência ou achado\",\"prompt\":\"Registre o que foi observado e a origem autorizada/sintética da evidência.\",\"help\":\"Separe observação de interpretação; IA não constitui evidência.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_hipotese\",\"answer_kind\":\"text\",\"label\":\"Hipótese a verificar\",\"prompt\":\"O que pode explicar o achado? Como você poderia verificar essa hipótese?\",\"help\":\"Formule hipótese como possibilidade, não como fato comprovado.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_rf\",\"answer_kind\":\"text\",\"label\":\"Requisito funcional\",\"prompt\":\"Escreva um RF com ator, ação e resultado esperado.\",\"help\":\"RF-01: O sistema deve permitir ...\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_rnf\",\"answer_kind\":\"text\",\"label\":\"Requisito não funcional\",\"prompt\":\"Escreva um RNF mensurável adequado ao contexto.\",\"help\":\"RNF-01: A consulta deve ... sob as condições ...\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_dados\",\"answer_kind\":\"text\",\"label\":\"Requisito de dados\",\"prompt\":\"Quais dados são necessários? Inclua origem, qualidade e acesso permitido.\",\"help\":\"RD-01: código anônimo, tipo, regra de validação e retenção.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_aceite\",\"answer_kind\":\"text\",\"label\":\"Critérios de aceitação\",\"prompt\":\"Descreva como verificar RF/RNF/RD com dados fictícios.\",\"help\":\"Dado ..., quando ..., então ...\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_rastreabilidade\",\"answer_kind\":\"text\",\"label\":\"Rastreabilidade\",\"prompt\":\"Relacione problema → evidência → requisito → critério → modelo/teste.\",\"help\":\"Indique IDs estáveis e as ligações entre os artefatos.\",\"required\":true,\"maxLength\":4000}]",
+          "updated_at": ""
+        },
+        {
+          "activity_id": "PPI1-4B",
+          "activity_version": "1.0.0",
+          "lesson_id": "PLANO-PPI-2026.2",
+          "stage": 4,
+          "track_id": "AMBOS",
+          "title": "Dossiê de modelagem e protótipo",
+          "kind": "OFICIAL",
+          "official_item_id": "PPI1-4B",
+          "official_max": 4,
+          "xp_max": 0,
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "schema_version": "1.0.0",
+          "status": "RASCUNHO",
+          "questions_json": "[{\"question_id\":\"q_problema\",\"answer_kind\":\"text\",\"label\":\"Problema e contexto\",\"prompt\":\"Descreva um problema específico, quem ele afeta e o contexto observado.\",\"help\":\"Um problema verificável, sem nome ou dado pessoal.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_evidencia\",\"answer_kind\":\"text\",\"label\":\"Evidência ou achado\",\"prompt\":\"Registre o que foi observado e a origem autorizada/sintética da evidência.\",\"help\":\"Separe observação de interpretação; IA não constitui evidência.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_hipotese\",\"answer_kind\":\"text\",\"label\":\"Hipótese a verificar\",\"prompt\":\"O que pode explicar o achado? Como você poderia verificar essa hipótese?\",\"help\":\"Formule hipótese como possibilidade, não como fato comprovado.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_rf\",\"answer_kind\":\"text\",\"label\":\"Requisito funcional\",\"prompt\":\"Escreva um RF com ator, ação e resultado esperado.\",\"help\":\"RF-01: O sistema deve permitir ...\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_rnf\",\"answer_kind\":\"text\",\"label\":\"Requisito não funcional\",\"prompt\":\"Escreva um RNF mensurável adequado ao contexto.\",\"help\":\"RNF-01: A consulta deve ... sob as condições ...\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_dados\",\"answer_kind\":\"text\",\"label\":\"Requisito de dados\",\"prompt\":\"Quais dados são necessários? Inclua origem, qualidade e acesso permitido.\",\"help\":\"RD-01: código anônimo, tipo, regra de validação e retenção.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_aceite\",\"answer_kind\":\"text\",\"label\":\"Critérios de aceitação\",\"prompt\":\"Descreva como verificar RF/RNF/RD com dados fictícios.\",\"help\":\"Dado ..., quando ..., então ...\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_rastreabilidade\",\"answer_kind\":\"text\",\"label\":\"Rastreabilidade\",\"prompt\":\"Relacione problema → evidência → requisito → critério → modelo/teste.\",\"help\":\"Indique IDs estáveis e as ligações entre os artefatos.\",\"required\":true,\"maxLength\":4000}]",
+          "updated_at": ""
+        },
+        {
+          "activity_id": "PPI1-4C",
+          "activity_version": "1.0.0",
+          "lesson_id": "PLANO-PPI-2026.2",
+          "stage": 4,
+          "track_id": "AMBOS",
+          "title": "Portfólio final, protótipo, apresentação e defesa",
+          "kind": "OFICIAL",
+          "official_item_id": "PPI1-4C",
+          "official_max": 4,
+          "xp_max": 0,
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "schema_version": "1.0.0",
+          "status": "RASCUNHO",
+          "questions_json": "[{\"question_id\":\"q_problema\",\"answer_kind\":\"text\",\"label\":\"Problema e contexto\",\"prompt\":\"Descreva um problema específico, quem ele afeta e o contexto observado.\",\"help\":\"Um problema verificável, sem nome ou dado pessoal.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_evidencia\",\"answer_kind\":\"text\",\"label\":\"Evidência ou achado\",\"prompt\":\"Registre o que foi observado e a origem autorizada/sintética da evidência.\",\"help\":\"Separe observação de interpretação; IA não constitui evidência.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_hipotese\",\"answer_kind\":\"text\",\"label\":\"Hipótese a verificar\",\"prompt\":\"O que pode explicar o achado? Como você poderia verificar essa hipótese?\",\"help\":\"Formule hipótese como possibilidade, não como fato comprovado.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_rf\",\"answer_kind\":\"text\",\"label\":\"Requisito funcional\",\"prompt\":\"Escreva um RF com ator, ação e resultado esperado.\",\"help\":\"RF-01: O sistema deve permitir ...\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_rnf\",\"answer_kind\":\"text\",\"label\":\"Requisito não funcional\",\"prompt\":\"Escreva um RNF mensurável adequado ao contexto.\",\"help\":\"RNF-01: A consulta deve ... sob as condições ...\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_dados\",\"answer_kind\":\"text\",\"label\":\"Requisito de dados\",\"prompt\":\"Quais dados são necessários? Inclua origem, qualidade e acesso permitido.\",\"help\":\"RD-01: código anônimo, tipo, regra de validação e retenção.\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_aceite\",\"answer_kind\":\"text\",\"label\":\"Critérios de aceitação\",\"prompt\":\"Descreva como verificar RF/RNF/RD com dados fictícios.\",\"help\":\"Dado ..., quando ..., então ...\",\"required\":true,\"maxLength\":4000},{\"question_id\":\"q_rastreabilidade\",\"answer_kind\":\"text\",\"label\":\"Rastreabilidade\",\"prompt\":\"Relacione problema → evidência → requisito → critério → modelo/teste.\",\"help\":\"Indique IDs estáveis e as ligações entre os artefatos.\",\"required\":true,\"maxLength\":4000}]",
+          "updated_at": ""
+        }
+      ]
+    },
+    "Rubricas": {
+      "headers": [
+        "rubric_id",
+        "criteria_version",
+        "activity_id",
+        "criterion_id",
+        "label",
+        "evaluation_type",
+        "max_points",
+        "weight",
+        "status",
+        "approved_by",
+        "approved_at"
+      ],
+      "rows": [
+        {
+          "rubric_id": "PPI1-3A",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-3A",
+          "criterion_id": "problema_contexto",
+          "label": "Problema/contexto",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 0.6,
+          "weight": 0.3,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-3A",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-3A",
+          "criterion_id": "partes_interessadas",
+          "label": "Partes interessadas/necessidades",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 0.5,
+          "weight": 0.25,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-3A",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-3A",
+          "criterion_id": "evidencias_clareza",
+          "label": "Evidências/clareza",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 0.5,
+          "weight": 0.25,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-3A",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-3A",
+          "criterion_id": "consciencia_etica",
+          "label": "Consciência ética",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 0.4,
+          "weight": 0.2,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-3B",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-3B",
+          "criterion_id": "tecnica_evidencia",
+          "label": "Técnica/evidência",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 1,
+          "weight": 0.3333333333333333,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-3B",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-3B",
+          "criterion_id": "requisitos_dados",
+          "label": "RF/RNF/dados",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 1,
+          "weight": 0.3333333333333333,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-3B",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-3B",
+          "criterion_id": "rastreabilidade_etica",
+          "label": "Rastreabilidade/ética",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 0.6,
+          "weight": 0.19999999999999998,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-3B",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-3B",
+          "criterion_id": "autoria_individual",
+          "label": "Autoria individual",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 0.4,
+          "weight": 0.13333333333333333,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-3C",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-3C",
+          "criterion_id": "problema_escopo",
+          "label": "Problema/objetivos/escopo",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 1.2,
+          "weight": 0.24,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-3C",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-3C",
+          "criterion_id": "backlog_priorizacao",
+          "label": "Backlog/priorização",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 1.2,
+          "weight": 0.24,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-3C",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-3C",
+          "criterion_id": "viabilidade_plano",
+          "label": "Viabilidade/plano",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 1,
+          "weight": 0.2,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-3C",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-3C",
+          "criterion_id": "artefatos_documentacao",
+          "label": "Artefatos/documentação",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 0.8,
+          "weight": 0.16,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-3C",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-3C",
+          "criterion_id": "defesa_individual",
+          "label": "Defesa individual",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 0.8,
+          "weight": 0.16,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-4A",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-4A",
+          "criterion_id": "observacao_evidencia",
+          "label": "Observação/evidência",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 0.6,
+          "weight": 0.3,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-4A",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-4A",
+          "criterion_id": "necessidades_regras",
+          "label": "Síntese de necessidades/regras",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 0.5,
+          "weight": 0.25,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-4A",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-4A",
+          "criterion_id": "etica_confidencialidade",
+          "label": "Ética/confidencialidade",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 0.5,
+          "weight": 0.25,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-4A",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-4A",
+          "criterion_id": "reflexao",
+          "label": "Reflexão",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 0.4,
+          "weight": 0.2,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-4B",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-4B",
+          "criterion_id": "entidades_atributos",
+          "label": "Entidades/atributos",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 1,
+          "weight": 0.25,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-4B",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-4B",
+          "criterion_id": "relacoes_cardinalidades",
+          "label": "Relações/cardinalidades",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 1,
+          "weight": 0.25,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-4B",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-4B",
+          "criterion_id": "consistencia_normalizacao",
+          "label": "Consistência/normalização",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 0.8,
+          "weight": 0.2,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-4B",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-4B",
+          "criterion_id": "dicionario_qualidade",
+          "label": "Dicionário/qualidade/proveniência",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 0.6,
+          "weight": 0.15,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-4B",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-4B",
+          "criterion_id": "rastreabilidade_poo",
+          "label": "Rastreabilidade com POO",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 0.4,
+          "weight": 0.1,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-4B",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-4B",
+          "criterion_id": "autoria",
+          "label": "Autoria",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 0.2,
+          "weight": 0.05,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-4C",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-4C",
+          "criterion_id": "rastreabilidade",
+          "label": "Rastreabilidade requisitos-modelos",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 1,
+          "weight": 0.25,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-4C",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-4C",
+          "criterion_id": "validacao_teste",
+          "label": "Validação/teste",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 0.8,
+          "weight": 0.2,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-4C",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-4C",
+          "criterion_id": "utilidade_viabilidade",
+          "label": "Utilidade/viabilidade",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 0.7,
+          "weight": 0.175,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-4C",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-4C",
+          "criterion_id": "documentacao_comunicacao",
+          "label": "Documentação/comunicação",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 0.7,
+          "weight": 0.175,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "PPI1-4C",
+          "criteria_version": "PLANO-RASCUNHO-1.0.0",
+          "activity_id": "PPI1-4C",
+          "criterion_id": "defesa_individual",
+          "label": "Defesa individual",
+          "evaluation_type": "DOCENTE_OFICIAL",
+          "max_points": 0.8,
+          "weight": 0.2,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "AULA08-FORMATIVA",
+          "criteria_version": "FORM-1.0.0",
+          "activity_id": "AULA08-FORMATIVA",
+          "criterion_id": "understood",
+          "label": "Consigo explicar o problema e os requisitos que escrevi.",
+          "evaluation_type": "FORMATIVA",
+          "max_points": 30,
+          "weight": 0.3,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "AULA08-FORMATIVA",
+          "criteria_version": "FORM-1.0.0",
+          "activity_id": "AULA08-FORMATIVA",
+          "criterion_id": "evidence_checked",
+          "label": "Conferi a origem, os limites e a privacidade da evidência.",
+          "evaluation_type": "FORMATIVA",
+          "max_points": 40,
+          "weight": 0.4,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        },
+        {
+          "rubric_id": "AULA08-FORMATIVA",
+          "criteria_version": "FORM-1.0.0",
+          "activity_id": "AULA08-FORMATIVA",
+          "criterion_id": "authorship_declared",
+          "label": "Declare minhas contribuições e eventual uso de IA.",
+          "evaluation_type": "FORMATIVA",
+          "max_points": 30,
+          "weight": 0.3,
+          "status": "RASCUNHO",
+          "approved_by": "",
+          "approved_at": ""
+        }
+      ]
+    },
+    "Equipes": {
+      "headers": [
+        "team_id",
+        "display_name",
+        "track_id",
+        "status",
+        "created_at"
+      ],
+      "rows": []
+    },
+    "Participantes": {
+      "headers": [
+        "participant_id",
+        "team_id",
+        "display_name",
+        "role",
+        "status",
+        "authorship_validated",
+        "created_at"
+      ],
+      "rows": []
+    },
+    "Submissoes": {
+      "headers": [
+        "submission_id",
+        "request_id",
+        "payload_hash",
+        "activity_id",
+        "activity_version",
+        "criteria_version",
+        "team_id",
+        "participant_id",
+        "revision",
+        "previous_submission_id",
+        "status",
+        "created_at",
+        "updated_at",
+        "formative_xp"
+      ],
+      "rows": []
+    },
+    "Respostas": {
+      "headers": [
+        "response_id",
+        "submission_id",
+        "question_id",
+        "answer_kind",
+        "value",
+        "review_status"
+      ],
+      "rows": []
+    },
+    "Avaliacoes_Docente": {
+      "headers": [
+        "evaluation_id",
+        "submission_id",
+        "participant_id",
+        "criterion_id",
+        "criteria_version",
+        "score",
+        "decision",
+        "reviewer_id",
+        "justification",
+        "revision",
+        "created_at"
+      ],
+      "rows": []
+    },
+    "Notas_3a_Etapa": {
+      "headers": [
+        "participant_id",
+        "item_a",
+        "decision_a",
+        "item_b",
+        "decision_b",
+        "item_c",
+        "decision_c",
+        "total",
+        "plan_version",
+        "plan_status",
+        "updated_at",
+        "source_evaluation_ids"
+      ],
+      "rows": []
+    },
+    "Notas_4a_Etapa": {
+      "headers": [
+        "participant_id",
+        "item_a",
+        "decision_a",
+        "item_b",
+        "decision_b",
+        "item_c",
+        "decision_c",
+        "total",
+        "plan_version",
+        "plan_status",
+        "updated_at",
+        "source_evaluation_ids"
+      ],
+      "rows": []
+    },
+    "Progresso": {
+      "headers": [
+        "progress_id",
+        "team_id",
+        "participant_id",
+        "activity_id",
+        "activity_version",
+        "status",
+        "formative_xp",
+        "pending_count",
+        "last_submission_id",
+        "updated_at"
+      ],
+      "rows": []
+    },
+    "Auditoria": {
+      "headers": [
+        "event_id",
+        "event_at",
+        "actor_id",
+        "actor_role",
+        "operation",
+        "entity_id",
+        "outcome",
+        "request_id",
+        "payload_hash",
+        "detail_code"
+      ],
+      "rows": []
+    },
+    "Idempotencia": {
+      "headers": [
+        "idempotency_key",
+        "request_id",
+        "actor_id",
+        "operation",
+        "payload_hash",
+        "state",
+        "receipt_json",
+        "created_at",
+        "updated_at"
+      ],
+      "rows": []
+    },
+    "Conflitos": {
+      "headers": [
+        "conflict_id",
+        "request_id",
+        "actor_id",
+        "operation",
+        "expected_hash",
+        "received_hash",
+        "status",
+        "created_at",
+        "resolution_code",
+        "resolved_by",
+        "resolved_at"
+      ],
+      "rows": []
+    },
+    "Verificacao_QA": {
+      "headers": [
+        "case_id",
+        "title",
+        "expected",
+        "actual",
+        "status",
+        "executed_at",
+        "evidence_ref"
+      ],
+      "rows": []
+    }
+  },
+  "formulas": {
+    "Notas_3a_Etapa": {
+      "column": "total",
+      "column_index": 7,
+      "start_row": 2,
+      "end_row": 201,
+      "formula_template": "=IFERROR(IF(AND(A{row}<>\"\",C{row}=\"APROVADA\",E{row}=\"APROVADA\",G{row}=\"APROVADA\",J{row}=\"APROVADO\",I{row}=VLOOKUP(\"plan_version\",Config!$A$2:$B$1000,2,FALSE),VLOOKUP(\"plan_status\",Config!$A$2:$B$1000,2,FALSE)=\"APROVADO\",LEN(VLOOKUP(\"plan_approval_ref\",Config!$A$2:$B$1000,2,FALSE))>=8,COUNT(B{row},D{row},F{row})=3,B{row}>=0,B{row}<=VALUE(VLOOKUP(\"plan_max_PPI1-3A\",Config!$A$2:$B$1000,2,FALSE)),D{row}>=0,D{row}<=VALUE(VLOOKUP(\"plan_max_PPI1-3B\",Config!$A$2:$B$1000,2,FALSE)),F{row}>=0,F{row}<=VALUE(VLOOKUP(\"plan_max_PPI1-3C\",Config!$A$2:$B$1000,2,FALSE)),SUM(B{row},D{row},F{row})<=10),SUM(B{row},D{row},F{row}),\"\"),\"\")",
+      "write_mode": "USER_ENTERED_TRUSTED_FORMULA_ONLY",
+      "result_when_empty_or_unapproved": ""
+    },
+    "Notas_4a_Etapa": {
+      "column": "total",
+      "column_index": 7,
+      "start_row": 2,
+      "end_row": 201,
+      "formula_template": "=IFERROR(IF(AND(A{row}<>\"\",C{row}=\"APROVADA\",E{row}=\"APROVADA\",G{row}=\"APROVADA\",J{row}=\"APROVADO\",I{row}=VLOOKUP(\"plan_version\",Config!$A$2:$B$1000,2,FALSE),VLOOKUP(\"plan_status\",Config!$A$2:$B$1000,2,FALSE)=\"APROVADO\",LEN(VLOOKUP(\"plan_approval_ref\",Config!$A$2:$B$1000,2,FALSE))>=8,COUNT(B{row},D{row},F{row})=3,B{row}>=0,B{row}<=VALUE(VLOOKUP(\"plan_max_PPI1-4A\",Config!$A$2:$B$1000,2,FALSE)),D{row}>=0,D{row}<=VALUE(VLOOKUP(\"plan_max_PPI1-4B\",Config!$A$2:$B$1000,2,FALSE)),F{row}>=0,F{row}<=VALUE(VLOOKUP(\"plan_max_PPI1-4C\",Config!$A$2:$B$1000,2,FALSE)),SUM(B{row},D{row},F{row})<=10),SUM(B{row},D{row},F{row}),\"\"),\"\")",
+      "write_mode": "USER_ENTERED_TRUSTED_FORMULA_ONLY",
+      "result_when_empty_or_unapproved": ""
+    }
+  },
+  "bind_before_activation": [
+    "spreadsheet_id",
+    "binding_nonce"
+  ],
+  "private_identifiers_excluded": true,
+  "retention_policy_status": "PROPOSTA_PENDENTE_APROVACAO_INSTITUCIONAL"
+}
