@@ -52,6 +52,7 @@ jobs:
       - name: Missões, reflow, teclado, acessibilidade, exportação e impressão
         run: npm run test:aula08
         env:
+          HOME: /root
           AULA08_BROWSERS: chromium,firefox,webkit
           AULA08_EVIDENCE_DIR: tmp/aula08-ci
       - name: Evidências da Aula 08
