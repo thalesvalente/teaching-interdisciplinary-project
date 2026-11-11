@@ -2,7 +2,7 @@
 
 Versão: **1.0.0**. Data de elaboração: **10/11/2026**. Disciplina: **Prática Profissional Integrada I**, IFMA Campus Itapecuru-Mirim, 2º ano do Técnico em Informática Integrado, 2026.2.
 
-## 1. Produto e fronteira
+> **Revisão pedagógica em PR (11/11/2026):** a fundamentação literária, o encadeamento EV → ACH → HIP/PEND → NEC/RU → RF/RNF/RD → CA e os estágios cumulativos D0–D11 estão detalhados no [Guia do dossiê progressivo](aula08/GUIA_DOSSIE_PROGRESSIVO.md). Este documento preserva o registro da especificação da v1.0.0; para os novos exemplos por tela e critérios da revisão, o guia é a referência principal. A revisão não altera contrato de dados, XP, plano SUAP ou a versão publicada até o merge.\n\n## 1. Produto e fronteira
 
 A apresentação “Da evidência ao requisito” oferece 26 telas, seis missões formativas e um rascunho local de catálogo mínimo: **1 RF, 1 RNF verificável e 1 requisito de dados**, cada qual ligado a uma fonte sintética ou hipótese marcada como pendente. O catálogo é uma atividade de aprendizagem e não uma ficha avaliativa formal.
 
