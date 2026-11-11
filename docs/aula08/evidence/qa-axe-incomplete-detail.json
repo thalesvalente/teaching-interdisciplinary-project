@@ -1,0 +1,405 @@
+[
+  {
+    "id": "aria-prohibited-attr",
+    "nodes": [
+      {
+        "target": [
+          ".lesson-progress"
+        ],
+        "html": "<div class=\"lesson-progress\" aria-label=\"Progresso formativo\">\n        <strong id=\"xp-total\">0 / 100 XP</strong>\n        <span id=\"mission-progress\">0 de 6 missões concluídas</span>\n      </div>",
+        "summary": "Fix all of the following:\n  aria-label attribute is not well supported on \"div\" elements with no valid role attribute.",
+        "any": [],
+        "all": [],
+        "none": [
+          {
+            "id": "aria-prohibited-attr",
+            "data": {
+              "role": null,
+              "nodeName": "div",
+              "messageKey": "noRoleSingular",
+              "prohibited": [
+                "aria-label"
+              ]
+            },
+            "relatedNodes": [],
+            "impact": "serious",
+            "message": "aria-label attribute is not well supported on \"div\" elements with no valid role attribute."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "aria-valid-attr-value",
+    "nodes": [
+      {
+        "target": [
+          "#index-btn"
+        ],
+        "html": "<button id=\"index-btn\" type=\"button\" aria-haspopup=\"dialog\" aria-controls=\"index-dialog\">Índice</button>",
+        "summary": "Fix all of the following:\n  Unable to determine if aria-controls referenced ID exists on the page while using aria-haspopup: aria-controls=\"index-dialog\"",
+        "any": [],
+        "all": [
+          {
+            "id": "aria-valid-attr-value",
+            "data": {
+              "messageKey": "controlsWithinPopup",
+              "needsReview": "aria-controls=\"index-dialog\""
+            },
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Unable to determine if aria-controls referenced ID exists on the page while using aria-haspopup: aria-controls=\"index-dialog\""
+          }
+        ],
+        "none": []
+      },
+      {
+        "target": [
+          "#notes-btn"
+        ],
+        "html": "<button id=\"notes-btn\" type=\"button\" aria-haspopup=\"dialog\" aria-controls=\"notes-dialog\">Notas do professor</button>",
+        "summary": "Fix all of the following:\n  Unable to determine if aria-controls referenced ID exists on the page while using aria-haspopup: aria-controls=\"notes-dialog\"",
+        "any": [],
+        "all": [
+          {
+            "id": "aria-valid-attr-value",
+            "data": {
+              "messageKey": "controlsWithinPopup",
+              "needsReview": "aria-controls=\"notes-dialog\""
+            },
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Unable to determine if aria-controls referenced ID exists on the page while using aria-haspopup: aria-controls=\"notes-dialog\""
+          }
+        ],
+        "none": []
+      }
+    ]
+  },
+  {
+    "id": "color-contrast",
+    "nodes": [
+      {
+        "target": [
+          "#s01 > .slide-heading > .kicker"
+        ],
+        "html": "<p class=\"kicker\">PPI I · Aula 08 · 50 minutos</p>",
+        "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+        "any": [
+          {
+            "id": "color-contrast",
+            "data": {
+              "fontSize": "12.0pt (16px)",
+              "fontWeight": "bold",
+              "messageKey": "pseudoContent",
+              "expectedContrastRatio": "4.5:1"
+            },
+            "relatedNodes": [
+              {
+                "html": "<article class=\"slide cover active\" id=\"s01\" tabindex=\"-1\" data-title=\"Da evidência ao requisito\" aria-labelledby=\"s01-title\">",
+                "target": [
+                  "#s01"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Element's background color could not be determined due to a pseudo element"
+          }
+        ],
+        "all": [],
+        "none": []
+      },
+      {
+        "target": [
+          "#s01-title"
+        ],
+        "html": "<h1 id=\"s01-title\">Da evidência ao requisito</h1>",
+        "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+        "any": [
+          {
+            "id": "color-contrast",
+            "data": {
+              "contrastRatio": 0,
+              "fontSize": "49.5pt (66px)",
+              "fontWeight": "bold",
+              "messageKey": "bgGradient",
+              "expectedContrastRatio": "3:1"
+            },
+            "relatedNodes": [
+              {
+                "html": "<article class=\"slide cover active\" id=\"s01\" tabindex=\"-1\" data-title=\"Da evidência ao requisito\" aria-labelledby=\"s01-title\">",
+                "target": [
+                  "#s01"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Element's background color could not be determined due to a background gradient"
+          }
+        ],
+        "all": [],
+        "none": []
+      },
+      {
+        "target": [
+          "#s01 > .slide-heading > .lead"
+        ],
+        "html": "<p class=\"lead\">Uma boa ideia precisa de origem, precisão e um jeito de conferir.</p>",
+        "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+        "any": [
+          {
+            "id": "color-contrast",
+            "data": {
+              "fontSize": "22.5pt (30px)",
+              "fontWeight": "normal",
+              "messageKey": "pseudoContent",
+              "expectedContrastRatio": "3:1"
+            },
+            "relatedNodes": [
+              {
+                "html": "<article class=\"slide cover active\" id=\"s01\" tabindex=\"-1\" data-title=\"Da evidência ao requisito\" aria-labelledby=\"s01-title\">",
+                "target": [
+                  "#s01"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Element's background color could not be determined due to a pseudo element"
+          }
+        ],
+        "all": [],
+        "none": []
+      },
+      {
+        "target": [
+          ".hero-path > li:nth-child(1)"
+        ],
+        "html": "<li>Investigar a origem</li>",
+        "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+        "any": [
+          {
+            "id": "color-contrast",
+            "data": {
+              "fontSize": "20.3pt (27px)",
+              "fontWeight": "bold",
+              "messageKey": "pseudoContent",
+              "expectedContrastRatio": "3:1"
+            },
+            "relatedNodes": [
+              {
+                "html": "<article class=\"slide cover active\" id=\"s01\" tabindex=\"-1\" data-title=\"Da evidência ao requisito\" aria-labelledby=\"s01-title\">",
+                "target": [
+                  "#s01"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Element's background color could not be determined due to a pseudo element"
+          }
+        ],
+        "all": [],
+        "none": []
+      },
+      {
+        "target": [
+          ".hero-path > li:nth-child(2)"
+        ],
+        "html": "<li>Especificar a resposta</li>",
+        "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+        "any": [
+          {
+            "id": "color-contrast",
+            "data": {
+              "fontSize": "20.3pt (27px)",
+              "fontWeight": "bold",
+              "messageKey": "pseudoContent",
+              "expectedContrastRatio": "3:1"
+            },
+            "relatedNodes": [
+              {
+                "html": "<article class=\"slide cover active\" id=\"s01\" tabindex=\"-1\" data-title=\"Da evidência ao requisito\" aria-labelledby=\"s01-title\">",
+                "target": [
+                  "#s01"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Element's background color could not be determined due to a pseudo element"
+          }
+        ],
+        "all": [],
+        "none": []
+      },
+      {
+        "target": [
+          ".hero-path > li:nth-child(3)"
+        ],
+        "html": "<li>Conferir o resultado</li>",
+        "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+        "any": [
+          {
+            "id": "color-contrast",
+            "data": {
+              "fontSize": "20.3pt (27px)",
+              "fontWeight": "bold",
+              "messageKey": "pseudoContent",
+              "expectedContrastRatio": "3:1"
+            },
+            "relatedNodes": [
+              {
+                "html": "<article class=\"slide cover active\" id=\"s01\" tabindex=\"-1\" data-title=\"Da evidência ao requisito\" aria-labelledby=\"s01-title\">",
+                "target": [
+                  "#s01"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Element's background color could not be determined due to a pseudo element"
+          }
+        ],
+        "all": [],
+        "none": []
+      },
+      {
+        "target": [
+          "#s01 > .slide-body > .cards > .concept-card:nth-child(1) > h3"
+        ],
+        "html": "<h3>Sua missão</h3>",
+        "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+        "any": [
+          {
+            "id": "color-contrast",
+            "data": {
+              "fontSize": "21.0pt (28px)",
+              "fontWeight": "bold",
+              "messageKey": "pseudoContent",
+              "expectedContrastRatio": "3:1"
+            },
+            "relatedNodes": [
+              {
+                "html": "<article class=\"slide cover active\" id=\"s01\" tabindex=\"-1\" data-title=\"Da evidência ao requisito\" aria-labelledby=\"s01-title\">",
+                "target": [
+                  "#s01"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Element's background color could not be determined due to a pseudo element"
+          }
+        ],
+        "all": [],
+        "none": []
+      },
+      {
+        "target": [
+          "#s01 > .slide-body > .cards > .concept-card:nth-child(1) > p"
+        ],
+        "html": "<p>Transformar pistas em um catálogo mínimo de requisitos.</p>",
+        "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+        "any": [
+          {
+            "id": "color-contrast",
+            "data": {
+              "fontSize": "21.0pt (28px)",
+              "fontWeight": "normal",
+              "messageKey": "pseudoContent",
+              "expectedContrastRatio": "3:1"
+            },
+            "relatedNodes": [
+              {
+                "html": "<article class=\"slide cover active\" id=\"s01\" tabindex=\"-1\" data-title=\"Da evidência ao requisito\" aria-labelledby=\"s01-title\">",
+                "target": [
+                  "#s01"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Element's background color could not be determined due to a pseudo element"
+          }
+        ],
+        "all": [],
+        "none": []
+      },
+      {
+        "target": [
+          "#s01 > .slide-body > .cards > .concept-card:nth-child(2) > h3"
+        ],
+        "html": "<h3>Seu produto</h3>",
+        "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+        "any": [
+          {
+            "id": "color-contrast",
+            "data": {
+              "fontSize": "21.0pt (28px)",
+              "fontWeight": "bold",
+              "messageKey": "pseudoContent",
+              "expectedContrastRatio": "3:1"
+            },
+            "relatedNodes": [
+              {
+                "html": "<article class=\"slide cover active\" id=\"s01\" tabindex=\"-1\" data-title=\"Da evidência ao requisito\" aria-labelledby=\"s01-title\">",
+                "target": [
+                  "#s01"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Element's background color could not be determined due to a pseudo element"
+          }
+        ],
+        "all": [],
+        "none": []
+      },
+      {
+        "target": [
+          "#s01 > .slide-body > .cards > .concept-card:nth-child(2) > p"
+        ],
+        "html": "<p>1 RF + 1 RNF verificável + 1 requisito de dados, todos com fonte e critério.</p>",
+        "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+        "any": [
+          {
+            "id": "color-contrast",
+            "data": {
+              "fontSize": "21.0pt (28px)",
+              "fontWeight": "normal",
+              "messageKey": "pseudoContent",
+              "expectedContrastRatio": "3:1"
+            },
+            "relatedNodes": [
+              {
+                "html": "<article class=\"slide cover active\" id=\"s01\" tabindex=\"-1\" data-title=\"Da evidência ao requisito\" aria-labelledby=\"s01-title\">",
+                "target": [
+                  "#s01"
+                ]
+              }
+            ],
+            "impact": "serious",
+            "message": "Element's background color could not be determined due to a pseudo element"
+          }
+        ],
+        "all": [],
+        "none": []
+      },
+      {
+        "target": [
+          "#next-btn > span[aria-hidden=\"true\"]"
+        ],
+        "html": "<span aria-hidden=\"true\">→</span>",
+        "summary": "Fix any of the following:\n  Element content contains only non-text characters",
+        "any": [
+          {
+            "id": "color-contrast",
+            "data": {
+              "messageKey": "nonBmp"
+            },
+            "relatedNodes": [],
+            "impact": "serious",
+            "message": "Element content contains only non-text characters"
+          }
+        ],
+        "all": [],
+        "none": []
+      }
+    ]
+  }
+]

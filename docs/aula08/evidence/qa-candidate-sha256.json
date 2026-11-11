@@ -1,0 +1,18 @@
+{
+  "verified_at_utc": "2026-11-11T01:58:10.657141+00:00",
+  "files": {
+    "lessons/aula-08-da-evidencia-ao-requisito/index.html": "eb53eb196e451cd58d16817a1bfef2e4b0654613174f3aaa61535b98e5a46dd2",
+    "lessons/aula-08-da-evidencia-ao-requisito/aula.css": "959738257252e66d7a67ee08b637a3ffa60e69dd601b660712321d3a580c7afc",
+    "lessons/aula-08-da-evidencia-ao-requisito/content.js": "35b0dbefe6360819c69e9222f5d592dd9798ca80d995a675a8ce3ac9fd91c065",
+    "lessons/aula-08-da-evidencia-ao-requisito/model.js": "47dd58686cf9ef8f9d3b1bba19efb372ed15b44ef8b28d431282af247d62b2e7",
+    "lessons/aula-08-da-evidencia-ao-requisito/aula.js": "cc96ece36e452cfb720950093b60f53f4d20a550ea52ac3c1165bf6c4ecbdea8",
+    "contracts/ppi-aula08-v1.schema.json": "5c9a356c97df10e0e36b6bd65319a142ab0df42b030af02709db681097237f55",
+    "index.html": "b22e5f300bf9bee89d40448b6b4066b5785dba2830076821773dc2403e96db84",
+    "README.md": "bf36bf8a8c7761e875adbd66e286030ab8f0da996494c6967677c1be9ee953f8",
+    "package.json": "0fd07c44483049340f2503e721637e1b7d8cf4c29dbb9d557953f138e8a62b71",
+    "package-lock.json": "6302b57bfc36d2738500735fac38f5ea7559a70fc7b7a24f6a1144a5ca3154c8"
+  },
+  "a11y_final_report_app_hashes_match": true,
+  "test_only_delta_after_focal_run": "tests/aula08/browser.cjs adds explicit regression assertion for stepper prompt focus; application hashes unchanged. CI must execute the committed suite.",
+  "status": "PASS"
+}

@@ -1,0 +1,20 @@
+{
+  "baseline_head": "b9a1e960bc5531429c627429dea0259d565d9666",
+  "previous_portal_cards_unchanged": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "lesson08_cards": 1,
+  "tracked_changed_paths": [
+    "README.md",
+    "index.html",
+    "package-lock.json",
+    "package.json"
+  ],
+  "previous_lesson_paths_modified": false
+}

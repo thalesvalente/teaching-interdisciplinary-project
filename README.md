@@ -15,8 +15,32 @@ Portal de materiais da disciplina no Campus Itapecuru-Mirim.
 | 05 | [Mapeamento de Fluxos de Informação](lessons/aula-05-fluxos-informacao/) · [Ficha da equipe](lessons/aula-05-fluxos-informacao/Ficha_Equipe_Aula_05_PPI.html) |
 | 06 | [Ética e Proteção de Dados](lessons/aula-06-etica-protecao-dados/) · [Ficha da equipe](lessons/aula-06-etica-protecao-dados/Ficha_Equipe_Aula_06_PPI.html) |
 | 07 | [Da pergunta à evidência](lessons/aula-07-da-pergunta-a-evidencia/) · [Ficha avaliativa da equipe](lessons/aula-07-da-pergunta-a-evidencia/ficha/) |
+| 08 | [Da evidência ao requisito](lessons/aula-08-da-evidencia-ao-requisito/) · [Catálogo de rascunho](lessons/aula-08-da-evidencia-ao-requisito/#s24) |
 
 Os PDFs originais permanecem em `lessons/`. O portal organiza o acesso aos materiais e não altera prazos ou critérios de avaliação.
+
+## Aula 08 — Da evidência ao requisito
+
+26 telas e 50 minutos de referência: retomada, conceitos e exemplos, seis missões (10/15/20/15/20/20 XP), catálogo mínimo em equipe, revisão por pares e ticket de saída. As trilhas **Mapa de Memórias Quilombolas** e **Permanência Estudantil** usam somente casos sintéticos e preservam percursos independentes.
+
+O estudante relaciona registro/achado/evidência, necessidade, requisito, critério de aceitação e rastro. Distingue RF, RNF, requisito de dados e regra de negócio; melhora condições vagas; prioriza um escopo mínimo. Cada alternativa tem feedback imediato e novas tentativas. Os **100 XP são exclusivamente formativos**, separados da completude do catálogo, da avaliação docente e de qualquer nota oficial.
+
+A apresentação oferece projeção 16:9, leitura vertical em celular, teclado, alto contraste, rascunho local por trilha, exportação voluntária JSON e síntese para impressão/PDF. Não exige nome ou matrícula; não envia respostas, usa CDN ou carrega serviços externos. O catálogo é um rascunho, não uma ficha avaliativa formal.
+
+- [Guia de uso e funcionamento offline](lessons/aula-08-da-evidencia-ao-requisito/README.md)
+- [Roteiro por tela, matriz de perguntas e gabaritos](docs/aula08-pedagogia.md)
+- [Contrato do futuro Laboratório Vivo](contracts/ppi-aula08-v1.schema.json)
+- [Manifesto de execução](docs/aula08/EXECUTION_MANIFEST.md)
+- [Revisão independente](docs/aula08/QA_INDEPENDENTE.md)
+
+```sh
+npm ci
+npx playwright install --with-deps chromium firefox webkit
+npm run test:aula08:unit
+npm run test:aula08
+```
+
+Evidências são gravadas em `tmp/aula08-qa/`. A meta é verificar critérios automatizáveis da WCAG 2.2 AA; não se declara conformidade completa sem auditoria humana. A inserção de requisitos antes da modelagem lógica prevista para 11/11 é uma **proposta de replanejamento pedagógico**, sem alteração ou aprovação do plano SUAP.
 
 ## Aula 07 — Da pergunta à evidência
 

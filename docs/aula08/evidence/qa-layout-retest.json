@@ -1,0 +1,15 @@
+{
+  "time": "2026-11-11T01:44:49.663Z",
+  "browser": "141.0.7390.37",
+  "states": 246,
+  "errors": [],
+  "findings": [],
+  "hashes": {
+    "index.html": "0cb196eab34b62ca6a9bd912ed7c4a241333f9ded533e18c6c6faa976c94daf0",
+    "aula.css": "22b9cbe4df04df81e2280081c52204327ac9e9491841701769b4a2f7a17af93f",
+    "content.js": "35b0dbefe6360819c69e9222f5d592dd9798ca80d995a675a8ce3ac9fd91c065",
+    "model.js": "47dd58686cf9ef8f9d3b1bba19efb372ed15b44ef8b28d431282af247d62b2e7",
+    "aula.js": "b551ba5b120a57158baa0fe9ded390dbf625569d9a5092231519967bb0344073"
+  },
+  "status": "PASS"
+}

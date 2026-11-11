@@ -1,0 +1,230 @@
+{
+  "source_sha256": {
+    "index.html": "b22e5f300bf9bee89d40448b6b4066b5785dba2830076821773dc2403e96db84",
+    "package.json": "0fd07c44483049340f2503e721637e1b7d8cf4c29dbb9d557953f138e8a62b71",
+    "package-lock.json": "6302b57bfc36d2738500735fac38f5ea7559a70fc7b7a24f6a1144a5ca3154c8",
+    "contracts/ppi-aula08-v1.schema.json": "5c9a356c97df10e0e36b6bd65319a142ab0df42b030af02709db681097237f55",
+    "lessons/aula-08-da-evidencia-ao-requisito/index.html": "eb53eb196e451cd58d16817a1bfef2e4b0654613174f3aaa61535b98e5a46dd2",
+    "lessons/aula-08-da-evidencia-ao-requisito/aula.css": "959738257252e66d7a67ee08b637a3ffa60e69dd601b660712321d3a580c7afc",
+    "lessons/aula-08-da-evidencia-ao-requisito/aula.js": "cc96ece36e452cfb720950093b60f53f4d20a550ea52ac3c1165bf6c4ecbdea8",
+    "lessons/aula-08-da-evidencia-ao-requisito/content.js": "35b0dbefe6360819c69e9222f5d592dd9798ca80d995a675a8ce3ac9fd91c065",
+    "lessons/aula-08-da-evidencia-ao-requisito/model.js": "47dd58686cf9ef8f9d3b1bba19efb372ed15b44ef8b28d431282af247d62b2e7",
+    "tests/aula08/browser.cjs": "7639e28f6193b051ae62095bb0734a1228aacaf55349ca802e8bc126e5e8ca29",
+    "tests/aula08/harness.cjs": "a976ba1f732ced78a0bfb04fc6a03b46ac503ffd229c4b7b6dfa9fe0dbfae112",
+    "tests/aula08/unit.test.cjs": "78ba55760ff0c35e976708f025b34c69d391c907ef8c0bec554c115bc0a9b174",
+    "tests/aula08/fixtures.cjs": "aba0eb4ca48d0a03db241654bc2db90ed21bd4d99d5679b578777229e62979c1",
+    "tests/aula08/a11y-review.cjs": "5c1857c317b1bd6f4c6d8c896f7ed859f51f4bcb82d66e21f12d1501b148d0c4"
+  },
+  "started_at": "2026-11-11T01:55:06.775Z",
+  "versions": {
+    "chromium": "141.0.7390.37",
+    "firefox": "142.0.1",
+    "webkit": "26.0"
+  },
+  "results": [
+    {
+      "browser": "chromium",
+      "id": "NAMED-GROUPS-FOCUS",
+      "label": "All three control families expose named groups and preserve keyboard focus",
+      "status": "PASS",
+      "duration_ms": 280,
+      "evidence": {
+        "families": [
+          {
+            "selector": ".lesson-progress",
+            "count": 1,
+            "names": [
+              "Progresso formativo"
+            ]
+          },
+          {
+            "selector": ".question-nav",
+            "count": 6,
+            "names": [
+              "Questões da missão 1",
+              "Questões da missão 2",
+              "Questões da missão 3",
+              "Questões da missão 4",
+              "Questões da missão 5",
+              "Questões da missão 6"
+            ]
+          },
+          {
+            "selector": ".catalog-tabs",
+            "count": 1,
+            "names": [
+              "Tipos de requisito do catálogo"
+            ]
+          }
+        ],
+        "keyboardActivated": true,
+        "questionNavigationFocusChecked": 4,
+        "dialogFocusReturned": true
+      }
+    },
+    {
+      "browser": "chromium",
+      "id": "AXE-FINAL",
+      "label": "33 states have no WCAG violations or unresolved prohibited ARIA naming",
+      "status": "PASS",
+      "duration_ms": 9629,
+      "evidence": {
+        "auditedStates": 33,
+        "violations": 0,
+        "prohibitedARIAInconclusive": 0,
+        "incompleteRules": {
+          "aria-valid-attr-value": {
+            "states": 32,
+            "nodes": 64
+          },
+          "color-contrast": {
+            "states": 32,
+            "nodes": 428
+          }
+        },
+        "manualReviewStillRequired": [
+          "aria-valid-attr-value",
+          "color-contrast"
+        ]
+      }
+    },
+    {
+      "browser": "firefox",
+      "id": "NAMED-GROUPS-FOCUS",
+      "label": "All three control families expose named groups and preserve keyboard focus",
+      "status": "PASS",
+      "duration_ms": 505,
+      "evidence": {
+        "families": [
+          {
+            "selector": ".lesson-progress",
+            "count": 1,
+            "names": [
+              "Progresso formativo"
+            ]
+          },
+          {
+            "selector": ".question-nav",
+            "count": 6,
+            "names": [
+              "Questões da missão 1",
+              "Questões da missão 2",
+              "Questões da missão 3",
+              "Questões da missão 4",
+              "Questões da missão 5",
+              "Questões da missão 6"
+            ]
+          },
+          {
+            "selector": ".catalog-tabs",
+            "count": 1,
+            "names": [
+              "Tipos de requisito do catálogo"
+            ]
+          }
+        ],
+        "keyboardActivated": true,
+        "questionNavigationFocusChecked": 4,
+        "dialogFocusReturned": true
+      }
+    },
+    {
+      "browser": "firefox",
+      "id": "AXE-FINAL",
+      "label": "33 states have no WCAG violations or unresolved prohibited ARIA naming",
+      "status": "PASS",
+      "duration_ms": 13430,
+      "evidence": {
+        "auditedStates": 33,
+        "violations": 0,
+        "prohibitedARIAInconclusive": 0,
+        "incompleteRules": {
+          "aria-valid-attr-value": {
+            "states": 32,
+            "nodes": 64
+          },
+          "color-contrast": {
+            "states": 32,
+            "nodes": 428
+          }
+        },
+        "manualReviewStillRequired": [
+          "aria-valid-attr-value",
+          "color-contrast"
+        ]
+      }
+    },
+    {
+      "browser": "webkit",
+      "id": "NAMED-GROUPS-FOCUS",
+      "label": "All three control families expose named groups and preserve keyboard focus",
+      "status": "PASS",
+      "duration_ms": 464,
+      "evidence": {
+        "families": [
+          {
+            "selector": ".lesson-progress",
+            "count": 1,
+            "names": [
+              "Progresso formativo"
+            ]
+          },
+          {
+            "selector": ".question-nav",
+            "count": 6,
+            "names": [
+              "Questões da missão 1",
+              "Questões da missão 2",
+              "Questões da missão 3",
+              "Questões da missão 4",
+              "Questões da missão 5",
+              "Questões da missão 6"
+            ]
+          },
+          {
+            "selector": ".catalog-tabs",
+            "count": 1,
+            "names": [
+              "Tipos de requisito do catálogo"
+            ]
+          }
+        ],
+        "keyboardActivated": true,
+        "questionNavigationFocusChecked": 4,
+        "dialogFocusReturned": true
+      }
+    },
+    {
+      "browser": "webkit",
+      "id": "AXE-FINAL",
+      "label": "33 states have no WCAG violations or unresolved prohibited ARIA naming",
+      "status": "PASS",
+      "duration_ms": 10619,
+      "evidence": {
+        "auditedStates": 33,
+        "violations": 0,
+        "prohibitedARIAInconclusive": 0,
+        "incompleteRules": {
+          "aria-valid-attr-value": {
+            "states": 32,
+            "nodes": 64
+          },
+          "color-contrast": {
+            "states": 32,
+            "nodes": 428
+          }
+        },
+        "manualReviewStillRequired": [
+          "aria-valid-attr-value",
+          "color-contrast"
+        ]
+      }
+    }
+  ],
+  "scope": "Focused delta: named groups, keyboard focus and 99 axe states after adding role=group to lesson progress, mission question navigation and catalog type controls. Existing geometry/function tests remain recorded separately.",
+  "completed_at": "2026-11-11T01:55:43.884Z",
+  "counts": {
+    "PASS": 6
+  },
+  "status": "PASS"
+}

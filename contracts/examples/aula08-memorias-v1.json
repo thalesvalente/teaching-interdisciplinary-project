@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0.0",
+  "lesson_id": "ppi-aula08",
+  "activity_id": "aula08-local-draft",
+  "track_id": "memorias",
+  "question_id": null,
+  "answer_kind": "lesson_draft",
+  "draft_status": "empty",
+  "xp_formativo": 0,
+  "criteria_version": "1.0.0",
+  "answer_key_version": "1.0.0",
+  "created_at": "2026-11-11T01:34:41.883Z",
+  "updated_at": "2026-11-11T01:34:41.884Z",
+  "training": {
+    "domain": "presentation_training",
+    "xp_formativo": 0,
+    "max_xp": 100,
+    "missions": [
+      {
+        "mission_id": "m1",
+        "completed": false,
+        "correct": 0,
+        "total": 4,
+        "xp_formativo": 0
+      },
+      {
+        "mission_id": "m2",
+        "completed": false,
+        "correct": 0,
+        "total": 2,
+        "xp_formativo": 0
+      },
+      {
+        "mission_id": "m3",
+        "completed": false,
+        "correct": 0,
+        "total": 4,
+        "xp_formativo": 0
+      },
+      {
+        "mission_id": "m4",
+        "completed": false,
+        "correct": 0,
+        "total": 2,
+        "xp_formativo": 0
+      },
+      {
+        "mission_id": "m5",
+        "completed": false,
+        "correct": 0,
+        "total": 3,
+        "xp_formativo": 0
+      },
+      {
+        "mission_id": "m6",
+        "completed": false,
+        "correct": 0,
+        "total": 2,
+        "xp_formativo": 0
+      }
+    ],
+    "answers": []
+  },
+  "catalog": {
+    "activity_id": "catalogo-minimo",
+    "requirements": [
+      {
+        "requirement_id": "a08.rf.v1",
+        "type": "RF",
+        "text": "",
+        "source_ref": "",
+        "source_status": "pending_hypothesis",
+        "acceptance_criterion": "",
+        "priority": "must"
+      },
+      {
+        "requirement_id": "a08.rnf.v1",
+        "type": "RNF",
+        "text": "",
+        "source_ref": "",
+        "source_status": "pending_hypothesis",
+        "acceptance_criterion": "",
+        "priority": "must"
+      },
+      {
+        "requirement_id": "a08.rd.v1",
+        "type": "RD",
+        "text": "",
+        "source_ref": "",
+        "source_status": "pending_hypothesis",
+        "acceptance_criterion": "",
+        "priority": "must"
+      }
+    ],
+    "self_review": {
+      "source": false,
+      "measurable": false,
+      "scope": false,
+      "ethics": false
+    },
+    "exit_ticket": ""
+  },
+  "completeness": {
+    "domain": "catalog_completeness",
+    "filled_fields": 0,
+    "required_fields": 9,
+    "complete": false,
+    "qualitative_quality": "not_assessed"
+  },
+  "teacher_assessment": {
+    "domain": "teacher_qualitative",
+    "status": "pending",
+    "value": null
+  },
+  "official_grade": {
+    "domain": "official_grade",
+    "status": "not_applicable",
+    "value": null
+  },
+  "notice": "XP exclusivamente formativo. Completude não comprova qualidade. Revisão docente pendente; nenhuma nota oficial calculada. Somente dados sintéticos."
+}

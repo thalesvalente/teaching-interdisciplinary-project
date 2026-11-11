@@ -7,10 +7,14 @@
     "test:aula06": "node tests/aula06-qa.cjs",
     "test:aula07": "node tests/aula07-qa.cjs",
     "test:ficha07:unit": "node --test tests/aula07-ficha/unit.test.cjs",
-    "test:ficha07": "node tests/aula07-ficha/browser.cjs"
+    "test:ficha07": "node tests/aula07-ficha/browser.cjs",
+    "test:aula08:unit": "node --test tests/aula08/unit.test.cjs",
+    "test:aula08": "node tests/aula08/browser.cjs"
   },
   "devDependencies": {
     "axe-core": "4.14.0",
-    "playwright": "1.56.1"
+    "playwright": "1.56.1",
+    "ajv": "8.17.1",
+    "ajv-formats": "3.0.1"
   }
 }

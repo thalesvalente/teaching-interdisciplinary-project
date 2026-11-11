@@ -1,0 +1,101 @@
+{
+  "source_sha256": {
+    "index.html": "b22e5f300bf9bee89d40448b6b4066b5785dba2830076821773dc2403e96db84",
+    "package.json": "0fd07c44483049340f2503e721637e1b7d8cf4c29dbb9d557953f138e8a62b71",
+    "package-lock.json": "6302b57bfc36d2738500735fac38f5ea7559a70fc7b7a24f6a1144a5ca3154c8",
+    "contracts/ppi-aula08-v1.schema.json": "5c9a356c97df10e0e36b6bd65319a142ab0df42b030af02709db681097237f55",
+    "lessons/aula-08-da-evidencia-ao-requisito/index.html": "0cb196eab34b62ca6a9bd912ed7c4a241333f9ded533e18c6c6faa976c94daf0",
+    "lessons/aula-08-da-evidencia-ao-requisito/aula.css": "959738257252e66d7a67ee08b637a3ffa60e69dd601b660712321d3a580c7afc",
+    "lessons/aula-08-da-evidencia-ao-requisito/aula.js": "b551ba5b120a57158baa0fe9ded390dbf625569d9a5092231519967bb0344073",
+    "lessons/aula-08-da-evidencia-ao-requisito/content.js": "35b0dbefe6360819c69e9222f5d592dd9798ca80d995a675a8ce3ac9fd91c065",
+    "lessons/aula-08-da-evidencia-ao-requisito/model.js": "47dd58686cf9ef8f9d3b1bba19efb372ed15b44ef8b28d431282af247d62b2e7",
+    "tests/aula08/browser.cjs": "2a6b4adc313dd254e535161eb59eff2c5d7a2ef31c1e7ff939168f97f47649fb",
+    "tests/aula08/harness.cjs": "59f1198dade5677143c8eea5ab946c1f8710a43f930db0b2e0f43427680f62d3",
+    "tests/aula08/unit.test.cjs": "78ba55760ff0c35e976708f025b34c69d391c907ef8c0bec554c115bc0a9b174",
+    "tests/aula08/fixtures.cjs": "aba0eb4ca48d0a03db241654bc2db90ed21bd4d99d5679b578777229e62979c1",
+    "tests/aula08/print-check.cjs": "30968e698a1678407c98404f314038ece8b41e979f14eb91d7648acb498e0619"
+  },
+  "started_at": "2026-11-11T01:48:28.482Z",
+  "versions": {
+    "chromium": "141.0.7390.37",
+    "firefox": "142.0.1",
+    "webkit": "26.0"
+  },
+  "results": [
+    {
+      "browser": "chromium",
+      "id": "PRINT-FINAL",
+      "label": "Current CSS prints complete and long synthetic drafts without state changes",
+      "status": "PASS",
+      "duration_ms": 620,
+      "evidence": [
+        {
+          "variant": "filled",
+          "characters": 2877,
+          "fieldsRetained": 9,
+          "pdf": "aula08-final-filled.pdf",
+          "stateUnchanged": true
+        },
+        {
+          "variant": "long",
+          "characters": 18916,
+          "fieldsRetained": 9,
+          "pdf": "aula08-final-long.pdf",
+          "stateUnchanged": true
+        }
+      ]
+    },
+    {
+      "browser": "firefox",
+      "id": "PRINT-FINAL",
+      "label": "Current CSS prints complete and long synthetic drafts without state changes",
+      "status": "PASS",
+      "duration_ms": 2027,
+      "evidence": [
+        {
+          "variant": "filled",
+          "characters": 2877,
+          "fieldsRetained": 9,
+          "pdf": null,
+          "stateUnchanged": true
+        },
+        {
+          "variant": "long",
+          "characters": 18916,
+          "fieldsRetained": 9,
+          "pdf": null,
+          "stateUnchanged": true
+        }
+      ]
+    },
+    {
+      "browser": "webkit",
+      "id": "PRINT-FINAL",
+      "label": "Current CSS prints complete and long synthetic drafts without state changes",
+      "status": "PASS",
+      "duration_ms": 1250,
+      "evidence": [
+        {
+          "variant": "filled",
+          "characters": 2877,
+          "fieldsRetained": 9,
+          "pdf": null,
+          "stateUnchanged": true
+        },
+        {
+          "variant": "long",
+          "characters": 18916,
+          "fieldsRetained": 9,
+          "pdf": null,
+          "stateUnchanged": true
+        }
+      ]
+    }
+  ],
+  "scope": "Automated behavior and detectable WCAG 2.2 AA criteria; not a complete human accessibility audit.",
+  "completed_at": "2026-11-11T01:48:33.463Z",
+  "counts": {
+    "PASS": 3
+  },
+  "status": "PASS"
+}

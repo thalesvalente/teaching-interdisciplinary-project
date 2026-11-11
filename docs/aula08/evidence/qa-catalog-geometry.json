@@ -1,0 +1,172 @@
+[
+  {
+    "w": 1280,
+    "h": 650,
+    "slide": "s24",
+    "reading": false,
+    "documentWidth": 1280,
+    "viewportWidth": 1280,
+    "canvasBottom": 577.09375,
+    "outside": [
+      {
+        "tag": "FOOTER",
+        "cls": "slide-footer",
+        "bottom": 588.6328735351562,
+        "text": "PPI I · IFMA Itapecuru-Mirim · Casos sintéticos24 / 26Contro"
+      },
+      {
+        "tag": "SPAN",
+        "cls": "",
+        "bottom": 588.6328735351562,
+        "text": "PPI I · IFMA Itapecuru-Mirim · Casos sintéticos"
+      },
+      {
+        "tag": "STRONG",
+        "cls": "",
+        "bottom": 588.6328735351562,
+        "text": "24 / 26"
+      },
+      {
+        "tag": "A",
+        "cls": "reading-top",
+        "bottom": 588.6328735351562,
+        "text": "Controles ↑"
+      }
+    ]
+  },
+  {
+    "w": 1280,
+    "h": 650,
+    "slide": "s25",
+    "reading": false,
+    "documentWidth": 1280,
+    "viewportWidth": 1280,
+    "canvasBottom": 577.09375,
+    "outside": []
+  },
+  {
+    "w": 1280,
+    "h": 650,
+    "slide": "s26",
+    "reading": false,
+    "documentWidth": 1280,
+    "viewportWidth": 1280,
+    "canvasBottom": 577.09375,
+    "outside": []
+  },
+  {
+    "w": 1280,
+    "h": 720,
+    "slide": "s24",
+    "reading": false,
+    "documentWidth": 1280,
+    "viewportWidth": 1280,
+    "canvasBottom": 647.09375,
+    "outside": [
+      {
+        "tag": "FOOTER",
+        "cls": "slide-footer",
+        "bottom": 660.4983520507812,
+        "text": "PPI I · IFMA Itapecuru-Mirim · Casos sintéticos24 / 26Contro"
+      },
+      {
+        "tag": "SPAN",
+        "cls": "",
+        "bottom": 660.4983520507812,
+        "text": "PPI I · IFMA Itapecuru-Mirim · Casos sintéticos"
+      },
+      {
+        "tag": "STRONG",
+        "cls": "",
+        "bottom": 660.4983520507812,
+        "text": "24 / 26"
+      },
+      {
+        "tag": "A",
+        "cls": "reading-top",
+        "bottom": 660.4983520507812,
+        "text": "Controles ↑"
+      }
+    ]
+  },
+  {
+    "w": 1280,
+    "h": 720,
+    "slide": "s25",
+    "reading": false,
+    "documentWidth": 1280,
+    "viewportWidth": 1280,
+    "canvasBottom": 647.09375,
+    "outside": []
+  },
+  {
+    "w": 1280,
+    "h": 720,
+    "slide": "s26",
+    "reading": false,
+    "documentWidth": 1280,
+    "viewportWidth": 1280,
+    "canvasBottom": 647.09375,
+    "outside": []
+  },
+  {
+    "w": 390,
+    "h": 844,
+    "slide": "s24",
+    "reading": true,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "canvasBottom": 1500.0625,
+    "outside": []
+  },
+  {
+    "w": 390,
+    "h": 844,
+    "slide": "s25",
+    "reading": true,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "canvasBottom": 1144.03125,
+    "outside": []
+  },
+  {
+    "w": 390,
+    "h": 844,
+    "slide": "s26",
+    "reading": true,
+    "documentWidth": 390,
+    "viewportWidth": 390,
+    "canvasBottom": 1135.734375,
+    "outside": []
+  },
+  {
+    "w": 320,
+    "h": 568,
+    "slide": "s24",
+    "reading": true,
+    "documentWidth": 320,
+    "viewportWidth": 320,
+    "canvasBottom": 1608.75,
+    "outside": []
+  },
+  {
+    "w": 320,
+    "h": 568,
+    "slide": "s25",
+    "reading": true,
+    "documentWidth": 320,
+    "viewportWidth": 320,
+    "canvasBottom": 1333.59375,
+    "outside": []
+  },
+  {
+    "w": 320,
+    "h": 568,
+    "slide": "s26",
+    "reading": true,
+    "documentWidth": 320,
+    "viewportWidth": 320,
+    "canvasBottom": 1224.859375,
+    "outside": []
+  }
+]

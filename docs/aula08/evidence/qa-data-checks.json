@@ -1,0 +1,30 @@
+{
+  "time": "2026-11-11T01:42:17.476Z",
+  "checks": [
+    {
+      "id": "P4-STATE-01",
+      "status": "PASS",
+      "result": "3 tipos ×3 campos longos + ticket persistidos exatamente após reload"
+    },
+    {
+      "id": "P4-DOMAINS-01",
+      "status": "PASS",
+      "result": "Completude9/9 e texto longo não concedem XP nem nota ou avaliação docente"
+    },
+    {
+      "id": "P4-TRACK-01",
+      "status": "PASS",
+      "result": "Catálogo/ticket separados por trilha sem transporte silencioso"
+    },
+    {
+      "id": "P4-PRINT-01",
+      "status": "PASS",
+      "result": "Síntese DOM contém integralmente9campos longos, com marcadores finais; PDF gerado para verificação textual"
+    },
+    {
+      "id": "P4-CLEAR-01",
+      "status": "PASS",
+      "result": "Cancelar preserva; confirmar apaga somente chaveA08 de ambas trilhas e mantém sentinelasA07/ficha07"
+    }
+  ]
+}

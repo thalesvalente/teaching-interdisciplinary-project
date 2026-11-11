@@ -1,0 +1,582 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thalesvalente.github.io/teaching-interdisciplinary-project/contracts/ppi-aula08-v1.schema.json",
+  "title": "PPI Aula 08 — rascunho formativo local v1",
+  "description": "Envelope voluntário sem identificação compulsória. Os quatro domínios de treino, completude, qualidade docente e nota oficial permanecem independentes. A validação estrutural não aprova qualidade nem fonte.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "lesson_id",
+    "activity_id",
+    "track_id",
+    "question_id",
+    "answer_kind",
+    "draft_status",
+    "xp_formativo",
+    "criteria_version",
+    "answer_key_version",
+    "created_at",
+    "updated_at",
+    "training",
+    "catalog",
+    "completeness",
+    "teacher_assessment",
+    "official_grade",
+    "notice"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "lesson_id": {
+      "const": "ppi-aula08"
+    },
+    "activity_id": {
+      "const": "aula08-local-draft"
+    },
+    "track_id": {
+      "enum": [
+        "memorias",
+        "permanencia"
+      ]
+    },
+    "question_id": {
+      "type": "null"
+    },
+    "answer_kind": {
+      "const": "lesson_draft"
+    },
+    "draft_status": {
+      "enum": [
+        "empty",
+        "draft",
+        "self_reviewed"
+      ]
+    },
+    "xp_formativo": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "criteria_version": {
+      "const": "1.0.0"
+    },
+    "answer_key_version": {
+      "const": "1.0.0"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "training": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "domain",
+        "xp_formativo",
+        "max_xp",
+        "missions",
+        "answers"
+      ],
+      "properties": {
+        "domain": {
+          "const": "presentation_training"
+        },
+        "xp_formativo": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "max_xp": {
+          "const": 100
+        },
+        "missions": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "mission_id",
+                "completed",
+                "correct",
+                "total",
+                "xp_formativo"
+              ],
+              "properties": {
+                "mission_id": {
+                  "const": "m1"
+                },
+                "completed": {
+                  "type": "boolean"
+                },
+                "correct": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4
+                },
+                "total": {
+                  "const": 4
+                },
+                "xp_formativo": {
+                  "enum": [
+                    0,
+                    10
+                  ]
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "mission_id",
+                "completed",
+                "correct",
+                "total",
+                "xp_formativo"
+              ],
+              "properties": {
+                "mission_id": {
+                  "const": "m2"
+                },
+                "completed": {
+                  "type": "boolean"
+                },
+                "correct": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2
+                },
+                "total": {
+                  "const": 2
+                },
+                "xp_formativo": {
+                  "enum": [
+                    0,
+                    15
+                  ]
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "mission_id",
+                "completed",
+                "correct",
+                "total",
+                "xp_formativo"
+              ],
+              "properties": {
+                "mission_id": {
+                  "const": "m3"
+                },
+                "completed": {
+                  "type": "boolean"
+                },
+                "correct": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 4
+                },
+                "total": {
+                  "const": 4
+                },
+                "xp_formativo": {
+                  "enum": [
+                    0,
+                    20
+                  ]
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "mission_id",
+                "completed",
+                "correct",
+                "total",
+                "xp_formativo"
+              ],
+              "properties": {
+                "mission_id": {
+                  "const": "m4"
+                },
+                "completed": {
+                  "type": "boolean"
+                },
+                "correct": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2
+                },
+                "total": {
+                  "const": 2
+                },
+                "xp_formativo": {
+                  "enum": [
+                    0,
+                    15
+                  ]
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "mission_id",
+                "completed",
+                "correct",
+                "total",
+                "xp_formativo"
+              ],
+              "properties": {
+                "mission_id": {
+                  "const": "m5"
+                },
+                "completed": {
+                  "type": "boolean"
+                },
+                "correct": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 3
+                },
+                "total": {
+                  "const": 3
+                },
+                "xp_formativo": {
+                  "enum": [
+                    0,
+                    20
+                  ]
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "mission_id",
+                "completed",
+                "correct",
+                "total",
+                "xp_formativo"
+              ],
+              "properties": {
+                "mission_id": {
+                  "const": "m6"
+                },
+                "completed": {
+                  "type": "boolean"
+                },
+                "correct": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2
+                },
+                "total": {
+                  "const": 2
+                },
+                "xp_formativo": {
+                  "enum": [
+                    0,
+                    20
+                  ]
+                }
+              }
+            }
+          ],
+          "items": false,
+          "minItems": 6,
+          "maxItems": 6
+        },
+        "answers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/answer"
+          },
+          "maxItems": 40
+        }
+      }
+    },
+    "catalog": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "activity_id",
+        "requirements",
+        "self_review",
+        "exit_ticket"
+      ],
+      "properties": {
+        "activity_id": {
+          "const": "catalogo-minimo"
+        },
+        "requirements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/requirement"
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "self_review": {
+          "$ref": "#/$defs/review"
+        },
+        "exit_ticket": {
+          "type": "string",
+          "maxLength": 2000
+        }
+      }
+    },
+    "completeness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "domain",
+        "filled_fields",
+        "required_fields",
+        "complete",
+        "qualitative_quality"
+      ],
+      "properties": {
+        "domain": {
+          "const": "catalog_completeness"
+        },
+        "filled_fields": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9
+        },
+        "required_fields": {
+          "const": 9
+        },
+        "complete": {
+          "type": "boolean"
+        },
+        "qualitative_quality": {
+          "const": "not_assessed"
+        }
+      }
+    },
+    "teacher_assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "domain",
+        "status",
+        "value"
+      ],
+      "properties": {
+        "domain": {
+          "const": "teacher_qualitative"
+        },
+        "status": {
+          "const": "pending"
+        },
+        "value": {
+          "type": "null"
+        }
+      }
+    },
+    "official_grade": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "domain",
+        "status",
+        "value"
+      ],
+      "properties": {
+        "domain": {
+          "const": "official_grade"
+        },
+        "status": {
+          "const": "not_applicable"
+        },
+        "value": {
+          "type": "null"
+        }
+      }
+    },
+    "notice": {
+      "type": "string",
+      "minLength": 50,
+      "maxLength": 1000
+    },
+    "submission_id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_-]{1,80}$",
+      "description": "Opcional. Só deve ser atribuído por futura integração voluntária; a aula não o gera nem submete dados."
+    }
+  },
+  "$defs": {
+    "answer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "lesson_id",
+        "activity_id",
+        "track_id",
+        "question_id",
+        "answer_kind",
+        "selected_option",
+        "correct",
+        "criteria_version",
+        "answer_key_version"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "lesson_id": {
+          "const": "ppi-aula08"
+        },
+        "activity_id": {
+          "enum": [
+            "m1",
+            "m2",
+            "m3",
+            "m4",
+            "m5",
+            "m6"
+          ]
+        },
+        "track_id": {
+          "enum": [
+            "memorias",
+            "permanencia"
+          ]
+        },
+        "question_id": {
+          "enum": [
+            "a08.m1.q1.v1",
+            "a08.m1.q2.v1",
+            "a08.m1.q3.v1",
+            "a08.m1.q4.v1",
+            "a08.m2.q1.v1",
+            "a08.m2.q2.v1",
+            "a08.m3.q1.v1",
+            "a08.m3.q2.v1",
+            "a08.m3.q3.v1",
+            "a08.m3.q4.v1",
+            "a08.m4.q1.v1",
+            "a08.m4.q2.v1",
+            "a08.m5.q1.v1",
+            "a08.m5.q2.v1",
+            "a08.m5.q3.v1",
+            "a08.m6.q1.v1",
+            "a08.m6.q2.v1"
+          ]
+        },
+        "answer_kind": {
+          "const": "single_choice"
+        },
+        "selected_option": {
+          "type": "string",
+          "pattern": "^[a-z0-9_-]{1,40}$"
+        },
+        "correct": {
+          "type": "boolean"
+        },
+        "criteria_version": {
+          "const": "1.0.0"
+        },
+        "answer_key_version": {
+          "const": "1.0.0"
+        }
+      }
+    },
+    "requirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "requirement_id",
+        "type",
+        "text",
+        "source_ref",
+        "source_status",
+        "acceptance_criterion",
+        "priority"
+      ],
+      "properties": {
+        "requirement_id": {
+          "enum": [
+            "a08.rf.v1",
+            "a08.rnf.v1",
+            "a08.rd.v1"
+          ]
+        },
+        "type": {
+          "enum": [
+            "RF",
+            "RNF",
+            "RD"
+          ]
+        },
+        "text": {
+          "type": "string",
+          "maxLength": 2000
+        },
+        "source_ref": {
+          "type": "string",
+          "maxLength": 2000
+        },
+        "source_status": {
+          "enum": [
+            "evidence",
+            "pending_hypothesis"
+          ]
+        },
+        "acceptance_criterion": {
+          "type": "string",
+          "maxLength": 2000
+        },
+        "priority": {
+          "enum": [
+            "must",
+            "should",
+            "could",
+            "later"
+          ]
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source",
+        "measurable",
+        "scope",
+        "ethics"
+      ],
+      "properties": {
+        "source": {
+          "type": "boolean"
+        },
+        "measurable": {
+          "type": "boolean"
+        },
+        "scope": {
+          "type": "boolean"
+        },
+        "ethics": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

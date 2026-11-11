@@ -1,0 +1,326 @@
+{
+  "schema_version": "1.0.0",
+  "lesson_id": "ppi-aula08",
+  "activity_id": "aula08-local-draft",
+  "track_id": "permanencia",
+  "question_id": null,
+  "answer_kind": "lesson_draft",
+  "draft_status": "draft",
+  "xp_formativo": 100,
+  "criteria_version": "1.0.0",
+  "answer_key_version": "1.0.0",
+  "created_at": "2026-11-11T01:42:22.534Z",
+  "updated_at": "2026-11-11T01:42:22.534Z",
+  "training": {
+    "domain": "presentation_training",
+    "xp_formativo": 100,
+    "max_xp": 100,
+    "missions": [
+      {
+        "mission_id": "m1",
+        "completed": true,
+        "correct": 4,
+        "total": 4,
+        "xp_formativo": 10
+      },
+      {
+        "mission_id": "m2",
+        "completed": true,
+        "correct": 2,
+        "total": 2,
+        "xp_formativo": 15
+      },
+      {
+        "mission_id": "m3",
+        "completed": true,
+        "correct": 4,
+        "total": 4,
+        "xp_formativo": 20
+      },
+      {
+        "mission_id": "m4",
+        "completed": true,
+        "correct": 2,
+        "total": 2,
+        "xp_formativo": 15
+      },
+      {
+        "mission_id": "m5",
+        "completed": true,
+        "correct": 3,
+        "total": 3,
+        "xp_formativo": 20
+      },
+      {
+        "mission_id": "m6",
+        "completed": true,
+        "correct": 2,
+        "total": 2,
+        "xp_formativo": 20
+      }
+    ],
+    "answers": [
+      {
+        "schema_version": "1.0.0",
+        "lesson_id": "ppi-aula08",
+        "activity_id": "m1",
+        "track_id": "permanencia",
+        "question_id": "a08.m1.q1.v1",
+        "answer_kind": "single_choice",
+        "selected_option": "b",
+        "correct": true,
+        "criteria_version": "1.0.0",
+        "answer_key_version": "1.0.0"
+      },
+      {
+        "schema_version": "1.0.0",
+        "lesson_id": "ppi-aula08",
+        "activity_id": "m1",
+        "track_id": "permanencia",
+        "question_id": "a08.m1.q2.v1",
+        "answer_kind": "single_choice",
+        "selected_option": "a",
+        "correct": true,
+        "criteria_version": "1.0.0",
+        "answer_key_version": "1.0.0"
+      },
+      {
+        "schema_version": "1.0.0",
+        "lesson_id": "ppi-aula08",
+        "activity_id": "m1",
+        "track_id": "permanencia",
+        "question_id": "a08.m1.q3.v1",
+        "answer_kind": "single_choice",
+        "selected_option": "c",
+        "correct": true,
+        "criteria_version": "1.0.0",
+        "answer_key_version": "1.0.0"
+      },
+      {
+        "schema_version": "1.0.0",
+        "lesson_id": "ppi-aula08",
+        "activity_id": "m1",
+        "track_id": "permanencia",
+        "question_id": "a08.m1.q4.v1",
+        "answer_kind": "single_choice",
+        "selected_option": "d",
+        "correct": true,
+        "criteria_version": "1.0.0",
+        "answer_key_version": "1.0.0"
+      },
+      {
+        "schema_version": "1.0.0",
+        "lesson_id": "ppi-aula08",
+        "activity_id": "m2",
+        "track_id": "permanencia",
+        "question_id": "a08.m2.q1.v1",
+        "answer_kind": "single_choice",
+        "selected_option": "c",
+        "correct": true,
+        "criteria_version": "1.0.0",
+        "answer_key_version": "1.0.0"
+      },
+      {
+        "schema_version": "1.0.0",
+        "lesson_id": "ppi-aula08",
+        "activity_id": "m2",
+        "track_id": "permanencia",
+        "question_id": "a08.m2.q2.v1",
+        "answer_kind": "single_choice",
+        "selected_option": "a",
+        "correct": true,
+        "criteria_version": "1.0.0",
+        "answer_key_version": "1.0.0"
+      },
+      {
+        "schema_version": "1.0.0",
+        "lesson_id": "ppi-aula08",
+        "activity_id": "m3",
+        "track_id": "permanencia",
+        "question_id": "a08.m3.q1.v1",
+        "answer_kind": "single_choice",
+        "selected_option": "a",
+        "correct": true,
+        "criteria_version": "1.0.0",
+        "answer_key_version": "1.0.0"
+      },
+      {
+        "schema_version": "1.0.0",
+        "lesson_id": "ppi-aula08",
+        "activity_id": "m3",
+        "track_id": "permanencia",
+        "question_id": "a08.m3.q2.v1",
+        "answer_kind": "single_choice",
+        "selected_option": "b",
+        "correct": true,
+        "criteria_version": "1.0.0",
+        "answer_key_version": "1.0.0"
+      },
+      {
+        "schema_version": "1.0.0",
+        "lesson_id": "ppi-aula08",
+        "activity_id": "m3",
+        "track_id": "permanencia",
+        "question_id": "a08.m3.q3.v1",
+        "answer_kind": "single_choice",
+        "selected_option": "c",
+        "correct": true,
+        "criteria_version": "1.0.0",
+        "answer_key_version": "1.0.0"
+      },
+      {
+        "schema_version": "1.0.0",
+        "lesson_id": "ppi-aula08",
+        "activity_id": "m3",
+        "track_id": "permanencia",
+        "question_id": "a08.m3.q4.v1",
+        "answer_kind": "single_choice",
+        "selected_option": "d",
+        "correct": true,
+        "criteria_version": "1.0.0",
+        "answer_key_version": "1.0.0"
+      },
+      {
+        "schema_version": "1.0.0",
+        "lesson_id": "ppi-aula08",
+        "activity_id": "m4",
+        "track_id": "permanencia",
+        "question_id": "a08.m4.q1.v1",
+        "answer_kind": "single_choice",
+        "selected_option": "b",
+        "correct": true,
+        "criteria_version": "1.0.0",
+        "answer_key_version": "1.0.0"
+      },
+      {
+        "schema_version": "1.0.0",
+        "lesson_id": "ppi-aula08",
+        "activity_id": "m4",
+        "track_id": "permanencia",
+        "question_id": "a08.m4.q2.v1",
+        "answer_kind": "single_choice",
+        "selected_option": "c",
+        "correct": true,
+        "criteria_version": "1.0.0",
+        "answer_key_version": "1.0.0"
+      },
+      {
+        "schema_version": "1.0.0",
+        "lesson_id": "ppi-aula08",
+        "activity_id": "m5",
+        "track_id": "permanencia",
+        "question_id": "a08.m5.q1.v1",
+        "answer_kind": "single_choice",
+        "selected_option": "a",
+        "correct": true,
+        "criteria_version": "1.0.0",
+        "answer_key_version": "1.0.0"
+      },
+      {
+        "schema_version": "1.0.0",
+        "lesson_id": "ppi-aula08",
+        "activity_id": "m5",
+        "track_id": "permanencia",
+        "question_id": "a08.m5.q2.v1",
+        "answer_kind": "single_choice",
+        "selected_option": "b",
+        "correct": true,
+        "criteria_version": "1.0.0",
+        "answer_key_version": "1.0.0"
+      },
+      {
+        "schema_version": "1.0.0",
+        "lesson_id": "ppi-aula08",
+        "activity_id": "m5",
+        "track_id": "permanencia",
+        "question_id": "a08.m5.q3.v1",
+        "answer_kind": "single_choice",
+        "selected_option": "c",
+        "correct": true,
+        "criteria_version": "1.0.0",
+        "answer_key_version": "1.0.0"
+      },
+      {
+        "schema_version": "1.0.0",
+        "lesson_id": "ppi-aula08",
+        "activity_id": "m6",
+        "track_id": "permanencia",
+        "question_id": "a08.m6.q1.v1",
+        "answer_kind": "single_choice",
+        "selected_option": "b",
+        "correct": true,
+        "criteria_version": "1.0.0",
+        "answer_key_version": "1.0.0"
+      },
+      {
+        "schema_version": "1.0.0",
+        "lesson_id": "ppi-aula08",
+        "activity_id": "m6",
+        "track_id": "permanencia",
+        "question_id": "a08.m6.q2.v1",
+        "answer_kind": "single_choice",
+        "selected_option": "a",
+        "correct": true,
+        "criteria_version": "1.0.0",
+        "answer_key_version": "1.0.0"
+      }
+    ]
+  },
+  "catalog": {
+    "activity_id": "catalogo-minimo",
+    "requirements": [
+      {
+        "requirement_id": "a08.rf.v1",
+        "type": "RF",
+        "text": "O sistema deve exibir as linhas agregadas do período selecionado sem alterar a tabela original.",
+        "source_ref": "EV-P01: Tabela de teste fictícia v1: 6 linhas agregadas; 3 do período P1, 2 de P2 e 1 de P3.",
+        "source_status": "evidence",
+        "acceptance_criterion": "Dada a tabela EV-P01 com 6 linhas, quando selecionar P1, então exibir exatamente as 3 linhas desse período e manter as 6 na tabela original.",
+        "priority": "must"
+      },
+      {
+        "requirement_id": "a08.rnf.v1",
+        "type": "RNF",
+        "text": "A filtragem deve ser concluída usando apenas o teclado, com foco visível e sem bloqueio de navegação.",
+        "source_ref": "EV-P03: roteiro fictício de teste solicita filtragem por teclado; a meta deve ser validada pelo professor.",
+        "source_status": "evidence",
+        "acceptance_criterion": "Dado o filtro carregado e o ponteiro sem uso, quando navegar com Tab e selecionar a opção pelo teclado, então concluir a filtragem com foco visível e sem bloqueio de navegação.",
+        "priority": "must"
+      },
+      {
+        "requirement_id": "a08.rd.v1",
+        "type": "RD",
+        "text": "O campo período é obrigatório e deve aceitar apenas P1, P2 ou P3 na base sintética v1.",
+        "source_ref": "EV-P02: dicionário fictício v1 define período obrigatório com três valores permitidos.",
+        "source_status": "evidence",
+        "acceptance_criterion": "Dado um registro da base v1, quando validar o campo período, então aceitar somente um dos três valores definidos no dicionário e rejeitar campo vazio ou outro valor.",
+        "priority": "must"
+      }
+    ],
+    "self_review": {
+      "source": false,
+      "measurable": false,
+      "scope": false,
+      "ethics": false
+    },
+    "exit_ticket": "Consigo rastrear o RF ao registro sintético. A pertinência do filtro para usuários reais continua uma hipótese pendente de validação autorizada."
+  },
+  "completeness": {
+    "domain": "catalog_completeness",
+    "filled_fields": 9,
+    "required_fields": 9,
+    "complete": true,
+    "qualitative_quality": "not_assessed"
+  },
+  "teacher_assessment": {
+    "domain": "teacher_qualitative",
+    "status": "pending",
+    "value": null
+  },
+  "official_grade": {
+    "domain": "official_grade",
+    "status": "not_applicable",
+    "value": null
+  },
+  "notice": "XP exclusivamente formativo. Completude não comprova qualidade. Revisão docente pendente; nenhuma nota oficial calculada. Somente dados sintéticos."
+}
