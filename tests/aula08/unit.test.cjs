@@ -83,3 +83,45 @@ test('STATIC-01: lesson uses only local runtime files and contains no transport 
   for(const filename of ['aula.js','model.js','content.js']){const js=fs.readFileSync(moduleFile(filename),'utf8');assert.doesNotMatch(js,/\b(?:fetch|XMLHttpRequest|WebSocket|sendBeacon)\s*\(/,filename);}
   assert.match(html,/lang=["']pt-BR["']/);assert.match(html,/name=["']viewport["']/);
 });
+
+
+test('DOSSIE-01: 12 cumulative stages in the order of the slides, with stable per-track IDs',()=>{
+  const expected=Array.from({length:12},(_,i)=>'D'+i);
+  for(const track of tracks){
+    const stages=Content.tracks[track].dossierStages;
+    assert.deepEqual(stages.map(s=>s.id),expected);
+    const positions=stages.map(s=>Content.slides.findIndex(slide=>slide.id===s.slideId));
+    assert.equal(positions.every(n=>n>=0),true);
+    assert.equal(positions.every((n,i)=>i===0||n>positions[i-1]),true);
+    assert.equal(stages[0].artifactId,track==='memorias'?'EV-M01':'EV-P01');
+    assert.equal(stages[4].artifactId,track==='memorias'?'RF-M01':'RF-P01');
+    for(const step of stages){assert.ok(step.title.length>3);assert.ok(step.excerpt.length>15);}
+  }
+});
+test('DOSSIE-02: concept, user/system levels, quality and verification/validation are explained on slides',()=>{
+  const slide=id=>Content.slides.find(s=>s.id===id);
+  assert.match(slide('s04').lead,/29148/);
+  const texts=id=>JSON.stringify(slide(id));
+  assert.match(texts('s08'),/requisito de usu[aá]rio/i);
+  assert.match(texts('s08'),/requisito de sistema/i);
+  assert.match(texts('s11'),/funcional/i);
+  assert.match(texts('s12'),/requisito de dados/i);
+  assert.match(texts('s22'),/verifica[çc][aã]o/i);
+  assert.match(texts('s22'),/valida[çc][aã]o/i);
+});
+test('DOSSIE-03: both stories reuse EV/RU/RF/CA and the same synthetic fixture across examples and missions',()=>{
+  for(const track of tracks){
+    const t=Content.tracks[track],id=track==='memorias'?'M':'P';
+    const ev='EV-'+id+'01',rf='RF-'+id+'01';
+    for(const slideId of ['s03','s05','s09','s11','s13','s15','s18','s21']){
+      assert.ok(t.slides[slideId],slideId);
+      assert.ok(JSON.stringify(t.slides[slideId]).includes(slideId==='s15'?rf:slideId==='s13'?rf:slideId==='s03'?ev:slideId==='s05'?ev:slideId==='s21'?ev:slideId==='s18'?ev:rf),'same story on '+slideId);
+    }
+    const question=t.missions.m5.questions[1];
+    assert.match(question.prompt,new RegExp(rf));
+    assert.equal(question.correct,'b');
+    const trace=t.dossierStages.find(x=>x.id==='D9');
+    assert.ok(trace.excerpt.includes(ev));
+    assert.ok(trace.excerpt.includes(rf));
+  }
+});
