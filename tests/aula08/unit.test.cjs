@@ -109,49 +109,91 @@ test('DOSSIE-02: concept, user/system levels, quality and verification/validatio
   assert.match(texts('s22'),/verifica[çc][aã]o/i);
   assert.match(texts('s22'),/valida[çc][aã]o/i);
 });
-test('DOSSIE-03: both stories reuse source, behavior and test without opaque card titles',()=>{
+
+test('CASO-01: a tabela de seis linhas existe em cada trilha e é apresentada antes de toda missão',()=>{
+  const introIndex=Content.slides.findIndex(s=>s.id==='s03');
+  const firstMissionIndex=Content.slides.findIndex(s=>s.id==='s07');
+  assert.ok(introIndex>=0 && introIndex<firstMissionIndex);
+  assert.equal(Content.slides[introIndex].kind,'case');
   for(const track of tracks){
-    const t=Content.tracks[track],id=track==='memorias'?'M':'P';
-    const ev='EV-'+id+'01',rf='RF-'+id+'01';
-    const beginning=t.slides.s03.cards;
-    assert.deepEqual(beginning.map(c=>c.title),[
-      '1. O registro que recebemos',
-      '2. O que conseguimos afirmar',
-      '3. O que ainda é só uma ideia'
-    ]);
-    for(const slideId of ['s03','s05','s09','s11','s13','s15','s18','s21']){
-      assert.ok(t.slides[slideId],slideId);
-      for(const c of t.slides[slideId].cards||[]){
-        assert.doesNotMatch(c.title,/^(?:EV|ACH|HIP|NEC|RU|RF|RNF|RD|RN|CA)[-?]/,'unexplained code in '+slideId);
-      }
-    }
-    const system=t.catalogExamples.RF.text;
-    assert.ok(t.slides.s09.cards.some(c=>c.text===system),'same requirement in the progressive example');
-    assert.ok(t.slides.s11.cards.some(c=>c.text===system),'same requirement in the quality example');
-    assert.ok(t.slides.s15.cards.some(c=>c.text===system),'same requirement in the performance example');
-    assert.match(t.missions.m5.questions[1].prompt,new RegExp(rf));
-    assert.equal(t.missions.m5.questions[1].correct,'b');
-    const trace=t.dossierStages.find(x=>x.id==='D9');
-    assert.ok(trace.excerpt.includes(ev));
-    assert.ok(trace.excerpt.includes(rf));
+    const scene=Content.tracks[track],table=scene.caseTable;
+    assert.ok(table,track);
+    assert.equal(table.rows.length,6);
+    assert.ok(table.columns.length>=4);
+    assert.equal(new Set(table.rows.map(r=>r.code)).size,6);
+    assert.deepEqual(table.expectedCodes,table.rows.filter(r=>track==='memorias'?r.theme==='festa':r.period.startsWith('P1')).map(r=>r.code));
+    for(const record of table.rows)for(const col of table.columns)assert.ok(String(record[col.key]).length>0,col.key);
+    assert.match(table.intro,/inventad|criad|fict/i);
+    assert.equal(scene.slides.s03.caseTable,table);
+    assert.match(scene.slides.s04.cards[0].text,/deve/i);
+    assert.match(scene.slides.s05.cards[0].text,/seis/i);
   }
 });
-test('LINGUAGEM-01: glossary decodes technical identifiers and data labels before students need them',()=>{
+test('CASO-02: definição é definição, não uma sequência de passos desconectados',()=>{
+  const slide=Content.slides.find(s=>s.id==='s04');
+  assert.match(slide.title,/requisito/i);
+  assert.match(slide.lead,/29148/);
+  assert.equal(slide.steps,undefined,'no unexplained numbered process in the definition');
+  for(const track of tracks){
+    const scene=Content.tracks[track];
+    assert.ok(scene.slides.s04.cards.some(c=>c.text===scene.catalogExamples.RF.text));
+    assert.ok(scene.slides.s09.cards.some(c=>c.text===scene.catalogExamples.RF.text));
+    assert.ok(scene.slides.s11.cards.some(c=>c.text===scene.catalogExamples.RF.text));
+  }
+});
+test('CASO-03: aceitação é calculável nos mesmos registros e não cita fontes ausentes',()=>{
+  for(const track of tracks){
+    const scene=Content.tracks[track],table=scene.caseTable;
+    const criterion=scene.catalogExamples.RF.criterion;
+    for(const code of table.expectedCodes)assert.ok(criterion.includes(code),code);
+    assert.ok(criterion.includes('tela 3'));
+    assert.equal(scene.syntheticRecords.some(r=>/^EV-[MP]0[23]$/.test(r.id)),false);
+    assert.ok(scene.syntheticRecords.find(r=>r.id===scene.dossierStages[0].artifactId));
+    assert.match(scene.missions.m1.questions[0].prompt,/tela 3/i);
+    assert.doesNotMatch(scene.missions.m4.questions[0].options[1].text,/100 registros/);
+    assert.match(scene.missions.m4.questions[0].options[1].text,/seis registros/i);
+    assert.match(scene.missions.m5.questions[1].prompt,/mesmo filtro/i);
+    assert.equal(scene.missions.m5.questions[1].correct,'b');
+    assert.match(JSON.stringify(scene.slides.s22),/validar/i);
+    assert.match(scene.slides.s21.note,/própria página/i);
+  }
+});
+test('DIDATICA-01: cada conceito aparece antes da missão correspondente',()=>{
+  for(const [concept,exercise]of [['s05','s07'],['s08','s10'],['s11','s14'],['s15','s17'],['s18','s20'],['s21','s23']]){
+    assert.ok(Content.slides.findIndex(s=>s.id===concept)<Content.slides.findIndex(s=>s.id===exercise),concept);
+  }
+  const first=Content.slides.slice(0,4);
+  assert.equal(first[2].kind,'case');
+  assert.equal(first[3].steps,undefined);
+});
+test('DIDATICA-02: nenhuma tela remete a um documento não apresentado como se ele existisse',()=>{
+  for(const track of tracks){
+    const scene=Content.tracks[track];
+    assert.equal(scene.dossierStages.length,12);
+    assert.match(scene.slides.s03.note,/tabela/i);
+    const terms=Object.values(scene.slides).map(x=>JSON.stringify(x)).join(' ');
+    assert.doesNotMatch(terms,/ficha inicial|dossiê externo|dicionário fictício v1|base com 100 registros/i);
+    for(const [id,data]of Object.entries(scene.slides)){
+      assert.ok(data && typeof data==='object',id);
+      for(const c of data.cards||[])assert.doesNotMatch(c.title,/^(?:EV|ACH|HIP|NEC|RU|RF|RNF|RD|CA)[-?]/,id);
+    }
+  }
+});
+test('LINGUAGEM-01: glossário explica as etiquetas e não substitui uma tabela que existe',()=>{
   const entries=new Map(Content.glossary.map(x=>[x.code,x]));
   for(const code of ['EV','ACH','HIP','PEND','NEC','RU','RF','RNF','RD','RN','CA','D0 a D11','R01 / L01','P1 / P2 / P3','XP']){
-    const entry=entries.get(code);assert.ok(entry,code);assert.ok(entry.term.length>2);assert.ok(entry.meaning.length>18);
+    assert.ok(entries.has(code),code);assert.ok(entries.get(code).term.length>2);
   }
-  const s02=Content.slides.find(s=>s.id==='s02');
-  assert.match(JSON.stringify(s02),/EV-P01/);
-  assert.match(JSON.stringify(s02),/evid[eê]ncia/i);
-  assert.match(Content.tracks.permanencia.slides.s03.cards[0].text,/P1.*P2.*P3/);
-  assert.match(Content.tracks.permanencia.slides.s03.cards[0].text,/n[aã]o uma pessoa/i);
-  assert.match(Content.tracks.memorias.slides.s03.cards[0].text,/Seis relatos inventados/i);
+  const intro=Content.slides.find(s=>s.id==='s02');
+  assert.match(intro.lead,/Trilha/i);
+  assert.match(Content.tracks.permanencia.caseTable.intro,/não representa nenhuma turma/i);
+  assert.match(Content.tracks.memorias.caseTable.intro,/Nenhum relato foi coletado/i);
 });
-test('LINGUAGEM-02: permanent glossary exists in the HTML without external dependencies',()=>{
+test('LINGUAGEM-02: página inclui acesso direto à tabela e ao glossário',()=>{
   const html=fs.readFileSync(moduleFile('index.html'),'utf8');
+  assert.match(html,/id="notes-btn"/);
+  assert.match(html,/Ver dados e evolução/);
   assert.match(html,/id="glossary-btn"/);
-  assert.match(html,/aria-controls="glossary-dialog"/);
+  assert.match(html,/id="notes-content"/);
   assert.match(html,/id="glossary-dialog"/);
-  assert.match(html,/id="glossary-content"/);
 });

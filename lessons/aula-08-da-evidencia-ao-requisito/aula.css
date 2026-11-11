@@ -241,6 +241,43 @@ dialog::backdrop { background: #062619b0; }
   .glossary-example { font-size: 16px; }
 }
 
+/* FONTE CONCRETA DO EXERCÍCIO: tabela legível, sem dependências externas. */
+.case-data { min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.case-data h3 { font-size: 23px; line-height: 1.2; margin: 0; color: var(--ifma-dark); }
+.case-intro { font-size: 19px; line-height: 1.3; margin: 0 0 5px; color: var(--muted); }
+.case-table { width: 100%; border-collapse: collapse; table-layout: fixed; border: 1px solid var(--line-strong); font-variant-numeric: tabular-nums; }
+.case-table th, .case-table td { border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); padding: 10px 11px; text-align: left; vertical-align: middle; font-size: 19px; line-height: 1.22; overflow-wrap: anywhere; }
+.case-table thead th { color: var(--ifma-dark); background: var(--green-soft); font-size: 17px; font-weight: 900; }
+.case-table tbody tr:nth-child(even) { background: var(--green-pale); }
+.case-table th:first-child, .case-table td:first-child { width: 11%; font-weight: 800; }
+.case-table th:last-child, .case-table td:last-child { width: 14%; }
+.slide:has(.case-table) .slide-heading { margin-bottom: 12px; }
+.slide:has(.case-table) .slide-heading h1, .slide:has(.case-table) .slide-heading h2 { font-size: 37px; margin-bottom: 9px; }
+.slide:has(.case-table) .lead { font-size: 22px; line-height: 1.28; }
+.slide:has(.case-table) .slide-body { gap: 11px; }
+.slide:has(.case-table) .slide-note { font-size: 18px; line-height: 1.3; margin-top: 12px; padding: 9px 13px; }
+.mission-top .case-reference-button { min-height: 38px; font-size: 16px; line-height: 1.15; padding: 7px 11px; }
+.notes-content .case-data { margin: 10px 0 16px; }
+.notes-content .case-data h3 { font-size: 21px; }
+.notes-content .case-intro { font-size: 16px; }
+.notes-content .case-table th, .notes-content .case-table td { font-size: 15px; padding: 8px 7px; }
+.teacher-references { border-top: 1px solid var(--line); padding: 12px 0; margin-top: 14px; }
+.teacher-references summary { color: var(--ifma-dark); font-weight: 800; cursor: pointer; }
+.teacher-references p { margin-top: 10px; }
+@media (max-width: 760px) {
+  .reading .case-data h3 { font-size: 22px; }
+  .reading .case-intro { font-size: 17px; }
+  .case-table, .case-table tbody, .case-table tr, .case-table td { display: block; width: 100%; }
+  .case-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .case-table tbody { display: grid; gap: 12px; }
+  .case-table tr { border: 1px solid var(--line-strong); border-radius: 7px; padding: 7px 10px; background: var(--paper); }
+  .case-table td, .case-table td:first-child, .case-table td:last-child { width: 100%; border: 0; padding: 6px 5px; font-size: 17px; line-height: 1.32; }
+  .case-table td + td { border-top: 1px solid var(--line); }
+  .case-table td::before { content: attr(data-label) ": "; font-size: 14px; font-weight: 800; color: var(--ifma-dark); }
+  .notes-content .case-table td { font-size: 16px; padding: 6px 4px; }
+  .case-data { gap: 10px; }
+}
+
 /* Modo leitura: todas as telas em ordem e sem escala de texto. */
 .reading { display: block; }
 .reading .toolbar { position: static; }

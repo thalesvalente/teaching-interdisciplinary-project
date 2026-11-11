@@ -34,6 +34,8 @@ jobs:
   aula08-three-browsers:
     name: Aula 08 · aprendizagem, contrato e acessibilidade
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.56.1-noble
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
@@ -44,12 +46,13 @@ jobs:
       - name: Dependências de verificação
         run: npm ci
       - name: Chromium, Firefox e WebKit
-        run: npx playwright install --with-deps chromium firefox webkit
+        run: npx playwright --version
       - name: Contrato, pontuação e isolamento
         run: npm run test:aula08:unit
       - name: Missões, reflow, teclado, acessibilidade, exportação e impressão
         run: npm run test:aula08
         env:
+          HOME: /root
           AULA08_BROWSERS: chromium,firefox,webkit
           AULA08_EVIDENCE_DIR: tmp/aula08-ci
       - name: Evidências da Aula 08
