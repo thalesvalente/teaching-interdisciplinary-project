@@ -50,15 +50,15 @@
   const contexts = {
     memorias: {
       label: 'Mapa de Memórias Quilombolas', shortLabel: 'Memórias', description: 'Acervo fictício de relatos, sem pessoas, narrativas ou locais reais.', prefix: 'M',
-      source: 'EV-M01', sourceDescription: 'Ficha de teste fictícia v1: 6 relatos sintéticos; 3 de tema festa, 2 de trabalho e 1 de paisagem.',
+      source: 'EV-M01', sourceDescription: 'Ficha fictícia: seis relatos, três sobre festas, dois sobre trabalho e um sobre paisagens.', fixtureOverview: 'Seis relatos inventados: três sobre festas, dois sobre trabalho e um sobre paisagens. Não há nomes ou locais reais.',
       finding: 'A coleção de teste contém relatos de três temas.', hypothesis: 'Talvez agrupar por tema facilite a consulta de quem usa o acervo.', pending: 'Falta validar com o professor se tema é o melhor filtro para este objetivo.',
       need: 'Quem consulta precisa localizar relatos do tema escolhido.', rf: 'O sistema deve exibir os relatos do tema selecionado sem alterar a coleção original.',
       rnf: 'A filtragem deve ser concluída usando apenas o teclado, com foco visível e sem bloqueio de navegação.',
-      rd: 'O campo tema é obrigatório e deve aceitar apenas festa, trabalho ou paisagem na base sintética v1.',
-      rule: 'Política fictícia RN-M01: somente itens com revisão marcada como concluída podem entrar na saída pública do exercício.',
-      accept: 'Dado o acervo EV-M01 com 6 relatos, quando selecionar festa, então exibir exatamente os 3 relatos desse tema e manter os 6 na coleção original.',
+      rd: 'O campo tema é obrigatório e aceita somente festa, trabalho ou paisagem na coleção fictícia.',
+      rule: 'Política inventada para o exercício: só itens revisados poderiam aparecer numa divulgação pública.',
+      accept: 'Dada a coleção fictícia com seis relatos, quando escolher o tema festa, então mostrar os três relatos de festa e preservar os seis originais.',
       filter: 'festa', count: '3 relatos', total: '6 relatos', dataset: 'acervo sintético', noun: 'relatos',
-      protect: 'Na saída pública simulada, permitir apenas id, título e tema dos itens revisados; omitir os itens restritos.',
+      protect: 'Na saída pública simulada, mostrar somente código, título e tema dos itens revisados; omitir os itens restritos.',
       unsafe: 'Exibir coordenadas exatas e nomes reais para deixar o mapa completo.',
       sourceRd: 'EV-M02: dicionário fictício v1 define tema obrigatório com três valores permitidos.',
       sourceRnf: 'EV-M03: roteiro fictício de teste solicita filtragem por teclado; a meta deve ser validada pelo professor.',
@@ -66,13 +66,13 @@
     },
     permanencia: {
       label: 'Permanência / Evasão Estudantil', shortLabel: 'Permanência', description: 'Painel de contagens sintéticas agregadas, sem matrícula, nome, frequência ou nota individual.', prefix: 'P',
-      source: 'EV-P01', sourceDescription: 'Tabela de teste fictícia v1: 6 linhas agregadas; 3 do período P1, 2 de P2 e 1 de P3.',
+      source: 'EV-P01', sourceDescription: 'Tabela fictícia: seis linhas agregadas, três do período 1, duas do período 2 e uma do período 3.', fixtureOverview: 'Seis linhas de exemplo: três do período 1 (P1), duas do período 2 (P2), uma do período 3 (P3). Cada linha resume um grupo, não uma pessoa.',
       finding: 'A tabela de teste contém linhas de três períodos.', hypothesis: 'Talvez consultar por período facilite o planejamento de ações de apoio.', pending: 'Falta validar com o professor se o recorte por período responde à decisão proposta.',
       need: 'A equipe precisa consultar contagens agregadas do período escolhido para planejar apoio.', rf: 'O sistema deve exibir as linhas agregadas do período selecionado sem alterar a tabela original.',
       rnf: 'A filtragem deve ser concluída usando apenas o teclado, com foco visível e sem bloqueio de navegação.',
-      rd: 'O campo período é obrigatório e deve aceitar apenas P1, P2 ou P3 na base sintética v1.',
-      rule: 'Política fictícia RN-P01: somente tabelas agregadas revisadas podem entrar na apresentação pública do exercício.',
-      accept: 'Dada a tabela EV-P01 com 6 linhas, quando selecionar P1, então exibir exatamente as 3 linhas desse período e manter as 6 na tabela original.',
+      rd: 'O campo período é obrigatório e aceita apenas P1 (período 1), P2 (período 2) ou P3 (período 3), todos fictícios.',
+      rule: 'Política inventada para o exercício: só tabelas agregadas revisadas poderiam aparecer na apresentação pública.',
+      accept: 'Dada a tabela fictícia com seis linhas, quando escolher o período 1 (P1), então mostrar as três linhas desse período e preservar as seis originais.',
       filter: 'P1', count: '3 linhas', total: '6 linhas', dataset: 'tabela sintética', noun: 'linhas agregadas',
       protect: 'Na saída pública simulada, permitir apenas período, categoria e contagem agregada revisada; omitir qualquer identificador individual.',
       unsafe: 'Exibir matrículas e notas individuais para descobrir quem vai abandonar o curso.',
@@ -102,8 +102,8 @@
       ? 'Como visitante do acervo fictício, quero consultar relatos por tema para ler os itens pertinentes.'
       : 'Como integrante da equipe pedagógica fictícia, quero consultar linhas agregadas por período sem identificar alunos.';
     const fixture = id === 'M'
-      ? 'R01=festa; R02=festa; R03=festa; R04=trabalho; R05=trabalho; R06=paisagem (todos inventados).'
-      : 'L01=P1; L02=P1; L03=P1; L04=P2; L05=P2; L06=P3 (linhas agregadas fictícias).';
+      ? 'Seis relatos fictícios: R01, R02 e R03 sobre festas; R04 e R05 sobre trabalho; R06 sobre paisagem. R significa relato, e o número só identifica um registro.'
+      : 'Seis linhas de grupos fictícios: L01, L02 e L03 do período 1 (P1); L04 e L05 do período 2 (P2); L06 do período 3 (P3). L significa linha de tabela; não é identificação de estudante.';
     const dossierStages = [
       { id:'D0', slideId:'s03', title:'Registro', artifactId:c.source, excerpt:fixture },
       { id:'D1', slideId:'s05', title:'Achado', artifactId:`ACH-${id}01`, excerpt:c.finding },
@@ -119,39 +119,130 @@
       { id:'D11', slideId:'s25', title:'Revisão por pares', artifactId:`REV-${id}01`, excerpt:'Revisar a redação; validar a necessidade com pessoas autorizadas em outra etapa.' }
     ];
     const narrativeOverrides = {
-      s03: { kicker:'D0 · Registro da Aula 07', lead:c.description,
-        cards:[card(c.source+' · ficha identificada',fixture),card('ACH? · o que o registro mostra',c.finding),card('HIP? · o que ele NÃO comprova',c.hypothesis)],
-        note:'Todos os dados são fictícios. A hipótese de utilidade continua pendente.' },
-      s05: { cards:[card(c.source+' · evidência',fixture),card(`ACH-${id}01 · achado`,c.finding),card(`HIP-${id}01 · hipótese`,c.hypothesis)],
-        note:'O achado descreve o conjunto de teste; a hipótese sobre utilidade precisa ser validada.' },
-      s06: { cards:[card(`HIP-${id}01 · suposição`,c.hypothesis),card(`PEND-${id}01 · validar`,c.pending),card('Decisão para o dossiê','O requisito pode ser candidato, mas não será declarado aprovado.')],
-        note:'Não confunda um pedido de botão com a necessidade de uma pessoa.' },
-      s08: { cards:[card(`NEC-${id}01 · necessidade`,c.need),card(`RU-${id}01 · requisito de usuário`,userRequirement),card('Próximo passo','Transformar o serviço desejado em comportamento do sistema.')],
-        note:'Necessidade e requisito são níveis distintos; o benefício permanece hipótese.' },
-      s09: { cards:[card(`NEC-${id}01 · objetivo`,c.need),card(`RU-${id}01 · serviço esperado`,userRequirement),card(`RF-${id}01 · especificação`,c.rf)],
-        note:`A fonte é ${c.source}. O critério CA-${id}01 verificará este RF usando os mesmos seis registros.` },
-      s11: { cards:[card(`RF-${id}01 · função`,c.rf),card(`RNF-${id}01 · acesso`,c.rnf),card('Evolução D4 → D5','O comportamento é o mesmo; adicionamos condições de qualidade.')],
-        note:'Um RF pode possuir RNFs distintos, cada um com seu próprio teste.' },
-      s12: { cards:[card(`RD-${id}01 · dado`,c.rd),card(`RN-${id}01 · política fictícia`,c.rule),card('Impacto no caso','Os valores permitidos limitam o filtro; a revisão limita a saída pública.')],
-        note:'Consulta interna aos seis itens e publicação pública são operações diferentes.' },
-      s13: { cards:[card(`RF-${id}01 · obrigação`,c.rf),card('Verificação prevista',`Ao selecionar ${c.filter}, exibir ${c.count} e preservar ${c.total}.`),card('Decisão pendente',c.pending)],
-        note:'Se a fonte mudar, revise o RF, o dado e o critério ao mesmo tempo.' },
-      s15: { cards:[card(`RF-${id}01 · já definido`,c.rf),card(`RNF-${id}02 · novo teste`,'Com 100 itens sintéticos, filtrar em até 1 s em 10 execuções.'),card('Atenção à fonte','Os 100 itens são carga de desempenho adicional, NÃO a ficha EV-01 de seis itens.')],
-        note:'Documentar o ambiente e validar a meta antes de afirmar atendimento.' },
-      s16: { cards:[card(`RNF-${id}01 · teclado`,c.rnf),card(`RNF-${id}03 · proteção`,c.protect),card('Teste negativo','Campo restrito não pode aparecer na saída pública simulada.')],
-        note:'São duas obrigações separadas e verificáveis vinculadas à mesma consulta.' },
-      s18: { lead:c.accept,cards:[card('Dado · origem',`${c.source} contém ${c.total}.`),card('Quando · operação',`Selecionar ${c.filter}.`),card('Então · resultado',`Exibir ${c.count}; manter ${c.total} originais.`)],
-        note:`CA-${id}01 verifica RF-${id}01; não valida por si a utilidade para pessoas reais.` },
-      s19: { cards:[card('Must · primeira entrega',`RF-${id}01 + RD-${id}01 + acesso e proteção.`),card('Should · depois','Filtros extras após validar a necessidade.'),card('Could · adiar','Animações decorativas e personalização opcional.')],
-        note:'Priorizar por valor, riscos, dependências e esforço; regras de proteção continuam necessárias.' },
-      s21: { steps:[`${c.source}: fonte`,`ACH-${id}01: achado`,`NEC/RU-${id}01: objetivo`,`RF-${id}01: requisito`,`CA-${id}01: teste`],
-        example:c.accept, note:`TRACE-${id}01 mantém HIP-${id}01 como pendente de validação.` },
-      s22: { cards:[card(`Verificar RF-${id}01`,`CA-${id}01 retorna ${c.count} ao escolher ${c.filter}?`),card('Validar a necessidade',c.pending),card('Gerenciar mudança','Revisar juntos os IDs da fonte, RF, RD, critério e rastro.')],
-        note:'Uma IA pode revisar redação, não comprovar uma necessidade não validada.' },
-      s24: { lead:`Construa o catálogo do mesmo caso ${c.shortLabel}: EV → ACH → NEC/RU → RF + RNF + RD → CA.`,
-        note:`Registre RF-${id}01, RNF-${id}01 e RD-${id}01, incluindo a pendência PEND-${id}01.` },
-      s25: { note:`Audite ${c.source} → NEC-${id}01 → RF-${id}01 → CA-${id}01. Revisar o texto não substitui validar com partes interessadas.` },
-      s26: { note:`O dossiê ${id} evoluiu de D0 a D11. Próximo passo: modelar dados a partir do catálogo sem apagar o rastro.` }
+      s03: {
+        kicker: 'Aula 07 → Aula 08 · exemplo de partida',
+        lead: 'Vamos acompanhar a mesma ficha fictícia até chegar a requisitos que possam ser testados.',
+        cards: [
+          card('1. O registro que recebemos', c.fixtureOverview),
+          card('2. O que conseguimos afirmar', c.finding, 'Achado: conclusão apoiada nos dados.'),
+          card('3. O que ainda é só uma ideia', c.hypothesis, 'Hipótese: precisa ser confirmada.')
+        ],
+        note: `Tudo é inventado. Para localizar esta ficha no dossiê, usamos o código ${c.source}: evidência número 1 da trilha ${c.shortLabel}.`
+      },
+      s05: {
+        cards: [
+          card('Evidência: o registro', c.fixtureOverview),
+          card('Achado: a conclusão', c.finding),
+          card('Hipótese: a ideia a testar', c.hypothesis),
+          card('Pendência: o que falta saber', c.pending)
+        ],
+        note: 'Observe: os dados mostram a distribuição, mas não demonstram que a consulta proposta será útil.'
+      },
+      s06: {
+        cards: [
+          card('Ideia ainda não comprovada', c.hypothesis),
+          card('Pergunta em aberto', c.pending),
+          card('Decisão responsável', 'Podemos escrever um requisito provisório, sem afirmar que a necessidade foi validada.')
+        ],
+        note: 'Uma sugestão de botão é uma possível solução, não uma prova do problema.'
+      },
+      s08: {
+        cards: [
+          card('Necessidade: o problema a resolver', c.need),
+          card('Requisito de usuário: o serviço esperado', userRequirement),
+          card('Próximo passo', 'Escrever o que o sistema deverá fazer para atender ao serviço esperado.')
+        ],
+        note: 'Primeiro compreendemos o objetivo da pessoa; só depois descrevemos a obrigação do software.'
+      },
+      s09: {
+        cards: [
+          card('Necessidade de quem consulta', c.need),
+          card('Serviço esperado por quem usa', userRequirement),
+          card('Comportamento que o sistema deve oferecer', c.rf)
+        ],
+        note: 'São três níveis do MESMO problema. O próximo passo é verificar o comportamento com a ficha inicial.'
+      },
+      s11: {
+        cards: [
+          card('Requisito funcional: o que o sistema faz', c.rf),
+          card('Requisito não funcional: como deve funcionar', c.rnf),
+          card('Mesma função, outra condição', 'O filtro continua igual. Agora exigimos que ele também funcione por teclado.')
+        ],
+        note: 'Na documentação, RF é requisito funcional e RNF é requisito não funcional; as siglas são apenas abreviações.'
+      },
+      s12: {
+        cards: [
+          card('Requisito de dados: campo e valores', c.rd),
+          card('Regra de negócio: política fictícia', c.rule),
+          card('Ligação com o filtro', 'O campo limita as opções da consulta. A regra determina o que poderia ser divulgado.')
+        ],
+        note: 'RD significa requisito de dados e RN significa regra de negócio. Os códigos documentais não são dados de alunos ou de comunidades.'
+      },
+      s13: {
+        cards: [
+          card('Requisito que vamos revisar', c.rf),
+          card('Qual resultado permitiria testá-lo?', `Selecionar ${c.filter === 'P1' ? 'período 1 (P1)' : 'tema festa'}, mostrar ${c.count} e preservar ${c.total}.`),
+          card('O que ainda falta confirmar?', c.pending)
+        ],
+        note: 'A redação precisa ser clara e verificar um resultado; a utilidade ainda requer confirmação.'
+      },
+      s15: {
+        cards: [
+          card('Função já definida', c.rf),
+          card('Condição de desempenho proposta', 'Com 100 registros fictícios, o filtro deverá responder em até um segundo em 10 testes.'),
+          card('Por que são 100 agora?', 'São dados extras para medir desempenho, diferentes dos seis registros usados na explicação.')
+        ],
+        note: 'A meta é uma proposta de requisito, não um resultado medido. É preciso definir o computador e validar a viabilidade.'
+      },
+      s16: {
+        cards: [
+          card('Acessibilidade: funcionar por teclado', c.rnf),
+          card('Proteção: mostrar somente o permitido', c.protect),
+          card('Como verificar?', 'Tentar acessar dados restritos e confirmar que eles não aparecem na saída pública simulada.')
+        ],
+        note: 'São duas condições distintas da mesma função, e cada uma precisa de um teste.'
+      },
+      s18: {
+        lead: c.accept,
+        cards: [
+          card('Dado: situação inicial', `A ficha de exemplo contém ${c.total}.`),
+          card('Quando: ação realizada', `A pessoa escolhe ${c.filter === 'P1' ? 'período 1 (P1)' : 'tema festa'}.`),
+          card('Então: resultado esperado', `Aparecem ${c.count}, sem apagar os ${c.total}.`)
+        ],
+        note: 'Isto é um critério de aceitação: um exemplo verificável. Não comprova, sozinho, a utilidade para pessoas reais.'
+      },
+      s19: {
+        cards: [
+          card('Essencial na primeira versão', 'Consulta, dados corretos, uso por teclado e proteção da saída.'),
+          card('Desejável depois', 'Adicionar outros filtros apenas se a necessidade for confirmada.'),
+          card('Pode esperar', 'Efeitos visuais e personalizações não essenciais.')
+        ],
+        note: 'Priorizar é decidir o que fazer agora, considerando valor, riscos, esforço e dependências.'
+      },
+      s21: {
+        steps: ['Evidência: a ficha', 'Achado: conclusão observada', 'Necessidade: objetivo', 'Requisito: obrigação do sistema', 'Critério: teste do resultado'],
+        example: `No nosso caso: a ficha de ${c.total} justifica examinar a consulta por ${c.filter === 'P1' ? 'período' : 'tema'}. O filtro e o teste usam os mesmos dados.`,
+        note: 'Cada etapa recebe um código interno no dossiê. Veja “Entenda os códigos” para localizar o mesmo item sem memorizar siglas.'
+      },
+      s22: {
+        cards: [
+          card('Verificar: o sistema faz o que foi escrito?', `Ao escolher ${c.filter === 'P1' ? 'período 1 (P1)' : 'festa'}, o filtro mostra ${c.count}?`),
+          card('Validar: isso resolve a necessidade?', c.pending),
+          card('Se algo mudar...', 'Revisamos juntos a fonte, o requisito, o campo e o teste. Mantemos o histórico.')
+        ],
+        note: 'Um teste passar não prova que o filtro é a melhor solução para quem o utilizará.'
+      },
+      s24: {
+        lead: `Na trilha ${c.shortLabel}, continuem o mesmo exemplo: registrem a função do sistema, uma condição de qualidade e os dados necessários.`,
+        note: 'Para cada requisito, escrevam o que ele exige, de onde surgiu, como testar e o que ainda precisa ser confirmado.'
+      },
+      s25: {
+        note: 'Outra equipe verifica se a fonte sustenta a necessidade, se a função está clara e se o teste confere com os dados. Sem inventar validação externa.'
+      },
+      s26: {
+        example: c.next,
+        note: 'Da ficha inicial ao catálogo: registro → conclusão → necessidade → requisito → teste → revisão. Os códigos são etiquetas, não conteúdo para decorar.'
+      }
     };
     const missionsById = {
       m1: { questions: [
