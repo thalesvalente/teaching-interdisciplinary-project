@@ -1,0 +1,103 @@
+{
+  "checked_at": "2026-11-11T01:52:54.632Z",
+  "scope": "NEW_SHEETS_READBACK_ONLY",
+  "connectedAppsScript": false,
+  "resources": {
+    "prod": {
+      "environment": "PRODUCTION",
+      "title": "PPI I — Laboratório Vivo 2026.2 — Produção (NOVO)",
+      "locale": "pt_BR",
+      "timezone": "America/Fortaleza",
+      "sheet_count": 15,
+      "shared": false,
+      "permission_roles": [
+        "owner"
+      ],
+      "config_rows": 19,
+      "flags": {
+        "writes_enabled": false,
+        "student_access_enabled": false
+      },
+      "plan_status": "RASCUNHO",
+      "plan_approval_ref_empty": true,
+      "binding_nonce_empty": true,
+      "own_id_readback_matches": true,
+      "primary_key_counts": {
+        "Atividades": 7,
+        "Rubricas": 31,
+        "Equipes": 0,
+        "Participantes": 0,
+        "Submissoes": 0,
+        "Respostas": 0,
+        "Avaliacoes_Docente": 0,
+        "Notas_3a_Etapa": 0,
+        "Notas_4a_Etapa": 0,
+        "Progresso": 0,
+        "Auditoria": 0,
+        "Idempotencia": 0,
+        "Conflitos": 0,
+        "Verificacao_QA": 0
+      },
+      "grade_state": {
+        "Notas_3a_Etapa": {
+          "first_total_value": "",
+          "formula_present": true,
+          "non_formula_business_cells": 0
+        },
+        "Notas_4a_Etapa": {
+          "first_total_value": "",
+          "formula_present": true,
+          "non_formula_business_cells": 0
+        }
+      }
+    },
+    "qa": {
+      "environment": "QA",
+      "title": "PPI I — Laboratório Vivo 2026.2 — QA — DADOS FICTÍCIOS",
+      "locale": "pt_BR",
+      "timezone": "America/Fortaleza",
+      "sheet_count": 15,
+      "shared": false,
+      "permission_roles": [
+        "owner"
+      ],
+      "config_rows": 19,
+      "flags": {
+        "writes_enabled": false,
+        "student_access_enabled": false
+      },
+      "plan_status": "RASCUNHO",
+      "plan_approval_ref_empty": true,
+      "binding_nonce_empty": true,
+      "own_id_readback_matches": true,
+      "primary_key_counts": {
+        "Atividades": 7,
+        "Rubricas": 31,
+        "Equipes": 2,
+        "Participantes": 2,
+        "Submissoes": 0,
+        "Respostas": 0,
+        "Avaliacoes_Docente": 0,
+        "Notas_3a_Etapa": 0,
+        "Notas_4a_Etapa": 0,
+        "Progresso": 0,
+        "Auditoria": 0,
+        "Idempotencia": 0,
+        "Conflitos": 0,
+        "Verificacao_QA": 7
+      },
+      "grade_state": {
+        "Notas_3a_Etapa": {
+          "first_total_value": "",
+          "formula_present": true,
+          "non_formula_business_cells": 0
+        },
+        "Notas_4a_Etapa": {
+          "first_total_value": "",
+          "formula_present": true,
+          "non_formula_business_cells": 0
+        }
+      }
+    }
+  }
+}

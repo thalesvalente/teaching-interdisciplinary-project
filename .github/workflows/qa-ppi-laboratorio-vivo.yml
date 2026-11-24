@@ -1,0 +1,54 @@
+name: PPI Laboratorio Vivo - QA sintetica
+
+on:
+  push:
+    branches: [feat/ppi-laboratorio-vivo-20261110]
+    paths: ['laboratorio-vivo/**', '.github/workflows/qa-ppi-laboratorio-vivo.yml']
+  pull_request:
+    paths: ['laboratorio-vivo/**', '.github/workflows/qa-ppi-laboratorio-vivo.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  contracts-and-backend:
+    name: Contratos, autorizacao, transacoes e notas
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Testes sinteticos com servicos Google simulados
+        run: node --test laboratorio-vivo/tests/backend.test.cjs laboratorio-vivo/tests/contracts.test.cjs laboratorio-vivo/tests/frontend.test.cjs laboratorio-vivo/tests/independent-security.test.cjs
+      - name: Consistencia dos arquivos HtmlService gerados
+        run: node laboratorio-vivo/scripts/build-ui.mjs --check
+  browser:
+    name: Interface, acessibilidade e PDF
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium firefox webkit
+      - name: Fluxo local, importacao, teclado e quatro resolucoes
+        run: node laboratorio-vivo/tests/browser.cjs
+        env:
+          PPI_LAB_BROWSERS: chromium,firefox,webkit
+          PPI_LAB_BROWSER_OUTPUT: tmp/ppi-lab-ci
+      - name: Integracao independente da interface com o codigo Apps Script simulado
+        run: node --test laboratorio-vivo/tests/independent-browser.test.cjs
+      - name: Evidencias exclusivamente sinteticas
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ppi-lab-browser-qa
+          path: tmp/ppi-lab-ci/
+          retention-days: 7
+          if-no-files-found: warn

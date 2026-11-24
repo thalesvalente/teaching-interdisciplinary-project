@@ -1,0 +1,1461 @@
+{
+  "schema_version": "1.0.0",
+  "title": "PPI I — Laboratório Vivo",
+  "period": "2026.2",
+  "timezone": "America/Fortaleza",
+  "institutional_plan_status": "RASCUNHO",
+  "tables": [
+    {
+      "name": "Config",
+      "index": 0,
+      "purpose": "Configuração pública não secreta e políticas de ativação.",
+      "headers": [
+        "config_key",
+        "config_value",
+        "value_type",
+        "version",
+        "approval_status",
+        "updated_at",
+        "updated_by"
+      ],
+      "primary_key": [
+        "config_key"
+      ],
+      "columns": [
+        {
+          "name": "config_key",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "config_value",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "value_type",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "string",
+            "boolean",
+            "integer",
+            "json"
+          ]
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "approval_status",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "RASCUNHO",
+            "APROVADA"
+          ]
+        },
+        {
+          "name": "updated_at",
+          "type": "string",
+          "nullable": true,
+          "format": "date-time"
+        },
+        {
+          "name": "updated_by",
+          "type": "string",
+          "nullable": true
+        }
+      ],
+      "protected": true,
+      "filter": true,
+      "foreign_keys": []
+    },
+    {
+      "name": "Atividades",
+      "index": 1,
+      "purpose": "Catálogo versionado; nenhuma equivalência implícita de atividade formativa com nota.",
+      "headers": [
+        "activity_id",
+        "activity_version",
+        "lesson_id",
+        "stage",
+        "track_id",
+        "title",
+        "kind",
+        "official_item_id",
+        "official_max",
+        "xp_max",
+        "criteria_version",
+        "schema_version",
+        "status",
+        "questions_json",
+        "updated_at"
+      ],
+      "primary_key": [
+        "activity_id",
+        "activity_version"
+      ],
+      "columns": [
+        {
+          "name": "activity_id",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "activity_version",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "lesson_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "stage",
+          "type": "integer",
+          "nullable": true,
+          "enum": [
+            3,
+            4
+          ],
+          "minimum": 0
+        },
+        {
+          "name": "track_id",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "QUILOMBOLA",
+            "PERMANENCIA",
+            "AMBOS"
+          ]
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "kind",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "FORMATIVA",
+            "OFICIAL"
+          ]
+        },
+        {
+          "name": "official_item_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "official_max",
+          "type": "number",
+          "nullable": true,
+          "minimum": 0
+        },
+        {
+          "name": "xp_max",
+          "type": "integer",
+          "nullable": true,
+          "minimum": 0,
+          "maximum": 100
+        },
+        {
+          "name": "criteria_version",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "schema_version",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "RASCUNHO",
+            "ATIVA",
+            "ARQUIVADA"
+          ]
+        },
+        {
+          "name": "questions_json",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "updated_at",
+          "type": "string",
+          "nullable": true,
+          "format": "date-time"
+        }
+      ],
+      "protected": true,
+      "filter": true,
+      "foreign_keys": []
+    },
+    {
+      "name": "Rubricas",
+      "index": 2,
+      "purpose": "Critérios versionados com limites por instrumento e aprovação independente.",
+      "headers": [
+        "rubric_id",
+        "criteria_version",
+        "activity_id",
+        "criterion_id",
+        "label",
+        "evaluation_type",
+        "max_points",
+        "weight",
+        "status",
+        "approved_by",
+        "approved_at"
+      ],
+      "primary_key": [
+        "rubric_id",
+        "criteria_version",
+        "criterion_id"
+      ],
+      "columns": [
+        {
+          "name": "rubric_id",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "criteria_version",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "activity_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "criterion_id",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "evaluation_type",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "FORMATIVA",
+            "DOCENTE_OFICIAL"
+          ]
+        },
+        {
+          "name": "max_points",
+          "type": "number",
+          "nullable": true,
+          "minimum": 0
+        },
+        {
+          "name": "weight",
+          "type": "number",
+          "nullable": true,
+          "minimum": 0
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "RASCUNHO",
+            "APROVADA",
+            "ARQUIVADA"
+          ]
+        },
+        {
+          "name": "approved_by",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "approved_at",
+          "type": "string",
+          "nullable": true,
+          "format": "date-time"
+        }
+      ],
+      "protected": true,
+      "filter": true,
+      "foreign_keys": []
+    },
+    {
+      "name": "Equipes",
+      "index": 3,
+      "purpose": "Equipe de projeto por identificador e pseudônimo.",
+      "headers": [
+        "team_id",
+        "display_name",
+        "track_id",
+        "status",
+        "created_at"
+      ],
+      "primary_key": [
+        "team_id"
+      ],
+      "columns": [
+        {
+          "name": "team_id",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "display_name",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "track_id",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "QUILOMBOLA",
+            "PERMANENCIA"
+          ]
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "ATIVA",
+            "INATIVA"
+          ]
+        },
+        {
+          "name": "created_at",
+          "type": "string",
+          "nullable": true,
+          "format": "date-time"
+        }
+      ],
+      "protected": true,
+      "filter": true,
+      "foreign_keys": []
+    },
+    {
+      "name": "Participantes",
+      "index": 4,
+      "purpose": "Identificação pedagógica mínima; vínculo de autenticação restrito fora da planilha.",
+      "headers": [
+        "participant_id",
+        "team_id",
+        "display_name",
+        "role",
+        "status",
+        "authorship_validated",
+        "created_at"
+      ],
+      "primary_key": [
+        "participant_id"
+      ],
+      "columns": [
+        {
+          "name": "participant_id",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "team_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "display_name",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "role",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "ESTUDANTE",
+            "DOCENTE",
+            "ADMIN"
+          ]
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "ATIVA",
+            "INATIVA"
+          ]
+        },
+        {
+          "name": "authorship_validated",
+          "type": "boolean",
+          "nullable": true
+        },
+        {
+          "name": "created_at",
+          "type": "string",
+          "nullable": true,
+          "format": "date-time"
+        }
+      ],
+      "protected": true,
+      "filter": true,
+      "foreign_keys": [
+        {
+          "columns": [
+            "team_id"
+          ],
+          "references": {
+            "table": "Equipes",
+            "columns": [
+              "team_id"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Submissoes",
+      "index": 5,
+      "purpose": "Cabeçalho imutável/versionado de cada envio; estado transacional explícito.",
+      "headers": [
+        "submission_id",
+        "request_id",
+        "payload_hash",
+        "activity_id",
+        "activity_version",
+        "criteria_version",
+        "team_id",
+        "participant_id",
+        "revision",
+        "previous_submission_id",
+        "status",
+        "created_at",
+        "updated_at",
+        "formative_xp"
+      ],
+      "primary_key": [
+        "submission_id"
+      ],
+      "columns": [
+        {
+          "name": "submission_id",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "request_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "payload_hash",
+          "type": "string",
+          "nullable": true,
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        {
+          "name": "activity_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "activity_version",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "criteria_version",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "team_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "participant_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "revision",
+          "type": "integer",
+          "nullable": true,
+          "minimum": 0
+        },
+        {
+          "name": "previous_submission_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "PREPARING",
+            "RASCUNHO",
+            "ENVIADA",
+            "EM_REVISAO",
+            "APROVADA",
+            "DEVOLVIDA",
+            "RECONCILE_REQUIRED"
+          ]
+        },
+        {
+          "name": "created_at",
+          "type": "string",
+          "nullable": true,
+          "format": "date-time"
+        },
+        {
+          "name": "updated_at",
+          "type": "string",
+          "nullable": true,
+          "format": "date-time"
+        },
+        {
+          "name": "formative_xp",
+          "type": "integer",
+          "nullable": true,
+          "minimum": 0,
+          "maximum": 100
+        }
+      ],
+      "protected": true,
+      "filter": true,
+      "foreign_keys": [
+        {
+          "columns": [
+            "activity_id",
+            "activity_version"
+          ],
+          "references": {
+            "table": "Atividades",
+            "columns": [
+              "activity_id",
+              "activity_version"
+            ]
+          }
+        },
+        {
+          "columns": [
+            "team_id"
+          ],
+          "references": {
+            "table": "Equipes",
+            "columns": [
+              "team_id"
+            ]
+          }
+        },
+        {
+          "columns": [
+            "participant_id"
+          ],
+          "references": {
+            "table": "Participantes",
+            "columns": [
+              "participant_id"
+            ]
+          }
+        },
+        {
+          "columns": [
+            "previous_submission_id"
+          ],
+          "references": {
+            "table": "Submissoes",
+            "columns": [
+              "submission_id"
+            ]
+          },
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "name": "Respostas",
+      "index": 6,
+      "purpose": "Uma resposta por pergunta e submissão; valores sempre armazenados como texto.",
+      "headers": [
+        "response_id",
+        "submission_id",
+        "question_id",
+        "answer_kind",
+        "value",
+        "review_status"
+      ],
+      "primary_key": [
+        "response_id"
+      ],
+      "columns": [
+        {
+          "name": "response_id",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "submission_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "question_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "answer_kind",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "text",
+            "json"
+          ]
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "nullable": true,
+          "storage": "RAW_STRING_FORMULA_ESCAPED"
+        },
+        {
+          "name": "review_status",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "PENDENTE",
+            "EM_REVISAO",
+            "APROVADA",
+            "DEVOLVIDA"
+          ]
+        }
+      ],
+      "protected": true,
+      "filter": true,
+      "foreign_keys": [
+        {
+          "columns": [
+            "submission_id"
+          ],
+          "references": {
+            "table": "Submissoes",
+            "columns": [
+              "submission_id"
+            ]
+          }
+        }
+      ],
+      "unique_constraints": [
+        [
+          "submission_id",
+          "question_id"
+        ]
+      ]
+    },
+    {
+      "name": "Avaliacoes_Docente",
+      "index": 7,
+      "purpose": "Decisão criterial individual auditável; pontuação não homologada permanece proposta.",
+      "headers": [
+        "evaluation_id",
+        "submission_id",
+        "participant_id",
+        "criterion_id",
+        "criteria_version",
+        "score",
+        "decision",
+        "reviewer_id",
+        "justification",
+        "revision",
+        "created_at"
+      ],
+      "primary_key": [
+        "evaluation_id"
+      ],
+      "columns": [
+        {
+          "name": "evaluation_id",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "submission_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "participant_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "criterion_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "criteria_version",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "score",
+          "type": "number",
+          "nullable": true,
+          "minimum": 0
+        },
+        {
+          "name": "decision",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "PROPOSTA",
+            "EM_REVISAO",
+            "APROVADA",
+            "DEVOLVIDA"
+          ]
+        },
+        {
+          "name": "reviewer_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "justification",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "revision",
+          "type": "integer",
+          "nullable": true,
+          "minimum": 0
+        },
+        {
+          "name": "created_at",
+          "type": "string",
+          "nullable": true,
+          "format": "date-time"
+        }
+      ],
+      "protected": true,
+      "filter": true,
+      "foreign_keys": [
+        {
+          "columns": [
+            "submission_id"
+          ],
+          "references": {
+            "table": "Submissoes",
+            "columns": [
+              "submission_id"
+            ]
+          }
+        },
+        {
+          "columns": [
+            "participant_id"
+          ],
+          "references": {
+            "table": "Participantes",
+            "columns": [
+              "participant_id"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Notas_3a_Etapa",
+      "index": 8,
+      "purpose": "Projeção protegida por participante: A=2, B=3, C=5, total até 10 somente após aprovação.",
+      "headers": [
+        "participant_id",
+        "item_a",
+        "decision_a",
+        "item_b",
+        "decision_b",
+        "item_c",
+        "decision_c",
+        "total",
+        "plan_version",
+        "plan_status",
+        "updated_at",
+        "source_evaluation_ids"
+      ],
+      "primary_key": [
+        "participant_id"
+      ],
+      "columns": [
+        {
+          "name": "participant_id",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "item_a",
+          "type": "number",
+          "nullable": true,
+          "minimum": 0
+        },
+        {
+          "name": "decision_a",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "PROPOSTA",
+            "EM_REVISAO",
+            "APROVADA",
+            "DEVOLVIDA"
+          ]
+        },
+        {
+          "name": "item_b",
+          "type": "number",
+          "nullable": true,
+          "minimum": 0
+        },
+        {
+          "name": "decision_b",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "PROPOSTA",
+            "EM_REVISAO",
+            "APROVADA",
+            "DEVOLVIDA"
+          ]
+        },
+        {
+          "name": "item_c",
+          "type": "number",
+          "nullable": true,
+          "minimum": 0
+        },
+        {
+          "name": "decision_c",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "PROPOSTA",
+            "EM_REVISAO",
+            "APROVADA",
+            "DEVOLVIDA"
+          ]
+        },
+        {
+          "name": "total",
+          "type": "number",
+          "nullable": true,
+          "minimum": 0,
+          "maximum": 10
+        },
+        {
+          "name": "plan_version",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "plan_status",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "RASCUNHO",
+            "APROVADO"
+          ]
+        },
+        {
+          "name": "updated_at",
+          "type": "string",
+          "nullable": true,
+          "format": "date-time"
+        },
+        {
+          "name": "source_evaluation_ids",
+          "type": "string",
+          "nullable": true
+        }
+      ],
+      "protected": true,
+      "filter": true,
+      "foreign_keys": [],
+      "derived": true
+    },
+    {
+      "name": "Notas_4a_Etapa",
+      "index": 9,
+      "purpose": "Projeção protegida por participante: A=2, B=4, C=4, total até 10 somente após aprovação.",
+      "headers": [
+        "participant_id",
+        "item_a",
+        "decision_a",
+        "item_b",
+        "decision_b",
+        "item_c",
+        "decision_c",
+        "total",
+        "plan_version",
+        "plan_status",
+        "updated_at",
+        "source_evaluation_ids"
+      ],
+      "primary_key": [
+        "participant_id"
+      ],
+      "columns": [
+        {
+          "name": "participant_id",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "item_a",
+          "type": "number",
+          "nullable": true,
+          "minimum": 0
+        },
+        {
+          "name": "decision_a",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "PROPOSTA",
+            "EM_REVISAO",
+            "APROVADA",
+            "DEVOLVIDA"
+          ]
+        },
+        {
+          "name": "item_b",
+          "type": "number",
+          "nullable": true,
+          "minimum": 0
+        },
+        {
+          "name": "decision_b",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "PROPOSTA",
+            "EM_REVISAO",
+            "APROVADA",
+            "DEVOLVIDA"
+          ]
+        },
+        {
+          "name": "item_c",
+          "type": "number",
+          "nullable": true,
+          "minimum": 0
+        },
+        {
+          "name": "decision_c",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "PROPOSTA",
+            "EM_REVISAO",
+            "APROVADA",
+            "DEVOLVIDA"
+          ]
+        },
+        {
+          "name": "total",
+          "type": "number",
+          "nullable": true,
+          "minimum": 0,
+          "maximum": 10
+        },
+        {
+          "name": "plan_version",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "plan_status",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "RASCUNHO",
+            "APROVADO"
+          ]
+        },
+        {
+          "name": "updated_at",
+          "type": "string",
+          "nullable": true,
+          "format": "date-time"
+        },
+        {
+          "name": "source_evaluation_ids",
+          "type": "string",
+          "nullable": true
+        }
+      ],
+      "protected": true,
+      "filter": true,
+      "foreign_keys": [],
+      "derived": true
+    },
+    {
+      "name": "Progresso",
+      "index": 10,
+      "purpose": "Projeção privada de participação e pendências; nunca autoridade de notas.",
+      "headers": [
+        "progress_id",
+        "team_id",
+        "participant_id",
+        "activity_id",
+        "activity_version",
+        "status",
+        "formative_xp",
+        "pending_count",
+        "last_submission_id",
+        "updated_at"
+      ],
+      "primary_key": [
+        "progress_id"
+      ],
+      "columns": [
+        {
+          "name": "progress_id",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "team_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "participant_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "activity_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "activity_version",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "formative_xp",
+          "type": "integer",
+          "nullable": true,
+          "minimum": 0,
+          "maximum": 100
+        },
+        {
+          "name": "pending_count",
+          "type": "integer",
+          "nullable": true,
+          "minimum": 0
+        },
+        {
+          "name": "last_submission_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "updated_at",
+          "type": "string",
+          "nullable": true,
+          "format": "date-time"
+        }
+      ],
+      "protected": true,
+      "filter": true,
+      "foreign_keys": []
+    },
+    {
+      "name": "Auditoria",
+      "index": 11,
+      "purpose": "Eventos append-only sem respostas, tokens ou identificadores de login.",
+      "headers": [
+        "event_id",
+        "event_at",
+        "actor_id",
+        "actor_role",
+        "operation",
+        "entity_id",
+        "outcome",
+        "request_id",
+        "payload_hash",
+        "detail_code"
+      ],
+      "primary_key": [
+        "event_id"
+      ],
+      "columns": [
+        {
+          "name": "event_id",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "event_at",
+          "type": "string",
+          "nullable": true,
+          "format": "date-time"
+        },
+        {
+          "name": "actor_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "actor_role",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "operation",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "entity_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "outcome",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "request_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "payload_hash",
+          "type": "string",
+          "nullable": true,
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        {
+          "name": "detail_code",
+          "type": "string",
+          "nullable": true
+        }
+      ],
+      "protected": true,
+      "filter": true,
+      "foreign_keys": []
+    },
+    {
+      "name": "Idempotencia",
+      "index": 12,
+      "purpose": "Ledger transacional por ator/operação/request_id, sem compartilhamento entre ambientes.",
+      "headers": [
+        "idempotency_key",
+        "request_id",
+        "actor_id",
+        "operation",
+        "payload_hash",
+        "state",
+        "receipt_json",
+        "created_at",
+        "updated_at"
+      ],
+      "primary_key": [
+        "idempotency_key"
+      ],
+      "columns": [
+        {
+          "name": "idempotency_key",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "request_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "actor_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "operation",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "payload_hash",
+          "type": "string",
+          "nullable": true,
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        {
+          "name": "state",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "PREPARING",
+            "COMMITTED",
+            "RECOVERY_REQUIRED"
+          ]
+        },
+        {
+          "name": "receipt_json",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "created_at",
+          "type": "string",
+          "nullable": true,
+          "format": "date-time"
+        },
+        {
+          "name": "updated_at",
+          "type": "string",
+          "nullable": true,
+          "format": "date-time"
+        }
+      ],
+      "protected": true,
+      "filter": true,
+      "foreign_keys": [],
+      "unique_constraints": [
+        [
+          "actor_id",
+          "operation",
+          "request_id"
+        ]
+      ]
+    },
+    {
+      "name": "Conflitos",
+      "index": 13,
+      "purpose": "Registro de reenvio divergente e tratamento humano, sem conteúdo das respostas.",
+      "headers": [
+        "conflict_id",
+        "request_id",
+        "actor_id",
+        "operation",
+        "expected_hash",
+        "received_hash",
+        "status",
+        "created_at",
+        "resolution_code",
+        "resolved_by",
+        "resolved_at"
+      ],
+      "primary_key": [
+        "conflict_id"
+      ],
+      "columns": [
+        {
+          "name": "conflict_id",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "request_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "actor_id",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "operation",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "expected_hash",
+          "type": "string",
+          "nullable": true,
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        {
+          "name": "received_hash",
+          "type": "string",
+          "nullable": true,
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "ABERTO",
+            "EM_ANALISE",
+            "RESOLVIDO"
+          ]
+        },
+        {
+          "name": "created_at",
+          "type": "string",
+          "nullable": true,
+          "format": "date-time"
+        },
+        {
+          "name": "resolution_code",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "resolved_by",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "resolved_at",
+          "type": "string",
+          "nullable": true,
+          "format": "date-time"
+        }
+      ],
+      "protected": true,
+      "filter": true,
+      "foreign_keys": []
+    },
+    {
+      "name": "Verificacao_QA",
+      "index": 14,
+      "purpose": "Casos e evidências sintéticos; nenhum resultado de teste em produção.",
+      "headers": [
+        "case_id",
+        "title",
+        "expected",
+        "actual",
+        "status",
+        "executed_at",
+        "evidence_ref"
+      ],
+      "primary_key": [
+        "case_id"
+      ],
+      "columns": [
+        {
+          "name": "case_id",
+          "type": "string",
+          "nullable": false
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "expected",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "actual",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "nullable": true,
+          "enum": [
+            "NOT_RUN",
+            "PASS",
+            "FAIL",
+            "BLOCKED"
+          ]
+        },
+        {
+          "name": "executed_at",
+          "type": "string",
+          "nullable": true,
+          "format": "date-time"
+        },
+        {
+          "name": "evidence_ref",
+          "type": "string",
+          "nullable": true
+        }
+      ],
+      "protected": true,
+      "filter": true,
+      "foreign_keys": []
+    }
+  ],
+  "operational_rules": {
+    "new_resources_only": true,
+    "real_data_authorized": false,
+    "production_seed": "STRUCTURE_AND_DRAFT_CATALOG_ONLY",
+    "qa_copy_source": "NEW_SANITIZED_PRODUCTION_WORKBOOK",
+    "sheet_headers_row": 1,
+    "frozen_rows": 1,
+    "target_ambiguity_error": "BLOCKED_TARGET_AMBIGUOUS",
+    "public_sheet_ids": false,
+    "official_totals": "Only confirmed plan + three individually approved items; otherwise blank",
+    "annual_average": "DISABLED_N1_N2_PENDING",
+    "qa_results_in_production": false
+  },
+  "limits": {
+    "request_bytes": 60000,
+    "answers": 32,
+    "answer_characters": 4000,
+    "reflection_characters": 3000,
+    "request_id_characters": 128
+  },
+  "note_item_mapping": {
+    "Notas_3a_Etapa": {
+      "item_a": "PPI1-3A",
+      "item_b": "PPI1-3B",
+      "item_c": "PPI1-3C",
+      "maxima": [
+        2,
+        3,
+        5
+      ]
+    },
+    "Notas_4a_Etapa": {
+      "item_a": "PPI1-4A",
+      "item_b": "PPI1-4B",
+      "item_c": "PPI1-4C",
+      "maxima": [
+        2,
+        4,
+        4
+      ]
+    }
+  },
+  "environments": [
+    "PRODUCTION",
+    "QA"
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "schema_version": "1.0.0",
+  "review_id": "PPI-LV-01-C4",
+  "reviewed_at": "2026-11-11T01:51:30.563Z",
+  "verdict": "PASS_CODE_LOCAL_AND_SHEETS_SCOPED",
+  "independence": {
+    "reviewer": "C4",
+    "implementation_author": false,
+    "implementation_edits": 0,
+    "remote_writes": 0,
+    "git_operations": 0,
+    "tests_authored_by_reviewer": true,
+    "harness_reused_from_implementation_team": true,
+    "corrections_applied_by_implementation_authors": true
+  },
+  "scope": {
+    "local_code": true,
+    "local_browser_with_actual_backend_in_vm": true,
+    "google_services_simulated": true,
+    "native_sheets_evidence_reviewed": true,
+    "native_sheets_test_executed_by": "coordinator",
+    "connected_apps_script": false,
+    "production_authorized": false
+  },
+  "local_suite": {
+    "status": "PASS",
+    "tests": 66,
+    "passed": 66,
+    "failed": 0,
+    "skipped": 0,
+    "breakdown": {
+      "backend": 32,
+      "contracts": 6,
+      "frontend": 16,
+      "independent_security": 11,
+      "independent_browser": 1
+    },
+    "command": "node --test tests/*.test.cjs",
+    "requires_for_browser": "Installed Playwright package and Chromium",
+    "duration_ms": 6619.540183
+  },
+  "generated_htmlservice": {
+    "status": "PASS",
+    "command": "node scripts/build-ui.mjs --check",
+    "byte_identical": true
+  },
+  "independent_browser": {
+    "status": "PASS",
+    "engine": "Chromium",
+    "environment": "LOCAL_VM_SERVICE_DOUBLES",
+    "actual_implementation_loaded": true,
+    "transport": "Local test bridge in place of google.script.run",
+    "real_google_writes": 0,
+    "checks": [
+      "Authenticated student DTO from server implementation",
+      "Lost response after durable commit produces no browser success receipt",
+      "Exact repeated envelope returns NO_OP with one submission",
+      "Mocked Session identity changed outside browser state",
+      "Teacher review uses three actual criteria and expected revision",
+      "Formative approval writes no official grade rows",
+      "No browser JavaScript errors"
+    ],
+    "screenshot_visually_inspected": true
+  },
+  "author_browser_evidence": {
+    "reviewed": true,
+    "reexecuted_by_c4": false,
+    "engines": [
+      "Chromium",
+      "Firefox"
+    ],
+    "viewport_cases": 8,
+    "adapter_cases": 2,
+    "reported_axe_violations": 0,
+    "axe_incomplete_per_guide_audit": 2,
+    "full_wcag_conformance_proven": false,
+    "webkit_local": "NOT_RUN_MISSING_SYSTEM_LIBRARIES"
+  },
+  "native_formula_evidence": {
+    "path": "evidence/native-formulas.json",
+    "sha256": "28ab9187d21f5b035c272e3b91a86719ab75efa8b4d3314b508893c0651543de",
+    "status": "PASS",
+    "passed": 18,
+    "locale": "pt_BR",
+    "connected_apps_script": false,
+    "scope": "GOOGLE_SHEETS_FORMULA_ENGINE_ONLY",
+    "restore_accepted": true,
+    "restored_empty_keys": true,
+    "initial_failure_preserved": "evidence/native-formulas-initial-failure.json"
+  },
+  "findings": [
+    {
+      "id": "C4-01",
+      "severity": "HIGH",
+      "title": "Commit success audit preceded durable commit",
+      "status": "FIXED_RECHECK_PASS",
+      "regression": "tests/independent-security.test.cjs",
+      "post_commit_audit_recovery_tested": true
+    },
+    {
+      "id": "C4-02",
+      "severity": "HIGH",
+      "title": "Grade projection compared revision counters across activity versions",
+      "status": "FIXED_RECHECK_PASS",
+      "regression": "tests/independent-security.test.cjs"
+    },
+    {
+      "id": "C4-03",
+      "severity": "MEDIUM",
+      "title": "Browser import request IDs and invalid Unicode differed from server contract",
+      "status": "FIXED_RECHECK_PASS",
+      "regression": "tests/independent-security.test.cjs"
+    },
+    {
+      "id": "C4-04",
+      "severity": "MEDIUM",
+      "title": "CI browser dependency boundary and evidence output variable",
+      "status": "FIXED_CONFIGURATION_REVIEW_PASS",
+      "remote_ci_executed_by_c4": false
+    },
+    {
+      "id": "C4-05",
+      "severity": "LOW",
+      "title": "Export documentation overclaimed grades and omitted revokePlan",
+      "status": "FIXED_DOCUMENT_REVIEW_PASS"
+    }
+  ],
+  "open_implementation_findings": [],
+  "ci": {
+    "configuration_review": "PASS",
+    "workflow": ".github/workflows/qa-ppi-laboratorio-vivo.yml",
+    "sha256": "dd575585f9a5f132b1e733334fc952a73399472a95021c525559eddd6dffda22",
+    "remote_status": "PENDING_COORDINATOR_GATE"
+  },
+  "not_run": [
+    "Native Apps Script project creation and deployment",
+    "Real Google active-session identity and OAuth",
+    "Real Web App submit/receipt/Sheet readback/NO_OP/CONFLICT/review round-trip (F5)",
+    "Real student account scope and native permissions in deployed Web App",
+    "Local WebKit execution",
+    "Full screen-reader and classroom-projector acceptance",
+    "Production activation and publication"
+  ],
+  "restrictions": [
+    "This report does not constitute PPI_LAB_CONNECTED_QA_PASS",
+    "This report does not constitute PPI_LAB_PRODUCTION_READY",
+    "Native formula-engine tests do not constitute an Apps Script browser round-trip",
+    "Google service doubles do not prove native permissions, quotas or transactional behavior",
+    "No production writes or public deployment are authorized by local tests"
+  ],
+  "source_hashes": {
+    "README.md": "e7f4f879b5e60861e4944efd06a773aa1a6b9ad7b2fba40c0e267b42ef025973",
+    "apps-script/Activities.gs": "dc94397c0f27be01b052f9fdde7d06e2a7f757c91a2ddf40e26acb888061adaa",
+    "apps-script/Administration.gs": "2537962a3c560a564287680b1d2060e565021c6cf4bcade2687bd32bbc0c0a2a",
+    "apps-script/Authorization.gs": "4e213791dd4220b8cbfae4fb7b5476f645da3c76fa97e73e43faef0c64712704",
+    "apps-script/Client.html": "cbc3e227f2639a0cf9fb5e91032bc3700c1e5fb522acfcd303eea12f452622c7",
+    "apps-script/Code.gs": "ed6dd7ee5bcd4adf1d7ad9c9af529c451fa963791beda059d72798399181750d",
+    "apps-script/Dashboard.gs": "bd1d933015649d007faa8b0f285718e2db10b662898b6943b62b98ab18d7c7a9",
+    "apps-script/Index.html": "fe341d85fa2ae969164f48384098ac88dcf318fded56614a889b0e1ffb5ae33e",
+    "apps-script/Repository.gs": "d9ed74799b16a2c14638caa51db28394dad2494e972bbe6440ca1fcc0b506707",
+    "apps-script/Reviews.gs": "c9cc456ece5bb478d87b57af0b15490ad59b274c83ae4e78c1dbd7b6c70aca0c",
+    "apps-script/Schema.gs": "7b211ed0b8cb560813dcb50670e68ca431dcc1c6c8bac59839b1275b196d5d00",
+    "apps-script/Setup.gs": "0e9e612c831257512e9604d7d9a3b06dedaac1181ca54f7519d6c7af8801ce6c",
+    "apps-script/Styles.html": "4848a85ef5199823f2bfa0d1afc511a71080efe00f1bb700cb7dcfde5fb09405",
+    "apps-script/Transactions.gs": "45f01b49f46bef759c1a20144c6153799cdb6a7ee46163cbef4a2a1c83c5dcce",
+    "apps-script/Validation.gs": "e6c294e0acec261f7c28f286da35a5f0ba3eac0ebf641efd23c5a281c14e86cc",
+    "apps-script/appsscript.json": "21ff3a3ff04fcf6a997fda247d4ac96189c203cfdcf57bd7fcfc9327f2d75c68",
+    "contracts/ppi-aula08-v1.schema.json": "40940da8abaf05a33a83c9eac965bedf0252445e4b2d098e62a6c680c98077f0",
+    "contracts/review-v1.schema.json": "49622c2979862faf9823341f3e5a2f2fee6bb54123bfa7767a2e834b6c8e28f7",
+    "contracts/sheets-schema.json": "42f7895ee66f0a13c6d3914887e6cdeafb8e4f4b01f864ea7f8b6f7ab7412a5b",
+    "contracts/submission-v1.schema.json": "4d4ff2cfbc812000a687f7ad24c04496436aafc21b0dfe9c6af9db8baa98ccb7",
+    "deploy/README.md": "18c764e896470f459824efa8ab97e7fa161b99983b34ceb3d403bfa022fc4936",
+    "deploy/private-properties.example.json": "ed00111be44160bc42d84963bdb7461ded3bfb3f370cadfa96a36dc010ddecbc",
+    "docs/CONTRATO-API.md": "a21c4aaff83955caa2ffdd4c93b980a7eb1bb1d92dfe35d281b0cae9a5d449e9",
+    "frontend/README.md": "34058817d526936c7ef69226f27fecc9b00baf5449d4e05ee37fe542c90d32e3",
+    "frontend/app.js": "462ebf37f4b63b780edc1aefed40a5a7e037889a27fdceb0cb07efcc104171db",
+    "frontend/deployment.js": "886226dfcd25fef81f19ecd6c165554e4df8215a622dbc41a0358be430ce1dbd",
+    "frontend/index.html": "88829045f693f16f35521184d5a965496791a038efec558314acbdf63e7faa27",
+    "frontend/lib.js": "110bd2b11cf237c7647d5bb8ba689376aa239d942b59ff3e7dcc51839b098ba4",
+    "frontend/styles.css": "e6b95fd592bb9c5e67afd16341d9403fd85378fb3212786038526c406c7cf99d",
+    "scripts/build-ui.mjs": "73856b7e888bb0b888c232428a19251f177f6f729ff87c676ee46cb87d4906e6",
+    "tests/backend-harness.cjs": "e2d3ab076b50d83658a802a3e9b6678319336b0952448c6cecd2f185f070b897",
+    "tests/backend.test.cjs": "26b5f457b88aa2d32ece1d18c4f9c975087d135a31fbda149427ce38ed8b3fe5",
+    "tests/contracts.test.cjs": "469511e6d49fa9b94fc04fb6e145fe93eee4d29e4de79fe985908bbb09313867",
+    "tests/frontend.test.cjs": "532b0fea0d3be50d86932142b37f0bce40071b2cb90a928de57d797d26695418",
+    "tests/independent-browser.test.cjs": "1b8da2efb855e0d3fff45e3e7ba31ccb9b1dae62b84776e1b4e139dd1269e80c",
+    "tests/independent-security.test.cjs": "a5695a41af629ac8cb25be06a75e43463c79e7ff14154c8e8e164cc4cebf6faa"
+  }
+}

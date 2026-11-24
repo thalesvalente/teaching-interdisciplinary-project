@@ -1,0 +1,1059 @@
+{
+  "schema_version": "1.0.0",
+  "plan_status": "RASCUNHO",
+  "source": "Plano de ensino PPI I 2026.2 fornecido; pendências institucionais preservadas.",
+  "activities": [
+    {
+      "activity_id": "AULA08-FORMATIVA",
+      "activity_version": "1.0.0",
+      "lesson_id": "AULA08",
+      "stage": 3,
+      "track_id": "AMBOS",
+      "title": "Missão de campo: do achado ao requisito",
+      "kind": "FORMATIVA",
+      "official_item_id": "",
+      "official_max": null,
+      "xp_max": 100,
+      "criteria_version": "FORM-1.0.0",
+      "schema_version": "1.0.0",
+      "status": "RASCUNHO",
+      "questions": [
+        {
+          "question_id": "q_problema",
+          "answer_kind": "text",
+          "label": "Problema e contexto",
+          "prompt": "Descreva um problema específico, quem ele afeta e o contexto observado.",
+          "help": "Um problema verificável, sem nome ou dado pessoal.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_evidencia",
+          "answer_kind": "text",
+          "label": "Evidência ou achado",
+          "prompt": "Registre o que foi observado e a origem autorizada/sintética da evidência.",
+          "help": "Separe observação de interpretação; IA não constitui evidência.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_hipotese",
+          "answer_kind": "text",
+          "label": "Hipótese a verificar",
+          "prompt": "O que pode explicar o achado? Como você poderia verificar essa hipótese?",
+          "help": "Formule hipótese como possibilidade, não como fato comprovado.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_rf",
+          "answer_kind": "text",
+          "label": "Requisito funcional",
+          "prompt": "Escreva um RF com ator, ação e resultado esperado.",
+          "help": "RF-01: O sistema deve permitir ...",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_rnf",
+          "answer_kind": "text",
+          "label": "Requisito não funcional",
+          "prompt": "Escreva um RNF mensurável adequado ao contexto.",
+          "help": "RNF-01: A consulta deve ... sob as condições ...",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_dados",
+          "answer_kind": "text",
+          "label": "Requisito de dados",
+          "prompt": "Quais dados são necessários? Inclua origem, qualidade e acesso permitido.",
+          "help": "RD-01: código anônimo, tipo, regra de validação e retenção.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_aceite",
+          "answer_kind": "text",
+          "label": "Critérios de aceitação",
+          "prompt": "Descreva como verificar RF/RNF/RD com dados fictícios.",
+          "help": "Dado ..., quando ..., então ...",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_rastreabilidade",
+          "answer_kind": "text",
+          "label": "Rastreabilidade",
+          "prompt": "Relacione problema → evidência → requisito → critério → modelo/teste.",
+          "help": "Indique IDs estáveis e as ligações entre os artefatos.",
+          "required": true,
+          "maxLength": 4000
+        }
+      ],
+      "reflection_prompt": "O que você contribuiu, o que aprendeu, o que ainda precisa revisar e como declarou/verificou eventual apoio de IA?",
+      "self_assessment_criteria": [
+        {
+          "id": "understood",
+          "label": "Consigo explicar o problema e os requisitos que escrevi.",
+          "xp": 30
+        },
+        {
+          "id": "evidence_checked",
+          "label": "Conferi a origem, os limites e a privacidade da evidência.",
+          "xp": 40
+        },
+        {
+          "id": "authorship_declared",
+          "label": "Declare minhas contribuições e eventual uso de IA.",
+          "xp": 30
+        }
+      ],
+      "xp_policy": {
+        "purpose": "feedback_formativo",
+        "official_grade_conversion": false,
+        "external_slide_xp_import": false,
+        "maximum": 100
+      }
+    },
+    {
+      "activity_id": "PPI1-3A",
+      "activity_version": "1.0.0",
+      "lesson_id": "PLANO-PPI-2026.2",
+      "stage": 3,
+      "track_id": "AMBOS",
+      "title": "Estudo de caso individual: problema e partes interessadas",
+      "kind": "OFICIAL",
+      "official_item_id": "PPI1-3A",
+      "official_max": 2,
+      "xp_max": 0,
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "schema_version": "1.0.0",
+      "status": "RASCUNHO",
+      "questions": [
+        {
+          "question_id": "q_problema",
+          "answer_kind": "text",
+          "label": "Problema e contexto",
+          "prompt": "Descreva um problema específico, quem ele afeta e o contexto observado.",
+          "help": "Um problema verificável, sem nome ou dado pessoal.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_evidencia",
+          "answer_kind": "text",
+          "label": "Evidência ou achado",
+          "prompt": "Registre o que foi observado e a origem autorizada/sintética da evidência.",
+          "help": "Separe observação de interpretação; IA não constitui evidência.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_hipotese",
+          "answer_kind": "text",
+          "label": "Hipótese a verificar",
+          "prompt": "O que pode explicar o achado? Como você poderia verificar essa hipótese?",
+          "help": "Formule hipótese como possibilidade, não como fato comprovado.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_rf",
+          "answer_kind": "text",
+          "label": "Requisito funcional",
+          "prompt": "Escreva um RF com ator, ação e resultado esperado.",
+          "help": "RF-01: O sistema deve permitir ...",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_rnf",
+          "answer_kind": "text",
+          "label": "Requisito não funcional",
+          "prompt": "Escreva um RNF mensurável adequado ao contexto.",
+          "help": "RNF-01: A consulta deve ... sob as condições ...",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_dados",
+          "answer_kind": "text",
+          "label": "Requisito de dados",
+          "prompt": "Quais dados são necessários? Inclua origem, qualidade e acesso permitido.",
+          "help": "RD-01: código anônimo, tipo, regra de validação e retenção.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_aceite",
+          "answer_kind": "text",
+          "label": "Critérios de aceitação",
+          "prompt": "Descreva como verificar RF/RNF/RD com dados fictícios.",
+          "help": "Dado ..., quando ..., então ...",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_rastreabilidade",
+          "answer_kind": "text",
+          "label": "Rastreabilidade",
+          "prompt": "Relacione problema → evidência → requisito → critério → modelo/teste.",
+          "help": "Indique IDs estáveis e as ligações entre os artefatos.",
+          "required": true,
+          "maxLength": 4000
+        }
+      ]
+    },
+    {
+      "activity_id": "PPI1-3B",
+      "activity_version": "1.0.0",
+      "lesson_id": "PLANO-PPI-2026.2",
+      "stage": 3,
+      "track_id": "AMBOS",
+      "title": "Protocolo de elicitação e catálogo de requisitos",
+      "kind": "OFICIAL",
+      "official_item_id": "PPI1-3B",
+      "official_max": 3,
+      "xp_max": 0,
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "schema_version": "1.0.0",
+      "status": "RASCUNHO",
+      "questions": [
+        {
+          "question_id": "q_problema",
+          "answer_kind": "text",
+          "label": "Problema e contexto",
+          "prompt": "Descreva um problema específico, quem ele afeta e o contexto observado.",
+          "help": "Um problema verificável, sem nome ou dado pessoal.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_evidencia",
+          "answer_kind": "text",
+          "label": "Evidência ou achado",
+          "prompt": "Registre o que foi observado e a origem autorizada/sintética da evidência.",
+          "help": "Separe observação de interpretação; IA não constitui evidência.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_hipotese",
+          "answer_kind": "text",
+          "label": "Hipótese a verificar",
+          "prompt": "O que pode explicar o achado? Como você poderia verificar essa hipótese?",
+          "help": "Formule hipótese como possibilidade, não como fato comprovado.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_rf",
+          "answer_kind": "text",
+          "label": "Requisito funcional",
+          "prompt": "Escreva um RF com ator, ação e resultado esperado.",
+          "help": "RF-01: O sistema deve permitir ...",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_rnf",
+          "answer_kind": "text",
+          "label": "Requisito não funcional",
+          "prompt": "Escreva um RNF mensurável adequado ao contexto.",
+          "help": "RNF-01: A consulta deve ... sob as condições ...",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_dados",
+          "answer_kind": "text",
+          "label": "Requisito de dados",
+          "prompt": "Quais dados são necessários? Inclua origem, qualidade e acesso permitido.",
+          "help": "RD-01: código anônimo, tipo, regra de validação e retenção.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_aceite",
+          "answer_kind": "text",
+          "label": "Critérios de aceitação",
+          "prompt": "Descreva como verificar RF/RNF/RD com dados fictícios.",
+          "help": "Dado ..., quando ..., então ...",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_rastreabilidade",
+          "answer_kind": "text",
+          "label": "Rastreabilidade",
+          "prompt": "Relacione problema → evidência → requisito → critério → modelo/teste.",
+          "help": "Indique IDs estáveis e as ligações entre os artefatos.",
+          "required": true,
+          "maxLength": 4000
+        }
+      ]
+    },
+    {
+      "activity_id": "PPI1-3C",
+      "activity_version": "1.0.0",
+      "lesson_id": "PLANO-PPI-2026.2",
+      "stage": 3,
+      "track_id": "AMBOS",
+      "title": "Dossiê parcial, escopo, backlog e protocolo da visita",
+      "kind": "OFICIAL",
+      "official_item_id": "PPI1-3C",
+      "official_max": 5,
+      "xp_max": 0,
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "schema_version": "1.0.0",
+      "status": "RASCUNHO",
+      "questions": [
+        {
+          "question_id": "q_problema",
+          "answer_kind": "text",
+          "label": "Problema e contexto",
+          "prompt": "Descreva um problema específico, quem ele afeta e o contexto observado.",
+          "help": "Um problema verificável, sem nome ou dado pessoal.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_evidencia",
+          "answer_kind": "text",
+          "label": "Evidência ou achado",
+          "prompt": "Registre o que foi observado e a origem autorizada/sintética da evidência.",
+          "help": "Separe observação de interpretação; IA não constitui evidência.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_hipotese",
+          "answer_kind": "text",
+          "label": "Hipótese a verificar",
+          "prompt": "O que pode explicar o achado? Como você poderia verificar essa hipótese?",
+          "help": "Formule hipótese como possibilidade, não como fato comprovado.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_rf",
+          "answer_kind": "text",
+          "label": "Requisito funcional",
+          "prompt": "Escreva um RF com ator, ação e resultado esperado.",
+          "help": "RF-01: O sistema deve permitir ...",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_rnf",
+          "answer_kind": "text",
+          "label": "Requisito não funcional",
+          "prompt": "Escreva um RNF mensurável adequado ao contexto.",
+          "help": "RNF-01: A consulta deve ... sob as condições ...",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_dados",
+          "answer_kind": "text",
+          "label": "Requisito de dados",
+          "prompt": "Quais dados são necessários? Inclua origem, qualidade e acesso permitido.",
+          "help": "RD-01: código anônimo, tipo, regra de validação e retenção.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_aceite",
+          "answer_kind": "text",
+          "label": "Critérios de aceitação",
+          "prompt": "Descreva como verificar RF/RNF/RD com dados fictícios.",
+          "help": "Dado ..., quando ..., então ...",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_rastreabilidade",
+          "answer_kind": "text",
+          "label": "Rastreabilidade",
+          "prompt": "Relacione problema → evidência → requisito → critério → modelo/teste.",
+          "help": "Indique IDs estáveis e as ligações entre os artefatos.",
+          "required": true,
+          "maxLength": 4000
+        }
+      ]
+    },
+    {
+      "activity_id": "PPI1-4A",
+      "activity_version": "1.0.0",
+      "lesson_id": "PLANO-PPI-2026.2",
+      "stage": 4,
+      "track_id": "AMBOS",
+      "title": "Relatório da visita/oficina e reflexão individual",
+      "kind": "OFICIAL",
+      "official_item_id": "PPI1-4A",
+      "official_max": 2,
+      "xp_max": 0,
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "schema_version": "1.0.0",
+      "status": "RASCUNHO",
+      "questions": [
+        {
+          "question_id": "q_problema",
+          "answer_kind": "text",
+          "label": "Problema e contexto",
+          "prompt": "Descreva um problema específico, quem ele afeta e o contexto observado.",
+          "help": "Um problema verificável, sem nome ou dado pessoal.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_evidencia",
+          "answer_kind": "text",
+          "label": "Evidência ou achado",
+          "prompt": "Registre o que foi observado e a origem autorizada/sintética da evidência.",
+          "help": "Separe observação de interpretação; IA não constitui evidência.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_hipotese",
+          "answer_kind": "text",
+          "label": "Hipótese a verificar",
+          "prompt": "O que pode explicar o achado? Como você poderia verificar essa hipótese?",
+          "help": "Formule hipótese como possibilidade, não como fato comprovado.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_rf",
+          "answer_kind": "text",
+          "label": "Requisito funcional",
+          "prompt": "Escreva um RF com ator, ação e resultado esperado.",
+          "help": "RF-01: O sistema deve permitir ...",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_rnf",
+          "answer_kind": "text",
+          "label": "Requisito não funcional",
+          "prompt": "Escreva um RNF mensurável adequado ao contexto.",
+          "help": "RNF-01: A consulta deve ... sob as condições ...",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_dados",
+          "answer_kind": "text",
+          "label": "Requisito de dados",
+          "prompt": "Quais dados são necessários? Inclua origem, qualidade e acesso permitido.",
+          "help": "RD-01: código anônimo, tipo, regra de validação e retenção.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_aceite",
+          "answer_kind": "text",
+          "label": "Critérios de aceitação",
+          "prompt": "Descreva como verificar RF/RNF/RD com dados fictícios.",
+          "help": "Dado ..., quando ..., então ...",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_rastreabilidade",
+          "answer_kind": "text",
+          "label": "Rastreabilidade",
+          "prompt": "Relacione problema → evidência → requisito → critério → modelo/teste.",
+          "help": "Indique IDs estáveis e as ligações entre os artefatos.",
+          "required": true,
+          "maxLength": 4000
+        }
+      ]
+    },
+    {
+      "activity_id": "PPI1-4B",
+      "activity_version": "1.0.0",
+      "lesson_id": "PLANO-PPI-2026.2",
+      "stage": 4,
+      "track_id": "AMBOS",
+      "title": "Dossiê de modelagem e protótipo",
+      "kind": "OFICIAL",
+      "official_item_id": "PPI1-4B",
+      "official_max": 4,
+      "xp_max": 0,
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "schema_version": "1.0.0",
+      "status": "RASCUNHO",
+      "questions": [
+        {
+          "question_id": "q_problema",
+          "answer_kind": "text",
+          "label": "Problema e contexto",
+          "prompt": "Descreva um problema específico, quem ele afeta e o contexto observado.",
+          "help": "Um problema verificável, sem nome ou dado pessoal.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_evidencia",
+          "answer_kind": "text",
+          "label": "Evidência ou achado",
+          "prompt": "Registre o que foi observado e a origem autorizada/sintética da evidência.",
+          "help": "Separe observação de interpretação; IA não constitui evidência.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_hipotese",
+          "answer_kind": "text",
+          "label": "Hipótese a verificar",
+          "prompt": "O que pode explicar o achado? Como você poderia verificar essa hipótese?",
+          "help": "Formule hipótese como possibilidade, não como fato comprovado.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_rf",
+          "answer_kind": "text",
+          "label": "Requisito funcional",
+          "prompt": "Escreva um RF com ator, ação e resultado esperado.",
+          "help": "RF-01: O sistema deve permitir ...",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_rnf",
+          "answer_kind": "text",
+          "label": "Requisito não funcional",
+          "prompt": "Escreva um RNF mensurável adequado ao contexto.",
+          "help": "RNF-01: A consulta deve ... sob as condições ...",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_dados",
+          "answer_kind": "text",
+          "label": "Requisito de dados",
+          "prompt": "Quais dados são necessários? Inclua origem, qualidade e acesso permitido.",
+          "help": "RD-01: código anônimo, tipo, regra de validação e retenção.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_aceite",
+          "answer_kind": "text",
+          "label": "Critérios de aceitação",
+          "prompt": "Descreva como verificar RF/RNF/RD com dados fictícios.",
+          "help": "Dado ..., quando ..., então ...",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_rastreabilidade",
+          "answer_kind": "text",
+          "label": "Rastreabilidade",
+          "prompt": "Relacione problema → evidência → requisito → critério → modelo/teste.",
+          "help": "Indique IDs estáveis e as ligações entre os artefatos.",
+          "required": true,
+          "maxLength": 4000
+        }
+      ]
+    },
+    {
+      "activity_id": "PPI1-4C",
+      "activity_version": "1.0.0",
+      "lesson_id": "PLANO-PPI-2026.2",
+      "stage": 4,
+      "track_id": "AMBOS",
+      "title": "Portfólio final, protótipo, apresentação e defesa",
+      "kind": "OFICIAL",
+      "official_item_id": "PPI1-4C",
+      "official_max": 4,
+      "xp_max": 0,
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "schema_version": "1.0.0",
+      "status": "RASCUNHO",
+      "questions": [
+        {
+          "question_id": "q_problema",
+          "answer_kind": "text",
+          "label": "Problema e contexto",
+          "prompt": "Descreva um problema específico, quem ele afeta e o contexto observado.",
+          "help": "Um problema verificável, sem nome ou dado pessoal.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_evidencia",
+          "answer_kind": "text",
+          "label": "Evidência ou achado",
+          "prompt": "Registre o que foi observado e a origem autorizada/sintética da evidência.",
+          "help": "Separe observação de interpretação; IA não constitui evidência.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_hipotese",
+          "answer_kind": "text",
+          "label": "Hipótese a verificar",
+          "prompt": "O que pode explicar o achado? Como você poderia verificar essa hipótese?",
+          "help": "Formule hipótese como possibilidade, não como fato comprovado.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_rf",
+          "answer_kind": "text",
+          "label": "Requisito funcional",
+          "prompt": "Escreva um RF com ator, ação e resultado esperado.",
+          "help": "RF-01: O sistema deve permitir ...",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_rnf",
+          "answer_kind": "text",
+          "label": "Requisito não funcional",
+          "prompt": "Escreva um RNF mensurável adequado ao contexto.",
+          "help": "RNF-01: A consulta deve ... sob as condições ...",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_dados",
+          "answer_kind": "text",
+          "label": "Requisito de dados",
+          "prompt": "Quais dados são necessários? Inclua origem, qualidade e acesso permitido.",
+          "help": "RD-01: código anônimo, tipo, regra de validação e retenção.",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_aceite",
+          "answer_kind": "text",
+          "label": "Critérios de aceitação",
+          "prompt": "Descreva como verificar RF/RNF/RD com dados fictícios.",
+          "help": "Dado ..., quando ..., então ...",
+          "required": true,
+          "maxLength": 4000
+        },
+        {
+          "question_id": "q_rastreabilidade",
+          "answer_kind": "text",
+          "label": "Rastreabilidade",
+          "prompt": "Relacione problema → evidência → requisito → critério → modelo/teste.",
+          "help": "Indique IDs estáveis e as ligações entre os artefatos.",
+          "required": true,
+          "maxLength": 4000
+        }
+      ]
+    }
+  ],
+  "rubrics": [
+    {
+      "rubric_id": "PPI1-3A",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-3A",
+      "criterion_id": "problema_contexto",
+      "label": "Problema/contexto",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 0.6,
+      "weight": 0.3,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-3A",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-3A",
+      "criterion_id": "partes_interessadas",
+      "label": "Partes interessadas/necessidades",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 0.5,
+      "weight": 0.25,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-3A",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-3A",
+      "criterion_id": "evidencias_clareza",
+      "label": "Evidências/clareza",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 0.5,
+      "weight": 0.25,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-3A",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-3A",
+      "criterion_id": "consciencia_etica",
+      "label": "Consciência ética",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 0.4,
+      "weight": 0.2,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-3B",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-3B",
+      "criterion_id": "tecnica_evidencia",
+      "label": "Técnica/evidência",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 1,
+      "weight": 0.3333333333333333,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-3B",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-3B",
+      "criterion_id": "requisitos_dados",
+      "label": "RF/RNF/dados",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 1,
+      "weight": 0.3333333333333333,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-3B",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-3B",
+      "criterion_id": "rastreabilidade_etica",
+      "label": "Rastreabilidade/ética",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 0.6,
+      "weight": 0.19999999999999998,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-3B",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-3B",
+      "criterion_id": "autoria_individual",
+      "label": "Autoria individual",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 0.4,
+      "weight": 0.13333333333333333,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-3C",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-3C",
+      "criterion_id": "problema_escopo",
+      "label": "Problema/objetivos/escopo",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 1.2,
+      "weight": 0.24,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-3C",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-3C",
+      "criterion_id": "backlog_priorizacao",
+      "label": "Backlog/priorização",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 1.2,
+      "weight": 0.24,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-3C",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-3C",
+      "criterion_id": "viabilidade_plano",
+      "label": "Viabilidade/plano",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 1,
+      "weight": 0.2,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-3C",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-3C",
+      "criterion_id": "artefatos_documentacao",
+      "label": "Artefatos/documentação",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 0.8,
+      "weight": 0.16,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-3C",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-3C",
+      "criterion_id": "defesa_individual",
+      "label": "Defesa individual",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 0.8,
+      "weight": 0.16,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-4A",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-4A",
+      "criterion_id": "observacao_evidencia",
+      "label": "Observação/evidência",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 0.6,
+      "weight": 0.3,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-4A",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-4A",
+      "criterion_id": "necessidades_regras",
+      "label": "Síntese de necessidades/regras",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 0.5,
+      "weight": 0.25,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-4A",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-4A",
+      "criterion_id": "etica_confidencialidade",
+      "label": "Ética/confidencialidade",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 0.5,
+      "weight": 0.25,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-4A",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-4A",
+      "criterion_id": "reflexao",
+      "label": "Reflexão",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 0.4,
+      "weight": 0.2,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-4B",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-4B",
+      "criterion_id": "entidades_atributos",
+      "label": "Entidades/atributos",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 1,
+      "weight": 0.25,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-4B",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-4B",
+      "criterion_id": "relacoes_cardinalidades",
+      "label": "Relações/cardinalidades",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 1,
+      "weight": 0.25,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-4B",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-4B",
+      "criterion_id": "consistencia_normalizacao",
+      "label": "Consistência/normalização",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 0.8,
+      "weight": 0.2,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-4B",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-4B",
+      "criterion_id": "dicionario_qualidade",
+      "label": "Dicionário/qualidade/proveniência",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 0.6,
+      "weight": 0.15,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-4B",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-4B",
+      "criterion_id": "rastreabilidade_poo",
+      "label": "Rastreabilidade com POO",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 0.4,
+      "weight": 0.1,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-4B",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-4B",
+      "criterion_id": "autoria",
+      "label": "Autoria",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 0.2,
+      "weight": 0.05,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-4C",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-4C",
+      "criterion_id": "rastreabilidade",
+      "label": "Rastreabilidade requisitos-modelos",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 1,
+      "weight": 0.25,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-4C",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-4C",
+      "criterion_id": "validacao_teste",
+      "label": "Validação/teste",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 0.8,
+      "weight": 0.2,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-4C",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-4C",
+      "criterion_id": "utilidade_viabilidade",
+      "label": "Utilidade/viabilidade",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 0.7,
+      "weight": 0.175,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-4C",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-4C",
+      "criterion_id": "documentacao_comunicacao",
+      "label": "Documentação/comunicação",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 0.7,
+      "weight": 0.175,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "PPI1-4C",
+      "criteria_version": "PLANO-RASCUNHO-1.0.0",
+      "activity_id": "PPI1-4C",
+      "criterion_id": "defesa_individual",
+      "label": "Defesa individual",
+      "evaluation_type": "DOCENTE_OFICIAL",
+      "max_points": 0.8,
+      "weight": 0.2,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "AULA08-FORMATIVA",
+      "criteria_version": "FORM-1.0.0",
+      "activity_id": "AULA08-FORMATIVA",
+      "criterion_id": "understood",
+      "label": "Consigo explicar o problema e os requisitos que escrevi.",
+      "evaluation_type": "FORMATIVA",
+      "max_points": 30,
+      "weight": 0.3,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "AULA08-FORMATIVA",
+      "criteria_version": "FORM-1.0.0",
+      "activity_id": "AULA08-FORMATIVA",
+      "criterion_id": "evidence_checked",
+      "label": "Conferi a origem, os limites e a privacidade da evidência.",
+      "evaluation_type": "FORMATIVA",
+      "max_points": 40,
+      "weight": 0.4,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    },
+    {
+      "rubric_id": "AULA08-FORMATIVA",
+      "criteria_version": "FORM-1.0.0",
+      "activity_id": "AULA08-FORMATIVA",
+      "criterion_id": "authorship_declared",
+      "label": "Declare minhas contribuições e eventual uso de IA.",
+      "evaluation_type": "FORMATIVA",
+      "max_points": 30,
+      "weight": 0.3,
+      "status": "RASCUNHO",
+      "approved_by": "",
+      "approved_at": ""
+    }
+  ]
+}

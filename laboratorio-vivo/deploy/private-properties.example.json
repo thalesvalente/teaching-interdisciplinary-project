@@ -1,0 +1,6 @@
+{
+  "PPI_BINDING_JSON": "{\"spreadsheet_id\":\"<NEW_QA_SPREADSHEET_ID_FROM_PRIVATE_RECEIPT>\",\"environment\":\"QA\",\"script_id\":\"<NEW_NATIVE_QA_SCRIPT_ID>\",\"binding_nonce\":\"<QA_NONCE_FROM_PRIVATE_RECEIPT>\",\"expected_title\":\"PPI I — Laboratório Vivo 2026.2 — QA — DADOS FICTÍCIOS\"}",
+  "PPI_PROTECTED_IDS_JSON": "[\"<PROTECTED_OLD_PPI_SPREADSHEET_ID>\",\"<PROTECTED_WEB_QA_SPREADSHEET_ID>\",\"<NEW_PRODUCTION_SPREADSHEET_ID>\"]",
+  "PPI_IDENTITIES_JSON": "{\"<YOUR_VERIFIED_GOOGLE_ACCOUNT_EMAIL>\":{\"active\":true,\"role\":\"ADMIN\",\"participant_id\":\"DOCENTE-QA\",\"display_name\":\"Docente de homologação\"}}",
+  "PPI_WRITES_ENABLED": "false"
+}

@@ -1,0 +1,78 @@
+{
+  "scope": "LOCAL_VM_ONLY_NOT_GOOGLE_WEB_APP",
+  "synthetic": true,
+  "connectedAppsScript": false,
+  "request_id": "local-evidence-alfa-0001",
+  "first": {
+    "ok": true,
+    "code": "CREATED",
+    "data": {
+      "submission_id": "sub-cc8f9cec100844fc72357dc7e9cbed31",
+      "request_id": "local-evidence-alfa-0001",
+      "status": "ENVIADA",
+      "revision": 1,
+      "created_at": "2026-11-11T01:55:03.959Z",
+      "updated_at": "2026-11-11T01:55:03.959Z",
+      "formative_xp": 100,
+      "payload_hash": "3fdd40e39b6a5ad32009dbba9948fa0a8cd6dae0bab26550bba46d0fe1014117",
+      "transport_hash": "9ecb79606eb3baf5b07db7fcf443373faa8855253b4602c27c427b2f21c2727c",
+      "participant_id": "EST-ALFA-01",
+      "team_id": "TEAM-ALFA",
+      "activity_id": "AULA08-FORMATIVA",
+      "activity_version": "1.0.0",
+      "review_revision": 0
+    }
+  },
+  "replay": {
+    "ok": true,
+    "code": "NO_OP",
+    "data": {
+      "submission_id": "sub-cc8f9cec100844fc72357dc7e9cbed31",
+      "request_id": "local-evidence-alfa-0001",
+      "status": "ENVIADA",
+      "revision": 1,
+      "created_at": "2026-11-11T01:55:03.959Z",
+      "updated_at": "2026-11-11T01:55:03.959Z",
+      "formative_xp": 100,
+      "payload_hash": "3fdd40e39b6a5ad32009dbba9948fa0a8cd6dae0bab26550bba46d0fe1014117",
+      "transport_hash": "9ecb79606eb3baf5b07db7fcf443373faa8855253b4602c27c427b2f21c2727c",
+      "participant_id": "EST-ALFA-01",
+      "team_id": "TEAM-ALFA",
+      "activity_id": "AULA08-FORMATIVA",
+      "activity_version": "1.0.0",
+      "review_revision": 0
+    }
+  },
+  "conflict": {
+    "ok": false,
+    "code": "CONFLICT",
+    "error": {
+      "message": "O identificador do pedido já foi utilizado com conteúdo diferente."
+    }
+  },
+  "review": {
+    "ok": true,
+    "code": "CREATED",
+    "data": {
+      "submission_id": "sub-cc8f9cec100844fc72357dc7e9cbed31",
+      "participant_id": "EST-ALFA-01",
+      "decision": "APROVADA",
+      "review_revision": 1,
+      "evaluation_ids": [
+        "eval-d2f76871a318b4904cae2c155307e67d:understood",
+        "eval-d2f76871a318b4904cae2c155307e67d:evidence_checked",
+        "eval-d2f76871a318b4904cae2c155307e67d:authorship_declared"
+      ],
+      "official_grade_posted": false,
+      "updated_at": "2026-11-11T01:55:03.968Z"
+    }
+  },
+  "readback": {
+    "submissions": 1,
+    "answers": 10,
+    "teacher_criteria": 3,
+    "conflicts": 1,
+    "n3_rows": 0,
+    "n4_rows": 0
+  }
+}

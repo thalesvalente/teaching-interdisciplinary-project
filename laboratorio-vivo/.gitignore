@@ -1,0 +1,11 @@
+node_modules/
+tmp/
+outputs/
+private/
+*.local.json
+.clasp.json
+.clasprc.json
+.env
+.env.*
+!*.example.json
+

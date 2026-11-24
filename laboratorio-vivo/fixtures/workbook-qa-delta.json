@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0.0",
+  "environment": "QA",
+  "synthetic": true,
+  "creation_rule": "Copy new sanitized production workbook first; apply this delta only to the new QA ID after readback.",
+  "config_overrides": {
+    "environment": "QA",
+    "spreadsheet_id": "",
+    "binding_nonce": "",
+    "writes_enabled": "false",
+    "student_access_enabled": "false",
+    "plan_status": "RASCUNHO",
+    "plan_approval_ref": ""
+  },
+  "tables": {
+    "Equipes": [
+      {
+        "team_id": "TEAM-ALFA",
+        "display_name": "Equipe Alfa (fictícia)",
+        "track_id": "QUILOMBOLA",
+        "status": "ATIVA"
+      },
+      {
+        "team_id": "TEAM-BETA",
+        "display_name": "Equipe Beta (fictícia)",
+        "track_id": "PERMANENCIA",
+        "status": "ATIVA"
+      }
+    ],
+    "Participantes": [
+      {
+        "participant_id": "EST-ALFA-01",
+        "team_id": "TEAM-ALFA",
+        "display_name": "Participante Alfa 01 (fictício)",
+        "role": "ESTUDANTE",
+        "status": "ATIVA",
+        "authorship_validated": true
+      },
+      {
+        "participant_id": "EST-BETA-01",
+        "team_id": "TEAM-BETA",
+        "display_name": "Participante Beta 01 (fictício)",
+        "role": "ESTUDANTE",
+        "status": "ATIVA",
+        "authorship_validated": true
+      }
+    ],
+    "Verificacao_QA": [
+      {
+        "case_id": "QA-01",
+        "title": "Round-trip Web App QA",
+        "expected": "Recibo servidor + linha QA + auditoria",
+        "actual": "",
+        "status": "NOT_RUN",
+        "executed_at": "",
+        "evidence_ref": ""
+      },
+      {
+        "case_id": "QA-02",
+        "title": "Replay idêntico",
+        "expected": "NO_OP; apenas uma submissão",
+        "actual": "",
+        "status": "NOT_RUN",
+        "executed_at": "",
+        "evidence_ref": ""
+      },
+      {
+        "case_id": "QA-03",
+        "title": "Replay divergente",
+        "expected": "CONFLICT; submissão preservada",
+        "actual": "",
+        "status": "NOT_RUN",
+        "executed_at": "",
+        "evidence_ref": ""
+      },
+      {
+        "case_id": "QA-04",
+        "title": "Revisão docente",
+        "expected": "Proposta separada de aprovação e nota bloqueada com plano rascunho",
+        "actual": "",
+        "status": "NOT_RUN",
+        "executed_at": "",
+        "evidence_ref": ""
+      },
+      {
+        "case_id": "QA-05",
+        "title": "Isolamento de equipes",
+        "expected": "Alfa não lê/escreve Beta",
+        "actual": "",
+        "status": "NOT_RUN",
+        "executed_at": "",
+        "evidence_ref": ""
+      },
+      {
+        "case_id": "QA-06",
+        "title": "Falha transacional",
+        "expected": "RECONCILE_REQUIRED; sem sucesso falso",
+        "actual": "",
+        "status": "NOT_RUN",
+        "executed_at": "",
+        "evidence_ref": ""
+      },
+      {
+        "case_id": "QA-07",
+        "title": "Identidade indisponível",
+        "expected": "AUTHENTICATION_REQUIRED; nenhuma escrita",
+        "actual": "",
+        "status": "NOT_RUN",
+        "executed_at": "",
+        "evidence_ref": ""
+      }
+    ]
+  },
+  "notes": "Casos NOT_RUN não comprovam execução conectada. Catálogo permanece RASCUNHO; ativar somente na homologação autorizada."
+}

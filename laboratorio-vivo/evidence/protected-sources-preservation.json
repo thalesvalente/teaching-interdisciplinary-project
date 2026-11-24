@@ -1,0 +1,34 @@
+{
+  "checked_at": "2026-11-11T01:51:29.103Z",
+  "scope": "SPREADSHEET_AND_DRIVE_METADATA_NOT_STUDENT_CELL_CONTENT",
+  "protected_resource_write_calls": 0,
+  "student_records_read_from_protected_sources": 0,
+  "source_hashes_canonical_json": true,
+  "results": {
+    "ppi": {
+      "metadata_identical": true,
+      "drive_metadata_identical": true,
+      "modified_time_before": "2026-10-28T14:46:19.358Z",
+      "modified_time_after": "2026-10-28T14:46:19.358Z",
+      "tab_count_before": 5,
+      "tab_count_after": 5,
+      "before_sha256": "8ecf88a22e51d62c83ab1f6b4dddf9743e5197e055ed74f05e38ddc7eff647bd",
+      "after_sha256": "8ecf88a22e51d62c83ab1f6b4dddf9743e5197e055ed74f05e38ddc7eff647bd",
+      "drive_before_sha256": "474f76a43140ae66a900719ce9f34ebf7de46695133eb4f61efd05e4d1bd64d3",
+      "drive_after_sha256": "474f76a43140ae66a900719ce9f34ebf7de46695133eb4f61efd05e4d1bd64d3"
+    },
+    "web": {
+      "metadata_identical": true,
+      "drive_metadata_identical": true,
+      "modified_time_before": "2026-10-26T04:31:47.473Z",
+      "modified_time_after": "2026-10-26T04:31:47.473Z",
+      "tab_count_before": 14,
+      "tab_count_after": 14,
+      "before_sha256": "1131c2d36a891a956e7a9c80b155158e56df31aaf36ee717d171bbaaa648afde",
+      "after_sha256": "1131c2d36a891a956e7a9c80b155158e56df31aaf36ee717d171bbaaa648afde",
+      "drive_before_sha256": "6df4b4319cba756545c42e00046b004bf02864122ef5e9e22e79e5bbd04cea17",
+      "drive_after_sha256": "6df4b4319cba756545c42e00046b004bf02864122ef5e9e22e79e5bbd04cea17"
+    }
+  },
+  "limitations": "No byte-for-byte/content claim about student cells: protected cell contents were intentionally not read."
+}

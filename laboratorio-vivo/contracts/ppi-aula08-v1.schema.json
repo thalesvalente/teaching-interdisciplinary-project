@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ppi-laboratorio:aula08:provisional:1.0.0",
+  "title": "Contrato provisório Aula 08 ↔ Laboratório Vivo v1",
+  "description": "PROVISÓRIO: não encontrado contrato da Aula 08 na main inspecionada. Este contrato pertence ao laboratório e não declara integração/merge da Aula 08.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "request_id",
+    "payload"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+    },
+    "payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lesson_id",
+        "activity_id",
+        "activity_version",
+        "track_id",
+        "criteria_version",
+        "answers",
+        "reflection",
+        "self_assessment"
+      ],
+      "properties": {
+        "lesson_id": {
+          "const": "AULA08"
+        },
+        "activity_id": {
+          "const": "AULA08-FORMATIVA"
+        },
+        "activity_version": {
+          "const": "1.0.0"
+        },
+        "track_id": {
+          "enum": [
+            "QUILOMBOLA",
+            "PERMANENCIA"
+          ]
+        },
+        "criteria_version": {
+          "const": "FORM-1.0.0"
+        },
+        "answers": {
+          "type": "array",
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "question_id",
+              "answer_kind",
+              "value"
+            ],
+            "properties": {
+              "question_id": {
+                "enum": [
+                  "q_problema",
+                  "q_evidencia",
+                  "q_hipotese",
+                  "q_rf",
+                  "q_rnf",
+                  "q_dados",
+                  "q_aceite",
+                  "q_rastreabilidade"
+                ]
+              },
+              "answer_kind": {
+                "const": "text"
+              },
+              "value": {
+                "type": "string",
+                "maxLength": 4000
+              }
+            }
+          }
+        },
+        "reflection": {
+          "type": "string",
+          "maxLength": 3000
+        },
+        "self_assessment": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "understood",
+            "evidence_checked",
+            "authorship_declared"
+          ],
+          "properties": {
+            "understood": {
+              "type": "boolean"
+            },
+            "evidence_checked": {
+              "type": "boolean"
+            },
+            "authorship_declared": {
+              "type": "boolean"
+            }
+          }
+        },
+        "previous_submission_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+        },
+        "on_behalf_of": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+          "description": "Somente docente/admin pode mediar registro para participante previamente validado; estudante não pode preencher."
+        }
+      }
+    },
+    "payload_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  },
+  "$comment": "payload_hash obrigatório para importação de arquivo. Hash não autentica o autor. Limite UTF-8 60000 bytes verificado em runtime."
+}

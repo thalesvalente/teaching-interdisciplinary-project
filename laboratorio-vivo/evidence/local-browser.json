@@ -1,0 +1,114 @@
+{
+  "scope": "AUTHOR_BROWSER_TESTS_AND_LOCAL_ADAPTER_MOCKS",
+  "connected_qa": "NOT_RUN",
+  "results": [
+    {
+      "name": "chromium-1280x720",
+      "status": "PASS",
+      "axe_violations": 0,
+      "axe_incomplete": 2,
+      "steps": 4,
+      "offline_roundtrip": "PASS",
+      "tampered_import": "REJECTED",
+      "console_errors": 0,
+      "connected_qa": "NOT_RUN"
+    },
+    {
+      "name": "chromium-1280x650",
+      "status": "PASS",
+      "axe_violations": 0,
+      "axe_incomplete": 2,
+      "steps": 4,
+      "offline_roundtrip": "PASS",
+      "tampered_import": "REJECTED",
+      "console_errors": 0,
+      "connected_qa": "NOT_RUN"
+    },
+    {
+      "name": "chromium-390x844",
+      "status": "PASS",
+      "axe_violations": 0,
+      "axe_incomplete": 2,
+      "steps": 4,
+      "offline_roundtrip": "PASS",
+      "tampered_import": "REJECTED",
+      "console_errors": 0,
+      "connected_qa": "NOT_RUN"
+    },
+    {
+      "name": "chromium-320x700",
+      "status": "PASS",
+      "axe_violations": 0,
+      "axe_incomplete": 2,
+      "steps": 4,
+      "offline_roundtrip": "PASS",
+      "tampered_import": "REJECTED",
+      "console_errors": 0,
+      "connected_qa": "NOT_RUN"
+    },
+    {
+      "name": "chromium-adapter-mock",
+      "status": "PASS",
+      "scope": "LOCAL_BROWSER_MOCK",
+      "exact_retry": "PASS",
+      "teacher_review": "PASS",
+      "catalog_creation_and_activation": "PASS",
+      "real_google_writes": 0,
+      "connected_qa": "NOT_RUN"
+    },
+    {
+      "name": "firefox-1280x720",
+      "status": "PASS",
+      "axe_violations": 0,
+      "axe_incomplete": 2,
+      "steps": 4,
+      "offline_roundtrip": "PASS",
+      "tampered_import": "REJECTED",
+      "console_errors": 0,
+      "connected_qa": "NOT_RUN"
+    },
+    {
+      "name": "firefox-1280x650",
+      "status": "PASS",
+      "axe_violations": 0,
+      "axe_incomplete": 2,
+      "steps": 4,
+      "offline_roundtrip": "PASS",
+      "tampered_import": "REJECTED",
+      "console_errors": 0,
+      "connected_qa": "NOT_RUN"
+    },
+    {
+      "name": "firefox-390x844",
+      "status": "PASS",
+      "axe_violations": 0,
+      "axe_incomplete": 2,
+      "steps": 4,
+      "offline_roundtrip": "PASS",
+      "tampered_import": "REJECTED",
+      "console_errors": 0,
+      "connected_qa": "NOT_RUN"
+    },
+    {
+      "name": "firefox-320x700",
+      "status": "PASS",
+      "axe_violations": 0,
+      "axe_incomplete": 2,
+      "steps": 4,
+      "offline_roundtrip": "PASS",
+      "tampered_import": "REJECTED",
+      "console_errors": 0,
+      "connected_qa": "NOT_RUN"
+    },
+    {
+      "name": "firefox-adapter-mock",
+      "status": "PASS",
+      "scope": "LOCAL_BROWSER_MOCK",
+      "exact_retry": "PASS",
+      "teacher_review": "PASS",
+      "catalog_creation_and_activation": "PASS",
+      "real_google_writes": 0,
+      "connected_qa": "NOT_RUN"
+    }
+  ]
+}
