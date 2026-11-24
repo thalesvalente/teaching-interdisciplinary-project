@@ -1,7 +1,7 @@
 # PPI I — Modelagens consolidadas dos projetos integradores
 
 **IFMA · Campus Itapecuru-Mirim · Técnico em Informática integrado ao Ensino Médio**  
-**Versão 1.1 · 24/11/2026 · Referência docente para preparação da Aula 09**
+**Versão 1.2 · 24/11/2026 · Referência docente para preparação da Aula 09**
 
 ## 1. Finalidade e decisões consolidadas
 
@@ -464,44 +464,34 @@ Este é um novo conjunto sintético, ampliando o exemplo de temas, registros e r
 | Dimensão geográfica | Campus como recorte institucional | Latitude e longitude do ponto de memória |
 | Consulta demonstrável | Trajetória acadêmica e resultados por disciplina | Mapa, linha do tempo e acervo documental |
 
-## 6. Uso como referência para a Aula 09
+## 6. Estudo dirigido e Laboratório Vivo da Aula 09
 
-**Tema proposto: Do requisito ao modelo de dados — interpretação, exploração e evolução com IA.**
+**Tema:** Do requisito ao modelo de dados — interpretação, exploração e evolução com IA.
 
-A documentação é uma referência de consulta para os estudantes, com exemplos resolvidos nas seções 3.6 e 4.6. A avaliação pode partir de novos desafios baseados nos mesmos diagramas e registros. Assim a turma trabalha com um contexto familiar e tem tempo para raciocinar sobre o banco de dados.
+[Abrir estudo dirigido e atividade avaliativa](https://thalesvalente.github.io/teaching-interdisciplinary-project/lessons/aula-09-do-requisito-ao-modelo/laboratorio.html).
 
-### Dinâmica proposta para 50 minutos
+O professor apresenta os modelos pela primeira vez nesta aula. Cada missão começa com conceitos em linguagem acessível, um exemplo do próprio projeto, exploração em etapas de recortes das tabelas fictícias deste documento e uma pergunta de debate com explicação consultável. Após essa exploração, os estudantes respondem quatro questões objetivas e recebem feedback imediato.
 
-| Minutos | Atividade | Resultado |
+### Roteiro de 50 minutos
+
+| Minutos | Etapa | Produto |
 |---|---|---|
-| 0–5 | Recuperar uma necessidade ou um requisito das atividades anteriores. Cada equipe escolhe a própria trilha. | Requisito e sua origem identificados. |
-| 5–15 | Ler o DER projetado. Comparar entidade, atributo, chave primária, chave estrangeira e cardinalidade nos dois modelos. | A equipe explica uma ligação relevante. |
-| 15–27 | Explorar os dados fornecidos e responder perguntas com feedback. Percorrer os relacionamentos até obter os resultados. | Respostas verificáveis e caminhos entre entidades. |
-| 27–37 | Debater uma inconsistência apresentada pelo professor e explicar qual regra do modelo ela desrespeita. | Diagnóstico justificado com a tabela e o DER. |
-| 37–47 | Evoluir uma pequena parte do DER com IA. Visualizar a alteração em Mermaid, conferir chaves e explicar o motivo. | Trecho de diagrama revisado e justificativa de uma regra. |
-| 47–50 | Registrar a entrega e uma explicação individual breve. | Evidência da participação de cada estudante. |
+| 0–3 | Identificar a equipe e recuperar um requisito das atividades anteriores. | Trilha, integrantes e requisito de referência. |
+| 3–15 | Missão 1 — entidades, atributos, PK, FK e cardinalidades. | Leitura inicial e quatro respostas. |
+| 15–25 | Missão 2 — acompanhar um caminho entre tabelas com registros fictícios. | Interpretação de resultados e quatro respostas. |
+| 25–35 | Missão 3 — detectar referências incoerentes e conferir regras de integridade. | Debate orientado e quatro respostas. |
+| 35–47 | Missão 4 — entender a evolução do DER com um novo requisito, consultar o prompt de IA, escolher chaves e cardinalidades e comparar o trecho Mermaid de referência. | Quatro decisões sobre a alteração do modelo. |
+| 47–50 | Conferir o resumo e gerar o PDF por equipe. | Comprovante da atividade. |
 
-### Exemplos de novos desafios de análise
+### Pontuação e entrega
 
-**EDA.** Uma equipe precisa registrar resultados separados para o primeiro e o segundo bimestres de uma mesma disciplina da mesma matrícula. Pergunte se o identificador composto atual de Desempenho permite dois resultados, quais atributos precisam ser acrescentados ou reorganizados e como preservar a consulta de resultados consolidados. A equipe pode propor uma pequena extensão com uma entidade de resultados por etapa, vinculada a Desempenho, ou justificar outra estrutura equivalente.
+São 16 questões por trilha, com gabarito objetivo. Cada questão correta vale 0,25 ponto e 6,25 XP. Cada missão vale 1,0 ponto ou 25 XP. O total é 4,0 pontos ou 100 XP. A primeira resposta confirmada permanece registrada na sessão. A explicação do gabarito surge após a confirmação.
 
-**Memórias.** Uma fotografia documenta dois relatos do mesmo ponto de memória. Pergunte se o relacionamento atual permite compartilhar o cadastro da fotografia, como evitar duplicar esse registro e como representar o vínculo com os dois relatos. A equipe pode propor uma associação Relato–Mídia e explicar as cardinalidades. A consulta pública continua dependendo das autorizações do relato e da mídia.
+As questões incluem a leitura do DER, a exploração das tabelas, a verificação de regras e decisões concretas sobre uma alteração de modelagem. Na trilha EDA, o desafio acrescenta resultados por bimestre vinculados ao desempenho consolidado. Na trilha Memórias, o desafio torna possível associar uma mesma mídia a vários relatos. A solução de referência em Mermaid aparece após as quatro respostas da última missão.
 
-Em ambos os desafios, a equipe consulta o modelo original, propõe a mudança em linguagem natural, pede à IA que gere apenas o trecho Mermaid necessário, confere a representação e demonstra o efeito com dois registros fictícios. O professor pode começar mostrando o exemplo resolvido da trilha oposta.
+Ao finalizar, o grupo gera o PDF com identificação da equipe, integrantes, respostas, gabarito, pontuação por missão e nota total. Os itens e alternativas possuem identificadores estáveis para facilitar a correção. Progresso e identificação ficam no navegador; a entrega é feita pelo PDF. A proposta mantém a adaptação didática da PPI1-4B, para decisão do docente no registro institucional.
 
-### Avaliação proposta
-
-A atividade pode valer 4,0 pontos, conforme a proposta de adaptação da PPI1-4B para o último período da disciplina. Uma possibilidade é distribuir 1,0 ponto pela interpretação do modelo, 1,0 pela exploração dos dados, 1,0 pela análise da regra e 1,0 pela alteração justificada com participação individual. A avaliação objetiva pode usar XP e feedback imediato. A alteração aberta e a explicação individual dependem de revisão docente. A distribuição final será definida na preparação da ficha avaliativa.
-
-### Recursos para a aula
-
-- Diagrama completo consultável durante todo o percurso, com foco por entidade e explicação textual.
-- Tabelas sintéticas completas das seções anteriores, com consulta por entidade.
-- Pequenos exemplos de leitura dos dados e das relações.
-- Editor de Mermaid ou arquivo Markdown em Git, com instruções de visualização.
-- Prompt curto orientado ao requisito, ao trecho do modelo e à regra que deve ser revista.
-
-Todos os exemplos destinados à turma utilizam dados sintéticos. O tratamento de dados reais de estudantes e de relatos comunitários depende das autorizações e procedimentos institucionais previstos no plano de ensino.
+Todos os exemplos usados em aula são fictícios. Os procedimentos institucionais de autorização e tratamento de dados reais permanecem previstos no plano de ensino.
 
 ## 7. Referências de contexto e implementação
 
