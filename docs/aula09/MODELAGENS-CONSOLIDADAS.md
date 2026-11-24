@@ -1,7 +1,7 @@
 # PPI I — Modelagens consolidadas dos projetos integradores
 
 **IFMA · Campus Itapecuru-Mirim · Técnico em Informática integrado ao Ensino Médio**  
-**Versão 1.6 · 24/11/2026 · Referência docente para preparação da Aula 09**
+**Versão 1.7 · 24/11/2026 · Referência docente para preparação da Aula 09**
 
 ## 1. Finalidade e decisões consolidadas
 
@@ -468,7 +468,7 @@ Este é um novo conjunto sintético, ampliando o exemplo de temas, registros e r
 
 **Tema:** Do requisito ao modelo de dados — interpretação, exploração e evolução com IA.
 
-[Abrir estudo dirigido e atividade avaliativa](https://thalesvalente.github.io/teaching-interdisciplinary-project/lessons/aula-09-do-requisito-ao-modelo/laboratorio.html?v=1.5).
+[Abrir estudo dirigido e atividade avaliativa](https://thalesvalente.github.io/teaching-interdisciplinary-project/lessons/aula-09-do-requisito-ao-modelo/laboratorio.html?v=1.6).
 
 O professor apresenta os modelos pela primeira vez nesta aula. Cada missão começa com conceitos em linguagem acessível, um exemplo do próprio projeto, exploração em etapas de recortes das tabelas fictícias deste documento e uma pergunta de debate com explicação consultável. Após essa exploração, os estudantes respondem quatro questões objetivas e recebem feedback imediato.
 
@@ -507,13 +507,13 @@ As oito páginas de estudo (quatro por trilha) mostram agora recortes do DER cor
 
 O botão de geração utiliza pdf-lib 1.17.1, distribuído junto da aula, e baixa um PDF textual A4. A primeira página apresenta campos padronizados: FORMATO_PDF, ATIVIDADE, VERSAO_ATIVIDADE, TRILHA, STATUS, NOTA_FINAL, NOTA_MAXIMA, QUESTOES_RESOLVIDAS, TOTAL_INTEGRANTES e uma linha MATRICULA por integrante. Cada questão possui um registro QID, RESPOSTA, PONTOS, TENTATIVAS e PISTAS. O código da equipe e o requisito recuperado aparecem como campos descritivos. A impressão do navegador continua como alternativa quando os recursos do gerador estiverem indisponíveis.
 
-O script [extrair-notas-pdf.py](extrair-notas-pdf.py), que utiliza o [gabarito versionado](gabarito-aula09-v15.json), confere os campos e recalcula a nota com as 16 escolhas do PDF. Produz um CSV com uma linha por matrícula e sinaliza duplicidades entre comprovantes, divergências e arquivos inválidos. Os comprovantes parciais conservam o status PARCIAL. A decisão sobre duplicidades, parciais e lançamento institucional cabe ao docente. A conferência verifica a consistência dos dados apresentados no PDF.
+O script [extrair-notas-pdf.py](extrair-notas-pdf.py), que utiliza o [gabarito 1.6](gabarito-aula09-v16.json) e o [gabarito anterior 1.5](gabarito-aula09-v15.json), confere os campos e recalcula a nota com as 16 escolhas do PDF. Produz um CSV com uma linha por matrícula e sinaliza duplicidades entre comprovantes, divergências e arquivos inválidos. Os comprovantes parciais conservam o status PARCIAL. A decisão sobre duplicidades, parciais e lançamento institucional cabe ao docente. A conferência verifica a consistência dos dados apresentados no PDF.
 
-No teste sintético, os comprovantes EDA (16/16; 4,00) e Memórias (11/16; 2,75) foram gerados pelo mesmo módulo da página e extraídos juntos de um ZIP, resultando em cinco vínculos matrícula/nota sem erros. Também foram testados 35 integrantes, pontuação zero, matrículas duplicadas, textos longos e PDF inválido. As 13 páginas dos três PDFs de teste foram renderizadas para inspeção. A execução da interface em navegador completo ficou limitada pelo ambiente de QA; a lógica do formulário e o botão de geração foram verificados em DOM simulado.
+No teste sintético, os comprovantes EDA (16/16; 10,00) e Memórias (11/16; 6,88) foram gerados pelo mesmo módulo da página e extraídos juntos de um ZIP, resultando em cinco vínculos matrícula/nota sem erros. Também foram testados 35 integrantes, pontuação zero, matrículas duplicadas, textos longos e PDF inválido. As 13 páginas dos três PDFs de teste foram renderizadas para inspeção. A execução da interface em navegador completo ficou limitada pelo ambiente de QA; a lógica do formulário e o botão de geração foram verificados em DOM simulado.
 
 ### Pontuação e entrega
 
-São 16 questões por trilha. Cada questão resolvida vale 0,25 ponto e 6,25 XP. Cada missão vale 1,0 ponto ou 25 XP. O total é 4,0 pontos ou 100 XP. Pistas e novas tentativas não reduzem a pontuação. Cada questão concede seus pontos uma única vez, ao ser resolvida. O registro de tentativas e de acertos iniciais permite ao docente compreender o percurso da equipe.
+São 16 questões por trilha. Cada questão resolvida vale 0,625 ponto e 6,25 XP. Cada missão vale 2,50 pontos ou 25 XP. O total é 10,00 pontos ou 100 XP. O cálculo conserva a precisão de três casas por questão. O PDF e o CSV exibem a nota final com duas casas decimais. A extração também confere PDFs na escala anterior de 0 a 4 e normaliza as notas para 0 a 10 com base no gabarito. O plano de ensino prevê peso 4,0 para a PPI1-4B, equivalente à nota de 0 a 10 multiplicada por 0,4 no lançamento ponderado. Pistas e novas tentativas não reduzem a pontuação. Cada questão concede seus pontos uma única vez, ao ser resolvida. O registro de tentativas e de acertos iniciais permite ao docente compreender o percurso da equipe.
 
 As questões incluem leitura do DER, exploração das tabelas, verificação de regras e decisões concretas sobre uma alteração de modelagem. No EDA, o desafio acrescenta resultados por bimestre vinculados ao desempenho consolidado. Em Memórias, o desafio torna possível associar uma mesma mídia a vários relatos. A solução de referência em Mermaid aparece após concluir as quatro questões da última missão.
 

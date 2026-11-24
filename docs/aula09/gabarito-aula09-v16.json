@@ -1,0 +1,42 @@
+{
+  "versao": "PPI-A09-LAB-1.6",
+  "atividade": "PPI1-4B",
+  "chaves": {
+    "EDA": {
+      "EDA-Q01": "O2",
+      "EDA-Q02": "O1",
+      "EDA-Q03": "O3",
+      "EDA-Q04": "O4",
+      "EDA-Q05": "O3",
+      "EDA-Q06": "O1",
+      "EDA-Q07": "O4",
+      "EDA-Q08": "O2",
+      "EDA-Q09": "O3",
+      "EDA-Q10": "O1",
+      "EDA-Q11": "O4",
+      "EDA-Q12": "O2",
+      "EDA-Q13": "O3",
+      "EDA-Q14": "O1",
+      "EDA-Q15": "O4",
+      "EDA-Q16": "O2"
+    },
+    "MEMORIAS": {
+      "MEM-Q01": "O2",
+      "MEM-Q02": "O1",
+      "MEM-Q03": "O3",
+      "MEM-Q04": "O4",
+      "MEM-Q05": "O3",
+      "MEM-Q06": "O1",
+      "MEM-Q07": "O4",
+      "MEM-Q08": "O2",
+      "MEM-Q09": "O3",
+      "MEM-Q10": "O1",
+      "MEM-Q11": "O4",
+      "MEM-Q12": "O2",
+      "MEM-Q13": "O3",
+      "MEM-Q14": "O1",
+      "MEM-Q15": "O4",
+      "MEM-Q16": "O2"
+    }
+  }
+}

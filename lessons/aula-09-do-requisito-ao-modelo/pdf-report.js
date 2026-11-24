@@ -4,13 +4,14 @@
 })(typeof globalThis === 'object' ? globalThis : this, function (lib) {
   'use strict';
   const FORMAT = 'PPI-A09-PDF-1';
-  const MAX_POINTS = 4;
+  const MAX_POINTS = 10;
+  const QUESTION_POINTS = MAX_POINTS / 16;
   const PAGE_WIDTH = 595.28;
   const PAGE_HEIGHT = 841.89;
   const MARGIN = 39;
   const CONTENT_WIDTH = PAGE_WIDTH - MARGIN * 2;
   const ENROLLMENT = /^[0-9]{8}\.ITA[0-9]{4}$/;
-  const grade = value => Number(value).toFixed(2).replace('.', ',');
+  const grade = (value, digits = 2) => Number(value).toFixed(digits).replace('.', ',');
   function validate(payload) {
     if (!payload || !['eda', 'memorias'].includes(payload.track)) throw Error('Trilha inválida.');
     if (!Array.isArray(payload.enrollments) || !payload.enrollments.length ||
@@ -20,12 +21,12 @@
     const prefix = payload.track === 'eda' ? 'EDA' : 'MEM';
     payload.answers.forEach((answer, i) => {
       const expected = prefix + '-Q' + String(i + 1).padStart(2, '0');
-      if (answer.id !== expected || ![0, .25].includes(answer.points) ||
+      if (answer.id !== expected || ![0, QUESTION_POINTS].includes(answer.points) ||
           (answer.selectedId !== null && !/^O[1-4]$/.test(answer.selectedId))) throw Error('Registro de questão inválido.');
-      if (answer.points === .25 && (answer.selectedId === null || answer.selectedId !== answer.correctId)) throw Error('Pontuação inconsistente.');
+      if (answer.points === QUESTION_POINTS && (answer.selectedId === null || answer.selectedId !== answer.correctId)) throw Error('Pontuação inconsistente.');
     });
-    const resolved = payload.answers.filter(a => a.points === .25).length;
-    const points = resolved / 4;
+    const resolved = payload.answers.filter(a => a.points === QUESTION_POINTS).length;
+    const points = resolved * QUESTION_POINTS;
     if (payload.score.grade !== points || payload.completed !== (resolved === 16)) throw Error('Nota inconsistente.');
     return {points, resolved};
   }
@@ -132,10 +133,10 @@
     for (let i = 0; i < 4; i++) {
       const items = payload.answers.slice(i*4,i*4+4);
       const points = items.reduce((sum,a)=>sum+a.points,0);
-      paragraph('Missão '+(i+1)+' | '+items[0].mission+' | '+grade(points)+' / 1,00',10);
+      paragraph('Missão '+(i+1)+' | '+items[0].mission+' | '+grade(points,3)+' / 2,50',10);
     }
     paragraph('Acertos de primeira: '+payload.score.firstTry+'/16 | revisões: '+payload.score.revisions+' | pistas: '+payload.score.hints,9, font, muted);
-    paragraph('Cada questão resolvida vale 0,25 ponto. Pistas e revisões não diminuem a nota. A avaliação da equipe é vinculada às matrículas informadas neste comprovante.',9,font,muted);
+    paragraph('Cada questão resolvida vale 0,625 ponto. A nota final é apresentada com duas casas decimais. Pistas e revisões não diminuem a nota. A avaliação da equipe é vinculada às matrículas informadas neste comprovante.',9,font,muted);
     newPage('Respostas e conferência');
     paragraph('Os identificadores QID e RESPOSTA permitem conferir a pontuação com o gabarito da versão da atividade.',9,font,muted);
     for (const answer of payload.answers) {
@@ -150,7 +151,7 @@
       const height = 23 + details.reduce((n,[v,face])=>n+wrap(v,CONTENT_WIDTH,9,face).length*13+5,0)+10;
       ensure(height);
       page.drawRectangle({x:MARGIN,y:y-17,width:CONTENT_WIDTH,height:17,color:pale});
-      const record = 'QID: '+answer.id+' | RESPOSTA: '+(answer.selectedId||'PENDENTE')+' | PONTOS: '+grade(answer.points)+' | TENTATIVAS: '+answer.attempts+' | PISTAS: '+answer.hints;
+      const record = 'QID: '+answer.id+' | RESPOSTA: '+(answer.selectedId||'PENDENTE')+' | PONTOS: '+grade(answer.points,3)+' | TENTATIVAS: '+answer.attempts+' | PISTAS: '+answer.hints;
       fixed(record, mono, 8.4);
       y -= 4;
       details.forEach(([value,face])=>paragraph(value,9,face));
