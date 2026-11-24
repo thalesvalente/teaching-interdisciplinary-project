@@ -1,7 +1,7 @@
 # PPI I — Modelagens consolidadas dos projetos integradores
 
 **IFMA · Campus Itapecuru-Mirim · Técnico em Informática integrado ao Ensino Médio**  
-**Versão 1.2 · 24/11/2026 · Referência docente para preparação da Aula 09**
+**Versão 1.3 · 24/11/2026 · Referência docente para preparação da Aula 09**
 
 ## 1. Finalidade e decisões consolidadas
 
@@ -468,7 +468,7 @@ Este é um novo conjunto sintético, ampliando o exemplo de temas, registros e r
 
 **Tema:** Do requisito ao modelo de dados — interpretação, exploração e evolução com IA.
 
-[Abrir estudo dirigido e atividade avaliativa](https://thalesvalente.github.io/teaching-interdisciplinary-project/lessons/aula-09-do-requisito-ao-modelo/laboratorio.html).
+[Abrir estudo dirigido e atividade avaliativa](https://thalesvalente.github.io/teaching-interdisciplinary-project/lessons/aula-09-do-requisito-ao-modelo/laboratorio.html?v=1.2).
 
 O professor apresenta os modelos pela primeira vez nesta aula. Cada missão começa com conceitos em linguagem acessível, um exemplo do próprio projeto, exploração em etapas de recortes das tabelas fictícias deste documento e uma pergunta de debate com explicação consultável. Após essa exploração, os estudantes respondem quatro questões objetivas e recebem feedback imediato.
 
@@ -483,13 +483,17 @@ O professor apresenta os modelos pela primeira vez nesta aula. Cada missão come
 | 35–47 | Missão 4 — entender a evolução do DER com um novo requisito, consultar o prompt de IA, escolher chaves e cardinalidades e comparar o trecho Mermaid de referência. | Quatro decisões sobre a alteração do modelo. |
 | 47–50 | Conferir o resumo e gerar o PDF por equipe. | Comprovante da atividade. |
 
+### Exploração guiada em cada questão
+
+As 32 questões das duas trilhas possuem recortes visuais do modelo, cartões de entidades com atributos e marcas PK/FK, tabelas com registros relevantes e situações simuladas identificadas. O estudante examina os dados na própria pergunta. As pistas progressivas ensinam o caminho de raciocínio e podem ser consultadas antes da resposta. Quando uma tentativa é incorreta, a atividade apresenta uma pista adicional e permite revisar a resposta.
+
 ### Pontuação e entrega
 
-São 16 questões por trilha, com gabarito objetivo. Cada questão correta vale 0,25 ponto e 6,25 XP. Cada missão vale 1,0 ponto ou 25 XP. O total é 4,0 pontos ou 100 XP. A primeira resposta confirmada permanece registrada na sessão. A explicação do gabarito surge após a confirmação.
+São 16 questões por trilha. Cada questão resolvida vale 0,25 ponto e 6,25 XP. Cada missão vale 1,0 ponto ou 25 XP. O total é 4,0 pontos ou 100 XP. Pistas e novas tentativas não reduzem a pontuação. Cada questão concede seus pontos uma única vez, ao ser resolvida. O registro de tentativas e de acertos iniciais permite ao docente compreender o percurso da equipe.
 
-As questões incluem a leitura do DER, a exploração das tabelas, a verificação de regras e decisões concretas sobre uma alteração de modelagem. Na trilha EDA, o desafio acrescenta resultados por bimestre vinculados ao desempenho consolidado. Na trilha Memórias, o desafio torna possível associar uma mesma mídia a vários relatos. A solução de referência em Mermaid aparece após as quatro respostas da última missão.
+As questões incluem leitura do DER, exploração das tabelas, verificação de regras e decisões concretas sobre uma alteração de modelagem. No EDA, o desafio acrescenta resultados por bimestre vinculados ao desempenho consolidado. Em Memórias, o desafio torna possível associar uma mesma mídia a vários relatos. A solução de referência em Mermaid aparece após concluir as quatro questões da última missão.
 
-Ao finalizar, o grupo gera o PDF com identificação da equipe, integrantes, respostas, gabarito, pontuação por missão e nota total. Os itens e alternativas possuem identificadores estáveis para facilitar a correção. Progresso e identificação ficam no navegador; a entrega é feita pelo PDF. A proposta mantém a adaptação didática da PPI1-4B, para decisão do docente no registro institucional.
+Ao finalizar, a equipe gera o PDF com a identificação dos integrantes, respostas, gabarito, pontuação por missão, nota total, tentativas e pistas exibidas. Os itens e alternativas possuem identificadores estáveis para facilitar a correção. O progresso fica no navegador e a entrega é feita pelo PDF. A proposta mantém a adaptação didática da PPI1-4B, para decisão do docente no registro institucional.
 
 Todos os exemplos usados em aula são fictícios. Os procedimentos institucionais de autorização e tratamento de dados reais permanecem previstos no plano de ensino.
 
