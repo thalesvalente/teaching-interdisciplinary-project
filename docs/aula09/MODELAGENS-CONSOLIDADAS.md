@@ -1,7 +1,7 @@
 # PPI I — Modelagens consolidadas dos projetos integradores
 
 **IFMA · Campus Itapecuru-Mirim · Técnico em Informática integrado ao Ensino Médio**  
-**Versão 1.3 · 24/11/2026 · Referência docente para preparação da Aula 09**
+**Versão 1.4 · 24/11/2026 · Referência docente para preparação da Aula 09**
 
 ## 1. Finalidade e decisões consolidadas
 
@@ -468,7 +468,7 @@ Este é um novo conjunto sintético, ampliando o exemplo de temas, registros e r
 
 **Tema:** Do requisito ao modelo de dados — interpretação, exploração e evolução com IA.
 
-[Abrir estudo dirigido e atividade avaliativa](https://thalesvalente.github.io/teaching-interdisciplinary-project/lessons/aula-09-do-requisito-ao-modelo/laboratorio.html?v=1.2).
+[Abrir estudo dirigido e atividade avaliativa](https://thalesvalente.github.io/teaching-interdisciplinary-project/lessons/aula-09-do-requisito-ao-modelo/laboratorio.html?v=1.3).
 
 O professor apresenta os modelos pela primeira vez nesta aula. Cada missão começa com conceitos em linguagem acessível, um exemplo do próprio projeto, exploração em etapas de recortes das tabelas fictícias deste documento e uma pergunta de debate com explicação consultável. Após essa exploração, os estudantes respondem quatro questões objetivas e recebem feedback imediato.
 
@@ -486,6 +486,12 @@ O professor apresenta os modelos pela primeira vez nesta aula. Cada missão come
 ### Exploração guiada em cada questão
 
 As 32 questões das duas trilhas possuem recortes visuais do modelo, cartões de entidades com atributos e marcas PK/FK, tabelas com registros relevantes e situações simuladas identificadas. O estudante examina os dados na própria pergunta. As pistas progressivas ensinam o caminho de raciocínio e podem ser consultadas antes da resposta. Quando uma tentativa é incorreta, a atividade apresenta uma pista adicional e permite revisar a resposta.
+
+### Sinalização visual dos conceitos
+
+O estudo dirigido aplica o **princípio da sinalização** (ou *cueing*) da aprendizagem multimídia. Palavras-chave como entidade, atributo, chave primária, chave estrangeira, cardinalidade e integridade referencial recebem destaque em negrito e verde-escuro nas explicações, exemplos, enunciados, alternativas, pistas e feedback. Identificadores e referências de campos usam realce em azul-escuro. As alternativas recebem o mesmo critério semântico de destaque, independentemente do gabarito.
+
+A sinalização visual orienta a atenção para conceitos relevantes e suas relações com diagramas e tabelas (VAN GOG, 2021; SCHNEIDER et al., 2018). O uso combinado de peso tipográfico e cor segue o princípio de acessibilidade de não depender exclusivamente da cor para transmitir significado (W3C, WCAG 2.2, 1.4.1). A seleção é moderada e evita repetir realces de um mesmo termo no mesmo bloco de texto.
 
 ### Pontuação e entrega
 
@@ -505,3 +511,7 @@ Todos os exemplos usados em aula são fictícios. Os procedimentos institucionai
 - Mermaid. *Entity Relationship Diagrams*. [Documentação da sintaxe](https://mermaid.js.org/syntax/entityRelationshipDiagram.html).
 - GitHub Docs. *Creating diagrams*. [Renderização de diagramas no Markdown](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams).
 
+
+- VAN GOG, Tamara. The signaling (or cueing) principle in multimedia learning. In: MAYER, Richard E.; FIORELLA, Logan (eds.). *The Cambridge Handbook of Multimedia Learning*. Cambridge University Press, 2021. p. 221–230. [DOI](https://doi.org/10.1017/9781108894333.022).
+- SCHNEIDER, Sascha et al. A meta-analysis of how signaling affects learning with media. *Educational Research Review*, v. 23, p. 1–24, 2018. [Artigo](https://www.sciencedirect.com/science/article/pii/S1747938X17300581).
+- W3C. *Web Content Accessibility Guidelines (WCAG)*. Critério 1.4.1, Use of Color. [Orientação](https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html).
