@@ -21,6 +21,8 @@
 /* Legenda de leitura do DER, reutilizada no estudo, nas questões e na consulta. */
 .der-legend{margin:12px 0;border:1px solid #a9c6b4;background:#fff;border-radius:9px;overflow:hidden}.der-legend summary{padding:10px 12px;font-weight:800;color:#004b29;cursor:pointer}.der-legend-content{padding:4px 12px 12px;font-size:.88rem;line-height:1.5}.der-legend-content p{margin:8px 0}.der-symbols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:7px;margin:9px 0}.der-symbol{display:flex;align-items:center;gap:8px;padding:8px;border:1px solid #c5d8cc;border-radius:7px;background:#f7faf8;min-width:0}.der-symbol svg{flex:0 0 74px;width:74px;height:30px;fill:none;stroke:#275d44;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}.der-symbol svg circle{fill:#f7faf8}.der-symbol strong{display:block;color:#004b29;font-size:.9rem}.der-symbol small{display:block;font-size:.81rem;color:#3f594b}.der-note{padding:8px 10px;background:#edf7f1;border-left:3px solid #41785c;border-radius:4px}.der-swatch{display:inline-block;width:19px;height:13px;border-radius:4px;vertical-align:middle;margin:0 3px}.focus-swatch{background:#fff1c6;border:2px solid #9a6715}.context-swatch{background:#f0f7f3;border:1px solid #90b5a0}.der-focus-explanation{margin:8px 0;background:#fff6dc;border-left:3px solid #9a6715;padding:9px 10px;color:#594009;font-size:.88rem;border-radius:5px}.der-reading{margin:8px 0 0;padding-left:20px;font-size:.85rem;color:#284e3b}.der-reading li{margin:5px 0}.der-legend-content small a{text-decoration:underline}
 </style>
+<meta name="ppi-ui-version" content="1.8">
+<link rel="stylesheet" href="./der-viewer.css?v=1.8">
 </head>
 <body>
 <a class="skip screen" href="#learning">Ir para o estudo dirigido</a>
@@ -64,25 +66,7 @@
      <h3>O que você precisa compreender</h3>
      <div id="concepts" class="concepts-grid"></div>
      <div id="studyPath"></div>
-     <details class="der-legend" open><summary>Aprenda a ler o DER: símbolos, linhas, verbos e cores</summary><div class="der-legend-content">
-  <p><strong>Caixas</strong> representam entidades (o que guardamos no sistema). <strong>Linhas</strong> representam vínculos entre entidades. Os símbolos nas extremidades indicam a <strong>cardinalidade</strong>: quantos registros de um lado podem estar ligados a um registro do outro.</p>
-  <div class="der-symbols" aria-label="Símbolos de cardinalidade">
-    <div class="der-symbol"><svg viewBox="0 0 86 32" role="img" aria-label="Duas barras perpendiculares à linha"><path d="M4 16H80 M62 6V26 M72 6V26"/></svg><div><strong>Exatamente um (1)</strong><small>Duas barras: vínculo obrigatório e único.</small></div></div>
-    <div class="der-symbol"><svg viewBox="0 0 86 32" role="img" aria-label="Círculo e barra"><path d="M4 16H48 M64 16H80 M72 6V26"/><circle cx="56" cy="16" r="7"/></svg><div><strong>Zero ou um (0..1)</strong><small>Círculo: opcional; barra: no máximo um.</small></div></div>
-    <div class="der-symbol"><svg viewBox="0 0 86 32" role="img" aria-label="Círculo e pé de galinha"><path d="M4 16H43 M57 16H80 M63 16L80 6 M63 16L80 26"/><circle cx="50" cy="16" r="7"/></svg><div><strong>Zero ou muitos (0..N)</strong><small>Círculo: pode não existir; pé de galinha: pode haver vários.</small></div></div>
-    <div class="der-symbol"><svg viewBox="0 0 86 32" role="img" aria-label="Barra e pé de galinha"><path d="M4 16H80 M51 6V26 M63 16L80 6 M63 16L80 26"/></svg><div><strong>Um ou muitos (1..N)</strong><small>Barra: pelo menos um; pé de galinha: pode haver vários.</small></div></div>
-  </div>
-  <p class="der-note"><strong>Como ler:</strong> escolha uma entidade e olhe os símbolos junto à outra. Ex.: Campus tem duas barras no seu lado e Curso tem círculo e pé de galinha no seu lado. Cada curso pertence a exatamente um campus; cada campus pode oferecer zero ou muitos cursos.</p>
-  <div class="der-symbols der-lines" aria-label="Tipos de linha do relacionamento">
-    <div class="der-symbol"><svg viewBox="0 0 86 32" role="img" aria-label="Linha contínua"><path d="M4 16H80"/></svg><div><strong>Contínua — relação identificadora</strong><small>A chave estrangeira participa da chave primária do registro dependente. Ex.: matricula_id e disciplina_id em Desempenho.</small></div></div>
-    <div class="der-symbol"><svg viewBox="0 0 86 32" role="img" aria-label="Linha tracejada"><path d="M4 16H80" stroke-dasharray="5 4"/></svg><div><strong>Tracejada — relação não identificadora</strong><small>A entidade dependente tem chave primária própria; a FK não integra essa chave. Ex.: campus_id em Curso.</small></div></div>
-  </div>
-  <p class="der-note"><strong>Atenção:</strong> linha tracejada não significa que o vínculo seja opcional. Para saber se é obrigatório, olhe a cardinalidade (círculo ou barra).</p>
-  <p><strong>Verbos do relacionamento:</strong> palavras como “oferece”, “registra”, “possui” ou “realiza” descrevem o significado do vínculo. Não são comandos nem símbolos de quantidade. “Campus oferece Curso” pode ser lido ao contrário como “Curso é oferecido por Campus”.</p>
-  <p class="der-note"><strong>Cores do estudo:</strong> <span class="der-swatch focus-swatch" aria-hidden="true"></span> amarelo + contorno grosso = elementos a observar no exemplo ou na pista; <span class="der-swatch context-swatch" aria-hidden="true"></span> verde-claro + contorno fino = elementos de contexto. A cor não muda a entidade, a regra ou a cardinalidade.</p>
-  <small>Notação pé de galinha (Crow’s Foot). <a href="https://mermaid.js.org/syntax/entityRelationshipDiagram.html" target="_blank" rel="noopener">Referência: Mermaid — DER</a>.</small>
-</div>
-</details>
+     <div class="der-tools"><button type="button" data-der-open="study">Ampliar recorte</button><button type="button" data-der-open="full">DER completo</button><button type="button" data-der-legend>Ver legenda do DER</button></div>
      <pre class="study-code" id="studyCode" hidden></pre><figure class="study-figure" id="studyFigure" hidden><div class="diagram" id="studyDiagram" tabindex="0"></div><figcaption><p id="studyCaption"></p><p id="studyFocus" class="der-focus-explanation"></p><strong>Leia as relações nos dois sentidos:</strong><ul id="studyRelations" class="der-reading"></ul></figcaption></figure>
      <section class="guided" aria-label="Exemplo guiado">
        <h3 id="exampleTitle"></h3><p id="exampleQuestion"></p>
@@ -95,31 +79,13 @@
    <section class="extension" id="extension" hidden>
      <h2>Evolução do modelo</h2><p id="scenario"></p><p>Antes de responder, use o prompt no assistente de IA, se estiver disponível. Analise a proposta e escolha as alterações corretas. Ao concluir as quatro questões, compare com o trecho de referência.</p>
      <button id="copyPrompt">Copiar prompt da IA</button><pre id="promptSource" hidden></pre><p id="copyStatus" class="status" role="status"></p>
-     <div id="referenceSolution" hidden><h3>Trecho do DER atualizado</h3><p id="extensionDescription"></p><div class="diagram" id="newDiagram" tabindex="0"></div><pre id="newMermaid"></pre><button id="downloadMd">Baixar trecho Mermaid (.md)</button></div>
+     <div id="referenceSolution" hidden><h3>Trecho do DER atualizado</h3><p id="extensionDescription"></p><div class="diagram" id="newDiagram" tabindex="0"></div><div class="der-tools"><button type="button" data-der-open="evolution">Ampliar modelo evoluído</button><button type="button" data-der-legend>Ver legenda do DER</button></div><pre id="newMermaid"></pre><button id="downloadMd">Baixar trecho Mermaid (.md)</button></div>
    </section>
    <div id="question" tabindex="-1" hidden><p class="meta" id="missionLabel"></p><div class="qnav" id="questionNav" aria-label="Questões da missão"></div>
    <form id="answerForm"><fieldset id="field"><legend class="question-text" id="questionText"></legend>
    <section id="questionGuide" class="question-guide" aria-label="Material visual para resolver a questão">
      <h3>Investigue o modelo</h3><p class="guide-instruction" id="guideInstruction"></p>
-     <details id="questionLegend" class="der-legend" hidden><summary>Consultar a legenda do DER (símbolos, linhas, verbos e cores)</summary><div class="der-legend-content">
-  <p><strong>Caixas</strong> representam entidades (o que guardamos no sistema). <strong>Linhas</strong> representam vínculos entre entidades. Os símbolos nas extremidades indicam a <strong>cardinalidade</strong>: quantos registros de um lado podem estar ligados a um registro do outro.</p>
-  <div class="der-symbols" aria-label="Símbolos de cardinalidade">
-    <div class="der-symbol"><svg viewBox="0 0 86 32" role="img" aria-label="Duas barras perpendiculares à linha"><path d="M4 16H80 M62 6V26 M72 6V26"/></svg><div><strong>Exatamente um (1)</strong><small>Duas barras: vínculo obrigatório e único.</small></div></div>
-    <div class="der-symbol"><svg viewBox="0 0 86 32" role="img" aria-label="Círculo e barra"><path d="M4 16H48 M64 16H80 M72 6V26"/><circle cx="56" cy="16" r="7"/></svg><div><strong>Zero ou um (0..1)</strong><small>Círculo: opcional; barra: no máximo um.</small></div></div>
-    <div class="der-symbol"><svg viewBox="0 0 86 32" role="img" aria-label="Círculo e pé de galinha"><path d="M4 16H43 M57 16H80 M63 16L80 6 M63 16L80 26"/><circle cx="50" cy="16" r="7"/></svg><div><strong>Zero ou muitos (0..N)</strong><small>Círculo: pode não existir; pé de galinha: pode haver vários.</small></div></div>
-    <div class="der-symbol"><svg viewBox="0 0 86 32" role="img" aria-label="Barra e pé de galinha"><path d="M4 16H80 M51 6V26 M63 16L80 6 M63 16L80 26"/></svg><div><strong>Um ou muitos (1..N)</strong><small>Barra: pelo menos um; pé de galinha: pode haver vários.</small></div></div>
-  </div>
-  <p class="der-note"><strong>Como ler:</strong> escolha uma entidade e olhe os símbolos junto à outra. Ex.: Campus tem duas barras no seu lado e Curso tem círculo e pé de galinha no seu lado. Cada curso pertence a exatamente um campus; cada campus pode oferecer zero ou muitos cursos.</p>
-  <div class="der-symbols der-lines" aria-label="Tipos de linha do relacionamento">
-    <div class="der-symbol"><svg viewBox="0 0 86 32" role="img" aria-label="Linha contínua"><path d="M4 16H80"/></svg><div><strong>Contínua — relação identificadora</strong><small>A chave estrangeira participa da chave primária do registro dependente. Ex.: matricula_id e disciplina_id em Desempenho.</small></div></div>
-    <div class="der-symbol"><svg viewBox="0 0 86 32" role="img" aria-label="Linha tracejada"><path d="M4 16H80" stroke-dasharray="5 4"/></svg><div><strong>Tracejada — relação não identificadora</strong><small>A entidade dependente tem chave primária própria; a FK não integra essa chave. Ex.: campus_id em Curso.</small></div></div>
-  </div>
-  <p class="der-note"><strong>Atenção:</strong> linha tracejada não significa que o vínculo seja opcional. Para saber se é obrigatório, olhe a cardinalidade (círculo ou barra).</p>
-  <p><strong>Verbos do relacionamento:</strong> palavras como “oferece”, “registra”, “possui” ou “realiza” descrevem o significado do vínculo. Não são comandos nem símbolos de quantidade. “Campus oferece Curso” pode ser lido ao contrário como “Curso é oferecido por Campus”.</p>
-  <p class="der-note"><strong>Cores do estudo:</strong> <span class="der-swatch focus-swatch" aria-hidden="true"></span> amarelo + contorno grosso = elementos a observar no exemplo ou na pista; <span class="der-swatch context-swatch" aria-hidden="true"></span> verde-claro + contorno fino = elementos de contexto. A cor não muda a entidade, a regra ou a cardinalidade.</p>
-  <small>Notação pé de galinha (Crow’s Foot). <a href="https://mermaid.js.org/syntax/entityRelationshipDiagram.html" target="_blank" rel="noopener">Referência: Mermaid — DER</a>.</small>
-</div>
-</details>
+     <div class="der-tools"><span id="questionLegend" hidden><button type="button" data-der-open="question">Ampliar recorte</button></span><button type="button" data-der-open="full">DER completo</button><button type="button" data-der-legend>Ver legenda do DER</button></div>
      <p id="guideFocusExplanation" class="der-focus-explanation" hidden></p><div id="guideDiagram" class="guide-diagram" hidden></div><ul id="guideRelations" class="guide-relations" hidden></ul>
      <div id="guideCards"></div><div id="guideTables"></div><div id="guideCase" hidden></div>
    </section>
@@ -136,25 +102,7 @@
    <div class="reference-links"><a href="#bibliografia">Referências bibliográficas e técnicas ↓</a></div><p class="muted">Dados inteiramente fictícios. Use a tabela e o diagrama para responder. <a href="#learning">Voltar ao estudo ou às questões ↑</a></p>
    <div class="tabs" aria-label="Escolher material"><button id="tabData" aria-pressed="true">Dados</button><button id="tabDiagram" aria-pressed="false">DER</button><button id="tabRules" aria-pressed="false">Conceitos e regras</button></div>
    <div id="dataPanel"><label for="tableSelect">Entidade</label><select class="table-pick" id="tableSelect"></select><div class="scrollbox" tabindex="0" role="region" aria-label="Tabela de dados fictícios"><table class="data-table" id="dataTable"></table></div><p id="tableCount" class="notice"></p></div>
-   <div id="diagramPanel" hidden><details class="der-legend"><summary>Como ler o DER: legenda completa</summary><div class="der-legend-content">
-  <p><strong>Caixas</strong> representam entidades (o que guardamos no sistema). <strong>Linhas</strong> representam vínculos entre entidades. Os símbolos nas extremidades indicam a <strong>cardinalidade</strong>: quantos registros de um lado podem estar ligados a um registro do outro.</p>
-  <div class="der-symbols" aria-label="Símbolos de cardinalidade">
-    <div class="der-symbol"><svg viewBox="0 0 86 32" role="img" aria-label="Duas barras perpendiculares à linha"><path d="M4 16H80 M62 6V26 M72 6V26"/></svg><div><strong>Exatamente um (1)</strong><small>Duas barras: vínculo obrigatório e único.</small></div></div>
-    <div class="der-symbol"><svg viewBox="0 0 86 32" role="img" aria-label="Círculo e barra"><path d="M4 16H48 M64 16H80 M72 6V26"/><circle cx="56" cy="16" r="7"/></svg><div><strong>Zero ou um (0..1)</strong><small>Círculo: opcional; barra: no máximo um.</small></div></div>
-    <div class="der-symbol"><svg viewBox="0 0 86 32" role="img" aria-label="Círculo e pé de galinha"><path d="M4 16H43 M57 16H80 M63 16L80 6 M63 16L80 26"/><circle cx="50" cy="16" r="7"/></svg><div><strong>Zero ou muitos (0..N)</strong><small>Círculo: pode não existir; pé de galinha: pode haver vários.</small></div></div>
-    <div class="der-symbol"><svg viewBox="0 0 86 32" role="img" aria-label="Barra e pé de galinha"><path d="M4 16H80 M51 6V26 M63 16L80 6 M63 16L80 26"/></svg><div><strong>Um ou muitos (1..N)</strong><small>Barra: pelo menos um; pé de galinha: pode haver vários.</small></div></div>
-  </div>
-  <p class="der-note"><strong>Como ler:</strong> escolha uma entidade e olhe os símbolos junto à outra. Ex.: Campus tem duas barras no seu lado e Curso tem círculo e pé de galinha no seu lado. Cada curso pertence a exatamente um campus; cada campus pode oferecer zero ou muitos cursos.</p>
-  <div class="der-symbols der-lines" aria-label="Tipos de linha do relacionamento">
-    <div class="der-symbol"><svg viewBox="0 0 86 32" role="img" aria-label="Linha contínua"><path d="M4 16H80"/></svg><div><strong>Contínua — relação identificadora</strong><small>A chave estrangeira participa da chave primária do registro dependente. Ex.: matricula_id e disciplina_id em Desempenho.</small></div></div>
-    <div class="der-symbol"><svg viewBox="0 0 86 32" role="img" aria-label="Linha tracejada"><path d="M4 16H80" stroke-dasharray="5 4"/></svg><div><strong>Tracejada — relação não identificadora</strong><small>A entidade dependente tem chave primária própria; a FK não integra essa chave. Ex.: campus_id em Curso.</small></div></div>
-  </div>
-  <p class="der-note"><strong>Atenção:</strong> linha tracejada não significa que o vínculo seja opcional. Para saber se é obrigatório, olhe a cardinalidade (círculo ou barra).</p>
-  <p><strong>Verbos do relacionamento:</strong> palavras como “oferece”, “registra”, “possui” ou “realiza” descrevem o significado do vínculo. Não são comandos nem símbolos de quantidade. “Campus oferece Curso” pode ser lido ao contrário como “Curso é oferecido por Campus”.</p>
-  <p class="der-note"><strong>Cores do estudo:</strong> <span class="der-swatch focus-swatch" aria-hidden="true"></span> amarelo + contorno grosso = elementos a observar no exemplo ou na pista; <span class="der-swatch context-swatch" aria-hidden="true"></span> verde-claro + contorno fino = elementos de contexto. A cor não muda a entidade, a regra ou a cardinalidade.</p>
-  <small>Notação pé de galinha (Crow’s Foot). <a href="https://mermaid.js.org/syntax/entityRelationshipDiagram.html" target="_blank" rel="noopener">Referência: Mermaid — DER</a>.</small>
-</div>
-</details><div id="baseDiagram" class="diagram" tabindex="0"></div><p class="notice">Cada caixa representa uma <strong class='concept-keyword'>entidade</strong>. Os números abaixo indicam quantas ocorrências podem se relacionar.</p><div class="scrollbox" tabindex="0" role="region" aria-label="Cardinalidades do DER"><table id="relationTable"></table></div><details><summary>Código Mermaid com atributos e chaves</summary><pre id="mermaidSource"></pre></details></div>
+   <div id="diagramPanel" hidden><div class="der-tools"><button type="button" data-der-open="full">Explorar DER completo</button><button type="button" data-der-legend>Ver legenda do DER</button></div><div id="baseDiagram" class="diagram" tabindex="0"></div><p class="notice">Cada caixa representa uma <strong class='concept-keyword'>entidade</strong>. Os números abaixo indicam quantas ocorrências podem se relacionar. Use Explorar DER completo para ampliar e navegar por blocos.</p><div class="scrollbox" tabindex="0" role="region" aria-label="Cardinalidades do DER"><table id="relationTable"></table></div><details><summary>Código Mermaid com atributos e chaves</summary><pre id="mermaidSource"></pre></details></div>
    <div id="rulesPanel" hidden><h3>Conceitos</h3><ul><li><strong class='concept-keyword'>Entidade</strong> — algo sobre o qual guardamos informações.</li><li><strong class='concept-keyword'>Atributo</strong> — característica registrada em uma entidade.</li><li><strong class='concept-keyword'>PK</strong> — <strong class='concept-keyword'>chave primária</strong> que identifica um registro.</li><li><strong class='concept-keyword'>FK</strong> — <strong class='concept-keyword'>chave estrangeira</strong> que referencia outra entidade.</li><li><strong class='concept-keyword'>Cardinalidade</strong> — quantidade mínima e máxima de vínculos.</li><li><strong class='concept-keyword'>Chave composta</strong> — dois ou mais atributos usados juntos como identificador.</li></ul><h3>Regras do projeto</h3><ul id="rulesList"></ul></div>
   </div>
  </aside>
@@ -184,6 +132,48 @@
   </ul>
   <p><a href="#learning">Voltar à atividade ↑</a></p>
 </section>
+
+<dialog id="derLegendDialog" class="der-modal" aria-labelledby="derLegendTitle">
+  <div class="der-modal-head"><h2 id="derLegendTitle">Como ler o DER: legenda única</h2><button type="button" data-der-close="derLegendDialog" autofocus>Fechar</button></div>
+  <div class="der-legend-content">
+  <p><strong>Caixas</strong> representam entidades (o que guardamos no sistema). <strong>Linhas</strong> representam vínculos entre entidades. Os símbolos nas extremidades indicam a <strong>cardinalidade</strong>: quantos registros de um lado podem estar ligados a um registro do outro.</p>
+  <div class="der-symbols" aria-label="Símbolos de cardinalidade">
+    <div class="der-symbol"><svg viewBox="0 0 86 32" role="img" aria-label="Duas barras perpendiculares à linha"><path d="M4 16H80 M62 6V26 M72 6V26"/></svg><div><strong>Exatamente um (1)</strong><small>Duas barras: vínculo obrigatório e único.</small></div></div>
+    <div class="der-symbol"><svg viewBox="0 0 86 32" role="img" aria-label="Círculo e barra"><path d="M4 16H48 M64 16H80 M72 6V26"/><circle cx="56" cy="16" r="7"/></svg><div><strong>Zero ou um (0..1)</strong><small>Círculo: opcional; barra: no máximo um.</small></div></div>
+    <div class="der-symbol"><svg viewBox="0 0 86 32" role="img" aria-label="Círculo e pé de galinha"><path d="M4 16H43 M57 16H80 M63 16L80 6 M63 16L80 26"/><circle cx="50" cy="16" r="7"/></svg><div><strong>Zero ou muitos (0..N)</strong><small>Círculo: pode não existir; pé de galinha: pode haver vários.</small></div></div>
+    <div class="der-symbol"><svg viewBox="0 0 86 32" role="img" aria-label="Barra e pé de galinha"><path d="M4 16H80 M51 6V26 M63 16L80 6 M63 16L80 26"/></svg><div><strong>Um ou muitos (1..N)</strong><small>Barra: pelo menos um; pé de galinha: pode haver vários.</small></div></div>
+  </div>
+  <p class="der-note"><strong>Como ler:</strong> escolha uma entidade e olhe os símbolos junto à outra. Ex.: Campus tem duas barras no seu lado e Curso tem círculo e pé de galinha no seu lado. Cada curso pertence a exatamente um campus; cada campus pode oferecer zero ou muitos cursos.</p>
+  <div class="der-symbols der-lines" aria-label="Tipos de linha do relacionamento">
+    <div class="der-symbol"><svg viewBox="0 0 86 32" role="img" aria-label="Linha contínua"><path d="M4 16H80"/></svg><div><strong>Contínua — relação identificadora</strong><small>A chave estrangeira participa da chave primária do registro dependente. Ex.: matricula_id e disciplina_id em Desempenho.</small></div></div>
+    <div class="der-symbol"><svg viewBox="0 0 86 32" role="img" aria-label="Linha tracejada"><path d="M4 16H80" stroke-dasharray="5 4"/></svg><div><strong>Tracejada — relação não identificadora</strong><small>A entidade dependente tem chave primária própria; a FK não integra essa chave. Ex.: campus_id em Curso.</small></div></div>
+  </div>
+  <p class="der-note"><strong>Atenção:</strong> linha tracejada não significa que o vínculo seja opcional. Para saber se é obrigatório, olhe a cardinalidade (círculo ou barra).</p>
+  <p><strong>Verbos do relacionamento:</strong> palavras como “oferece”, “registra”, “possui” ou “realiza” descrevem o significado do vínculo. Não são comandos nem símbolos de quantidade. “Campus oferece Curso” pode ser lido ao contrário como “Curso é oferecido por Campus”.</p>
+  <p class="der-note"><strong>Cores do estudo:</strong> <span class="der-swatch focus-swatch" aria-hidden="true"></span> amarelo + contorno grosso = elementos a observar no exemplo ou na pista; <span class="der-swatch context-swatch" aria-hidden="true"></span> verde-claro + contorno fino = elementos de contexto. A cor não muda a entidade, a regra ou a cardinalidade.</p>
+  <small>Notação pé de galinha (Crow’s Foot). <a href="https://mermaid.js.org/syntax/entityRelationshipDiagram.html" target="_blank" rel="noopener">Referência: Mermaid — DER</a>.</small>
+</div>
+
+</dialog>
+<dialog id="derViewerDialog" class="der-modal" aria-labelledby="derViewerTitle">
+  <div class="der-modal-head"><h2 id="derViewerTitle">Explorador do diagrama</h2><button type="button" data-der-close="derViewerDialog">Fechar</button></div>
+  <div class="der-view-controls">
+    <div class="der-view-select"><label for="derViewSelect">Visualização</label><select id="derViewSelect"></select></div>
+    <div class="der-zoom-tools" role="group" aria-label="Controles de ampliação">
+      <button type="button" id="derZoomOut" aria-label="Diminuir zoom">−</button>
+      <output id="derZoomValue" aria-live="polite">100%</output>
+      <button type="button" id="derZoomIn" aria-label="Aumentar zoom">+</button>
+      <button type="button" id="derFit">Ajustar à tela</button>
+      <button type="button" id="derFitWidth">Ajustar à largura</button>
+      <button type="button" id="derReset">100%</button>
+    </div>
+    <button type="button" data-der-legend>Ver legenda</button>
+  </div>
+  <p class="der-view-hint" id="derViewStatus" aria-live="polite"></p>
+  <p class="der-view-hint" id="derNavHelp">Arraste com o mouse, deslize no celular ou use as setas. Teclas +/−: zoom. Esc: fechar.</p>
+  <div id="derViewport" tabindex="0" role="region" aria-label="Área navegável do diagrama" aria-describedby="derNavHelp"><div id="derStage"><div id="derCanvas"></div></div></div>
+</dialog>
+
 </div>
 <section id="report" aria-label="Comprovante de avaliação"></section>
 <script src="./pdf-lib.min.js"></script>
@@ -619,5 +609,6 @@ $('copyPrompt').addEventListener('click',async()=>{
 $('downloadMd').addEventListener('click',()=>download('ppi-aula09-evolucao-'+state.track+'.md','# Evolução — '+data().title+'\n\n'+data().extensionDescription+'\n\n```mermaid\n'+data().newMermaid+'\n```\n','text/markdown;charset=utf-8'));
 $('track').value=state.track;$('team').value=current().team;renderEnrollments();$('requirement').value=current().requirement;showReference();selectPanel('diagramPanel');save();render();
 </script>
+<script src="./der-viewer.js?v=1.8"></script>
 </body>
 </html>

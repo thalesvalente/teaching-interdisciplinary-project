@@ -1,7 +1,7 @@
 # PPI I — Modelagens consolidadas dos projetos integradores
 
 **IFMA · Campus Itapecuru-Mirim · Técnico em Informática integrado ao Ensino Médio**  
-**Versão 1.7 · 24/11/2026 · Referência docente para preparação da Aula 09**
+**Versão 1.8 · 24/11/2026 · Referência docente para preparação da Aula 09**
 
 ## 1. Finalidade e decisões consolidadas
 
@@ -474,7 +474,7 @@ Este é um novo conjunto sintético, ampliando o exemplo de temas, registros e r
 
 **Tema:** Do requisito ao modelo de dados — interpretação, exploração e evolução com IA.
 
-[Abrir estudo dirigido e atividade avaliativa](https://thalesvalente.github.io/teaching-interdisciplinary-project/lessons/aula-09-do-requisito-ao-modelo/laboratorio.html?v=1.6).
+[Abrir estudo dirigido e atividade avaliativa](https://thalesvalente.github.io/teaching-interdisciplinary-project/lessons/aula-09-do-requisito-ao-modelo/laboratorio.html?v=1.8).
 
 O professor apresenta os modelos pela primeira vez nesta aula. Cada missão começa com conceitos em linguagem acessível, um exemplo do próprio projeto, exploração em etapas de recortes das tabelas fictícias deste documento e uma pergunta de debate com explicação consultável. Após essa exploração, os estudantes respondem quatro questões objetivas e recebem feedback imediato.
 
@@ -507,7 +507,7 @@ A seção **Referências da aula**, acessível a partir do material de consulta,
 
 ### Revisão pedagógica e visual
 
-As oito páginas de estudo (quatro por trilha) mostram agora recortes do DER correspondentes ao exemplo estudado, inclusive nas missões de consulta e verificação de regras. Os diagramas destacam os elementos de interesse com contorno e cor, mantendo os nomes das entidades. As descrições de acessibilidade identificam as entidades destacadas. O amarelo com contorno grosso sinaliza os elementos particularmente relevantes para a investigação; o verde-claro com contorno fino indica contexto. Cada recorte de estudo explica por que aquelas entidades foram selecionadas e apresenta a leitura dos vínculos nos dois sentidos. Nas questões, o destaque aparece quando uma pista é exibida. A legenda fica disponível no estudo, nas questões que contêm diagramas e no material de consulta. As tabelas dos exemplos evidenciam as colunas usadas para seguir as chaves. Nas 32 questões, a pista visual realça os campos específicos dos cartões e das tabelas quando o estudante solicita ajuda ou revê uma tentativa. Diagramas intermediários com mais de duas entidades são organizados verticalmente para favorecer a leitura em telas menores. Nenhum novo requisito de pontuação foi introduzido.
+As oito páginas de estudo (quatro por trilha) mostram agora recortes do DER correspondentes ao exemplo estudado, inclusive nas missões de consulta e verificação de regras. Os diagramas destacam os elementos de interesse com contorno e cor, mantendo os nomes das entidades. As descrições de acessibilidade identificam as entidades destacadas. O amarelo com contorno grosso sinaliza os elementos particularmente relevantes para a investigação; o verde-claro com contorno fino indica contexto. Cada recorte de estudo explica por que aquelas entidades foram selecionadas e apresenta a leitura dos vínculos nos dois sentidos. Nas questões, o destaque aparece quando uma pista é exibida. A legenda completa existe em uma única janela de consulta; os botões do estudo, das questões, do DER e do visualizador abrem essa mesma referência, sem duplicar o conteúdo. O explorador abre em uma janela ampliada com zoom de 10% a 400%, ajuste à tela, ajuste à largura, retorno a 100% e deslocamento por mouse, toque ou teclado. A seleção de visualizações oferece o recorte atual, o DER completo e blocos do modelo original (EDA: estrutura acadêmica, turmas/estudantes/disciplinas e resultados; Memórias: comunidades/pontos/relatos, temas, fontes e mídias). Os blocos preservam as entidades e relações da fonte canônica, sem criar novas regras. A versão da interface é 1.8; o identificador do comprovante e o gabarito permanecem na versão 1.6, para preservar os PDFs e os estados já existentes. As tabelas dos exemplos evidenciam as colunas usadas para seguir as chaves. Nas 32 questões, a pista visual realça os campos específicos dos cartões e das tabelas quando o estudante solicita ajuda ou revê uma tentativa. Diagramas intermediários com mais de duas entidades são organizados verticalmente para favorecer a leitura em telas menores. Nenhum novo requisito de pontuação foi introduzido.
 
 ### Comprovante textual e correção em lote
 
