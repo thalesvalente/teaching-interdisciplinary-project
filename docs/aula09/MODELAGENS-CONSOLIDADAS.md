@@ -30,13 +30,19 @@ Os diagramas detalham os modelos conceituais com atributos e chaves, deixando ex
 | PK (chave primária) | Identificador único de um registro. |
 | FK (chave estrangeira) | Identificador que aponta para um registro de outra entidade. |
 | Duas barras | Exatamente um registro associado. |
+| Círculo e barra | Zero ou um registro associado. |
 | Círculo e pé de galinha | Zero ou vários registros associados. |
 | Barra e pé de galinha | Um ou vários registros associados. |
 | Entidade associativa | Representa uma relação entre dois registros, podendo guardar informações dessa relação. |
 | Linha contínua | Relação identificadora, quando a chave do registro relacionado inclui a chave da entidade de origem. |
-| Linha tracejada | Relação em que o registro relacionado possui uma chave primária própria. |
+| Linha tracejada | Relação não identificadora: a FK não faz parte da chave primária do registro dependente. |
+| Verbo da relação | Explica o vínculo (por exemplo, “oferece”, “registra”, “realiza”); não descreve uma cardinalidade. |
 
-Uma chave composta usa dois atributos em conjunto para identificar unicamente um registro.
+Uma chave composta usa dois ou mais atributos em conjunto para identificar unicamente um registro.
+
+Para ler a cardinalidade, observe os símbolos da outra extremidade da linha: cada curso pertence a exatamente um campus; cada campus oferece zero ou muitos cursos. Uma linha tracejada não implica vínculo opcional: a obrigatoriedade é indicada pela cardinalidade.
+
+A legenda visual da aula apresenta os quatro símbolos de cardinalidade, as duas formas de linha e a função dos verbos, de acordo com a [notação DER do Mermaid](https://mermaid.js.org/syntax/entityRelationshipDiagram.html).
 
 ## 3. EDA — Evasão e Permanência Estudantil
 
@@ -501,7 +507,7 @@ A seção **Referências da aula**, acessível a partir do material de consulta,
 
 ### Revisão pedagógica e visual
 
-As oito páginas de estudo (quatro por trilha) mostram agora recortes do DER correspondentes ao exemplo estudado, inclusive nas missões de consulta e verificação de regras. Os diagramas destacam os elementos de interesse com contorno e cor, mantendo os nomes das entidades. As descrições de acessibilidade identificam as entidades destacadas. As tabelas dos exemplos evidenciam as colunas usadas para seguir as chaves. Nas 32 questões, a pista visual realça os campos específicos dos cartões e das tabelas quando o estudante solicita ajuda ou revê uma tentativa. Diagramas intermediários com mais de duas entidades são organizados verticalmente para favorecer a leitura em telas menores. Nenhum novo requisito de pontuação foi introduzido.
+As oito páginas de estudo (quatro por trilha) mostram agora recortes do DER correspondentes ao exemplo estudado, inclusive nas missões de consulta e verificação de regras. Os diagramas destacam os elementos de interesse com contorno e cor, mantendo os nomes das entidades. As descrições de acessibilidade identificam as entidades destacadas. O amarelo com contorno grosso sinaliza os elementos particularmente relevantes para a investigação; o verde-claro com contorno fino indica contexto. Cada recorte de estudo explica por que aquelas entidades foram selecionadas e apresenta a leitura dos vínculos nos dois sentidos. Nas questões, o destaque aparece quando uma pista é exibida. A legenda fica disponível no estudo, nas questões que contêm diagramas e no material de consulta. As tabelas dos exemplos evidenciam as colunas usadas para seguir as chaves. Nas 32 questões, a pista visual realça os campos específicos dos cartões e das tabelas quando o estudante solicita ajuda ou revê uma tentativa. Diagramas intermediários com mais de duas entidades são organizados verticalmente para favorecer a leitura em telas menores. Nenhum novo requisito de pontuação foi introduzido.
 
 ### Comprovante textual e correção em lote
 
