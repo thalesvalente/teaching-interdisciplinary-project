@@ -501,7 +501,7 @@ A seção **Referências da aula**, acessível a partir do material de consulta,
 
 ### Revisão pedagógica e visual
 
-As oito páginas de estudo (quatro por trilha) mostram agora recortes do DER correspondentes ao exemplo estudado, inclusive nas missões de consulta e verificação de regras. Os diagramas destacam os elementos de interesse com contorno, cor e indicação textual “EM FOCO”. As tabelas dos exemplos evidenciam as colunas usadas para seguir as chaves. Nas 32 questões, a pista visual realça os campos específicos dos cartões e das tabelas quando o estudante solicita ajuda ou revê uma tentativa. Diagramas intermediários com mais de duas entidades são organizados verticalmente para favorecer a leitura em telas menores. Nenhum novo requisito de pontuação foi introduzido.
+As oito páginas de estudo (quatro por trilha) mostram agora recortes do DER correspondentes ao exemplo estudado, inclusive nas missões de consulta e verificação de regras. Os diagramas destacam os elementos de interesse com contorno e cor, mantendo os nomes das entidades. As descrições de acessibilidade identificam as entidades destacadas. As tabelas dos exemplos evidenciam as colunas usadas para seguir as chaves. Nas 32 questões, a pista visual realça os campos específicos dos cartões e das tabelas quando o estudante solicita ajuda ou revê uma tentativa. Diagramas intermediários com mais de duas entidades são organizados verticalmente para favorecer a leitura em telas menores. Nenhum novo requisito de pontuação foi introduzido.
 
 ### Comprovante textual e correção em lote
 
